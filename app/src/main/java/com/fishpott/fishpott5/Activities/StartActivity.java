@@ -371,7 +371,6 @@ public class StartActivity extends AppCompatActivity implements Animation.Animat
                         }
                     });
                 }
-
             }
 
         } else {
