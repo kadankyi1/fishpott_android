@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root_sellerslist_activity"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorAccent"
+    tools:context="com.fishpott.fishpott5.Activities.SuggestedLinkUpsActivity">
+
+    <android.support.constraint.Guideline
+        android:id="@+id/activity_suggestedlinkupsactivity_guideline_h_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.08" />
+
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/activity_suggestedlinkupsactivity_constraint_layout_2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/colorPrimaryTitleBar"
+        app:layout_constraintBottom_toTopOf="@+id/activity_suggestedlinkupsactivity_guideline_h_1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+
+        <android.support.constraint.Guideline
+            android:id="@+id/activity_suggestedlinkupsactivity_constraintlayout2_guideline_v_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.15" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/activity_suggestedlinkupsactivity_constraintlayout2_guideline_v_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.85" />
+
+
+        <TextView
+            android:id="@+id/activity_suggestedlinkupsactivity_constraintlayout2_title_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:gravity="center"
+            android:text="@string/current_offers"
+            android:textAlignment="center"
+            android:textColor="@color/colorAccent"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/activity_suggestedlinkupsactivity_constraint_layout_2"
+            app:layout_constraintEnd_toStartOf="@+id/activity_suggestedlinkupsactivity_constraintlayout2_guideline_v_3"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/activity_suggestedlinkupsactivity_constraintlayout2_guideline_v_1"
+            app:layout_constraintTop_toTopOf="@+id/activity_suggestedlinkupsactivity_constraint_layout_2" />
+
+        <ImageView
+            android:id="@+id/activity_suggestedlinkupsactivity_constraintlayout2_forward_imageview"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="12dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="12dp"
+            android:contentDescription="@string/none"
+            android:tint="@color/colorAccent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/activity_suggestedlinkupsactivity_constraintlayout2_guideline_v_1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/forgot_password_arrow_back" />
+    </android.support.constraint.ConstraintLayout>
+
+    <ProgressBar
+        android:id="@+id/activity_suggestedlinkupsactivity_loader"
+        style="@style/ProgressBarBlack"
+        android:layout_width="26dp"
+        android:layout_height="32dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/activity_suggestedlinkupsactivity_guideline_h_1" />
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/activity_suggestedlinkupsactivity_swiperefreshayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/activity_suggestedlinkupsactivity_guideline_h_1">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/activity_suggestedlinkupsactivity_recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+    <ImageView
+        android:id="@+id/activity_suggestedlinkupsactivity_reload_imageview"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:visibility="invisible"
+        android:contentDescription="@string/none"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/activity_suggestedlinkupsactivity_guideline_h_1"
+        android:src="@drawable/activity_suggestedlinkupsactivity_reload_imageview"
+        />
+</android.support.constraint.ConstraintLayout>
+

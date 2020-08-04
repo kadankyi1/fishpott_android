@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="list_item_suggestedlinkupsactivity_activity_pottpic_imageview_width_size">50dp</dimen>
+    <dimen name="list_item_suggestedlinkupsactivity_activity_pott_name_textview_size">18sp</dimen>
+    <dimen name="list_item_suggestedlinkupsactivity_activity_linkupreason_textview_size">12sp</dimen>
+    <dimen name="list_item_suggestedlinkupsactivity_activity_linkup_buttontext_size">14sp</dimen>
+    <dimen name="list_item_suggestedlinkupsactivity_activity_linkup_button_height_size">35dp</dimen>
+    <dimen name="suggested_linkups_pott_name_textview_size">20sp</dimen>
+    <dimen name="tooltip_txt">17sp</dimen>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="xxxlarge">15dp</dimen>
+    <dimen name="main_activity_horizontal_view_height">1dp</dimen>
+    <dimen name="main_activity_menubar_icon_margin">10dp</dimen>
+    <dimen name="main_activity_info_fragment_title_textview">20sp</dimen>
+    <dimen name="main_activity_info_fragment_body_textview">13sp</dimen>
+    <dimen name="list_item_news_type_28_newsfeed_fragment_relativelayout_1_size">90dp</dimen>
+    <dimen name="list_item_news_added_item_fragment_relativelayout_1_size">70dp</dimen>
+    <dimen name="list_item_news_added_item_price_fragment_relativelayout_1_size">35dp</dimen>
+    <dimen name="list_item_news_type_28_newsfeed_fragment_pottpic_holder_relativelayout_1_size">35dp</dimen>
+    <dimen name="list_item_news_type_28_newsfeed_fragment_pottpic_holder_relativelayout_2_size">37dp</dimen>
+    <dimen name="big_button_text_size">18sp</dimen>
+    <dimen name="list_item_news_type_1_newsfeed_fragment_pottpic_size">40dp</dimen>
+    <dimen name="list_item_news_type_1_newsfeed_fragment_pottname_text_size">15sp</dimen>
+    <dimen name="list_item_news_type_1_newsfeed_fragment_likes_count_text_size">15sp</dimen>
+    <dimen name="list_item_news_type_1_newsfeed_fragment_pottpic_margin_start">7dp</dimen>
+    <dimen name="list_item_news_type_1_newsfeed_fragment_pottpic_margin_top">10dp</dimen>
+    <dimen name="list_item_news_type_1_newsfeed_fragment_pottpic_margin_bottom">10dp</dimen>
+    <dimen name="list_item_news_type_1_newsfeed_fragment_last_element_to_parent_bottom_margin">
+        45dp
+    </dimen>
+    <dimen name="list_item_news_type_1_newsfeed_fragment_short_news_lessthan160_textsize">30sp
+    </dimen>
+    <dimen name="list_item_news_type_1_newsfeed_fragment_short_news_500pluswithreadmore_textsize">
+        15sp
+    </dimen>
+    <dimen name="item_for_sale_on_newsfeed_price">18sp</dimen>
+    <dimen name="button_height">30dp</dimen>
+    <dimen name="button_text_size">15sp</dimen>
+    <dimen name="button_text_size_small">14sp</dimen>
+    <dimen name="small_fullname">14sp</dimen>
+    <dimen name="big_pottname">16sp</dimen>
+    <dimen name="transaction_item">14sp</dimen>
+    <dimen name="transaction_label">12sp</dimen>
+
+</resources>

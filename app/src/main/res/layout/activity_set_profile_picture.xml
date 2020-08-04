@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root_setprofilepicture_activity"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorAccent"
+    tools:context="com.fishpott.fishpott5.Activities.SetProfilePictureActivity">
+
+    <android.support.constraint.Guideline
+        android:id="@+id/activity_setprofilepicture_guideline_h_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.08" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/activity_setprofilepicture_guideline_h_4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.10" />
+
+
+    <android.support.constraint.Guideline
+        android:id="@+id/activity_setprofilepicture_guideline_h_5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.47" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/activity_setprofilepicture_guideline_h_6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.35" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/activity_setprofilepicture_guideline_h_7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.44" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/activity_setprofilepicture_guideline_h_3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/activity_setprofilepicture_guideline_h_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.65" />
+
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/activity_setprofilepicture_constraint_layout_2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/colorPrimaryTitleBar"
+        app:layout_constraintBottom_toTopOf="@+id/activity_setprofilepicture_guideline_h_1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <android.support.constraint.Guideline
+            android:id="@+id/activity_setprofilepicture_guideline_v_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.15" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/activity_setprofilepicture_guideline_v_4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.60" />
+
+        <TextView
+            android:id="@+id/activity_setprofilepicture_title_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:gravity="center"
+            android:text="@string/activity_setprofilepicture_set_pott_picture"
+            android:textAlignment="center"
+            android:textColor="@color/colorAccent"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/activity_setprofilepicture_constraint_layout_2"
+            app:layout_constraintEnd_toStartOf="@+id/activity_setprofilepicture_guideline_v_4"
+            app:layout_constraintStart_toStartOf="@+id/activity_setprofilepicture_guideline_v_3"
+            app:layout_constraintTop_toTopOf="@+id/activity_setprofilepicture_constraint_layout_2" />
+
+        <ImageView
+            android:id="@+id/activity_setprofilepicture_back_imageview"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="12dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="12dp"
+            android:contentDescription="@string/none"
+            android:tint="@color/colorAccent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/activity_setprofilepicture_guideline_v_3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/forgot_password_arrow_back" />
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.Guideline
+        android:id="@+id/activity_setprofilepicture_guideline_v_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.05" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/activity_setprofilepicture_guideline_v_5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.20052083" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/activity_setprofilepicture_guideline_v_6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.8" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/activity_setprofilepicture_guideline_v_7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.55" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/activity_setprofilepicture_guideline_v_8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.73" />
+
+
+    <android.support.constraint.Guideline
+        android:id="@+id/activity_setprofilepicture_guideline_v_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.95" />
+
+    <Button
+        android:id="@+id/list_item_suggestedlinkupsactivity_upload_button"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/button_height"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/start_a_fishpott_acc_button_background"
+        android:text="@string/setprofilepicture_activity_upload"
+        android:textSize="@dimen/button_text_size"
+        android:textColor="@drawable/black_button_pressed_white_color"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/activity_setprofilepicture_guideline_v_6"
+        app:layout_constraintStart_toStartOf="@+id/activity_setprofilepicture_guideline_v_5"
+        app:layout_constraintTop_toTopOf="@+id/activity_setprofilepicture_guideline_h_2"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ProgressBar
+        android:id="@+id/activity_setprofilepicture_loader"
+        style="@style/ProgressBarBlack"
+        android:layout_width="26dp"
+        android:layout_height="32dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <RelativeLayout
+        android:id="@+id/activity_setprofilepicture_relativelayout_1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/activity_setprofilepicture_guideline_h_5"
+        app:layout_constraintEnd_toStartOf="@+id/activity_setprofilepicture_guideline_v_6"
+        app:layout_constraintStart_toStartOf="@+id/activity_setprofilepicture_guideline_v_5"
+        app:layout_constraintTop_toBottomOf="@+id/activity_setprofilepicture_guideline_h_4">
+
+
+
+        <com.fishpott.fishpott5.Views.CircleImageView
+            android:id="@+id/activity_setprofilepicture_profilepicture_imageview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/none"
+            android:src="@drawable/setprofilepicture_activity_imageholder_default_image"
+            app:civ_border_color="@android:color/transparent"
+            app:civ_border_width="0dp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/activity_setprofilepicture_relativelayout_2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/activity_setprofilepicture_guideline_h_7"
+        app:layout_constraintEnd_toStartOf="@+id/activity_setprofilepicture_guideline_v_8"
+        app:layout_constraintStart_toStartOf="@+id/activity_setprofilepicture_guideline_v_7"
+        app:layout_constraintTop_toTopOf="@+id/activity_setprofilepicture_guideline_h_6">
+
+        <ImageView
+            android:id="@+id/activity_setprofilepicture_smallcamera_imageview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:contentDescription="@string/none"
+            app:srcCompat="@drawable/setprofilepicture_activity_small_camera" />
+
+    </RelativeLayout>
+
+
+    <TextView
+        android:id="@+id/activity_setprofilepicture_info_textview"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/activity_setprofilepicture_your_pott_should_be_beautiful_set_a_pott_picture_that_suits_you"
+        android:textAlignment="center"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/activity_setprofilepicture_guideline_h_2"
+        app:layout_constraintEnd_toStartOf="@+id/activity_setprofilepicture_guideline_v_2"
+        app:layout_constraintStart_toStartOf="@+id/activity_setprofilepicture_guideline_v_1"
+        app:layout_constraintTop_toTopOf="@+id/activity_setprofilepicture_guideline_h_3" />
+
+    <FrameLayout
+        android:id="@+id/camera_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+</android.support.constraint.ConstraintLayout>

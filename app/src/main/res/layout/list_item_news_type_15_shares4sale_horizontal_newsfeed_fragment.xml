@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="5dp"
+    android:layout_width="150dp"
+    android:layout_height="235dp"
+    android:background="@drawable/rounded_corners_shareforsale_horizontal_item_background"
+    android:elevation="2dp">
+
+    <com.fishpott.fishpott5.Views.CircleImageView
+        android:id="@+id/list_item_news_type_15_newsfeed_fragment_item_pic_circleimageview"
+        android:layout_width="@dimen/list_item_news_type_28_newsfeed_fragment_relativelayout_1_size"
+        android:layout_height="@dimen/list_item_news_type_28_newsfeed_fragment_relativelayout_1_size"
+        android:src="@drawable/sharesforsale"
+        android:padding="5dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:background="@drawable/main_activity_info_fragment_icon_imageview_circle_white_background"
+        android:elevation="4dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.23000002"/>
+
+
+    <TextView
+        android:id="@+id/list_item_news_type_15_newsfeed_fragment_stockinfo_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:textColor="@color/colorUpdateActivityBackground"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@+id/horizontal_s4s_buy_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/horizontal_s4s_buy_button"
+        android:layout_width="0dp"
+        android:layout_height="33dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:background="@drawable/orange_button_pressed_to_light_orange"
+        android:elevation="4dp"
+        android:fontFamily="sans-serif-condensed"
+        android:text="@string/buy"
+        android:textColor="@drawable/black_button_pressed_white_color"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+    <com.fishpott.fishpott5.Views.CircleImageView
+        android:id="@+id/list_item_news_type_15_newsfeed_fragment_pott_pic_circleimageview"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="4dp"
+        android:padding="1dp"
+        android:contentDescription="@string/none"
+        app:srcCompat="@drawable/setprofilepicture_activity_imageholder_default_image"
+        android:background="@drawable/main_activity_info_fragment_icon_imageview_circle_white_background"
+        android:elevation="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/list_item_news_type_15_newsfeed_fragment_quantity_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:layout_marginTop="2dp"
+        android:text="@string/list_item_news_type_28_newsfeed_fragment_sample_price_10"
+        android:textColor="@color/colorSharesForSaleDark"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/list_item_news_type_15_newsfeed_fragment_item_pic_circleimageview" />
+
+    <TextView
+        android:id="@+id/list_item_news_type_15_newsfeed_fragment_price_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="2dp"
+        android:text="@string/list_item_news_type_28_newsfeed_fragment_sample_price_10"
+        android:textColor="@color/colorSharesForSaleDark"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/list_item_news_type_15_newsfeed_fragment_quantity_textView"
+        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/list_item_news_type_15_newsfeed_fragment_item_pic_circleimageview" />
+
+    <TextView
+        android:id="@+id/list_item_news_type_15_newsfeed_fragment_pricelabel_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="@string/price_per_stock"
+        android:textColor="@color/colorUpdateActivityBackground"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@+id/list_item_news_type_15_newsfeed_fragment_stockinfo_textView"
+        app:layout_constraintEnd_toEndOf="@+id/list_item_news_type_15_newsfeed_fragment_price_textView"
+        app:layout_constraintStart_toStartOf="@+id/list_item_news_type_15_newsfeed_fragment_price_textView"
+        app:layout_constraintTop_toBottomOf="@+id/list_item_news_type_15_newsfeed_fragment_price_textView"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/list_item_news_type_15_newsfeed_fragment_quantitylabel_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="@string/quantity"
+        android:textColor="@color/colorUpdateActivityBackground"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@+id/list_item_news_type_15_newsfeed_fragment_stockinfo_textView"
+        app:layout_constraintEnd_toEndOf="@+id/list_item_news_type_15_newsfeed_fragment_quantity_textView"
+        app:layout_constraintStart_toStartOf="@+id/list_item_news_type_15_newsfeed_fragment_quantity_textView"
+        app:layout_constraintTop_toBottomOf="@+id/list_item_news_type_15_newsfeed_fragment_quantity_textView"
+        app:layout_constraintVertical_bias="0.0" />
+
+</android.support.constraint.ConstraintLayout>

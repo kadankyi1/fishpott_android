@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainConstraintLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorAccent"
+    tools:context="com.fishpott.fishpott5.Activities.StartActivity">
+
+    <android.support.constraint.Guideline
+        android:id="@+id/start_activity_v_guideline1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.2" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/start_activity_v_guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.8" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/start_activity_h_guideline1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.02" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/start_activity_h_guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.22" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/start_activity_h_guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.33" />
+
+    <ImageView
+        android:id="@+id/start_activity_fpLogoimageView"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:contentDescription="@string/none"
+        app:layout_constraintLeft_toRightOf="@+id/start_activity_v_guideline1"
+        app:layout_constraintRight_toLeftOf="@+id/start_activity_v_guideline2"
+        app:layout_constraintTop_toBottomOf="@+id/start_activity_h_guideline3"
+        app:srcCompat="@drawable/fishpott_splash_icon" />
+
+
+    <TextView
+        android:id="@+id/start_activity_englishLanguageTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/english_language_option"
+        android:textAlignment="center"
+        android:textColor="@color/colorPrimaryDark"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/start_activity_v_guideline1"
+        app:layout_constraintTop_toTopOf="@+id/start_activity_h_guideline2" />
+
+    <TextView
+        android:id="@+id/start_activity_frenchLanguageTextView"
+        android:layout_width="0dp"
+        android:layout_height="16dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/french_language_option"
+        android:textAlignment="center"
+        android:textColor="@color/colorPrimaryDark"
+        app:layout_constraintBottom_toBottomOf="@+id/start_activity_chineseLanguageTextView"
+        app:layout_constraintEnd_toStartOf="@+id/start_activity_chineseLanguageTextView"
+        app:layout_constraintHorizontal_bias="0.25"
+        app:layout_constraintStart_toEndOf="@+id/start_activity_englishLanguageTextView"
+        app:layout_constraintTop_toTopOf="@+id/start_activity_h_guideline2"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/start_activity_chineseLanguageTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="50dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/chinese_language_option"
+        android:textAlignment="center"
+        android:textColor="@color/colorPrimaryDark"
+        app:layout_constraintEnd_toStartOf="@+id/start_activity_v_guideline2"
+        app:layout_constraintTop_toTopOf="@+id/start_activity_h_guideline2" />
+
+
+    <Button
+        android:id="@+id/start_activity_startbutton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="116dp"
+        android:background="@drawable/start_a_fishpott_acc_button_background"
+        android:text="@string/start_activity_start"
+        android:visibility="invisible"
+        android:textColor="@drawable/black_button_pressed_white_color"
+        app:layout_constraintEnd_toStartOf="@+id/start_activity_v_guideline2"
+        app:layout_constraintHorizontal_bias="0.529"
+        app:layout_constraintStart_toStartOf="@+id/start_activity_v_guideline1"
+        app:layout_constraintTop_toTopOf="@+id/start_activity_fpLogoimageView" />
+
+    <ImageView
+        android:id="@+id/start_activity_fpStaticimageView"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:contentDescription="@string/none"
+        app:layout_constraintEnd_toStartOf="@+id/start_activity_v_guideline2"
+        app:layout_constraintStart_toStartOf="@+id/start_activity_v_guideline1"
+        app:layout_constraintTop_toTopOf="@+id/start_activity_h_guideline1"
+        app:srcCompat="@drawable/fishpott_splash_icon" />
+
+    <ProgressBar
+        android:id="@+id/start_activity_progress_bar1"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="31dp"
+        android:layout_height="32dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="116dp"
+        android:visibility="invisible"
+        android:progressDrawable="@drawable/start_activity_circle_progress_bar"
+        android:background="@drawable/start_activity_progress_bar_circle_shape"
+        app:layout_constraintEnd_toStartOf="@+id/start_activity_v_guideline2"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="@+id/start_activity_v_guideline1"
+        app:layout_constraintTop_toTopOf="@+id/start_activity_fpLogoimageView" />
+</android.support.constraint.ConstraintLayout>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<transition xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:drawable="@drawable/main_activity_transfercenter_icon_inactive_imageview" />
+    <item android:drawable="@drawable/main_activity_transfercenter_icon_active_imageview" />
+
+</transition>

@@ -1,0 +1,184 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/colorAccent"
+    android:clickable="true"
+    tools:context="com.fishpott.fishpott5.Fragments.LoadSharesForPostingFragment">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp">
+
+            <ImageView
+                android:id="@+id/loadsharesforpostingfragment_closeicon_imageview"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/main_activity_info_fragment_icon_imageview_circle_white_background"
+                android:contentDescription="@string/none"
+                android:elevation="3dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/loadsharesforpostingfragment_reloadicon_imageview"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/close_icon" />
+
+            <ImageView
+                android:id="@+id/loadsharesforpostingfragment_reloadicon_imageview"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/main_activity_info_fragment_icon_imageview_circle_white_background"
+                android:contentDescription="@string/none"
+                android:elevation="3dp"
+                app:layout_constraintEnd_toStartOf="@+id/loadsharesforpostingfragment_closeicon_imageview"
+                app:layout_constraintHorizontal_chainStyle="spread_inside"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/activity_suggestedlinkupsactivity_reload_imageview" />
+
+
+            <TextView
+                android:id="@+id/loadsharesforpostingfragment_choose_shares_label_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="25dp"
+                android:text="@string/choose_shares"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/loadsharesforpostingfragment_closeicon_imageview" />
+
+            <TextView
+                android:id="@+id/fragment_loadsharesforposting_chosen_textview"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="5dp"
+                android:text="@string/no_shares_selected"
+                android:textAlignment="center"
+                android:background="@drawable/fragment_signup_personalstage1_textview_background_with_borders"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/loadsharesforpostingfragment_choose_shares_label_textview"/>
+
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/fragment_loadsharesforposting_sharesprice_edit_text_layout_holder"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:theme="@style/loginActivityHintStyle"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fragment_loadsharesforposting_chosen_textview">
+
+                <EditText
+                    android:id="@+id/fragment_loadsharesforposting_sharesprice_edit_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:digits="1234567890."
+                    android:hint="@string/price_per_share"
+                    android:inputType="numberDecimal"
+                    android:labelFor="@id/fragment_loadsharesforposting_sharesprice_edit_text"
+                    android:maxLength="3"
+                    android:textColor="@drawable/login_activity_input_text_color" />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/fragment_loadsharesforposting_sharesquantity_edit_text_layout_holder"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:theme="@style/loginActivityHintStyle"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fragment_loadsharesforposting_sharesprice_edit_text_layout_holder">
+
+                <EditText
+                    android:id="@+id/fragment_loadsharesforposting_sharesquantity_edit_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:digits="1234567890"
+                    android:hint="@string/quantity_to_sell"
+                    android:inputType="number"
+                    android:labelFor="@id/fragment_loadsharesforposting_sharesquantity_edit_text"
+                    android:textColor="@drawable/login_activity_input_text_color" />
+
+            </android.support.design.widget.TextInputLayout>
+
+
+            <TextView
+                android:id="@+id/fragment_loadsharesforposting_sharesinfo_textview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="15dp"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fragment_loadsharesforposting_sharesquantity_edit_text_layout_holder" />
+
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/fragment_loadsharesforposting_password_layout_holder"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:theme="@style/loginActivityHintStyle"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fragment_loadsharesforposting_sharesinfo_textview">
+
+                <EditText
+                    android:id="@+id/fragment_loadsharesforposting_password_edittext"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="@string/login_activity_password_input_hint"
+                    android:maxLength="20"
+                    android:inputType="textPassword"
+                    android:labelFor="@id/fragment_loadsharesforposting_password_edittext"
+                    android:textColor="@drawable/login_activity_input_text_color" />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <Button
+                android:id="@+id/fragment_loadsharesforposting_addsharestopost_button"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/start_a_fishpott_acc_button_background"
+                android:text="@string/add_to_post"
+                android:textColor="@drawable/black_button_pressed_white_color"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fragment_loadsharesforposting_password_layout_holder"
+                />
+        </android.support.constraint.ConstraintLayout>
+
+</ScrollView>

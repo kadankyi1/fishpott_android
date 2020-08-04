@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- DEFAULT COLORS -->
+    <color name="colorPrimaryTitleBar">#060606</color>
+    <color name="colorPrimary">#060606</color>
+    <color name="colorPrimaryDark">#000000</color>
+    <color name="colorAccent">#ffffff</color>
+    <color name="colorAccentAssist">#ff3300</color>
+    <color name="colorAccentAsh">#5a5a61</color>
+    <color name="colorAccentTransparent">#00000000</color>
+    <color name="colorToastBlack">#333333</color>
+    <color name="colorAccentGray">#c2c2c2</color>
+
+    <!-- UPDATE ACTIVITY -->
+    <color name="colorFishPottOrange">#ec9102</color>
+    <color name="colorUpdateActivityBackground">#192a31</color>
+
+    <!-- SLIDER ACTIVITY -->
+    <color name="colorNews">#8a8b8c</color>
+    <color name="colorNewsDark">#53535c</color>
+
+    <color name="colorSharesForSale">#fa542b</color>
+    <color name="colorSharesForSaleDark">#ec3102</color>
+
+    <color name="colorEvents">#d5dc00</color>
+    <color name="colorEventsDark">#a7a500</color>
+
+    <color name="colorFundraiser">#3f7fd9</color>
+    <color name="colorFundraiserDark">#17599f</color>
+
+    <color name="colorYardsale">#5eb62e</color>
+    <color name="colorYardsaleDark">#27700d</color>
+
+    <color name="colorDotInactive">#ada996</color>
+
+    <!-- LOGIN ACTIVITY -->
+    <color name="colorShadow">#4e4e4e</color>
+    <color name="colorUnfocusedInputText">#616161</color>
+
+    <!-- SIGNUP FRAGMENT START -->
+    <color name="colorSignupFragmentIntroText">#8e8e8e</color>
+    <color name="start_activity_progressbar_start_color">#283048</color>
+    <color name="start_activity_progressbar_end_color">#859398</color>
+
+    <!-- WEB VIEW ACTIVITY -->
+    <color name="color_webview_activity_secure_padlock">#32b305</color>
+    <color name="color_webview_activity_insecure_padlock">#c2000a</color>
+
+    <!-- PROFILE PICTURE ACTIVITY -->
+    <color name="white">#ffffff</color>
+    <color name="dark_text">#000000</color>
+    <color name="transparent">#00000000</color>
+
+    <!-- MAIN ACTIVITY -->
+    <color name="colorMenuContentUpdated">#ff3300</color>
+
+    <!-- NEWSFEED FRAGMENT -->
+    <color name="newsVideoIconsBackground">#c2b3b3b3</color>
+    <color name="moreImagesNumberBackground">#ddb3b3b3</color>
+    <color name="newsInfoBackground">#ddededed</color>
+    <color name="newsBackgroundBlack">#000000</color>
+    <color name="newsBackgroundLightMix">#978eed</color>
+    <color name="newsBackgroundDeepRed">#dda40000</color>
+    <color name="newsBackgroundDeepRed2">#a40000</color>
+    <color name="newsBackgroundDeepYellow">#a7a500</color>
+    <color name="newsBackgroundDeepGreen">#36b40a</color>
+    <color name="newsBackgroundDeepOrange">#ec3102</color>
+    <color name="newsBackgroundDeepBlue">#17599f</color>
+    <color name="like">#c41818</color>
+    <color name="likeStroke">#ED7161</color>
+    <color name="dislike">#17599f</color>
+
+    <!-- NOTIFICATION FRAGMENT -->
+    <color name="colorDateText">#978eed</color>
+    <color name="colorUnreadNotification">#f5dadada</color>
+    <color name="colorUnreadNotificationPressed">#e9cccccc</color>
+
+    <!-- TRANSACTIONS ACTIVITY -->
+    <color name="colorPending">#fffc00</color>
+    <color name="colorCompleted">#8be76a</color>
+    <color name="colorRejected">#ff2b2b</color>
+    <color name="colorError">#978eed</color>
+</resources>

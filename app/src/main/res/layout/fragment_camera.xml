@@ -1,0 +1,355 @@
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragment_of_signupactivity_signupstart_mainConstraintLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark"
+    android:clickable="true"
+    tools:context="com.fishpott.fishpott5.Fragments.CameraFragment">
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/fragment_camera_camera_preview_constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextureView
+            android:id="@+id/fragment_camera_camera_preview_textview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+
+        <android.support.constraint.Guideline
+            android:id="@+id/fragment_camera_v_guideline1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.05" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/fragment_camera_v_guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.95" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/fragment_camera_v_guideline4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.40104166" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/fragment_camera_v_guideline6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.3" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/fragment_camera_v_guideline8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.15" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/fragment_camera_v_guideline5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.6015625" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/fragment_camera_v_guideline7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.7" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/fragment_camera_v_guideline9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.85" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/fragment_camera_v_guideline10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.8" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/fragment_camera_h_guideline1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.90123457" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/fragment_camera_h_guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.7654321" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/fragment_camera_h_guideline3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.1" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/fragment_camera_h_guideline4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.2" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/fragment_camera_h_guideline5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.3" />
+
+        <ImageView
+            android:id="@+id/camera_fragment_picture_taker_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:contentDescription="@string/none"
+            android:src="@drawable/camera_fragment_picture_taker_icon"
+            app:layout_constraintBottom_toTopOf="@+id/fragment_camera_h_guideline1"
+            app:layout_constraintEnd_toStartOf="@+id/fragment_camera_v_guideline5"
+            app:layout_constraintStart_toStartOf="@+id/fragment_camera_v_guideline4"
+            app:layout_constraintTop_toTopOf="@+id/fragment_camera_h_guideline2" />
+
+        <ImageView
+            android:id="@+id/camera_fragment_flashon_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:contentDescription="@string/none"
+            android:src="@drawable/camera_fragment_flashoff_icon"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/fragment_camera_v_guideline8"
+            app:layout_constraintStart_toEndOf="@+id/fragment_camera_v_guideline1"
+            app:layout_constraintTop_toTopOf="@+id/fragment_camera_h_guideline1" />
+
+        <ImageView
+            android:id="@+id/camera_fragment_flashoff_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:contentDescription="@string/none"
+            android:src="@drawable/camera_fragment_flash_icon"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/fragment_camera_v_guideline8"
+            app:layout_constraintStart_toEndOf="@+id/fragment_camera_v_guideline1"
+            app:layout_constraintTop_toTopOf="@+id/fragment_camera_h_guideline1" />
+
+        <ImageView
+            android:id="@+id/camera_fragment_image_gallery_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:contentDescription="@string/none"
+            android:src="@drawable/camera_fragment_image_gallery_icon"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/fragment_camera_v_guideline5"
+            app:layout_constraintStart_toStartOf="@+id/fragment_camera_v_guideline4"
+            app:layout_constraintTop_toTopOf="@+id/fragment_camera_h_guideline1" />
+
+        <ImageView
+            android:id="@+id/camera_fragment_frontback_camera_rotate_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:contentDescription="@string/none"
+            android:src="@drawable/camera_fragment_frontback_camera_rotate_icon"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/fragment_camera_v_guideline9"
+            app:layout_constraintEnd_toStartOf="@+id/fragment_camera_v_guideline2"
+            app:layout_constraintTop_toTopOf="@+id/fragment_camera_h_guideline1" />
+
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/fragment_camera_circlecrop_constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <android.support.constraint.Guideline
+            android:id="@+id/fragment_camera_h_guideline6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.67724866" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/fragment_camera_h_guideline7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.77" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/fragment_camera_h_guideline8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.1" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/fragment_camera_h_guideline9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.2" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/fragment_camera_v_guideline11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.30" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/fragment_camera_v_guideline12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.70" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/fragment_camera_v_guideline13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.85" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/fragment_camera_v_guideline14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.95" />
+
+
+        <RelativeLayout
+            android:id="@+id/fragment_camera_cropmargin_relativelayout"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@color/colorPrimaryDark"
+            app:layout_constraintBottom_toTopOf="@+id/fragment_camera_h_guideline6"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.fishpott.fishpott5.customphoto.customcropper.CropperView
+                android:id="@+id/fragment_camera_cropperView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="true"
+                android:scaleType="center"
+                android:visibility="visible" />
+
+            <com.fishpott.fishpott5.customphoto.cropoverlay.CropOverlayView
+                android:id="@+id/fragment_camera_cropoverlayview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone"
+                app:borderColor="#00000000"
+                app:cornerRadius="1dp"
+                app:drawCircle="true"
+                app:guideLines="false"
+                app:lightTextColor="#552a2928"
+                app:marginSide="0dp"
+                app:marginTop="0dp" />
+
+            <!--android:background="@drawable/overlay_rectrangle"-->
+            <!--you can use rectrangle overlay as well-->
+            <RelativeLayout
+                android:id="@+id/fragment_camera_overlayingcircle_relativelayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/overlay_circle"
+                android:visibility="gone" />
+
+
+            <ImageView
+                android:id="@+id/fragment_camera_imageholder_imageview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@string/none"
+                android:padding="0dp"
+                android:src="@mipmap/ic_launcher" />
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/camera_fragment_delete_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:contentDescription="@string/none"
+            android:src="@drawable/camera_fragment_delete_icon"
+            app:layout_constraintBottom_toTopOf="@+id/fragment_camera_h_guideline8"
+            app:layout_constraintEnd_toStartOf="@+id/fragment_camera_v_guideline14"
+            app:layout_constraintStart_toEndOf="@+id/fragment_camera_v_guideline13"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/fragment_camera_crop_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/button_white_background_pressed_gray"
+            android:text="@string/fragment_camera_crop"
+            android:textColor="@color/colorPrimaryDark"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/fragment_camera_v_guideline12"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/fragment_camera_v_guideline11"
+            app:layout_constraintTop_toBottomOf="@+id/fragment_camera_h_guideline7"
+            app:layout_constraintVertical_bias="0.0" />
+    </android.support.constraint.ConstraintLayout>
+
+</android.support.constraint.ConstraintLayout>

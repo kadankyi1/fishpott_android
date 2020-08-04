@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="20dp">
+
+            <TextView
+                android:id="@+id/intro_pp_dialog"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-condensed"
+                android:gravity="start"
+                android:text="@string/find_people_and_businesses_you_may_know_we_will_like_to_access_your_contacts_to_help_you_find_co_investors_people_and_businesses_you_can_connect_with_the_information_we_collect_is_in_line_with_our_privacy_policy"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <TextView
+                android:id="@+id/url_pp_dialog"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-condensed"
+                android:gravity="start"
+                android:text="@string/read_privacy_policy"
+                android:textColor="@color/colorDateText"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/intro_pp_dialog" />
+
+            <TextView
+                android:id="@+id/url_tc_dialog"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-condensed"
+                android:gravity="start"
+                android:text="@string/read_terms_of_service"
+                android:textColor="@color/colorDateText"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/url_pp_dialog" />
+
+            <TextView
+                android:id="@+id/title_info2_collected_pp_dialog"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="sans-serif-condensed"
+                android:gravity="start"
+                android:text="@string/contacts_in_address_book"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/url_tc_dialog" />
+
+
+            <TextView
+                android:id="@+id/body_info2_collected_pp_dialog"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="sans-serif-condensed"
+                android:gravity="start"
+                android:text="@string/we_use_this_to_find_messages_other_users_send_you_we_also_use_it_to_find_other_users_on_fishpott_you_may_know_to_help_you_connect_with_them_by_suggesting_them_to_you_or_you_to_them_we_do_this_periodically"
+                android:textColor="@color/colorSignupFragmentIntroText"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/title_info2_collected_pp_dialog" />
+
+            <Button
+                android:id="@+id/agree_button_pp_dialog"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/login_activity_dialog_text2"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/start_a_fishpott_acc_button_background"
+                android:fontFamily="sans-serif-condensed"
+                android:gravity="center_vertical|center_horizontal"
+                android:padding="5dp"
+                android:text="@string/login_activity_i_agree"
+                android:textColor="@drawable/black_button_pressed_white_color"
+                app:layout_constraintBottom_toTopOf="@+id/cancel_button_pp_dialog"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/body_info2_collected_pp_dialog"
+                app:layout_constraintVertical_bias="0.050000012" />
+
+
+            <Button
+                android:id="@+id/cancel_button_pp_dialog"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/login_activity_dialog_text2"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/button_white_background_pressed_gray"
+                android:fontFamily="sans-serif-condensed"
+                android:gravity="center_vertical|center_horizontal"
+                android:padding="5dp"
+                android:text="@string/login_activity_dialog_cancel"
+                android:textColor="@color/colorPrimaryDark"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/agree_button_pp_dialog"
+
+                />
+
+
+
+            <android.support.constraint.Guideline
+                android:id="@+id/login_activity_dialog_guideline_h_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.61" />
+
+            <android.support.constraint.Guideline
+                android:id="@+id/login_activity_dialog_guideline_h_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.6" />
+
+
+        </android.support.constraint.ConstraintLayout>
+    </ScrollView>
+</RelativeLayout>

@@ -1,0 +1,463 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:id="@+id/list_item_news_type_1_newsfeed_fragment_pottpic_relativeLayout"
+        android:layout_width="@dimen/list_item_news_type_1_newsfeed_fragment_pottpic_size"
+        android:layout_height="@dimen/list_item_news_type_1_newsfeed_fragment_pottpic_size"
+        android:layout_marginStart="@dimen/list_item_news_type_1_newsfeed_fragment_pottpic_margin_start"
+        android:layout_marginTop="7dp"
+        android:background="@drawable/main_activity_info_fragment_icon_imageview_circle_shadow_background"
+        android:elevation="4dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.fishpott.fishpott5.Views.CircleImageView
+            android:id="@+id/news_maker_pottpic_circleimageview"
+            android:layout_width="@dimen/list_item_news_type_1_newsfeed_fragment_pottpic_size"
+            android:layout_height="@dimen/list_item_news_type_1_newsfeed_fragment_pottpic_size"
+            android:layout_centerInParent="true"
+            android:layout_marginBottom="2dp"
+            android:contentDescription="@string/none"
+            android:elevation="6dp"
+            app:srcCompat="@drawable/setprofilepicture_activity_imageholder_default_image" />
+
+    </RelativeLayout>
+
+
+    <TextView
+        android:id="@+id/news_maker_pottname_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="5dp"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="@dimen/list_item_news_type_1_newsfeed_fragment_pottname_text_size"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/list_item_news_type_1_newsfeed_fragment_pottpic_relativeLayout"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/news_maker_fullname_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:textColor="@color/colorUpdateActivityBackground"
+        android:textSize="@dimen/list_item_news_type_1_newsfeed_fragment_pottname_text_size"
+        app:layout_constraintStart_toEndOf="@+id/list_item_news_type_1_newsfeed_fragment_pottpic_relativeLayout"
+        app:layout_constraintTop_toBottomOf="@+id/news_maker_pottname_textview" />
+
+
+    <ImageView
+        android:id="@+id/news_options_imageview"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="4dp"
+        android:contentDescription="@string/none"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.939"
+        app:layout_constraintStart_toEndOf="@+id/news_maker_verifiedicon_imageview"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/list_item_news_type_1_newsfeed_fragment_menu_icon" />
+
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/news_added_item_price_background_constraintlayout"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="7dp"
+        android:layout_marginTop="15dp"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@+id/news_maker_fullname_textview"
+        app:layout_constraintEnd_toStartOf="@+id/news_added_item_icon_background_constraintlayout"
+        android:background="@drawable/main_activity_info_fragment_icon_imageview_circle_shadow_background"
+        android:elevation="13dp">
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/list_item_news_type_1_newsfeed_fragment__icon_holder_background_white_price_holder"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/main_activity_info_fragment_icon_imageview_circle_white_background"
+            android:elevation="3dp">
+
+            <TextView
+                android:id="@+id/news_added_item_price_textview"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:elevation="4dp"
+                android:padding="10dp"
+                android:textAlignment="center"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/list_item_suggestedlinkupsactivity_activity_linkupreason_textview_size"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </android.support.constraint.ConstraintLayout>
+
+    </android.support.constraint.ConstraintLayout>
+
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/news_added_item_icon_background_constraintlayout"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/main_activity_info_fragment_icon_imageview_circle_shadow_background"
+        android:elevation="13dp"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@+id/news_maker_fullname_textview"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        >
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/list_item_news_type_1_newsfeed_fragment__icon_holder_background_white_item_icon"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/main_activity_info_fragment_icon_imageview_circle_white_background"
+            android:elevation="3dp">
+
+            <ImageView
+                android:id="@+id/news_added_item_icon_imageview"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:contentDescription="@string/none"
+                android:elevation="4dp"
+                android:padding="10dp"
+                android:visibility="invisible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <ImageView
+                android:id="@+id/reload_addeditem_imageview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:visibility="invisible"
+                android:contentDescription="@string/none"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:src="@drawable/activity_suggestedlinkupsactivity_reload_imageview"
+                />
+
+            <ProgressBar
+                android:id="@+id/image_loading_addeditem_progressbar"
+                style="@style/ProgressBarBlack"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:visibility="invisible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+        </android.support.constraint.ConstraintLayout>
+
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/news_added_item_quantity_background_constraintlayout"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="7dp"
+        android:layout_marginTop="15dp"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@+id/news_maker_fullname_textview"
+        android:background="@drawable/main_activity_info_fragment_icon_imageview_circle_shadow_background"
+        app:layout_constraintStart_toEndOf="@+id/news_added_item_icon_background_constraintlayout"
+        android:elevation="13dp">
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/list_item_news_type_1_newsfeed_fragment__icon_holder_background_white_quantity_holder"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/main_activity_info_fragment_icon_imageview_circle_white_background"
+            android:elevation="3dp">
+
+            <TextView
+                android:id="@+id/news_added_item_quantity_textview"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:elevation="4dp"
+                android:padding="10dp"
+                android:textAlignment="center"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/list_item_suggestedlinkupsactivity_activity_linkupreason_textview_size"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </android.support.constraint.ConstraintLayout>
+
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/news_text_background_constraintlayout"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_marginTop="25dp"
+        android:background="@color/like"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/news_added_item_icon_background_constraintlayout">
+
+        <TextView
+            android:id="@+id/news_text_textview"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_margin="5dp"
+            android:layout_marginTop="30dp"
+            android:gravity="center"
+            android:paddingBottom="15dp"
+            android:paddingTop="30dp"
+            android:textAlignment="center"
+            android:textColor="@color/colorAccent"
+            android:textSize="@dimen/list_item_news_type_1_newsfeed_fragment_short_news_lessthan160_textsize"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </android.support.constraint.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/news_time_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="7dp"
+        android:layout_marginTop="8dp"
+        android:textColor="@color/colorAccentAsh"
+        android:textSize="@dimen/list_item_news_type_1_newsfeed_fragment_pottname_text_size"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/advert_info_background_constraintlayout" />
+
+    <CheckBox
+        android:id="@+id/news_like_icon_imageview"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginEnd="6dp"
+        android:layout_marginTop="4dp"
+        android:button="@null"
+        android:checked="false"
+        app:layout_constraintEnd_toStartOf="@+id/news_dislike_icon_imageview"
+        app:layout_constraintTop_toBottomOf="@+id/advert_info_background_constraintlayout"
+        android:background="@drawable/like_toggle"
+        />
+
+
+    <CheckBox
+        android:id="@+id/news_dislike_icon_imageview"
+        android:layout_width="27dp"
+        android:layout_height="27dp"
+        android:layout_marginEnd="3dp"
+        android:layout_marginTop="6dp"
+        android:button="@null"
+        android:checked="false"
+        app:layout_constraintEnd_toStartOf="@+id/news_comment_icon_imageview"
+        app:layout_constraintTop_toBottomOf="@+id/advert_info_background_constraintlayout"
+        android:background="@drawable/dislike_toggle"
+        />
+
+    <ImageView
+        android:id="@+id/news_comment_icon_imageview"
+        android:layout_width="30dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="5dp"
+        android:layout_marginTop="8dp"
+        android:contentDescription="@string/none"
+        app:layout_constraintEnd_toStartOf="@+id/news_repost_icon_imageview"
+        app:layout_constraintTop_toBottomOf="@+id/advert_info_background_constraintlayout"
+        app:srcCompat="@drawable/list_item_news_type_1_newsfeed_fragment_comment_icon" />
+
+    <ImageView
+        android:id="@+id/news_repost_icon_imageview"
+        android:layout_width="39dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="7dp"
+        android:layout_marginTop="4dp"
+        android:contentDescription="@string/none"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/advert_info_background_constraintlayout"
+        app:srcCompat="@drawable/list_item_news_type_1_newsfeed_fragment_share_icon" />
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/advert_info_background_constraintlayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/moreImagesNumberBackground"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/news_text_background_constraintlayout">
+
+
+        <ImageView
+            android:id="@+id/advert_icon_imageview"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:contentDescription="@string/none"
+            android:elevation="4dp"
+            android:padding="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/advert_info2_textview"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/advert_info1_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="10dp"
+            android:elevation="4dp"
+            android:textAlignment="textStart"
+            android:textColor="@color/colorAccent"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/advert_action_button"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
+            app:layout_constraintStart_toEndOf="@+id/advert_icon_imageview"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/advert_info2_textview"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:elevation="4dp"
+            android:textAlignment="textStart"
+            android:textColor="@color/colorPrimary"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/advert_action_button"
+            app:layout_constraintStart_toEndOf="@+id/advert_icon_imageview"
+            app:layout_constraintTop_toBottomOf="@+id/advert_info1_textview" />
+
+        <Button
+            android:id="@+id/advert_action_button"
+            android:layout_width="wrap_content"
+            android:layout_height="33dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/start_a_fishpott_acc_button_background"
+            android:elevation="5dp"
+            android:fontFamily="sans-serif-condensed"
+            android:padding="5dp"
+            android:textColor="@drawable/black_button_pressed_white_color"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/advert_info1_textview"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+    </android.support.constraint.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/news_likes_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/list_item_news_type_1_newsfeed_fragment_last_element_to_parent_bottom_margin"
+        android:layout_marginStart="5dp"
+        android:textColor="@color/colorUpdateActivityBackground"
+        android:textSize="@dimen/list_item_news_type_1_newsfeed_fragment_likes_count_text_size"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/news_like_icon_imageview" />
+
+
+    <TextView
+        android:id="@+id/news_dislikes_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/list_item_news_type_1_newsfeed_fragment_last_element_to_parent_bottom_margin"
+        android:layout_marginStart="5dp"
+        android:textColor="@color/colorUpdateActivityBackground"
+        android:textSize="@dimen/list_item_news_type_1_newsfeed_fragment_likes_count_text_size"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/news_likes_textview"
+        app:layout_constraintTop_toBottomOf="@+id/news_like_icon_imageview" />
+
+    <TextView
+        android:id="@+id/news_comments_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/list_item_news_type_1_newsfeed_fragment_last_element_to_parent_bottom_margin"
+        android:layout_marginStart="5dp"
+        android:textColor="@color/colorUpdateActivityBackground"
+        android:textSize="@dimen/list_item_news_type_1_newsfeed_fragment_likes_count_text_size"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/news_dislikes_textview"
+        app:layout_constraintTop_toBottomOf="@+id/news_like_icon_imageview" />
+
+    <TextView
+        android:id="@+id/news_views_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/list_item_news_type_1_newsfeed_fragment_last_element_to_parent_bottom_margin"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="5dp"
+        android:textColor="@color/colorUpdateActivityBackground"
+        android:textSize="@dimen/list_item_news_type_1_newsfeed_fragment_likes_count_text_size"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/news_comments_textview"
+        app:layout_constraintTop_toBottomOf="@+id/news_like_icon_imageview" />
+
+    <ImageView
+        android:id="@+id/news_maker_verifiedicon_imageview"
+        android:layout_width="19dp"
+        android:layout_height="19dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="4dp"
+        android:contentDescription="@string/none"
+        app:layout_constraintStart_toEndOf="@+id/news_maker_pottname_textview"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/list_item_suggestedlinkupsactivity_activity_verifiedicon_blue_imageview" />
+
+    <ImageView
+        android:id="@+id/business_account_icon_imageview"
+        android:layout_width="19dp"
+        android:layout_height="19dp"
+        android:layout_marginStart="2dp"
+        android:contentDescription="@string/none"
+        app:layout_constraintStart_toEndOf="@+id/news_maker_fullname_textview"
+        app:layout_constraintTop_toBottomOf="@+id/news_maker_pottname_textview"
+        app:srcCompat="@drawable/list_item_suggestedlinkupsactivity_activity_businessicon_imageview" />
+
+</android.support.constraint.ConstraintLayout>

@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="180dp"
+    android:layout_margin="5dp"
+    android:background="@drawable/rounded_corners_shareforsale_horizontal_item_background"
+    android:elevation="2dp">
+
+    <com.fishpott.fishpott5.Views.RoundedCornerImageView
+        android:id="@+id/shares_logo_imageview"
+        android:layout_width="94dp"
+        android:layout_height="94dp"
+        android:layout_margin="3dp"
+        android:contentDescription="@string/none"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toStartOf="@+id/shares_name"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/shares_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="4dp"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/shares_logo_imageview"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/shares_info"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/shares_logo_imageview"
+        app:layout_constraintTop_toBottomOf="@+id/shares_name" />
+
+
+    <TextView
+        android:id="@+id/item_for_sale_price_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:textColor="@color/colorSharesForSaleDark"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/item_for_sale_quantity_textview"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toEndOf="@+id/shares_logo_imageview"
+        app:layout_constraintTop_toBottomOf="@+id/shares_info" />
+
+
+    <TextView
+        android:id="@+id/item_for_sale_quantity_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="72dp"
+        android:layout_marginTop="8dp"
+        android:textColor="@color/colorSharesForSaleDark"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/item_for_sale_price_textview"
+        app:layout_constraintTop_toBottomOf="@+id/shares_info" />
+
+    <TextView
+        android:id="@+id/list_item_news_type_14_newsfeed_fragment_itempricelabel_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/value_per_share"
+        android:textColor="@color/colorUpdateActivityBackground"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@+id/shares_offering_company_name"
+        app:layout_constraintEnd_toEndOf="@+id/item_for_sale_price_textview"
+        app:layout_constraintHorizontal_bias="0.32"
+        app:layout_constraintStart_toStartOf="@+id/item_for_sale_price_textview"
+        app:layout_constraintTop_toBottomOf="@+id/item_for_sale_price_textview" />
+
+    <TextView
+        android:id="@+id/list_item_news_type_14_newsfeed_fragment_itemquantitylabel_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/dividend_per_share"
+        android:textColor="@color/colorUpdateActivityBackground"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@+id/shares_offering_company_name"
+        app:layout_constraintEnd_toEndOf="@+id/item_for_sale_quantity_textview"
+        app:layout_constraintStart_toStartOf="@+id/item_for_sale_quantity_textview"
+        app:layout_constraintTop_toBottomOf="@+id/item_for_sale_quantity_textview" />
+
+
+    <TextView
+        android:id="@+id/shares_offering_company_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/offered_by"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toStartOf="@+id/shares_offering_company_name_view_profile"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toEndOf="@+id/shares_logo_imageview"
+        app:layout_constraintTop_toBottomOf="@+id/shares_logo_imageview" />
+
+    <TextView
+        android:id="@+id/shares_offering_company_name_view_profile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/view_company"
+        android:textColor="@color/colorDateText"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/shares_offering_company_name"
+        app:layout_constraintTop_toBottomOf="@+id/shares_logo_imageview" />
+
+    <Button
+        android:id="@+id/history_button"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/button_height"
+        android:textSize="@dimen/button_text_size"
+        android:layout_marginBottom="5dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/start_a_fishpott_acc_button_background"
+        android:elevation="4dp"
+        android:fontFamily="sans-serif-condensed"
+        android:paddingEnd="10dp"
+        android:paddingStart="10dp"
+        android:text="@string/view_stock_profile"
+        android:textColor="@drawable/black_button_pressed_white_color"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/shares_offering_company_name" />
+
+    <Button
+        android:id="@+id/buy_button"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/button_height"
+        android:textSize="@dimen/button_text_size"
+        android:layout_marginBottom="5dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:background="@drawable/orange_button_pressed_to_light_orange"
+        android:elevation="4dp"
+        android:fontFamily="sans-serif-condensed"
+        android:text="@string/view_offers"
+        android:textColor="@drawable/black_button_pressed_white_color"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/shares_offering_company_name"
+        app:layout_constraintVertical_bias="0.51" />
+
+</android.support.constraint.ConstraintLayout>

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root_webview_activity"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.fishpott.fishpott5.Activities.WebViewActivity">
+
+    <android.support.constraint.Guideline
+        android:id="@+id/activity_webview_guideline_h_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.08" />
+
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/activity_webview_constraint_layout_2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/colorPrimaryTitleBar"
+        app:layout_constraintBottom_toTopOf="@+id/activity_webview_guideline_h_1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+
+        <android.support.constraint.Guideline
+            android:id="@+id/activity_webview_constraint2_guideline_v_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.15" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/activity_webview_constraint2_guideline_v_4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.60" />
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/activity_webview_constraint2_guideline_v_3"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <ImageView
+                android:id="@+id/activity_webview_padlock_imageView"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="8dp"
+                android:layout_toLeftOf="@id/activity_webview_constraint2_title_textview"
+                android:contentDescription="@string/none"
+                android:tint="@color/color_webview_activity_secure_padlock"
+                app:srcCompat="@drawable/webview_activity_lock_image" />
+
+
+            <TextView
+                android:id="@+id/activity_webview_constraint2_title_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="@string/activity_webview_fishpott_com"
+                android:maxLength="20"
+                android:textAlignment="center"
+                android:textColor="@color/colorAccent"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <ProgressBar
+                android:id="@+id/activity_webview_loader"
+                style="@style/ProgressBarBlack"
+                android:layout_width="26dp"
+                android:layout_height="32dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_alignEnd="@id/activity_webview_constraint2_title_textview"
+                android:visibility="visible"
+                android:layout_alignParentEnd="true"/>
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/activity_webview_back_imageview"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="12dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="12dp"
+            android:contentDescription="@string/none"
+            android:tint="@color/colorAccent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/activity_webview_constraint2_guideline_v_3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/forgot_password_arrow_back" />
+    </android.support.constraint.ConstraintLayout>
+
+    <WebView
+        android:id="@+id/activity_webview_webview"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/activity_webview_guideline_h_1" />
+
+</android.support.constraint.ConstraintLayout>

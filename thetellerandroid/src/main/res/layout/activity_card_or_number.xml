@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/different_number_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:text="@string/use_a_different_card_or_number" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:visibility="gone"
+        android:id="@+id/webView_container"
+        android:background="@color/white"
+        app:layout_behavior="androidx.design.widget.BottomSheetBehavior"
+        android:layout_height="match_parent">
+
+        <WebView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/theteller_webview2"/>
+
+    </FrameLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Pick Saved card or Mobile Number"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:layout_marginBottom="5dp"
+        android:textColor="#4a4a4a"
+        android:gravity="center_horizontal|center_vertical"
+        android:id="@+id/theteller_title_textView"
+        />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:id="@+id/theteller_recycler3"
+        android:layout_height="wrap_content"/>
+
+
+</LinearLayout>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="7dp"
+    android:background="@drawable/rounded_corner_shape"
+    android:elevation="3dp">
+
+    <TextView
+        android:id="@+id/messagetext_messenger_activity_textview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="2dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/info_fragment_main_activity_your_pott_gets_notifications_just_to_let_you_know_what_s_going_on_you_get_notified_when_someone_linkups_up_to_your_pott_to_follow_you_likes_or_dislikes_your_posts_shares_you_own_or_might_be_interested_in_changes_in_value_when_someone_buys_shares_tickets_or_any_item_from_your_pott_all_notifications_come_with_an_icon_so_show_you_the_kind_it_is"
+        android:textAlignment="textStart"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/read_more_messenger_activity_textview"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/read_more_messenger_activity_textview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:text="@string/list_item_news_type_2_newsfeed_fragment_read_more"
+        android:textAlignment="textStart"
+        android:textColor="@color/newsVideoIconsBackground"
+        android:textSize="16sp"
+        android:textStyle="italic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/messagetext_messenger_activity_textview" />
+
+</android.support.constraint.ConstraintLayout>

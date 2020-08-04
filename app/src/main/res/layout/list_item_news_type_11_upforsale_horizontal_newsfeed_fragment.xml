@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="250dp"
+    android:layout_height="250dp"
+    android:layout_margin="5dp"
+    android:background="@drawable/rounded_corners_shareforsale_horizontal_item_background"
+    android:elevation="2dp">
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/list_item_news_type_11_newsfeed_fragment_relativelayout_3"
+        android:layout_width="0dp"
+        android:layout_height="182dp"
+        android:layout_centerInParent="true"
+        android:elevation="4dp"
+        app:layout_constraintBottom_toTopOf="@+id/list_item_news_type_11_newsfeed_fragment_price_textView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/list_item_news_type_11_newsfeed_fragment_item_pic_circleimageview"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="8dp"
+            android:contentDescription="@string/none"
+            android:elevation="5dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/login_activity_cover_image"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </android.support.constraint.ConstraintLayout>
+
+
+    <TextView
+        android:id="@+id/list_item_news_type_11_newsfeed_fragment_stockinfo_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:text="@string/sample_500_people_own_this_stock"
+        android:textColor="@color/colorUpdateActivityBackground"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/relativeLayout" />
+
+    <Button
+        android:id="@+id/buy_button"
+        android:layout_width="0dp"
+        android:layout_height="33dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/orange_button_pressed_to_light_orange"
+        android:elevation="5dp"
+        android:fontFamily="sans-serif-condensed"
+        android:text="@string/buy"
+        android:textColor="@drawable/black_button_pressed_white_color"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/list_item_news_type_11_newsfeed_fragment_relativelayout_3"
+        app:layout_constraintVertical_bias="0.0" />
+
+
+    <TextView
+        android:id="@+id/list_item_news_type_11_newsfeed_fragment_price_textView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:text="$100000"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/buy_button"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/relativeLayout"
+        app:layout_constraintTop_toBottomOf="@+id/list_item_news_type_11_newsfeed_fragment_relativelayout_3" />
+
+    <TextView
+        android:id="@+id/list_item_news_type_11_newsfeed_fragment_pricelabel_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="@string/price_label"
+        android:textColor="@color/colorUpdateActivityBackground"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@+id/list_item_news_type_11_newsfeed_fragment_stockinfo_textView"
+        app:layout_constraintEnd_toEndOf="@+id/list_item_news_type_11_newsfeed_fragment_price_textView"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/relativeLayout"
+        app:layout_constraintTop_toBottomOf="@+id/list_item_news_type_11_newsfeed_fragment_price_textView"
+        app:layout_constraintVertical_bias="0.92" />
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="4dp"
+        android:background="@drawable/main_activity_info_fragment_icon_imageview_circle_white_background"
+        android:elevation="5dp"
+        app:layout_constraintBottom_toBottomOf="@+id/list_item_news_type_11_newsfeed_fragment_pricelabel_textView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/list_item_news_type_11_newsfeed_fragment_relativelayout_3"
+        app:layout_constraintVertical_bias="0.64">
+
+        <com.fishpott.fishpott5.Views.CircleImageView
+            android:id="@+id/list_item_news_type_11_newsfeed_fragment_pott_pic_circleimageview"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_centerInParent="true"
+            android:layout_marginBottom="2dp"
+            android:contentDescription="@string/none"
+            android:elevation="6dp"
+            app:srcCompat="@drawable/setprofilepicture_activity_imageholder_default_image" />
+
+    </RelativeLayout>
+
+
+</android.support.constraint.ConstraintLayout>

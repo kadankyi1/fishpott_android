@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@color/colorAccent">
+
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/list_item_news_type_28_newsfeed_fragment_relativelayout_1"
+        android:layout_width="@dimen/list_item_news_type_28_newsfeed_fragment_relativelayout_1_size"
+        android:layout_height="@dimen/list_item_news_type_28_newsfeed_fragment_relativelayout_1_size"
+        android:layout_margin="10dp"
+        android:background="@drawable/list_item_news_type_28_shares4sale_circle_background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/list_item_news_type_28_newsfeed_fragment_relativelayout_2"
+            android:layout_width="85dp"
+            android:layout_height="85dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:background="@drawable/main_activity_info_fragment_icon_imageview_circle_white_background">
+
+                <com.fishpott.fishpott5.Views.CircleImageView
+                    android:id="@+id/horizontal_news_reposted_addeditem_image_circleimageview"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:padding="3dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    />
+        </android.support.constraint.ConstraintLayout>
+
+    </android.support.constraint.ConstraintLayout>
+
+        <com.fishpott.fishpott5.Views.CircleImageView
+            android:id="@+id/list_item_news_type_28_newsfeed_fragment_pott_pic_circleimageview"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginBottom="2dp"
+            android:padding="1dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:contentDescription="@string/none"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:background="@drawable/main_activity_info_fragment_icon_imageview_circle_white_background"
+            app:layout_constraintEnd_toEndOf="@+id/list_item_news_type_28_newsfeed_fragment_relativelayout_1"
+            app:srcCompat="@drawable/setprofilepicture_activity_imageholder_default_image" />
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="@dimen/list_item_news_type_28_newsfeed_fragment_pottpic_holder_relativelayout_2_size"
+        android:layout_height="@dimen/list_item_news_type_28_newsfeed_fragment_pottpic_holder_relativelayout_2_size"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/list_item_news_type_28_shares4sale_circle_background"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/news_reposted_additem_price_textview"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="2dp"
+            android:textAlignment="center"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="13sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </android.support.constraint.ConstraintLayout>
+
+</android.support.constraint.ConstraintLayout>

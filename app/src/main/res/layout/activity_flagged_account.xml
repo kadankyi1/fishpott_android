@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorAccent"
+    tools:context="com.fishpott.fishpott5.Activities.FlaggedAccountActivity">
+
+    <android.support.constraint.Guideline
+        android:id="@+id/activity_flaggedaccount_guideline_h_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.08" />
+
+
+    <android.support.constraint.Guideline
+        android:id="@+id/activity_flaggedaccount_guideline_h_3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.35" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/activity_flaggedaccount_guideline_h_4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.7" />
+
+    <TextView
+        android:id="@+id/activity_flaggedaccount_intotext_textView"
+        android:layout_width="0dp"
+        android:layout_height="119dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/flaggedaccount_activity_we_have_detected_activities_on_your_account_that_are_either_suspicious_or_in_violation_of_our_terms_and_conditions_you_may_contact_support_at_suspendedpotts_fishpott_com_with_your_pottname_and_your_account_may_be_unsuspended"
+        android:textAlignment="center"
+        android:textColor="@color/colorSignupFragmentIntroText"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/activity_flaggedaccount_guideline_h_4"
+        app:layout_constraintEnd_toStartOf="@+id/activity_flaggedaccount_guideline_v_2"
+        app:layout_constraintStart_toStartOf="@+id/activity_flaggedaccount_guideline_v_1"
+        app:layout_constraintTop_toTopOf="@+id/activity_flaggedaccount_guideline_h_3"
+        app:layout_constraintVertical_bias="0.454" />
+
+    <ImageView
+        android:id="@+id/activity_flaggedaccount_coverimage_imageView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:contentDescription="@string/none"
+        android:elevation="20dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toTopOf="@+id/activity_flaggedaccount_guideline_h_3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/activity_flaggedaccount_guideline_h_1"
+        app:srcCompat="@drawable/forgotpassword_activity_cover_image" />
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/activity_flaggedaccount_constraint_layout_2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/colorPrimaryTitleBar"
+        app:layout_constraintBottom_toTopOf="@+id/activity_flaggedaccount_guideline_h_1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <android.support.constraint.Guideline
+            android:id="@+id/activity_flaggedaccount_guideline_v_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.15" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/activity_flaggedaccount_guideline_v_4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.60" />
+
+        <TextView
+            android:id="@+id/activity_flaggedaccount_title_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:gravity="center"
+            android:text="@string/flaggedaccount_activity_account_suspended"
+            android:textAlignment="center"
+            android:textColor="@color/colorAccent"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/activity_flaggedaccount_constraint_layout_2"
+            app:layout_constraintEnd_toStartOf="@+id/activity_flaggedaccount_guideline_v_4"
+            app:layout_constraintStart_toStartOf="@+id/activity_flaggedaccount_guideline_v_3"
+            app:layout_constraintTop_toTopOf="@+id/activity_flaggedaccount_constraint_layout_2" />
+
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.Guideline
+        android:id="@+id/activity_flaggedaccount_guideline_v_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.05" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/activity_flaggedaccount_guideline_v_5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.2" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/activity_flaggedaccount_guideline_v_6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.8" />
+
+
+    <android.support.constraint.Guideline
+        android:id="@+id/activity_flaggedaccount_guideline_v_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.95" />
+
+</android.support.constraint.ConstraintLayout>

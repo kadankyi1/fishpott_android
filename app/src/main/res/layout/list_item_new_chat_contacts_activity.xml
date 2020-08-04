@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/chat_list_root_constraintlayout"
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:background="@color/colorAccent">
+
+    <RelativeLayout
+        android:id="@+id/list_item_suggestedlinkupsactivity_activity_relativelayout_1"
+        android:layout_width="@dimen/list_item_suggestedlinkupsactivity_activity_pottpic_imageview_width_size"
+        android:layout_height="@dimen/list_item_suggestedlinkupsactivity_activity_pottpic_imageview_width_size"
+        android:layout_marginStart="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.39">
+
+        <com.fishpott.fishpott5.Views.CircleImageView
+            android:id="@+id/chat_pott_picture_circleimageview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/none"
+            android:src="@drawable/setprofilepicture_activity_imageholder_default_image"
+            app:civ_border_color="@android:color/transparent"
+            app:civ_border_width="0dp" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/chat_pott_name_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/samplepottname_raylight"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/list_item_suggestedlinkupsactivity_activity_relativelayout_1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toEndOf="@+id/list_item_suggestedlinkupsactivity_activity_relativelayout_1"
+        app:layout_constraintTop_toTopOf="@+id/list_item_suggestedlinkupsactivity_activity_relativelayout_1"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/chat_full_name_textview"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:text="@string/testfullname_anno_dankyi"
+        android:textColor="@color/colorAccentAsh"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/list_item_suggestedlinkupsactivity_activity_relativelayout_1"
+        app:layout_constraintTop_toBottomOf="@id/chat_pott_name_textview"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:background="@color/colorAccentGray"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/list_item_suggestedlinkupsactivity_activity_relativelayout_1" />
+
+</android.support.constraint.ConstraintLayout>

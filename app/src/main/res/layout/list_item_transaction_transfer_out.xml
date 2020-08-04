@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    android:background="@drawable/rounded_corners_shareforsale_horizontal_item_background"
+    android:elevation="2dp">
+
+
+    <com.fishpott.fishpott5.Views.CircleImageView
+        android:id="@+id/type_label_imageview"
+        android:layout_width="18dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="10dp"
+        android:contentDescription="@string/none"
+        android:src="@drawable/arrow_right"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/type_textview"
+        app:layout_constraintEnd_toStartOf="@+id/type_textview"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/type_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="2dp"
+        android:text="@string/transfer_out"
+        android:textColor="@color/colorFundraiserDark"
+        android:textSize="@dimen/transaction_item"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/amount_textview"
+        app:layout_constraintStart_toEndOf="@+id/type_label_imageview"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.fishpott.fishpott5.Views.CircleImageView
+        android:id="@+id/dateicon_label_imageview"
+        android:layout_width="18dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="10dp"
+        android:contentDescription="@string/none"
+        android:src="@drawable/time_icon"
+        app:civ_border_color="@android:color/transparent"
+        app:civ_border_width="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/date_textview"
+        app:layout_constraintHorizontal_bias="0.95"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toEndOf="@+id/type_textview"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/date_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="4dp"
+        android:text="@string/chat_date_sample"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="@dimen/transaction_label"
+        app:layout_constraintBottom_toBottomOf="@+id/dateicon_label_imageview"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/dateicon_label_imageview"
+        app:layout_constraintTop_toTopOf="@+id/dateicon_label_imageview"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/amount_textview"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/quantity"
+        android:textAlignment="center"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="@dimen/transaction_item"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/amount_label_textView"
+        app:layout_constraintEnd_toStartOf="@+id/status_textview"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/date_textview"
+        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_chainStyle="spread_inside" />
+
+    <TextView
+        android:id="@+id/amount_label_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginStart="8dp"
+        android:text="@string/quantity"
+        android:textColor="@color/colorAccentAsh"
+        android:textSize="@dimen/transaction_label"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/amount_textview"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="@+id/amount_textview"
+        app:layout_constraintTop_toBottomOf="@id/amount_textview"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/status_textview"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/processed"
+        android:textAlignment="center"
+        android:textColor="@color/colorYardsale"
+        android:textSize="@dimen/transaction_item"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/status_label_textview"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/amount_textview"
+        app:layout_constraintTop_toBottomOf="@id/date_textview"
+        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <TextView
+        android:id="@+id/status_label_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:text="@string/status"
+        android:textColor="@color/colorAccentAsh"
+        android:textSize="@dimen/transaction_label"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/status_textview"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="@+id/status_textview"
+        app:layout_constraintTop_toBottomOf="@id/status_textview"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/momo_type_textview"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/mtn_mobile_money"
+        android:textAlignment="center"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="@dimen/transaction_item"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/type_label_textView"
+        app:layout_constraintEnd_toStartOf="@+id/info2_type_textview"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/amount_label_textView"
+        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <TextView
+        android:id="@+id/type_label_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:text="@string/share_name"
+        android:textColor="@color/colorAccentAsh"
+        android:textSize="@dimen/transaction_item"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/momo_type_textview"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="@+id/momo_type_textview"
+        app:layout_constraintTop_toBottomOf="@+id/momo_type_textview"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/info2_type_textview"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/account_info"
+        android:textAlignment="center"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="@dimen/transaction_item"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/type_label_textView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/momo_type_textview"
+        app:layout_constraintTop_toBottomOf="@id/amount_label_textView"
+        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <TextView
+        android:id="@+id/info2_type_label_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:text="@string/receiver_pott_name"
+        android:textColor="@color/colorAccentAsh"
+        android:textSize="@dimen/transaction_label"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/info2_type_textview"
+        app:layout_constraintStart_toStartOf="@+id/info2_type_textview"
+        app:layout_constraintTop_toBottomOf="@+id/momo_type_textview" />
+
+</android.support.constraint.ConstraintLayout>

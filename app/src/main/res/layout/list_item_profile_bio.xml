@@ -1,0 +1,453 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:paddingBottom="7dp">
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/pott_pic_holder_constraintLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/rank_info_constraintLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.fishpott.fishpott5.Views.CircleImageView
+            android:id="@+id/pott_pic_circle_imageview"
+            android:layout_width="95dp"
+            android:layout_height="95dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/setprofilepicture_activity_imageholder_default_image"
+            android:contentDescription="@string/none"
+            android:elevation="5dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/business_icon_imageView"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="8dp"
+            android:contentDescription="@string/none"
+            android:elevation="5dp"
+            android:src="@drawable/list_item_suggestedlinkupsactivity_activity_businessicon_imageview"
+            app:layout_constraintBottom_toBottomOf="@+id/pott_pic_circle_imageview"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/pott_pic_circle_imageview"
+            app:layout_constraintVertical_bias="1.0" />
+
+    </android.support.constraint.ConstraintLayout>
+
+
+    <TextView
+        android:id="@+id/pottname_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/samplepottname_raylight"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/verified_icon_imageView"
+        app:layout_constraintHorizontal_bias="0.08"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toEndOf="@+id/pott_pic_holder_constraintLayout"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/fullname_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:text="@string/testfullname_anno_dankyi"
+        android:textColor="@color/colorNews"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.06"
+        app:layout_constraintStart_toEndOf="@+id/pott_pic_holder_constraintLayout"
+        app:layout_constraintTop_toBottomOf="@+id/pottname_textview" />
+
+    <ImageView
+        android:id="@+id/verified_icon_imageView"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:contentDescription="@string/none"
+        android:visibility="gone"
+        android:src="@drawable/list_item_suggestedlinkupsactivity_activity_verifiedicon_green_imageview"
+        app:layout_constraintEnd_toStartOf="@+id/menu_icon_imageView"
+        app:layout_constraintStart_toEndOf="@+id/pottname_textview"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/menu_icon_imageView"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:contentDescription="@string/none"
+        android:src="@drawable/list_item_news_type_1_newsfeed_fragment_menu_icon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/pottworth_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/_150k"
+        android:textAlignment="center"
+        android:textColor="@color/colorSharesForSaleDark"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/pottworth_label_textview"
+        app:layout_constraintStart_toStartOf="@+id/pottworth_label_textview"
+        app:layout_constraintTop_toBottomOf="@+id/fullname_textview" />
+
+
+    <TextView
+        android:id="@+id/pottworth_label_textview"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="@string/net_worth"
+        android:textAlignment="center"
+        android:textColor="@color/colorPrimary"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/followers_label_textview"
+        app:layout_constraintStart_toEndOf="@+id/pott_pic_holder_constraintLayout"
+        app:layout_constraintTop_toBottomOf="@+id/pottworth_textview" />
+
+
+    <TextView
+        android:id="@+id/followers_count_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/_3_5k"
+        android:textAlignment="center"
+        android:textColor="@color/colorSharesForSaleDark"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/followers_label_textview"
+        app:layout_constraintStart_toStartOf="@+id/followers_label_textview"
+        app:layout_constraintTop_toBottomOf="@+id/fullname_textview" />
+
+
+    <TextView
+        android:id="@+id/followers_label_textview"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="@string/followers"
+        android:textAlignment="center"
+        android:textColor="@color/colorPrimary"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/pearls_label_textview"
+        app:layout_constraintStart_toEndOf="@+id/pottworth_label_textview"
+        app:layout_constraintTop_toBottomOf="@+id/followers_count_textview" />
+
+
+    <TextView
+        android:id="@+id/pearls_count_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/_200m"
+        android:textAlignment="center"
+        android:textColor="@color/colorSharesForSaleDark"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/pearls_label_textview"
+        app:layout_constraintStart_toStartOf="@+id/pearls_label_textview"
+        app:layout_constraintTop_toBottomOf="@+id/fullname_textview" />
+
+
+    <TextView
+        android:id="@+id/pearls_label_textview"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="8dp"
+        android:text="@string/pott_pearls"
+        android:textAlignment="center"
+        android:textColor="@color/colorPrimary"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/followers_label_textview"
+        app:layout_constraintTop_toBottomOf="@+id/pearls_count_textview" />
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/rank_info_constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/rounded_corners_shareforsale_horizontal_item_background"
+        android:elevation="2dp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pearls_label_textview">
+
+        <ImageView
+            android:id="@+id/rank_info_icon_circleimageview"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_margin="7dp"
+            android:layout_marginStart="10dp"
+            android:contentDescription="@string/none"
+            android:src="@drawable/rank_icon"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/rank_info_textview"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:text="@string/rank_3rd_richest_pott"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/rank_info_icon_circleimageview"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/rank_info_icon_circleimageview"
+            app:layout_constraintTop_toTopOf="@+id/rank_info_icon_circleimageview" />
+
+    </android.support.constraint.ConstraintLayout>
+
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/ruler_info_constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/rounded_corners_shareforsale_horizontal_item_background"
+        android:elevation="2dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rank_info_constraintLayout">
+
+        <ImageView
+            android:id="@+id/ruler_info_icon_circleimageview"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_margin="7dp"
+            android:layout_marginStart="10dp"
+            android:contentDescription="@string/none"
+            android:src="@drawable/crown_ruler_icon"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/ruler_info_textview"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:text="@string/ruled_by"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/ruler_info_icon_circleimageview"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/ruler_info_icon_circleimageview"
+            app:layout_constraintTop_toTopOf="@+id/ruler_info_icon_circleimageview" />
+
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/income_statement_constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/rounded_corners_shareforsale_horizontal_item_background"
+        android:elevation="2dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ruler_info_constraintLayout">
+
+        <ImageView
+            android:id="@+id/income_statement_icon_circleimageview"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_margin="7dp"
+            android:layout_marginStart="10dp"
+            android:contentDescription="@string/none"
+            android:src="@drawable/monthly_income_icon"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/income_statement_textview"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:text="@string/this_pott_makes_35_monthly"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/income_statement_icon_circleimageview"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/income_statement_icon_circleimageview"
+            app:layout_constraintTop_toTopOf="@+id/income_statement_icon_circleimageview" />
+
+    </android.support.constraint.ConstraintLayout>
+
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/country_info_constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/rounded_corners_shareforsale_horizontal_item_background"
+        android:elevation="2dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/income_statement_constraintLayout">
+
+        <ImageView
+            android:id="@+id/country_info_icon_imageview"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_margin="7dp"
+            android:layout_marginStart="10dp"
+            android:contentDescription="@string/none"
+            android:src="@drawable/location_country_icon"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/country_info_textview"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:text="@string/country_russia"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/country_info_icon_imageview"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/country_info_icon_imageview"
+            app:layout_constraintTop_toTopOf="@+id/country_info_icon_imageview" />
+
+    </android.support.constraint.ConstraintLayout>
+
+
+    <Button
+        android:id="@+id/message_button"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/button_height"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/orange_button_pressed_to_light_orange"
+        android:elevation="4dp"
+        android:fontFamily="sans-serif-condensed"
+        android:paddingEnd="10dp"
+        android:paddingStart="10dp"
+        android:text="@string/message"
+        android:textColor="@drawable/black_button_pressed_white_color"
+        android:textSize="@dimen/button_text_size"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/poach_button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/country_info_constraintLayout" />
+
+    <Button
+        android:id="@+id/poach_button"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/button_height"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/start_a_fishpott_acc_button_background"
+        android:elevation="4dp"
+        android:fontFamily="sans-serif-condensed"
+        android:paddingEnd="10dp"
+        android:paddingStart="10dp"
+        android:text="@string/poach_pearls"
+        android:textColor="@drawable/black_button_pressed_white_color"
+        android:textSize="@dimen/button_text_size"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/linkup_button"
+        app:layout_constraintStart_toEndOf="@+id/message_button"
+        app:layout_constraintTop_toBottomOf="@+id/country_info_constraintLayout" />
+
+    <ProgressBar
+        android:id="@+id/poaching_loader"
+        style="@style/ProgressBarBlack"
+        android:layout_width="26dp"
+        android:layout_height="32dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="18dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="8dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/linkup_button"
+        app:layout_constraintStart_toEndOf="@+id/message_button"
+        app:layout_constraintTop_toBottomOf="@+id/country_info_constraintLayout" />
+
+    <Button
+        android:id="@+id/linkup_button"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/button_height"
+        android:layout_marginBottom="5dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/button_white_background_pressed_gray"
+        android:elevation="4dp"
+        android:visibility="gone"
+        android:fontFamily="sans-serif-condensed"
+        android:paddingEnd="10dp"
+        android:paddingStart="10dp"
+        android:text="@string/sample_linkup"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="@dimen/button_text_size"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/poach_button"
+        app:layout_constraintTop_toBottomOf="@+id/country_info_constraintLayout" />
+
+
+</android.support.constraint.ConstraintLayout>

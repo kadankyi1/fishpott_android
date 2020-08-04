@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root_createpost_activity"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.fishpott.fishpott5.Activities.CreatePostActivity">
+
+        <android.support.constraint.Guideline
+            android:id="@+id/guideline_h_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.08" />
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/top_bar_holder_constraintlayout"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@color/colorPrimaryTitleBar"
+            app:layout_constraintBottom_toTopOf="@+id/guideline_h_1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <android.support.constraint.Guideline
+                android:id="@+id/top_bar_guideline_v_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.15" />
+
+            <android.support.constraint.Guideline
+                android:id="@+id/top_bar_guideline_v_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.60" />
+
+            <TextView
+                android:id="@+id/top_bar_title_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:gravity="center"
+                android:text="@string/post"
+                android:textAlignment="center"
+                android:textColor="@color/colorAccentGray"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="@+id/top_bar_guideline_v_3"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/top_bar_back_imageview"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginBottom="12dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="12dp"
+                android:contentDescription="@string/none"
+                android:tint="@color/colorAccent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/top_bar_guideline_v_3"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/forgot_password_arrow_back" />
+        </android.support.constraint.ConstraintLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/guideline_h_1"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <android.support.constraint.Guideline
+                    android:id="@+id/guideline_h_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.14" />
+
+
+                <Button
+                    android:id="@+id/add_shares_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/button_height"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="13dp"
+                    android:background="@drawable/orange_button_pressed_to_light_orange"
+                    android:elevation="3dp"
+                    android:fontFamily="sans-serif-condensed"
+                    android:gravity="center"
+                    android:paddingBottom="3dp"
+                    android:paddingEnd="10dp"
+                    android:paddingStart="10dp"
+                    android:paddingTop="3dp"
+                    android:text="@string/add_shares"
+                    android:textColor="@drawable/black_button_pressed_white_color"
+                    android:textSize="@dimen/button_text_size"
+                    app:layout_constraintEnd_toStartOf="@+id/gallery_icon_imageview"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/gallery_icon_imageview"
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginTop="15dp"
+                    android:contentDescription="@string/none"
+                    android:elevation="3dp"
+                    android:visibility="gone"
+                    android:src="@drawable/gallery_icon"
+                    app:layout_constraintEnd_toStartOf="@+id/video_icon_imageview"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toEndOf="@+id/add_shares_button"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/video_icon_imageview"
+                    android:layout_width="30dp"
+                    android:layout_height="35dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginTop="8dp"
+                    android:contentDescription="@string/none"
+                    android:elevation="3dp"
+                    android:visibility="gone"
+                    android:src="@drawable/video_gallery_icon"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/gallery_icon_imageview"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <EditText
+                    android:id="@+id/post_text_edit_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:ems="10"
+                    android:fontFamily="@font/roboto"
+                    android:gravity="top|start"
+                    android:hint="@string/what_s_going_on"
+                    android:theme="@style/CreatePostActivityHintStyle"
+                    android:inputType="textMultiLine"
+                    android:labelFor="@id/post_text_edit_text"
+                    android:maxLines="13"
+                    android:minLines="13"
+                    android:maxLength="499"
+                    android:textCursorDrawable="@drawable/cursor_color_for_edittext"
+                    android:scrollbars="vertical"
+                    android:textColor="@drawable/login_activity_input_text_color"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toTopOf="@+id/sharesadded_holder_constraintlayout"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/guideline_h_2"
+                    app:layout_constraintVertical_bias="0.0" />
+
+
+                <android.support.constraint.ConstraintLayout
+                    android:id="@+id/sharesadded_holder_constraintlayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_margin="5dp"
+                    android:elevation="2dp"
+                    android:background="@drawable/button_white_background_pressed_gray"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/post_text_edit_text">
+
+                    <TextView
+                        android:id="@+id/numberofsharesadded_textview"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/no_shares_added"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="20sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/removenewsaddedshares_icon_imageview"
+                        app:layout_constraintHorizontal_chainStyle="spread_inside"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:id="@+id/removenewsaddedshares_icon_imageview"
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:layout_marginBottom="2dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="4dp"
+                        android:background="@drawable/main_activity_info_fragment_icon_imageview_circle_white_background"
+                        android:contentDescription="@string/none"
+                        android:elevation="5dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/numberofsharesadded_textview"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/close_icon" />
+                </android.support.constraint.ConstraintLayout>
+
+
+                <android.support.constraint.ConstraintLayout
+                    android:id="@+id/numberofimages_holder_constraintlayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_margin="5dp"
+                    android:elevation="2dp"
+                    android:visibility="gone"
+                    android:background="@drawable/button_white_background_pressed_gray"
+                    app:layout_constraintTop_toBottomOf="@+id/sharesadded_holder_constraintlayout"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent">
+
+                    <TextView
+                        android:id="@+id/numberofimagesadded_textview"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/no_images_added"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="20sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/removenewsimage_icon_imageview"
+                        app:layout_constraintHorizontal_chainStyle="spread_inside"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:id="@+id/removenewsimage_icon_imageview"
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:layout_marginBottom="2dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="4dp"
+                        android:background="@drawable/main_activity_info_fragment_icon_imageview_circle_white_background"
+                        android:contentDescription="@string/none"
+                        android:elevation="5dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/numberofimagesadded_textview"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/close_icon" />
+                </android.support.constraint.ConstraintLayout>
+
+
+                <android.support.constraint.ConstraintLayout
+                    android:id="@+id/numberofvideos_holder_constraintlayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_margin="5dp"
+                    android:layout_marginBottom="8dp"
+                    android:background="@drawable/button_white_background_pressed_gray"
+                    android:elevation="2dp"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/numberofimages_holder_constraintlayout">
+
+                    <TextView
+                        android:id="@+id/numberofvideosadded_textview"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/no_video_added"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="20sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/removenewsvideo_icon_imageview"
+                        app:layout_constraintHorizontal_chainStyle="spread_inside"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:id="@+id/removenewsvideo_icon_imageview"
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:layout_marginBottom="2dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="4dp"
+                        android:background="@drawable/main_activity_info_fragment_icon_imageview_circle_white_background"
+                        android:contentDescription="@string/none"
+                        android:elevation="5dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/numberofvideosadded_textview"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/close_icon" />
+                </android.support.constraint.ConstraintLayout>
+
+            </android.support.constraint.ConstraintLayout>
+
+        </ScrollView>
+
+    <FrameLayout
+        android:id="@+id/shares_holder_framelayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+</android.support.constraint.ConstraintLayout>

@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainConstraintLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorAccent"
+    android:clickable="true"
+    tools:context="com.fishpott.fishpott5.Fragments.Signup.SignupStartFragment">
+
+    <android.support.constraint.Guideline
+        android:id="@+id/fragment_of_signupactivity_signupstart_v_guideline1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.15" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/fragment_of_signupactivity_signupstart_v_guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.25" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/fragment_of_signupactivity_signupstart_v_guideline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.75" />
+
+
+    <android.support.constraint.Guideline
+        android:id="@+id/fragment_of_signupactivity_signupstart_v_guideline5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.3" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/fragment_of_signupactivity_signupstart_v_guideline6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.7" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/fragment_of_signupactivity_signupstart_v_guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.85" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/fragment_of_signupactivity_signupstart_h_guideline1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.13" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/fragment_of_signupactivity_signupstart_h_guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.32" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/fragment_of_signupactivity_signupstart_h_guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.51" />
+
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/fragment_of_signupactivity_signupstart_constraint_layout_2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/colorPrimaryTitleBar"
+        app:layout_constraintBottom_toTopOf="@+id/fragment_of_signupactivity_signupstart_h_guideline1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <android.support.constraint.Guideline
+            android:id="@+id/fragment_of_signupactivity_signupstart_guideline_v_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.15" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/fragment_of_signupactivity_signupstart_guideline_v_4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.60" />
+
+        <TextView
+            android:id="@+id/fragment_of_signupactivity_signupstart_title_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:gravity="center"
+            android:text="@string/fragment_signup_start_create_account"
+            android:textAlignment="center"
+            android:textColor="@color/colorAccent"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/fragment_of_signupactivity_signupstart_constraint_layout_2"
+            app:layout_constraintEnd_toStartOf="@+id/fragment_of_signupactivity_signupstart_guideline_v_4"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/fragment_of_signupactivity_signupstart_guideline_v_3"
+            app:layout_constraintTop_toTopOf="@+id/fragment_of_signupactivity_signupstart_constraint_layout_2"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <ImageView
+            android:id="@+id/fragment_of_signupactivity_signupstart_back_imageview"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="12dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="12dp"
+            android:contentDescription="@string/none"
+            android:tint="@color/colorAccent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/fragment_of_signupactivity_signupstart_guideline_v_3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/forgot_password_arrow_back" />
+    </android.support.constraint.ConstraintLayout>
+
+
+    <TextView
+        android:id="@+id/fragment_of_signupactivity_englishLanguageTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/signup_fragment_start_having_a_fishpott_connects_you_to_the_world_and_empowers_you_to_do_more_with_the_connections_you_make"
+        android:textAlignment="center"
+        android:textColor="@color/colorSignupFragmentIntroText"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/fragment_of_signupactivity_signupstart_v_guideline2"
+        app:layout_constraintStart_toStartOf="@+id/fragment_of_signupactivity_signupstart_v_guideline1"
+        app:layout_constraintTop_toTopOf="@+id/fragment_of_signupactivity_signupstart_h_guideline2" />
+
+
+    <Button
+        android:id="@+id/fragment_of_signupactivity_signupstart_personalstartbutton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/start_a_fishpott_acc_button_background"
+        android:text="@string/start_activity_start"
+        android:textColor="@drawable/black_button_pressed_white_color"
+        app:layout_constraintEnd_toStartOf="@+id/fragment_of_signupactivity_signupstart_v_guideline4"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/fragment_of_signupactivity_signupstart_v_guideline3"
+        app:layout_constraintTop_toTopOf="@+id/fragment_of_signupactivity_signupstart_h_guideline3" />
+
+    <Button
+        android:id="@+id/fragment_of_signupactivity_signupstart_businessstartbutton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:background="@drawable/update_activity_update_button"
+        android:text="@string/signup_fragment_start_start_a_business_account"
+        android:textColor="@drawable/black_button_pressed_white_color"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/fragment_of_signupactivity_signupstart_v_guideline6"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/fragment_of_signupactivity_signupstart_v_guideline5" />
+
+    <ImageView
+        android:id="@+id/fragment_of_signupactivity_signupstart_fpStaticimageView"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:contentDescription="@string/none"
+        app:layout_constraintBottom_toTopOf="@+id/fragment_of_signupactivity_signupstart_h_guideline2"
+        app:layout_constraintEnd_toStartOf="@+id/fragment_of_signupactivity_signupstart_v_guideline2"
+        app:layout_constraintStart_toStartOf="@+id/fragment_of_signupactivity_signupstart_v_guideline1"
+        app:layout_constraintTop_toTopOf="@+id/fragment_of_signupactivity_signupstart_h_guideline1"
+        app:srcCompat="@drawable/fishpott_splash_icon" />
+
+</android.support.constraint.ConstraintLayout>

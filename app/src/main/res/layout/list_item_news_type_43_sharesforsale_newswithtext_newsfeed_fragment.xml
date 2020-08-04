@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/top_rounded_corners_shareforsale_horizontal_item_background"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    android:elevation="2dp">
+
+    <TextView
+        android:id="@+id/news_repostmaker_pottname_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="5dp"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="@dimen/list_item_news_type_1_newsfeed_fragment_pottname_text_size"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/news_reposted_repost_icon_imageview"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/news_reposted_repost_icon_imageview"
+        android:layout_width="19dp"
+        android:layout_height="19dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="6dp"
+        android:contentDescription="@string/none"
+        app:layout_constraintEnd_toStartOf="@+id/news_reposted_indication_text_textview"
+        app:layout_constraintStart_toEndOf="@+id/news_repostmaker_pottname_textview"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/list_item_news_type_1_newsfeed_fragment_share_icon" />
+
+    <TextView
+        android:id="@+id/news_reposted_indication_text_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="7dp"
+        android:layout_marginTop="4dp"
+        android:text="@string/reposted"
+        android:textColor="@color/colorAccentAsh"
+        android:textSize="@dimen/list_item_news_type_1_newsfeed_fragment_pottname_text_size"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/news_reposted_repost_icon_imageview"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/news_reposted_comment_textview"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="2dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="8dp"
+        android:textAlignment="textStart"
+        android:textColor="@color/colorPrimary"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/news_repostmaker_pottname_textview" />
+
+    <View
+        android:id="@+id/report_partition"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_margin="2dp"
+        app:layout_constraintTop_toBottomOf="@+id/news_reposted_comment_textview"
+        />
+
+    <com.fishpott.fishpott5.Views.RoundedCornerImageView
+        android:id="@+id/shares_logo_imageview"
+        android:layout_width="94dp"
+        android:layout_height="94dp"
+        android:layout_margin="3dp"
+        android:contentDescription="@string/none"
+        android:scaleType="centerCrop"
+        android:src="@drawable/sharesforsale"
+        app:layout_constraintEnd_toStartOf="@+id/shares_name"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/report_partition"/>
+
+    <TextView
+        android:id="@+id/shares_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="4dp"
+        android:text="@string/fishpot_treasury_bill"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/news_maker_pottpic_circleimageview"
+        app:layout_constraintStart_toEndOf="@+id/shares_logo_imageview"
+        app:layout_constraintTop_toBottomOf="@+id/report_partition" />
+
+
+    <TextView
+        android:id="@+id/shares_offering_company_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="4dp"
+        android:text="Offered By @raylight"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toStartOf="@+id/shares_offering_company_name_view_profile"
+        app:layout_constraintHorizontal_bias="0.06"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toEndOf="@+id/shares_logo_imageview"
+        app:layout_constraintTop_toBottomOf="@+id/shares_name" />
+
+    <TextView
+        android:id="@+id/shares_offering_company_name_view_profile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="6dp"
+        android:text="@string/view_pott"
+        android:textColor="@color/colorDateText"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toStartOf="@+id/news_maker_pottpic_circleimageview"
+        app:layout_constraintStart_toEndOf="@+id/shares_offering_company_name"
+        app:layout_constraintTop_toBottomOf="@+id/shares_name" />
+
+    <com.fishpott.fishpott5.Views.CircleImageView
+        android:id="@+id/news_maker_pottpic_circleimageview"
+        android:layout_width="@dimen/list_item_news_type_1_newsfeed_fragment_pottpic_size"
+        android:layout_height="@dimen/list_item_news_type_1_newsfeed_fragment_pottpic_size"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="7dp"
+        android:background="@drawable/main_activity_info_fragment_icon_imageview_circle_shadow_background"
+        android:contentDescription="@string/none"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/report_partition"
+        app:srcCompat="@drawable/setprofilepicture_activity_imageholder_default_image" />
+
+
+    <TextView
+        android:id="@+id/item_for_sale_price_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/repost_added_item_price_55"
+        android:textColor="@color/colorSharesForSaleDark"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/item_for_sale_quantity_textview"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toEndOf="@+id/shares_logo_imageview"
+        app:layout_constraintTop_toBottomOf="@+id/shares_offering_company_name" />
+
+
+    <TextView
+        android:id="@+id/item_for_sale_quantity_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="72dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/sample_quantity_10000"
+        android:textColor="@color/colorSharesForSaleDark"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/item_for_sale_price_textview"
+        app:layout_constraintTop_toBottomOf="@+id/shares_offering_company_name" />
+
+    <TextView
+        android:id="@+id/list_item_news_type_14_newsfeed_fragment_itempricelabel_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/price_per_share"
+        android:textColor="@color/colorUpdateActivityBackground"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="@+id/item_for_sale_price_textview"
+        app:layout_constraintStart_toStartOf="@+id/item_for_sale_price_textview"
+        app:layout_constraintTop_toBottomOf="@+id/item_for_sale_price_textview" />
+
+    <TextView
+        android:id="@+id/list_item_news_type_14_newsfeed_fragment_itemquantitylabel_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/available_quantity"
+        android:textColor="@color/colorUpdateActivityBackground"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="@+id/item_for_sale_quantity_textview"
+        app:layout_constraintStart_toStartOf="@+id/item_for_sale_quantity_textview"
+        app:layout_constraintTop_toBottomOf="@+id/item_for_sale_quantity_textview" />
+
+
+    <TextView
+        android:id="@+id/news_text_textview"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="2dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="8dp"
+        android:textAlignment="textStart"
+        android:textColor="@color/colorPrimary"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/shares_logo_imageview" />
+
+
+    <TextView
+        android:id="@+id/item_for_sale_info2_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="2dp"
+        android:layout_marginStart="2dp"
+        android:textColor="@color/colorUnfocusedInputText"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/news_text_textview" />
+
+    <CheckBox
+        android:id="@+id/news_like_icon_imageview"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/like_toggle"
+        android:button="@null"
+        android:checked="false"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/item_for_sale_info2_textview" />
+
+
+    <CheckBox
+        android:id="@+id/news_dislike_icon_imageview"
+        android:layout_width="27dp"
+        android:layout_height="27dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="6dp"
+        android:background="@drawable/dislike_toggle"
+        android:button="@null"
+        android:checked="false"
+        app:layout_constraintStart_toEndOf="@+id/news_like_icon_imageview"
+        app:layout_constraintTop_toBottomOf="@+id/item_for_sale_info2_textview" />
+
+    <ImageView
+        android:id="@+id/news_comment_icon_imageview"
+        android:layout_width="30dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="7dp"
+        android:contentDescription="@string/none"
+        app:layout_constraintStart_toEndOf="@+id/news_dislike_icon_imageview"
+        app:layout_constraintTop_toBottomOf="@+id/item_for_sale_info2_textview"
+        app:srcCompat="@drawable/list_item_news_type_1_newsfeed_fragment_comment_icon" />
+
+    <ImageView
+        android:id="@+id/news_repost_icon_imageview"
+        android:layout_width="39dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="2dp"
+        android:contentDescription="@string/none"
+        app:layout_constraintStart_toEndOf="@+id/news_comment_icon_imageview"
+        app:layout_constraintTop_toBottomOf="@+id/item_for_sale_info2_textview"
+        app:srcCompat="@drawable/list_item_news_type_1_newsfeed_fragment_share_icon" />
+
+    <TextView
+        android:id="@+id/news_likes_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="@dimen/list_item_news_type_1_newsfeed_fragment_last_element_to_parent_bottom_margin"
+        android:textColor="@color/colorUpdateActivityBackground"
+        android:textSize="@dimen/list_item_news_type_1_newsfeed_fragment_likes_count_text_size"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/news_comment_icon_imageview" />
+
+
+    <TextView
+        android:id="@+id/news_dislikes_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="@dimen/list_item_news_type_1_newsfeed_fragment_last_element_to_parent_bottom_margin"
+        android:textColor="@color/colorUpdateActivityBackground"
+        android:textSize="@dimen/list_item_news_type_1_newsfeed_fragment_likes_count_text_size"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/news_likes_textview"
+        app:layout_constraintTop_toBottomOf="@+id/news_comment_icon_imageview" />
+
+    <TextView
+        android:id="@+id/news_comments_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="@dimen/list_item_news_type_1_newsfeed_fragment_last_element_to_parent_bottom_margin"
+        android:textColor="@color/colorUpdateActivityBackground"
+        android:textSize="@dimen/list_item_news_type_1_newsfeed_fragment_likes_count_text_size"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/news_dislikes_textview"
+        app:layout_constraintTop_toBottomOf="@+id/news_comment_icon_imageview" />
+
+
+    <TextView
+        android:id="@+id/news_views_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="4dp"
+        android:textColor="@color/colorUpdateActivityBackground"
+        android:textSize="@dimen/list_item_news_type_1_newsfeed_fragment_likes_count_text_size"
+        android:layout_marginBottom="@dimen/list_item_news_type_1_newsfeed_fragment_last_element_to_parent_bottom_margin"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/news_comments_textview"
+        app:layout_constraintTop_toBottomOf="@+id/news_comment_icon_imageview" />
+
+    <Button
+        android:id="@+id/buy_button"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/button_height"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="2dp"
+        android:background="@drawable/orange_button_pressed_to_light_orange"
+        android:elevation="4dp"
+        android:fontFamily="sans-serif-condensed"
+        android:paddingEnd="10dp"
+        android:paddingStart="10dp"
+        android:text="@string/buy"
+        android:layout_marginBottom="@dimen/list_item_news_type_1_newsfeed_fragment_last_element_to_parent_bottom_margin"
+        android:textColor="@drawable/black_button_pressed_white_color"
+        android:textSize="@dimen/button_text_size"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/item_for_sale_info2_textview" />
+
+</android.support.constraint.ConstraintLayout>

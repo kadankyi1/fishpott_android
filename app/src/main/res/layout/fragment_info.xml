@@ -1,0 +1,170 @@
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:elevation="10dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginEnd="10dp"
+    android:layout_marginStart="10dp"
+    android:background="@color/colorAccentTransparent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.fishpott.fishpott5.Fragments.InfoFragment">
+
+
+                <android.support.constraint.Guideline
+                    android:id="@+id/activity_main_info_fragment_guideline_h_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.15" />
+
+                <android.support.constraint.Guideline
+                    android:id="@+id/activity_main_info_fragment_guideline_h_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.25" />
+
+                <android.support.constraint.Guideline
+                    android:id="@+id/activity_main_info_fragment_guideline_h_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.35" />
+
+                <android.support.constraint.ConstraintLayout
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:elevation="12dp"
+                    android:background="@drawable/main_activity_info_fragment_shadow_background"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/activity_main_info_fragment_guideline_h_2">
+
+                    <android.support.constraint.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <android.support.constraint.Guideline
+                            android:id="@+id/activity_main_info_fragment_guideline_v_3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            app:layout_constraintGuide_percent="0.05" />
+
+                        <android.support.constraint.Guideline
+                            android:id="@+id/activity_main_info_fragment_guideline_v_4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            app:layout_constraintGuide_percent="0.95" />
+
+                        <TextView
+                            android:id="@+id/activity_main_info_fragment_title_textView"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="8dp"
+                            android:layout_marginStart="8dp"
+                            android:fontFamily="@font/roboto"
+                            android:textAlignment="textStart"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textSize="@dimen/main_activity_info_fragment_title_textview"
+                            android:textStyle="bold"
+                            app:layout_constraintEnd_toStartOf="@+id/activity_main_info_fragment_guideline_v_4"
+                            app:layout_constraintHorizontal_bias="0.058"
+                            app:layout_constraintStart_toEndOf="@+id/activity_main_info_fragment_guideline_v_3"
+                            app:layout_constraintTop_toBottomOf="@+id/activity_main_info_fragment_guideline_h_4" />
+
+                        <android.support.constraint.Guideline
+                            android:id="@+id/activity_main_info_fragment_guideline_h_4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            app:layout_constraintGuide_percent="0.1" />
+
+                        <ScrollView
+                            android:id="@+id/scrollView2"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_marginEnd="2dp"
+                            android:layout_marginStart="2dp"
+                            android:layout_marginTop="8dp"
+                            android:scrollbars="none"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@+id/activity_main_info_fragment_guideline_v_4"
+                            app:layout_constraintHorizontal_bias="0.0"
+                            app:layout_constraintStart_toEndOf="@+id/activity_main_info_fragment_guideline_v_3"
+                            app:layout_constraintTop_toBottomOf="@+id/activity_main_info_fragment_title_textView">
+
+                            <TextView
+                                android:id="@+id/activity_main_info_fragment_body_textView"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/roboto"
+                                android:textAlignment="textStart"
+                                android:textColor="@color/colorAccent"
+                                android:textSize="@dimen/main_activity_info_fragment_body_textview" />
+
+                        </ScrollView>
+
+
+                    </android.support.constraint.ConstraintLayout>
+                </android.support.constraint.ConstraintLayout>
+
+                <android.support.constraint.Guideline
+                    android:id="@+id/activity_main_info_fragment_guideline_v_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.4" />
+
+                <android.support.constraint.Guideline
+                    android:id="@+id/activity_main_info_fragment_guideline_v_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.6" />
+
+                <android.support.constraint.ConstraintLayout
+                    android:id="@+id/activity_main_info_fragment_icon_holder_background_shadow"
+                    android:layout_width="55dp"
+                    android:layout_height="55dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:background="@drawable/main_activity_info_fragment_icon_imageview_circle_shadow_background"
+                    android:elevation="13dp"
+                    app:layout_constraintBottom_toTopOf="@+id/activity_main_info_fragment_guideline_h_3"
+                    app:layout_constraintEnd_toStartOf="@+id/activity_main_info_fragment_guideline_v_2"
+                    app:layout_constraintStart_toStartOf="@+id/activity_main_info_fragment_guideline_v_1"
+                    app:layout_constraintTop_toTopOf="@+id/activity_main_info_fragment_guideline_h_1">
+
+                        <android.support.constraint.ConstraintLayout
+                            android:id="@+id/activity_main_info_fragment_icon_holder_background_white"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/main_activity_info_fragment_icon_imageview_circle_white_background"
+                            android:elevation="3dp">
+
+                                <ImageView
+                                    android:id="@+id/activity_main_info_fragment_icon_imageView"
+                                    android:layout_width="0dp"
+                                    android:layout_height="0dp"
+                                    android:padding="10dp"
+                                    android:contentDescription="@string/none"
+                                    android:elevation="4dp"
+                                    android:src="@drawable/fishpott_splash_icon"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                        </android.support.constraint.ConstraintLayout>
+
+                </android.support.constraint.ConstraintLayout>
+
+
+</android.support.constraint.ConstraintLayout>

@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root_newstats_activity"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorAccent"
+    tools:context="com.fishpott.fishpott5.Activities.NewsStatsActivity">
+
+    <android.support.constraint.Guideline
+        android:id="@+id/activity_suggestedlinkupsactivity_guideline_h_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.08" />
+
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/activity_suggestedlinkupsactivity_constraint_layout_2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/colorPrimaryTitleBar"
+        app:layout_constraintBottom_toTopOf="@+id/activity_suggestedlinkupsactivity_guideline_h_1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+
+        <android.support.constraint.Guideline
+            android:id="@+id/activity_suggestedlinkupsactivity_constraintlayout2_guideline_v_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.15" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/activity_suggestedlinkupsactivity_constraintlayout2_guideline_v_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.85" />
+
+
+        <TextView
+            android:id="@+id/activity_suggestedlinkupsactivity_constraintlayout2_title_textview"
+            style="@style/ContactsActivityHintStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:textColor="@color/colorAccent"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="@+id/activity_suggestedlinkupsactivity_constraint_layout_2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/activity_suggestedlinkupsactivity_constraintlayout2_guideline_v_1"
+            app:layout_constraintTop_toTopOf="@+id/activity_suggestedlinkupsactivity_constraint_layout_2" />
+
+
+        <ImageView
+            android:id="@+id/activity_suggestedlinkupsactivity_constraintlayout2_forward_imageview"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="12dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="12dp"
+            android:contentDescription="@string/none"
+            android:tint="@color/colorAccent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/activity_suggestedlinkupsactivity_constraintlayout2_guideline_v_1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/forgot_password_arrow_back" />
+
+    </android.support.constraint.ConstraintLayout>
+
+    <ProgressBar
+        android:id="@+id/activity_suggestedlinkupsactivity_loader"
+        style="@style/ProgressBarBlack"
+        android:layout_width="26dp"
+        android:layout_height="32dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/activity_suggestedlinkupsactivity_swiperefreshayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/activity_suggestedlinkupsactivity_guideline_h_1" />
+
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/activity_suggestedlinkupsactivity_swiperefreshayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/messagebox_contacts_activity_edittext"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/activity_suggestedlinkupsactivity_guideline_h_1">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/chat_messages_recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+    <ImageView
+        android:id="@+id/emojiicon_contacts_activity_imageview"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginStart="4dp"
+        android:src="@drawable/smile_icon"
+        android:contentDescription="@string/none"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/messagebox_contacts_activity_edittext"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/messagebox_contacts_activity_edittext"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:ems="10"
+        android:fontFamily="@font/roboto"
+        android:gravity="top|start"
+        android:hint="@string/express_yourself"
+        android:visibility="gone"
+        android:inputType="textMultiLine"
+        android:labelFor="@id/fragment_loadsharesforposting_sharesprice_edit_text"
+        android:maxLength="500"
+        android:maxLines="20"
+        android:minLines="1"
+        android:scrollbars="vertical"
+        android:textColor="@drawable/login_activity_input_text_color"
+        android:textCursorDrawable="@drawable/cursor_color_for_edittext"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/sendicon_contacts_activity_imageview"
+        app:layout_constraintStart_toEndOf="@+id/emojiicon_contacts_activity_imageview" />
+
+    <ImageView
+        android:id="@+id/activity_suggestedlinkupsactivity_reload_imageview"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:visibility="invisible"
+        android:contentDescription="@string/none"
+        android:src="@drawable/activity_suggestedlinkupsactivity_reload_imageview"
+        app:layout_constraintBottom_toBottomOf="@+id/activity_suggestedlinkupsactivity_swiperefreshayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/activity_suggestedlinkupsactivity_guideline_h_1" />
+
+    <ImageView
+        android:id="@+id/sendicon_contacts_activity_imageview"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginStart="4dp"
+        android:src="@drawable/send_icon"
+        android:visibility="gone"
+        android:contentDescription="@string/none"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/messagebox_contacts_activity_edittext" />
+
+</android.support.constraint.ConstraintLayout>

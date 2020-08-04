@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape
+            android:innerRadiusRatio="2"
+            android:shape="oval"
+            android:thicknessRatio="2"
+            android:useLevel="false" >
+            <solid android:color="@color/colorNewsDark" />
+
+            <size
+                android:height="148dip"
+                android:width="148dip" />
+        </shape>
+    </item>
+</selector>

@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorUpdateActivityBackground"
+    tools:context="com.fishpott.fishpott5.Activities.UpdateActivity">
+
+    <android.support.constraint.Guideline
+        android:id="@+id/update_activity_h_guideline1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.4" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/update_activity_v_guideline1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.052083332" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/update_activity_v_guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.95" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/update_activity_h_guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.53" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/update_activity_h_guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.75" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/update_activity_h_guideline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.85" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/update_activity_h_guideline5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.95" />
+
+
+    <android.support.constraint.Guideline
+        android:id="@+id/update_activity_v_guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.3" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/update_activity_v_guideline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.7" />
+
+    <ImageView
+        android:id="@+id/update_activity_imageView1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:contentDescription="@string/none"
+        app:layout_constraintBottom_toTopOf="@+id/update_activity_h_guideline1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/update_activity_cover_image" />
+
+    <TextView
+        android:id="@+id/update_activity_textview1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/update_activity_update_for_a_better_fishpott"
+        android:textAlignment="center"
+        android:textColor="@color/colorAccent"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toTopOf="@+id/update_activity_h_guideline2"
+        app:layout_constraintEnd_toStartOf="@+id/update_activity_v_guideline2"
+        app:layout_constraintStart_toStartOf="@+id/update_activity_v_guideline1"
+        app:layout_constraintTop_toBottomOf="@+id/update_activity_imageView1" />
+
+    <TextView
+        android:id="@+id/update_activity_textview2"
+        android:layout_width="0dp"
+        android:layout_height="56dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/update_activity_an_update_is_available_with_new_features_better_performance_bug_fixes_and_more"
+        android:textAlignment="center"
+        android:textColor="@color/colorAccent"
+        app:layout_constraintBottom_toTopOf="@+id/update_activity_h_guideline3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/update_activity_v_guideline1"
+        app:layout_constraintTop_toBottomOf="@+id/update_activity_textview1"
+        app:layout_constraintVertical_bias="0.094" />
+
+    <Button
+        android:id="@+id/update_activity_button1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/update_activity_update_button"
+        android:text="@string/update_activity_update"
+        android:textColor="@drawable/update_activity_update_button_color"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/update_activity_h_guideline4"
+        app:layout_constraintEnd_toStartOf="@+id/update_activity_v_guideline4"
+        app:layout_constraintStart_toStartOf="@+id/update_activity_v_guideline3"
+        app:layout_constraintTop_toTopOf="@+id/update_activity_h_guideline3" />
+
+    <TextView
+        android:id="@+id/update_activity_textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/update_activity_not_now"
+        android:visibility="invisible"
+        android:clickable="false"
+        android:textColor="@android:color/darker_gray"
+        app:layout_constraintBottom_toTopOf="@+id/update_activity_h_guideline5"
+        app:layout_constraintEnd_toStartOf="@+id/update_activity_v_guideline2"
+        app:layout_constraintHorizontal_bias="0.517"
+        app:layout_constraintStart_toStartOf="@+id/update_activity_v_guideline1"
+        app:layout_constraintTop_toTopOf="@+id/update_activity_h_guideline4"
+        app:layout_constraintVertical_bias="1.0" />
+
+</android.support.constraint.ConstraintLayout>
