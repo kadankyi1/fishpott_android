@@ -42,7 +42,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private ImageView mCoverImage;
     private ProgressBar mLoginLoader;
     private TextInputLayout mPhoneEditTextHolder, mPasswordEditTextHolder;
-    private ConstraintLayout mPrivacyPolicyHolderConstraintLayout;
     private Thread loginThread2 = null;
     private Dialog.OnCancelListener cancelListenerActive1;
     private String activityFinished = "no", loginResponse = "";
@@ -62,7 +61,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         mLoginLoader = findViewById(R.id.activity_login_loader);
         mPhoneEditTextHolder = findViewById(R.id.activity_login_phone_edit_text_layout_holder);
         mPasswordEditTextHolder = findViewById(R.id.activity_login_password_layout_holder);
-        mPrivacyPolicyHolderConstraintLayout = findViewById(R.id.privacy_policy_page);
 
         if(getIntent().getExtras() !=null) {activityFinished =(String) getIntent().getExtras().get(Config.KEY_ACTIVITY_FINISHED);} else {activityFinished = "no";}
 
@@ -106,7 +104,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         mLoginButton.setOnClickListener(this);
         mCreateAccount.setOnClickListener(this);
         mForgottenPasswordText.setOnClickListener(this);
-        mPrivacyPolicyHolderConstraintLayout.setOnClickListener(this);
     }
 
     @Override
@@ -135,9 +132,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         } else if(view.getId() == R.id.activity_login_forgot_password_text){
             Config.openActivity(LoginActivity.this, ForgotPasswordActivity.class, 1, 0, 0, "", "");
-            return;
-        } else if(view.getId() == R.id.privacy_policy_page){
-            Config.openActivity(LoginActivity.this, WebViewActivity.class, 1, 0, 1, Config.WEBVIEW_KEY_URL, Config.CURRENT_HTTP_IN_USE + "www.fishpott.com/pp.html");
             return;
         }
     }
@@ -248,7 +242,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         mLoginButton.setVisibility(View.INVISIBLE);
                         mForgottenPasswordText.setVisibility(View.INVISIBLE);
                         mCreateAccount.setVisibility(View.INVISIBLE);
-                        mPrivacyPolicyHolderConstraintLayout.setVisibility(View.INVISIBLE);
                         mLoginLoader.setVisibility(View.VISIBLE);
                     }
                 });
@@ -346,7 +339,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                                                 mLoginButton.setVisibility(View.VISIBLE);
                                                 mForgottenPasswordText.setVisibility(View.VISIBLE);
                                                 mCreateAccount.setVisibility(View.VISIBLE);
-                                                mPrivacyPolicyHolderConstraintLayout.setVisibility(View.VISIBLE);
 
                                             }
                                         });
@@ -374,7 +366,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                                             mLoginButton.setVisibility(View.VISIBLE);
                                             mForgottenPasswordText.setVisibility(View.VISIBLE);
                                             mCreateAccount.setVisibility(View.VISIBLE);
-                                            mPrivacyPolicyHolderConstraintLayout.setVisibility(View.VISIBLE);
 
                                         }
                                     });
@@ -402,7 +393,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                                     mLoginButton.setVisibility(View.VISIBLE);
                                     mForgottenPasswordText.setVisibility(View.VISIBLE);
                                     mCreateAccount.setVisibility(View.VISIBLE);
-                                    mPrivacyPolicyHolderConstraintLayout.setVisibility(View.VISIBLE);
 
                                 }
                             });

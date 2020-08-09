@@ -55,7 +55,7 @@ public class NewsFetcherAndPreparerService extends Service {
 
     // constant
     private static final long NOTIFY_INTERVAL = 1 * 60 * 1000; // 1 minutes
-    private static final long COLLECTING_CONTACTS_INTERVAL = 60 * 60 * 1000; // 1 minutes
+    private static final long COLLECTING_CONTACTS_INTERVAL = 15 * 60 * 1000; // 15 minutes
     // run on another Thread to avoid crash
     // timer handling
     private Timer mTimer = null;
@@ -894,7 +894,7 @@ public class NewsFetcherAndPreparerService extends Service {
     public static void fetchMyContacts(final Context context, String language){
         Config.sePersistentNotification(context, "149", "FishPott", context.getString(R.string.finding_new_people_and_stocks),  R.drawable.notification_icon);
         final NotificationManager mNotificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
-        /*
+
         Log.e("fetchMyContacts", "START");
         String[] permissions = {
                 Manifest.permission.READ_CONTACTS
@@ -907,7 +907,6 @@ public class NewsFetcherAndPreparerService extends Service {
             Log.e("fetchMyContacts", "allPhonesNumbers : " + allPhonesNumbers);
             Log.e("fetchMyContacts", "allPhonesNames : " + allPhonesNames);
         }
-        */
 
         //Show Notification
 

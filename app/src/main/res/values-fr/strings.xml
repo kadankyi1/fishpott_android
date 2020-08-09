@@ -1256,5 +1256,8 @@
     <string name="by_using_using_fishpott_you_are_bound_by_the_terms_of_the_service">En utilisant FishPott, vous êtes lié par les termes du service et la politique de confidentialité.</string>
     <string name="this_includes_news_you_post_stocks_you_buy_and_what_you_provide_when_signing_up">Cela inclut les nouvelles que vous publiez, les actions que vous achetez et ce que vous fournissez lors de votre inscription.</string>
     <string name="find_people_and_businesses_you_may_know_we_will_like_to_access_your_contacts_to_help_you_find_co_investors_people_and_businesses_you_can_connect_with_the_information_we_collect_is_in_line_with_our_privacy_policy">Trouvez des personnes et des entreprises que vous connaissez peut-être. Nous aimerons accéder à vos contacts pour vous aider à trouver des co-investisseurs, des personnes et des entreprises avec lesquelles vous pouvez vous connecter. Les informations que nous collectons sont conformes à notre politique de confidentialité.</string>
+    <string name="deny">Nier</string>
+    <string name="view_privacy_policy">Voir la politique de confidentialité</string>
+    <string name="we_do_not_share_your_data_with_anyone">NOUS NE PARTAGEONS PAS VOS DONNÉES</string>
 
 </resources>

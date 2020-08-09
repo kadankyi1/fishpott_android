@@ -153,4 +153,34 @@
         app:layout_constraintStart_toStartOf="@+id/start_activity_v_guideline1"
         app:layout_constraintTop_toTopOf="@+id/start_activity_fpLogoimageView" />
 
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/start_activity_privacypolicy_holder"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        android:layout_marginTop="32dp"
+        android:background="@color/colorBlackTransparent"
+        android:padding="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/start_activity_startbutton"
+        app:layout_constraintVertical_bias="1">
+
+        <TextView
+            android:id="@+id/start_activity_privacypolicy_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/view_privacy_policy"
+            android:textAlignment="center"
+            android:textColor="@color/colorAccent"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </android.support.constraint.ConstraintLayout>
 </android.support.constraint.ConstraintLayout>

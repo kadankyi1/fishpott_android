@@ -20,7 +20,6 @@ public class SignupStartFragment extends Fragment implements View.OnClickListene
 
     private ImageView mBackImageView;
     private Button mPersonalAccountStartButton, mBusinessAccountStartButton;
-    private ConstraintLayout mPrivacyPolicyHolderConstraintLayout;
     private View view = null;
 
     public static SignupStartFragment newInstance() {
@@ -39,12 +38,10 @@ public class SignupStartFragment extends Fragment implements View.OnClickListene
         mBackImageView = view.findViewById(R.id.fragment_of_signupactivity_signupstart_back_imageview);
         mPersonalAccountStartButton = view.findViewById(R.id.fragment_of_signupactivity_signupstart_personalstartbutton);
         mBusinessAccountStartButton = view.findViewById(R.id.fragment_of_signupactivity_signupstart_businessstartbutton);
-        mPrivacyPolicyHolderConstraintLayout = view.findViewById(R.id.privacy_policy_page);
 
         mBackImageView.setOnClickListener(this);
         mPersonalAccountStartButton.setOnClickListener(this);
         mBusinessAccountStartButton.setOnClickListener(this);
-        mPrivacyPolicyHolderConstraintLayout.setOnClickListener(this);
 
         return view;
     }
@@ -59,9 +56,6 @@ public class SignupStartFragment extends Fragment implements View.OnClickListene
             Config.openFragment(getActivity().getSupportFragmentManager(), R.id.activity_signup_fragment_holder, SignupPersonalStage1Fragment.newInstance(), "SignupPersonalStage1Fragment", 1);
         } else if (view.getId() == R.id.fragment_of_signupactivity_signupstart_businessstartbutton) {
             Config.openFragment(getActivity().getSupportFragmentManager(),R.id.activity_signup_fragment_holder, SignupBusinessStage1Fragment.newInstance(), "SignupBusinessStage1Fragment", 1);
-        } else if(view.getId() == R.id.privacy_policy_page){
-            Config.openActivity(getActivity(), WebViewActivity.class, 1, 0, 1, Config.WEBVIEW_KEY_URL, Config.CURRENT_HTTP_IN_USE + "www.fishpott.com/pp.html");
-            return;
         }
     }
 

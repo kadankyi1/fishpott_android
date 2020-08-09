@@ -1276,5 +1276,8 @@
     <string name="to_give_you_a_customized_fishpott_experience_the_news_stocks_and_co_investor_suggestions_and_messages_you_see_are_all_tailored_to_you_based_on_the_data_we_collect">To give you a customized FishPott experience. Some data collected are:</string>
     <string name="we_use_this_to_find_messages_other_users_send_you_we_also_use_it_to_find_other_users_on_fishpott_you_may_know_to_help_you_connect_with_them_by_suggesting_them_to_you_or_you_to_them_we_do_this_periodically">We periodically use this to deliver messages from users and suggest users you may know to you to connect with.</string>
     <string name="find_people_and_businesses_you_may_know_we_will_like_to_access_your_contacts_to_help_you_find_co_investors_people_and_businesses_you_can_connect_with_the_information_we_collect_is_in_line_with_our_privacy_policy">Find people and businesses you may know. We will like to access your contacts to help you find co-investors, people and businesses you can connect with. The information we collect is in line with our privacy policy.</string>
+    <string name="deny">Deny</string>
+    <string name="view_privacy_policy">View Privacy Policy</string>
+    <string name="we_do_not_share_your_data_with_anyone">WE DO NOT SHARE YOUR DATA</string>
 
 </resources>

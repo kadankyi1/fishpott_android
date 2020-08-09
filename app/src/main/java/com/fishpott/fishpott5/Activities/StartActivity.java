@@ -10,6 +10,7 @@ import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Handler;
 import android.os.Looper;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -41,6 +42,7 @@ public class StartActivity extends AppCompatActivity implements Animation.Animat
     private TextView mLangChineseTextView;
     private Button mStartButton;
     private ImageView mFpLogoStaticImageView;
+    private ConstraintLayout mPrivacyPolicyHolderConstraintLayout;
     private ProgressBar mProgressBar;
     private Thread appInitThread2 = null;
     private Dialog.OnCancelListener cancelListenerActive1;
@@ -95,10 +97,12 @@ public class StartActivity extends AppCompatActivity implements Animation.Animat
         mLangChineseTextView = findViewById(R.id.start_activity_chineseLanguageTextView);
         mStartButton = findViewById(R.id.start_activity_startbutton);
         mFpLogoStaticImageView = findViewById(R.id.start_activity_fpStaticimageView);
+        mPrivacyPolicyHolderConstraintLayout = findViewById(R.id.start_activity_privacypolicy_holder);
 
         mLangEnglishTextView.setOnClickListener(this);
         mLangFrenchTextView.setOnClickListener(this);
         mLangChineseTextView.setOnClickListener(this);
+        mPrivacyPolicyHolderConstraintLayout.setOnClickListener(this);
         mStartButton.setOnClickListener(this);
 
         // STARTING ANIMATION
@@ -124,6 +128,7 @@ public class StartActivity extends AppCompatActivity implements Animation.Animat
                 mProgressBar.setVisibility(View.VISIBLE);
             } else {
                 mStartButton.setVisibility(View.VISIBLE);
+                mPrivacyPolicyHolderConstraintLayout.setVisibility(View.VISIBLE);
             }
             mFpLogoImageView.setVisibility(View.GONE);
         }
@@ -145,6 +150,9 @@ public class StartActivity extends AppCompatActivity implements Animation.Animat
             boldenLanguageChosenText("zh");
         } else if(view.getId() ==  R.id.start_activity_startbutton){
             Config.openActivity(StartActivity.this, SliderActivity.class, 1, 0, 0, "", "");
+        } else if(view.getId() == R.id.start_activity_privacypolicy_holder){
+            Config.openActivity(StartActivity.this, WebViewActivity.class, 1, 0, 1, Config.WEBVIEW_KEY_URL, Config.CURRENT_HTTP_IN_USE + "www.fishpott.com/pp.html");
+            return;
         }
     }
 
@@ -170,6 +178,8 @@ public class StartActivity extends AppCompatActivity implements Animation.Animat
         } else {
             mStartButton.setAlpha(0f);
             mStartButton.setVisibility(View.VISIBLE);
+            mPrivacyPolicyHolderConstraintLayout.setAlpha(0f);
+            mPrivacyPolicyHolderConstraintLayout.setVisibility(View.VISIBLE);
         }
         mLangEnglishTextView.setAlpha(0f);
         mLangEnglishTextView.setVisibility(View.VISIBLE);
@@ -186,12 +196,13 @@ public class StartActivity extends AppCompatActivity implements Animation.Animat
         mLangFrenchTextView.animate().alpha(1f).setDuration(mediumAnimationTime).setListener(null);
         mLangChineseTextView.animate().alpha(1f).setDuration(mediumAnimationTime).setListener(null);
         mStartButton.animate().alpha(1f).setDuration(mediumAnimationTime).setListener(null);
+        mPrivacyPolicyHolderConstraintLayout.animate().alpha(1f).setDuration(mediumAnimationTime).setListener(null);
         mProgressBar.animate().alpha(1f).setDuration(mediumAnimationTime).setListener(null);
 
         if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
             mFpCoverImageView.animate().alpha(1f).setDuration(mediumAnimationTime).setListener(null);
         }
-        if(Config.userIsLoggedIn(StartActivity.this)){mProgressBar.setVisibility(View.VISIBLE);} else {mStartButton.setVisibility(View.VISIBLE);}
+        if(Config.userIsLoggedIn(StartActivity.this)){mProgressBar.setVisibility(View.VISIBLE);} else {mStartButton.setVisibility(View.VISIBLE);mPrivacyPolicyHolderConstraintLayout.setVisibility(View.VISIBLE);}
         new Handler().postDelayed(new Runnable() {
 
             @Override

@@ -7,7 +7,8 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:fadeScrollbars="false">
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -28,6 +29,20 @@
 
 
             <TextView
+                android:id="@+id/sharing_disclosure"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-condensed"
+                android:gravity="start"
+                android:text="@string/we_do_not_share_your_data_with_anyone"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/intro_pp_dialog" />
+
+
+            <TextView
                 android:id="@+id/url_pp_dialog"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -38,7 +53,7 @@
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/intro_pp_dialog" />
+                app:layout_constraintTop_toBottomOf="@+id/sharing_disclosure" />
 
             <TextView
                 android:id="@+id/url_tc_dialog"
@@ -154,10 +169,9 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/body_info2_collected_pp_dialog" />
 
-
             <Button
-                android:id="@+id/agree_button_pp_dialog"
-                android:layout_width="match_parent"
+                android:id="@+id/deny_button_pp_dialog"
+                android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/login_activity_dialog_text2"
                 android:layout_centerHorizontal="true"
@@ -165,17 +179,39 @@
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
+                android:padding="5dp"
+                android:background="@drawable/button_white_background_pressed_gray"
+                android:fontFamily="sans-serif-condensed"
+                android:gravity="center_vertical|center_horizontal"
+                android:text="@string/deny"
+                android:textColor="@color/colorPrimaryDark"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/agree_button_pp_dialog"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/final_warning_pp_dialog" />
+
+
+            <Button
+                android:id="@+id/agree_button_pp_dialog"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/login_activity_dialog_text2"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:padding="5dp"
                 android:background="@drawable/start_a_fishpott_acc_button_background"
                 android:fontFamily="sans-serif-condensed"
                 android:gravity="center_vertical|center_horizontal"
-                android:padding="5dp"
                 android:text="@string/login_activity_i_agree"
                 android:textColor="@drawable/black_button_pressed_white_color"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/final_warning_pp_dialog"
-                app:layout_constraintVertical_bias="0.050000012" />
+                app:layout_constraintStart_toEndOf="@+id/deny_button_pp_dialog"
+                app:layout_constraintTop_toBottomOf="@+id/final_warning_pp_dialog" />
+
 
             <android.support.constraint.Guideline
                 android:id="@+id/login_activity_dialog_guideline_h_1"

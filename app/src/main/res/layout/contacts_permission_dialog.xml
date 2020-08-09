@@ -7,7 +7,9 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:scrollbars="vertical"
+        android:fadeScrollbars="false">
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -28,6 +30,20 @@
 
 
             <TextView
+                android:id="@+id/sharing_disclosure"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-condensed"
+                android:gravity="start"
+                android:text="@string/we_do_not_share_your_data_with_anyone"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/intro_pp_dialog" />
+
+
+            <TextView
                 android:id="@+id/url_pp_dialog"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -38,7 +54,7 @@
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/intro_pp_dialog" />
+                app:layout_constraintTop_toBottomOf="@+id/sharing_disclosure" />
 
             <TextView
                 android:id="@+id/url_tc_dialog"
@@ -119,7 +135,7 @@
                 android:fontFamily="sans-serif-condensed"
                 android:gravity="center_vertical|center_horizontal"
                 android:padding="5dp"
-                android:text="@string/login_activity_dialog_cancel"
+                android:text="@string/deny"
                 android:textColor="@color/colorPrimaryDark"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"

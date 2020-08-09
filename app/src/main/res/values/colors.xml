@@ -10,6 +10,7 @@
     <color name="colorAccentTransparent">#00000000</color>
     <color name="colorToastBlack">#333333</color>
     <color name="colorAccentGray">#c2c2c2</color>
+    <color name="colorBlackTransparent">#B9000000</color>
 
     <!-- UPDATE ACTIVITY -->
     <color name="colorFishPottOrange">#ec9102</color>

@@ -905,7 +905,7 @@ public class Config {
             TextView mPrivacyPolicyTextView = dialog.findViewById(R.id.url_pp_dialog);
             TextView mTermsOfServiceTextView = dialog.findViewById(R.id.url_tc_dialog);
             Button positiveDialogButton = dialog.findViewById(R.id.agree_button_pp_dialog);
-
+            Button negativeDialogButton = dialog.findViewById(R.id.deny_button_pp_dialog);
             mPrivacyPolicyTextView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -924,6 +924,12 @@ public class Config {
                 @Override
                 public void onClick(View v) {
                     dialog.cancel();
+                }
+            });
+            negativeDialogButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    dialog.dismiss();
                 }
             });
             dialog.show();

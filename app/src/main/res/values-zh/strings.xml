@@ -1254,5 +1254,8 @@
     <string name="by_using_using_fishpott_you_are_bound_by_the_terms_of_the_service">通過使用FishPott，您將受到服務和隱私政策條款的約束。</string>
     <string name="this_includes_news_you_post_stocks_you_buy_and_what_you_provide_when_signing_up">這包括您發布的新聞，購買的股票以及註冊時提供的信息。</string>
     <string name="find_people_and_businesses_you_may_know_we_will_like_to_access_your_contacts_to_help_you_find_co_investors_people_and_businesses_you_can_connect_with_the_information_we_collect_is_in_line_with_our_privacy_policy">查找您可能認識的人和企業。 我們將訪問您的聯繫人，以幫助您找到可以聯繫的共同投資者，人員和企業。 我們收集的信息符合我們的隱私政策。</string>
+    <string name="deny">拒絕</string>
+    <string name="view_privacy_policy">查看隱私政策</string>
+    <string name="we_do_not_share_your_data_with_anyone">我們不分享您的數據</string>
 
 </resources>
