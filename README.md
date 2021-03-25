@@ -58,6 +58,6 @@
   
 ### Author
 
-* **Dankyi Anno Kwaku** - *FishPot Company Limited*
+* **Dankyi Anno Kwaku**
 
 
