@@ -281,6 +281,7 @@ public class SharesCenterFragment extends Fragment {
                 mBuyButton.setOnClickListener(innerClickListener);
                 mViewValueHistoryButton.setOnClickListener(innerClickListener);
                 mViewCompany.setOnClickListener(innerClickListener);
+                mShareCompanyName.setOnClickListener(innerClickListener);
             }
         }
 
@@ -328,7 +329,8 @@ public class SharesCenterFragment extends Fragment {
             Config.openActivity4(getActivity(), SellersListActivity.class, 1, 0, 1, "BUY_INFO", buyData);
         } else if(v.getId() == R.id.history_button){
             Config.openActivity(getActivity(), StockProfileActivity.class, 1, 0, 1, "shareparentid",  ShareHostedListDataGenerators.getAllData().get(position).getShareId());
-        } else if(v.getId() == R.id.shares_offering_company_name_view_profile){
+        } else if(v.getId() == R.id.shares_offering_company_name_view_profile || v.getId() == R.id.shares_offering_company_name){
+            Log.e("SHAREPARENTID", "CENTER SIDE LOGO : " + ShareHostedListDataGenerators.getAllData().get(position).getCompanyPottName());
             Config.openActivity(getActivity(), ProfileOfDifferentPottActivity.class, 1, 0, 1, "pottname", ShareHostedListDataGenerators.getAllData().get(position).getCompanyPottName());
         }
     }

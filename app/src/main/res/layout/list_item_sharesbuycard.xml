@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="180dp"
+    android:layout_height="wrap_content"
     android:layout_margin="5dp"
     android:background="@drawable/rounded_corners_shareforsale_horizontal_item_background"
     android:elevation="2dp">
@@ -51,11 +51,12 @@
         android:id="@+id/item_for_sale_price_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:text="123"
         android:textColor="@color/colorSharesForSaleDark"
         android:textSize="18sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/list_item_news_type_14_newsfeed_fragment_itempricelabel_textview"
         app:layout_constraintEnd_toEndOf="@+id/list_item_news_type_14_newsfeed_fragment_itempricelabel_textview"
         app:layout_constraintHorizontal_chainStyle="spread_inside"
         app:layout_constraintStart_toStartOf="@+id/list_item_news_type_14_newsfeed_fragment_itempricelabel_textview"
@@ -66,14 +67,14 @@
         android:id="@+id/item_for_sale_quantity_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:text="123"
         android:textColor="@color/colorSharesForSaleDark"
         android:textSize="18sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/list_item_news_type_14_newsfeed_fragment_itemquantitylabel_textview"
         app:layout_constraintEnd_toEndOf="@+id/list_item_news_type_14_newsfeed_fragment_itemquantitylabel_textview"
         app:layout_constraintStart_toStartOf="@+id/list_item_news_type_14_newsfeed_fragment_itemquantitylabel_textview"
-        app:layout_constraintTop_toBottomOf="@+id/shares_info" />
+        app:layout_constraintTop_toTopOf="@+id/item_for_sale_price_textview" />
 
     <TextView
         android:id="@+id/list_item_news_type_14_newsfeed_fragment_itempricelabel_textview"
@@ -126,6 +127,7 @@
         android:layout_marginStart="4dp"
         android:layout_marginTop="10dp"
         android:text="@string/view_company"
+        android:visibility="invisible"
         android:textColor="@color/colorDateText"
         android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
