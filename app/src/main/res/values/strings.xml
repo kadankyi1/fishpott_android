@@ -1264,7 +1264,7 @@
     <string name="read_about_what_data_we_collect_and_how_we_use_and_store_them">Read about what data we collect and how we use and store them</string>
     <string name="finding_new_people_and_stocks">Finding new messages and suggestions for friends and stock. </string>
     <string name="finding_new_people">Finding people you may know</string>
-    <string name="it_is_important_that_you_know_what_information_fishpott_collects_and_how_you_can_control_it_we_explain_it_in_detail_in_our_privcy_policy">It is important that you know what information FishPott collects. We explain it in our privacy policy.</string>
+    <string name="it_is_important_that_you_know_what_information_fishpott_collects_and_how_you_can_control_it_we_explain_it_in_detail_in_our_privcy_policy">It is important that you know what information FishPott collects.</string>
     <string name="read_privacy_policy">Read Privacy policy.</string>
     <string name="read_terms_of_service">Read Terms of service.</string>
     <string name="why_does_fishpott_use_your_data">Why does FishPott use your data?</string>
@@ -1273,11 +1273,19 @@
     <string name="contacts_in_address_book">Contacts in address book</string>
     <string name="by_using_using_fishpott_you_are_bound_by_the_terms_of_the_service">By using FishPott, you are bound by the terms of the service and privacy policy.</string>
     <string name="this_includes_news_you_post_stocks_you_buy_and_what_you_provide_when_signing_up">This includes news you post, stocks you buy and what you provide when signing up.</string>
-    <string name="to_give_you_a_customized_fishpott_experience_the_news_stocks_and_co_investor_suggestions_and_messages_you_see_are_all_tailored_to_you_based_on_the_data_we_collect">To give you a customized FishPott experience. Some data collected are:</string>
-    <string name="we_use_this_to_find_messages_other_users_send_you_we_also_use_it_to_find_other_users_on_fishpott_you_may_know_to_help_you_connect_with_them_by_suggesting_them_to_you_or_you_to_them_we_do_this_periodically">We periodically use this to deliver messages from users and suggest users you may know to you to connect with.</string>
+    <string name="to_give_you_a_customized_fishpott_experience_the_news_stocks_and_co_investor_suggestions_and_messages_you_see_are_all_tailored_to_you_based_on_the_data_we_collect">To give you a customized FishPott experience.</string>
+    <string name="we_use_this_to_find_messages_other_users_send_you_we_also_use_it_to_find_other_users_on_fishpott_you_may_know_to_help_you_connect_with_them_by_suggesting_them_to_you_or_you_to_them_we_do_this_periodically">FishPott will ask for your permission before we access this data. The FishPott App periodically uses this data to deliver messages from users and suggest users you may know to you to connect with.</string>
     <string name="find_people_and_businesses_you_may_know_we_will_like_to_access_your_contacts_to_help_you_find_co_investors_people_and_businesses_you_can_connect_with_the_information_we_collect_is_in_line_with_our_privacy_policy">Find people and businesses you may know. We will like to access your contacts to help you find co-investors, people and businesses you can connect with. The information we collect is in line with our privacy policy.</string>
     <string name="deny">Deny</string>
     <string name="view_privacy_policy">View Privacy Policy</string>
     <string name="we_do_not_share_your_data_with_anyone">WE DO NOT SHARE YOUR DATA</string>
+    <string name="type_of_data_fishpott_collects">Type Of Data FishPott Collects</string>
+    <string name="signup_information_legal_name_age_country_gender_phone_number_usage_information_news_posts_and_comments_and_phone_contacts">Signup information(legal name, age, country, gender, phone number), usage information (news posts and comments) and phone contacts</string>
+    <string name="how_the_data_is_used">How The Data is Used</string>
+    <string name="fishpott_will_like_access_to_collect_your_phonebook_contacts">FishPott will like access to collect your phonebook contacts.</string>
+    <string name="type_of_data_being_collected">Type Of Data Being Collected</string>
+    <string name="phonebook_contacts">Phonebook Contacts</string>
+    <string name="how_does_fishpott_use_the_data">How Does FishPott Use The Data</string>
+    <string name="checking_for_new_messages_n_suggesting_other_investors_to_you_to_connect_with_n_suggesting_good_stocks_your_friends_are_buying_to_you"><![CDATA[> Checking for new messages\n> Suggesting other investors to you to connect with\n> Suggesting good stocks your friends are buying to you]]></string>
 
 </resources>

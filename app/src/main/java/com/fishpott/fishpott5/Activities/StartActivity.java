@@ -233,7 +233,7 @@ public class StartActivity extends AppCompatActivity implements Animation.Animat
                                         Config.showDialogType1(StartActivity.this, "", getString(R.string.Oops_what_you_are_looking_for_was_not_found), "", cancelListenerActive1, true, getString(R.string.setprofilepicture_activity_okay), "");
                                         finish();
                                     } else {
-                                        Config.openActivity(StartActivity.this, SuggestedLinkUpsActivity.class, 1, 2, 0, "", "");
+                                        Config.openActivity(StartActivity.this, MainActivity.class, 1, 2, 0, "", "");
                                         //Config.openActivity(StartActivity.this, SetProfilePictureActivity.class, 1, 2, 0, "", "");
                                         return;
                                     }
@@ -374,7 +374,7 @@ public class StartActivity extends AppCompatActivity implements Animation.Animat
                                     Config.showDialogType1(StartActivity.this, "", getString(R.string.Oops_what_you_are_looking_for_was_not_found), "", cancelListenerActive1, true, getString(R.string.setprofilepicture_activity_okay), "");
                                     finish();
                                 } else {
-                                    Config.openActivity(StartActivity.this, SuggestedLinkUpsActivity.class, 1, 2, 0, "", "");
+                                    Config.openActivity(StartActivity.this, MainActivity.class, 1, 2, 0, "", "");
                                     //Config.openActivity(StartActivity.this, SetProfilePictureActivity.class, 1, 2, 0, "", "");
                                     return;
                                 }

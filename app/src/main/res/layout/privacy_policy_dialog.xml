@@ -1,14 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
     <ScrollView
+        android:id="@+id/privacy_dialog_scrollview"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fadeScrollbars="false">
+        android:layout_height="300dp"
+        android:fadeScrollbars="false"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
+        >
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -19,54 +25,43 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-condensed"
-                android:gravity="start"
-                android:text="@string/it_is_important_that_you_know_what_information_fishpott_collects_and_how_you_can_control_it_we_explain_it_in_detail_in_our_privcy_policy"
-                android:textColor="@color/colorSignupFragmentIntroText"
+                android:gravity="center"
+                android:text="FISHPOTT PRIVACY POLICY"
+                android:textColor="@color/colorPrimaryDark"
                 android:textSize="18sp"
+                android:textStyle="bold"
+                android:textAlignment="center"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-
             <TextView
-                android:id="@+id/sharing_disclosure"
+                android:id="@+id/title_info1_collected_pp_dialog"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:fontFamily="sans-serif-condensed"
                 android:gravity="start"
-                android:text="@string/we_do_not_share_your_data_with_anyone"
+                android:text="WHAT INFORMATION DO WE COLLECT"
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/intro_pp_dialog" />
 
-
             <TextView
-                android:id="@+id/url_pp_dialog"
+                android:id="@+id/body_info1_collected_pp_dialog"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
                 android:fontFamily="sans-serif-condensed"
                 android:gravity="start"
-                android:text="@string/read_privacy_policy"
-                android:textColor="@color/colorDateText"
+                android:text="Personal information you disclose to us. In Short: We collect personal information that you provide to us as you our the mobile application.\n\nWhen creating an account with us as a person, we collect First Name, Last Name, Gender, Date Of Birth, Country Of Residence,Nickname/Pottname/Account Handle, Password, Referrer Nickname/Pottname/Account Handle. \n\nWhen creating an account with us as a business, we collect Business Legal Name, Business Location, Date Of Commencement, Country Of Operation, Nickname/Pottname/Account Handle, Password, Referrer Nickname/Pottname/Account Handle.\n\nWhen you are signed-up and logged in to the mobile application, we collect Phonebook and Contacts(IF YOU GIVE US PERMISSION BECAUSE WE WILL ASK BEFORE COLLECTING THIS DATA), Messages you send or receive, News You Post or View, Reactions(Likes/Dislikes/Reposting/Comments) You Make On News, Investments You Buy/Sell/Transfer, People you block, People you follow, Referrer Nickname/Pottname/Account Handle, IP address.\n\nWhen you are verifying your account, we collect Government Issued ID(Driver's License, Voter ID, etc).\n\n We collect personal information that you voluntarily provide to us when registering at the Apps, expressing an interest in obtaining information about us or our products and services, when participating in activities on the Apps (such as posting messages in our online forums or entering competitions, contests or giveaways) or otherwise contacting us.\n\nThe personal information that we collect depends on the context of your interactions with us and the Apps, the choices you make and the products and features you use. The personal information we collect can include the following Publicly Available Personal Information. We collect first name, last name, and nickname; ID; driver's license number; phone number and other similar data.\n\nPersonal Information Provided by You. We collect app usage; and other similar data. All personal information that you provide to us must be true, complete and accurate, and you must notify us of any changes to such personal information.\n\nInformation automatically collected In Short: Some information — such as IP address and/or browser and device characteristics — is collected automatically when you visit our Apps.\n\n We automatically collect certain information when you visit, use or navigate the Apps. This information does not reveal your specific identity (like your name or contact information) but may include device and usage information, such as your IP address, browser and device characteristics, operating system, language preferences, referring URLs, device name, country, location, information about how and when you use our Apps and other technical information. This information is primarily needed to maintain the security and operation of our Apps, and for our internal analytics and reporting purposes.\n\nInformation collected through our Apps In Short: We may collect information regarding your mobile device, push notifications, when you use our apps. If you use our Apps, we may also collect the following information: Mobile Device Access. We may request access or permission to certain features from your mobile device, including your phonebook and contacts, storage, and other features. If you wish to change our access or permissions, you may do so in your device's settings. \n\nMobile Device Data. We may automatically collect device information, operating system, version information and IP address. \n\nPush Notifications. We may request to send you push notifications regarding your account or the mobile application. If you wish to opt-out from receiving these types of communications, you may turn them off in your device's settings."
+                android:textColor="@color/colorSignupFragmentIntroText"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/sharing_disclosure" />
-
-            <TextView
-                android:id="@+id/url_tc_dialog"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:fontFamily="sans-serif-condensed"
-                android:gravity="start"
-                android:text="@string/read_terms_of_service"
-                android:textColor="@color/colorDateText"
-                android:textSize="18sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/url_pp_dialog" />
+                app:layout_constraintTop_toBottomOf="@+id/title_info1_collected_pp_dialog" />
 
             <TextView
                 android:id="@+id/title_why_collection_pp_dialog"
@@ -75,12 +70,12 @@
                 android:layout_marginTop="10dp"
                 android:fontFamily="sans-serif-condensed"
                 android:gravity="start"
-                android:text="@string/why_does_fishpott_use_your_data"
+                android:text="HOW DO WE USE YOUR INFORMATION"
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/url_tc_dialog" />
+                app:layout_constraintTop_toBottomOf="@+id/body_info1_collected_pp_dialog" />
 
 
             <TextView
@@ -90,7 +85,7 @@
                 android:layout_centerHorizontal="true"
                 android:fontFamily="sans-serif-condensed"
                 android:gravity="start"
-                android:text="@string/to_give_you_a_customized_fishpott_experience_the_news_stocks_and_co_investor_suggestions_and_messages_you_see_are_all_tailored_to_you_based_on_the_data_we_collect"
+                android:text=" In Short: We process your information for purposes based on legitimate business interests, the fulfillment of our contract with you, compliance with our legal obligations, and/or your consent.\n\nWe use personal information collected via our Apps for a variety of business purposes described below. We process your personal information for these purposes in reliance on our legitimate business interests, in order to enter into or perform a contract with you, with your consent, and/or for compliance with our legal obligations. We indicate the specific processing grounds we rely on next to each purpose listed below.\n\nHow Do We Use Your Phonebook and Contacts\n\nWe use this information to find other users on our platform to help you connect with them. We do this by suggesting them to you or you to them to connect with. We periodically send the phonebook and contacts to our servers, and our servers match them with other users and use that information to suggest people you may know to you. \n\nWe also use the information we collect or receive: To facilitate account creation and logon process.\n\nTo send administrative information to you. We may use your personal information to send you product, service and new feature information and/or information about changes to our terms, conditions, and policies.\n\nFulfill and manage your orders. We may use your information to fulfill and manage your orders, payments, returns, and exchanges made through the Apps.\n\nRequest Feedback. We may use your information to request feedback and to contact you about your use of our Apps. To protect our Services. We may use your information as part of our efforts to keep our Apps safe and secure (for example, for fraud monitoring and prevention).\n\nTo enable user-to-user communications. We may use your information in order to enable user-to-user communications with each user's consent. To enforce our terms, conditions and policies for Business Purposes, Legal Reasons and Contractual.\n\nTo respond to legal requests and prevent harm. If we receive a subpoena or other legal request, we may need to inspect the data we hold to determine how to respond.\n\nTo manage user accounts. We may use your information for the purposes of managing your account and keeping it in working order. To deliver services to the user. We may use your information to provide you with the requested service. To respond to user inquiries/offer support to users. We may use your information to respond to your inquiries and solve any potential issues you might have with the use of our Services.\n\nFor other Business Purposes. We may use your information for other Business Purposes, such as data analysis, identifying usage trends, determining the effectiveness of our promotional campaigns and to evaluate and improve our Apps, products, marketing and your experience. We may use and store this information in aggregated and anonymized form so that it is not associated with individual end users and does not include personal information. We will not use identifiable personal information without your consent."
                 android:textColor="@color/colorSignupFragmentIntroText"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -98,13 +93,12 @@
                 app:layout_constraintTop_toBottomOf="@+id/title_why_collection_pp_dialog" />
 
             <TextView
-                android:id="@+id/title_info1_collected_pp_dialog"
+                android:id="@+id/sharing_disclosure"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
                 android:fontFamily="sans-serif-condensed"
                 android:gravity="start"
-                android:text="@string/your_fishpott_information_content"
+                android:text="WILL YOUR INFORMATION BE SHARED WITH ANYONE"
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -112,122 +106,334 @@
                 app:layout_constraintTop_toBottomOf="@+id/body_title_why_collection_pp_dialog" />
 
             <TextView
-                android:id="@+id/body_info1_collected_pp_dialog"
+                android:id="@+id/sharing_body"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:fontFamily="sans-serif-condensed"
                 android:gravity="start"
-                android:text="@string/this_includes_news_you_post_stocks_you_buy_and_what_you_provide_when_signing_up"
+                android:text="In Short: WE DO NOT SHARE YOUR INFORMATION UNLESS MANDATED BY LAW TO DO SO OR IF YOU GIVE US PERMISSION.\n\nLegal Obligations: We may disclose your information where we are legally required to do so in order to comply with applicable law, governmental requests, a judicial proceeding, court order, or legal process, such as in response to a court order or a subpoena (including in response to public authorities to meet national security or law enforcement requirements).\n\nWe do not share your information with any other third-parties. However, other users on FishPott see what you decide to publicy post like comments, news and all other publicly available information you post, or otherwise interact with public areas of the App. Similarly, other users will be able to communicate with you within our Apps, and view your profile."
                 android:textColor="@color/colorSignupFragmentIntroText"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/title_info1_collected_pp_dialog" />
+                app:layout_constraintTop_toBottomOf="@+id/sharing_disclosure" />
+
 
             <TextView
-                android:id="@+id/title_info2_collected_pp_dialog"
+                android:id="@+id/cookies_disclosure"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
                 android:fontFamily="sans-serif-condensed"
                 android:gravity="start"
-                android:text="@string/contacts_in_address_book"
+                android:text="DO WE USE COOKIES AND OTHER TRACKING TECHNOLOGIES"
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/body_info1_collected_pp_dialog" />
-
+                app:layout_constraintTop_toBottomOf="@+id/sharing_body" />
 
             <TextView
-                android:id="@+id/body_info2_collected_pp_dialog"
+                android:id="@+id/cookies_body"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:fontFamily="sans-serif-condensed"
                 android:gravity="start"
-                android:text="@string/we_use_this_to_find_messages_other_users_send_you_we_also_use_it_to_find_other_users_on_fishpott_you_may_know_to_help_you_connect_with_them_by_suggesting_them_to_you_or_you_to_them_we_do_this_periodically"
+                android:text="We do not use cookies on our mobile applications.  "
                 android:textColor="@color/colorSignupFragmentIntroText"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/title_info2_collected_pp_dialog" />
+                app:layout_constraintTop_toBottomOf="@+id/cookies_disclosure" />
 
             <TextView
-                android:id="@+id/final_warning_pp_dialog"
+                android:id="@+id/datastorageduration_disclosure"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="10dp"
                 android:fontFamily="sans-serif-condensed"
                 android:gravity="start"
-                android:text="@string/by_using_using_fishpott_you_are_bound_by_the_terms_of_the_service"
+                android:text="HOW LONG DO WE KEEP YOUR INFORMATION"
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/body_info2_collected_pp_dialog" />
+                app:layout_constraintTop_toBottomOf="@+id/cookies_body" />
 
-            <Button
-                android:id="@+id/deny_button_pp_dialog"
-                android:layout_width="80dp"
+            <TextView
+                android:id="@+id/datastorageduration_body"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/login_activity_dialog_text2"
                 android:layout_centerHorizontal="true"
-                android:layout_marginBottom="8dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:padding="5dp"
-                android:background="@drawable/button_white_background_pressed_gray"
                 android:fontFamily="sans-serif-condensed"
-                android:gravity="center_vertical|center_horizontal"
-                android:text="@string/deny"
-                android:textColor="@color/colorPrimaryDark"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@id/agree_button_pp_dialog"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/final_warning_pp_dialog" />
-
-
-            <Button
-                android:id="@+id/agree_button_pp_dialog"
-                android:layout_width="80dp"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/login_activity_dialog_text2"
-                android:layout_centerHorizontal="true"
-                android:layout_marginBottom="8dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:padding="5dp"
-                android:background="@drawable/start_a_fishpott_acc_button_background"
-                android:fontFamily="sans-serif-condensed"
-                android:gravity="center_vertical|center_horizontal"
-                android:text="@string/login_activity_i_agree"
-                android:textColor="@drawable/black_button_pressed_white_color"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:gravity="start"
+                android:text="In Short: We keep your information for as long as necessary to fulfill the purposes outlined in this privacy policy unless otherwise required by law.\n\nWe will only keep your personal information for as long as it is necessary for the purposes set out in this privacy policy, unless a longer retention period is required or permitted by law (such as tax, accounting or other legal requirements). No purpose in this policy will require us keeping your personal information for longer than 1 year past the termination of the user's account.\n\nWhen we have no ongoing legitimate business need to process your personal information, we will either delete or anonymize it, or, if this is not possible (for example, because your personal information has been stored in backup archives), then we will securely store your personal information and isolate it from any further processing until deletion is possible. "
+                android:textColor="@color/colorSignupFragmentIntroText"
+                android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/deny_button_pp_dialog"
-                app:layout_constraintTop_toBottomOf="@+id/final_warning_pp_dialog" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/datastorageduration_disclosure" />
 
 
-            <android.support.constraint.Guideline
-                android:id="@+id/login_activity_dialog_guideline_h_1"
-                android:layout_width="wrap_content"
+            <TextView
+                android:id="@+id/safekeeping_disclosure"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                app:layout_constraintGuide_percent="0.61" />
+                android:fontFamily="sans-serif-condensed"
+                android:gravity="start"
+                android:text="HOW DO WE KEEP YOUR INFORMATION SAFE"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/datastorageduration_body" />
 
-            <android.support.constraint.Guideline
-                android:id="@+id/login_activity_dialog_guideline_h_2"
-                android:layout_width="wrap_content"
+            <TextView
+                android:id="@+id/safekeeping_body"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                app:layout_constraintGuide_percent="0.6" />
+                android:layout_centerHorizontal="true"
+                android:fontFamily="sans-serif-condensed"
+                android:gravity="start"
+                android:text="In Short: We aim to protect your personal information through a system of organizational and technical security measures.\n\nWe have implemented appropriate technical and organizational security measures designed to protect the security of any personal information we process. However, please also remember that we cannot guarantee that the internet itself is 100% secure. Although we will do our best to protect your personal information, transmission of personal information to and from our Apps is at your own risk. You should only access the services within a secure environment. "
+                android:textColor="@color/colorSignupFragmentIntroText"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/safekeeping_disclosure" />
 
+            <TextView
+                android:id="@+id/privacyrights_disclosure"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-condensed"
+                android:gravity="start"
+                android:text="WHAT ARE YOUR PRIVACY RIGHTS"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/safekeeping_body" />
+
+            <TextView
+                android:id="@+id/privacyrights_body"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="sans-serif-condensed"
+                android:gravity="start"
+                android:text="In Short: In some regions, such as the European Economic Area, you have rights that allow you greater access to and control over your personal information. You may review, change, or terminate your account at any time.\n\nIn some regions (like the European Economic Area), you have certain rights under applicable data protection laws. These may include the right (i) to request access and obtain a copy of your personal information, (ii) to request rectification or erasure; (iii) to restrict the processing of your personal information; and (iv) if applicable, to data portability. In certain circumstances, you may also have the right to object to the processing of your personal information. To make such a request, please use the contact details provided below. We will consider and act upon any request in accordance with applicable data protection laws.\n\nIf we are relying on your consent to process your personal information, you have the right to withdraw your consent at any time. Please note however that this will not affect the lawfulness of the processing before its withdrawal.\n\nIf you are resident in the European Economic Area and you believe we are unlawfully processing your personal information, you also have the right to complain to your local data protection supervisory authority. You can find their contact details here: http://ec.europa.eu/justice/data-protection/bodies/authorities/index_en.htm.\n\nIf you have questions or comments about your privacy rights, you may email us at info@fishpott.com. Account Information If you would at any time like to review or change the information in your account or terminate your account, you can:\n\n Contact us using the contact information provided. Upon your request to terminate your account, we will deactivate or delete your account and information from our active databases. However, some information may be retained in our files to prevent fraud, troubleshoot problems, assist with any investigations, enforce our Terms of Use and/or comply with legal requirements.\n\nCookies and similar technologies: Most Web browsers are set to accept cookies by default. If you prefer, you can usually choose to set your browser to remove cookies and to reject cookies. If you choose to remove cookies or reject cookies, this could affect certain features or services of our Apps. To opt-out of interest-based advertising by advertisers on our Apps visit http://www.aboutads.info/choices/.\n\nOpting out of email marketing: You can unsubscribe from our marketing email list at any time by clicking on the unsubscribe link in the emails that we send or by contacting us using the details provided below. You will then be removed from the marketing email list – however, we will still need to send you service-related emails that are necessary for the administration and use of your account. To otherwise opt-out, you may: >> Contact us using the contact information provided."
+                android:textColor="@color/colorSignupFragmentIntroText"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/privacyrights_disclosure" />
+
+            <TextView
+                android:id="@+id/databreach_disclosure"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-condensed"
+                android:gravity="start"
+                android:text="DATA BREACH"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/privacyrights_body" />
+
+            <TextView
+                android:id="@+id/databreach_body"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="sans-serif-condensed"
+                android:gravity="start"
+                android:text="A privacy breach occurs when there is unauthorized access to or collection, use, disclosure or disposal of personal information. You will be notified about data breaches when FishPot Company Limited believes you are likely to be at risk or serious harm. For example, a data breach likely to result in serious financial harm or harm to your mental or physical well-being. In the event that FishPot Company Limited becomes aware of a security breach which has resulted or may result in unauthorized access, use or disclosure of personal information, FishPot Company Limited will promptly investigate the matter and notify the applicable Supervisory Authority not later than 72 hours after having become aware of it, unless the personal data breach is unlikely to result in a risk to the rights and freedoms of natural persons.  "
+                android:textColor="@color/colorSignupFragmentIntroText"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/databreach_disclosure" />
+
+
+            <TextView
+                android:id="@+id/californians_disclosure"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-condensed"
+                android:gravity="start"
+                android:text="DO CALIFORNIA RESIDENTS HAVE SPECIFIC PRIVACY RIGHTS"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/databreach_body" />
+
+            <TextView
+                android:id="@+id/califonians_body"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="sans-serif-condensed"
+                android:gravity="start"
+                android:text="In Short: Yes, if you are a resident of California, you are granted specific rights regarding access to your personal information. \n\nCalifornia Civil Code Section 1798.83, also known as the “Shine The Light” law, permits our users who are California residents to request and obtain from us, once a year and free of charge, information about categories of personal information (if any) we disclosed to third parties for direct marketing purposes and the names and addresses of all third parties with which we shared personal information in the immediately preceding calendar year. If you are a California resident and would like to make such a request, please submit your request in writing to us using the contact information provided below.\n\nIf you are under 18 years of age, reside in California, and have a registered account with the Apps, you have the right to request removal of unwanted data that you publicly post on the Apps. To request removal of such data, please contact us using the contact information provided below, and include the email address associated with your account and a statement that you reside in California. We will make sure the data is not publicly displayed on the Apps, but please be aware that the data may not be completely or comprehensively removed from our systems. "
+                android:textColor="@color/colorSignupFragmentIntroText"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/californians_disclosure" />
+
+
+            <TextView
+                android:id="@+id/updates_disclosure"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-condensed"
+                android:gravity="start"
+                android:text="DO WE MAKE UPDATES TO THIS POLICY"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/califonians_body" />
+
+            <TextView
+                android:id="@+id/updates_body"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="sans-serif-condensed"
+                android:gravity="start"
+                android:text="In Short: Yes, we will update this policy as necessary to stay compliant with relevant laws. \n\nWe may update this privacy policy from time to time. The updated version will be effective as soon as it is accessible.\n\n If we make material changes to this privacy policy, we may notify you either by prominently posting a notice of such changes or by directly sending you a notification. We encourage you to review this privacy policy frequently to be informed of how we are protecting your information. "
+                android:textColor="@color/colorSignupFragmentIntroText"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/updates_disclosure" />
+
+
+
+            <TextView
+                android:id="@+id/review_disclosure"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-condensed"
+                android:gravity="start"
+                android:text="HOW CAN YOU REVIEW, UPDATE, OR DELETE THE DATA WE COLLECT FROM YOU"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/updates_body" />
+
+            <TextView
+                android:id="@+id/review_body"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="sans-serif-condensed"
+                android:gravity="start"
+                android:text="Based on the laws of some countries, you may have the right to request access to the personal information we collect from you, change that information, or delete it in some circumstances. To request to review, update, or delete your personal information, please send us an email at info@fishpott.com. We will respond to your request within 30 days. "
+                android:textColor="@color/colorSignupFragmentIntroText"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/review_disclosure" />
+
+
+            <TextView
+                android:id="@+id/contact_disclosure"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-condensed"
+                android:gravity="start"
+                android:text="HOW CAN YOU REVIEW, UPDATE, OR DELETE THE DATA WE COLLECT FROM YOU"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/review_body" />
+
+            <TextView
+                android:id="@+id/contact_body"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="sans-serif-condensed"
+                android:gravity="start"
+                android:text="If you have questions or comments about this policy, you may email us at info@fishpott.com or by post to:\n\nFishPot Company Limited\nHse C/11, Sraha-West,\nAshaley Botwe, Greater Accra,\nGhana."
+                android:textColor="@color/colorSignupFragmentIntroText"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/contact_disclosure" />
 
         </android.support.constraint.ConstraintLayout>
     </ScrollView>
+
+    <TextView
+        android:id="@+id/url_tc_dialog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-condensed"
+        android:gravity="start"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:text="@string/read_terms_of_service"
+        android:textColor="@color/colorDateText"
+        android:textSize="18sp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/privacy_dialog_scrollview" />
+
+    <TextView
+        android:id="@+id/final_warning_pp_dialog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:fontFamily="sans-serif-condensed"
+        android:gravity="start"
+        android:text="@string/by_using_using_fishpott_you_are_bound_by_the_terms_of_the_service"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18sp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/url_tc_dialog"/>
+
+    <Button
+        android:id="@+id/deny_button_pp_dialog"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:background="@drawable/button_white_background_pressed_gray"
+        android:fontFamily="sans-serif-condensed"
+        android:gravity="center_vertical|center_horizontal"
+        android:padding="5dp"
+        android:text="@string/deny"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_below="@+id/final_warning_pp_dialog"
+        android:layout_toStartOf="@+id/agree_button_pp_dialog"/>
+
+
+    <Button
+        android:id="@+id/agree_button_pp_dialog"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:background="@drawable/start_a_fishpott_acc_button_background"
+        android:fontFamily="sans-serif-condensed"
+        android:gravity="center_vertical|center_horizontal"
+        android:padding="5dp"
+        android:text="@string/login_activity_i_agree"
+        android:textColor="@drawable/black_button_pressed_white_color"
+        android:layout_below="@+id/final_warning_pp_dialog"
+        android:layout_alignParentEnd="true"/>
+
 </RelativeLayout>

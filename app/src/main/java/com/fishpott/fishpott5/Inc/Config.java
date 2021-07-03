@@ -902,16 +902,19 @@ public class Config {
             }
             dialog.setContentView(R.layout.privacy_policy_dialog);
 
-            TextView mPrivacyPolicyTextView = dialog.findViewById(R.id.url_pp_dialog);
+            //TextView mPrivacyPolicyTextView = dialog.findViewById(R.id.url_pp_dialog);
             TextView mTermsOfServiceTextView = dialog.findViewById(R.id.url_tc_dialog);
             Button positiveDialogButton = dialog.findViewById(R.id.agree_button_pp_dialog);
             Button negativeDialogButton = dialog.findViewById(R.id.deny_button_pp_dialog);
+            /*
             mPrivacyPolicyTextView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     openActivity(thisActivity, WebViewActivity.class, 1, 0, 1, WEBVIEW_KEY_URL, FISHPOTT_PRIVACY_POLICY);
                 }
             });
+
+             */
 
             mTermsOfServiceTextView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -949,6 +952,7 @@ public class Config {
                 dialog.setCancelable(false);
                 dialog.setCanceledOnTouchOutside(false);
             }
+
             dialog.setContentView(R.layout.contacts_permission_dialog);
 
             TextView mPrivacyPolicyTextView = dialog.findViewById(R.id.url_pp_dialog);

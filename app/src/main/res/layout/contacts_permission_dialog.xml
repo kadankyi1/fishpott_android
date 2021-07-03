@@ -21,26 +21,67 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-condensed"
                 android:gravity="start"
-                android:text="@string/find_people_and_businesses_you_may_know_we_will_like_to_access_your_contacts_to_help_you_find_co_investors_people_and_businesses_you_can_connect_with_the_information_we_collect_is_in_line_with_our_privacy_policy"
-                android:textColor="@color/colorPrimaryDark"
+                android:text="@string/fishpott_will_like_access_to_collect_your_phonebook_contacts"
+                android:textColor="@color/colorDateText"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-
             <TextView
-                android:id="@+id/sharing_disclosure"
+                android:id="@+id/type_of_data_being_collected_title"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-condensed"
                 android:gravity="start"
-                android:text="@string/we_do_not_share_your_data_with_anyone"
+                android:text="@string/type_of_data_being_collected"
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/intro_pp_dialog" />
+
+            <TextView
+                android:id="@+id/type_of_data_being_collected"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="sans-serif-condensed"
+                android:gravity="start"
+                android:text="@string/phonebook_contacts"
+                android:textColor="@color/colorSignupFragmentIntroText"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/type_of_data_being_collected_title" />
+
+
+            <TextView
+                android:id="@+id/how_do_use_data"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-condensed"
+                android:gravity="start"
+                android:text="@string/how_does_fishpott_use_the_data"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/type_of_data_being_collected"/>
+
+            <TextView
+                android:id="@+id/how_do_use_data_body"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="sans-serif-condensed"
+                android:gravity="start"
+                android:text="@string/checking_for_new_messages_n_suggesting_other_investors_to_you_to_connect_with_n_suggesting_good_stocks_your_friends_are_buying_to_you"
+                android:textColor="@color/colorSignupFragmentIntroText"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/how_do_use_data" />
 
 
             <TextView
@@ -54,7 +95,7 @@
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/sharing_disclosure" />
+                app:layout_constraintTop_toBottomOf="@+id/how_do_use_data_body" />
 
             <TextView
                 android:id="@+id/url_tc_dialog"
@@ -68,35 +109,6 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/url_pp_dialog" />
-
-            <TextView
-                android:id="@+id/title_info2_collected_pp_dialog"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:fontFamily="sans-serif-condensed"
-                android:gravity="start"
-                android:text="@string/contacts_in_address_book"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="18sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/url_tc_dialog" />
-
-
-            <TextView
-                android:id="@+id/body_info2_collected_pp_dialog"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:fontFamily="sans-serif-condensed"
-                android:gravity="start"
-                android:text="@string/we_use_this_to_find_messages_other_users_send_you_we_also_use_it_to_find_other_users_on_fishpott_you_may_know_to_help_you_connect_with_them_by_suggesting_them_to_you_or_you_to_them_we_do_this_periodically"
-                android:textColor="@color/colorSignupFragmentIntroText"
-                android:textSize="18sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/title_info2_collected_pp_dialog" />
 
             <Button
                 android:id="@+id/agree_button_pp_dialog"
@@ -117,7 +129,7 @@
                 app:layout_constraintBottom_toTopOf="@+id/cancel_button_pp_dialog"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/body_info2_collected_pp_dialog"
+                app:layout_constraintTop_toBottomOf="@+id/url_tc_dialog"
                 app:layout_constraintVertical_bias="0.050000012" />
 
 
@@ -125,7 +137,6 @@
                 android:id="@+id/cancel_button_pp_dialog"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/login_activity_dialog_text2"
                 android:layout_centerHorizontal="true"
                 android:layout_marginBottom="8dp"
                 android:layout_marginEnd="8dp"
@@ -140,6 +151,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
+                android:layout_below="@+id/url_pp_dialog"
                 app:layout_constraintTop_toBottomOf="@+id/agree_button_pp_dialog"
 
                 />

@@ -1242,11 +1242,11 @@
     <string name="read_about_what_data_we_collect_and_how_we_use_and_store_them">了解我們收集哪些數據以及如何使用和存儲它們</string>
     <string name="finding_new_people_and_stocks">尋找新的消息和建議給朋友和股票。</string>
     <string name="finding_new_people">尋找您可能認識的人</string>
-    <string name="it_is_important_that_you_know_what_information_fishpott_collects_and_how_you_can_control_it_we_explain_it_in_detail_in_our_privcy_policy">重要的是要知道FishPott收集什麼信息以及如何控制它。 我們會在隱私政策中對其進行詳細說明。</string>
+    <string name="it_is_important_that_you_know_what_information_fishpott_collects_and_how_you_can_control_it_we_explain_it_in_detail_in_our_privcy_policy">了解FishFott收集的信息很重要。</string>
     <string name="read_privacy_policy">閱讀隱私政策。</string>
     <string name="read_terms_of_service">閱讀服務條款。</string>
     <string name="why_does_fishpott_use_your_data">FishPott為什麼使用您的數據？</string>
-    <string name="to_give_you_a_customized_fishpott_experience_the_news_stocks_and_co_investor_suggestions_and_messages_you_see_are_all_tailored_to_you_based_on_the_data_we_collect">為您提供定制的FishPott體驗。 收集的一些數據是：</string>
+    <string name="to_give_you_a_customized_fishpott_experience_the_news_stocks_and_co_investor_suggestions_and_messages_you_see_are_all_tailored_to_you_based_on_the_data_we_collect">為您提供定制的FishPott體驗。</string>
     <string name="some_examples_of_data_we_collect_are">我們收集的一些數據示例如下：</string>
     <string name="your_fishpott_information_content">您的FishPott信息和內容</string>
     <string name="contacts_in_address_book">地址簿中的聯繫人</string>
@@ -1257,5 +1257,13 @@
     <string name="deny">拒絕</string>
     <string name="view_privacy_policy">查看隱私政策</string>
     <string name="we_do_not_share_your_data_with_anyone">我們不分享您的數據</string>
+    <string name="type_of_data_fishpott_collects">FishPott收集的數據類型</string>
+    <string name="signup_information_legal_name_age_country_gender_phone_number_usage_information_news_posts_and_comments_and_phone_contacts">註冊信息（法定姓名，年齡，國家，性別，電話號碼），使用情況信息（新聞和評論）以及電話聯繫方式</string>
+    <string name="how_the_data_is_used">數據如何使用</string>
+    <string name="fishpott_will_like_access_to_collect_your_phonebook_contacts">FishPott將希望訪問以收集您的電話簿聯繫人。</string>
+    <string name="type_of_data_being_collected">收集的數據類型</string>
+    <string name="phonebook_contacts">電話簿聯繫人</string>
+    <string name="how_does_fishpott_use_the_data">FishPott如何使用數據</string>
+    <string name="checking_for_new_messages_n_suggesting_other_investors_to_you_to_connect_with_n_suggesting_good_stocks_your_friends_are_buying_to_you"><![CDATA[> 檢查新消息\n> 建議其他投資者與您聯繫\n> 建議您的朋友向您購買優質股票]]></string>
 
 </resources>

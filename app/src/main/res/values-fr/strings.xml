@@ -1244,11 +1244,11 @@
     <string name="read_about_what_data_we_collect_and_how_we_use_and_store_them">Découvrez quelles données nous collectons et comment nous les utilisons et les stockons</string>
     <string name="finding_new_people_and_stocks">Trouver de nouveaux messages et suggestions pour les amis et le stock.</string>
     <string name="finding_new_people">Trouver des personnes que vous connaissez peut-être</string>
-    <string name="it_is_important_that_you_know_what_information_fishpott_collects_and_how_you_can_control_it_we_explain_it_in_detail_in_our_privcy_policy">Il est important que vous sachiez quelles informations FishPott recueille et comment vous pouvez les contrôler. Nous l\'expliquons en détail dans notre politique de confidentialité.</string>
+    <string name="it_is_important_that_you_know_what_information_fishpott_collects_and_how_you_can_control_it_we_explain_it_in_detail_in_our_privcy_policy">Il est important que vous sachiez quelles informations FishPott recueille.</string>
     <string name="read_privacy_policy">Lisez la politique de confidentialité.</string>
     <string name="read_terms_of_service">Lisez les conditions d\'utilisation.</string>
     <string name="why_does_fishpott_use_your_data">WPourquoi FishPott utilise vos données?</string>
-    <string name="to_give_you_a_customized_fishpott_experience_the_news_stocks_and_co_investor_suggestions_and_messages_you_see_are_all_tailored_to_you_based_on_the_data_we_collect">Pour vous offrir une expérience FishPott personnalisée. Certaines données collectées sont:</string>
+    <string name="to_give_you_a_customized_fishpott_experience_the_news_stocks_and_co_investor_suggestions_and_messages_you_see_are_all_tailored_to_you_based_on_the_data_we_collect">Pour vous offrir une expérience FishPott personnalisée.</string>
     <string name="some_examples_of_data_we_collect_are">Voici quelques exemples de données que nous collectons:</string>
     <string name="your_fishpott_information_content">Vos informations et contenus FishPott</string>
     <string name="contacts_in_address_book">Contacts dans le carnet d\'adresses</string>
@@ -1259,5 +1259,13 @@
     <string name="deny">Nier</string>
     <string name="view_privacy_policy">Voir la politique de confidentialité</string>
     <string name="we_do_not_share_your_data_with_anyone">NOUS NE PARTAGEONS PAS VOS DONNÉES</string>
+    <string name="type_of_data_fishpott_collects">Type de données collectées par FishPott</string>
+    <string name="signup_information_legal_name_age_country_gender_phone_number_usage_information_news_posts_and_comments_and_phone_contacts">Informations d\'inscription (nom légal, âge, pays, sexe, numéro de téléphone), informations d\'utilisation (articles d\'actualité et commentaires) et contacts téléphoniques</string>
+    <string name="how_the_data_is_used">Comment les données sont utilisées</string>
+    <string name="fishpott_will_like_access_to_collect_your_phonebook_contacts">FishPott aimera avoir accès pour collecter les contacts de votre répertoire.</string>
+    <string name="type_of_data_being_collected">Type de données collectées</string>
+    <string name="phonebook_contacts">Contacts du répertoire</string>
+    <string name="how_does_fishpott_use_the_data">Comment FishPott utilise-t-il les données</string>
+    <string name="checking_for_new_messages_n_suggesting_other_investors_to_you_to_connect_with_n_suggesting_good_stocks_your_friends_are_buying_to_you"><![CDATA[> Vérifier les nouveaux messages\n> Vous suggérer d\'autres investisseurs pour vous connecter\n> Suggérer de bonnes actions que vos amis vous achètent]]></string>
 
 </resources>

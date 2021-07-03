@@ -6,8 +6,8 @@ android {
         applicationId "com.fishpott.fishpott5"
         minSdkVersion 21
         targetSdkVersion 28
-        versionCode 18
-        versionName "2.6"
+        versionCode 19
+        versionName "2.7"
 
         multiDexEnabled true //important
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
