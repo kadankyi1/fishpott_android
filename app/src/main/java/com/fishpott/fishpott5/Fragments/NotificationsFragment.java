@@ -216,6 +216,7 @@ public class NotificationsFragment extends Fragment {
 
                 // ALL ON-CLICK LISTENERS
                 mNotificationListRootView.setOnClickListener(innerClickListener);
+                mNotificationMsgTextView.setOnClickListener(innerClickListener);
                 mNotificationPic.setOnClickListener(innerClickListener);
             }
         }
