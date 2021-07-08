@@ -787,6 +787,7 @@ public class Config {
 			intent.putExtra(dataIndex, dataValue);
 		}
 
+		intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
 		context.startActivity(intent);
 		if(includeAnimation == 1){
 			//context.overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);

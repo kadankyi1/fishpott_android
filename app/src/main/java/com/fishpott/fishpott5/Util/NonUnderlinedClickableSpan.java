@@ -51,7 +51,7 @@ public class NonUnderlinedClickableSpan extends ClickableSpan {
             //do for mentions
             text = text.substring(1, text.length());
             Log.e("LINKIFYCLICK", "text: " + text);
-            Config.openActivityWithNonActivityContext(context, ProfileOfDifferentPottActivity.class, 1, 1, "pottname", text);
+            //Config.openActivityWithNonActivityContext(context, ProfileOfDifferentPottActivity.class, 1, 1, "pottname", text);
         } else {
             // passing weblinks urls to webview activity
             //startWebViewActivity(text);

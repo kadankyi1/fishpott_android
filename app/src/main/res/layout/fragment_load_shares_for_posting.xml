@@ -96,7 +96,7 @@
                     android:hint="@string/price_per_share"
                     android:inputType="numberDecimal"
                     android:labelFor="@id/fragment_loadsharesforposting_sharesprice_edit_text"
-                    android:maxLength="3"
+                    android:maxLength="4"
                     android:textColor="@drawable/login_activity_input_text_color" />
 
             </android.support.design.widget.TextInputLayout>

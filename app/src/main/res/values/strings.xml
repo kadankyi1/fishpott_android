@@ -1043,7 +1043,7 @@
     <string name="after_selling">after selling</string>
     <string name="for_">for</string>
     <string name="per_share">per share</string>
-    <string name="consider_increading_your_price_per_share">.Consider increasing your price per share.</string>
+    <string name="consider_increading_your_price_per_share">Consider increasing your price per share.</string>
     <string name="after_returning_these_shares">after returning these shares</string>
     <string name="your_withdrawal_wallet_will_be_credited_with">Your withdrawal wallet will be credited with</string>
     <string name="transfer_successful">Transfer Successful</string>
