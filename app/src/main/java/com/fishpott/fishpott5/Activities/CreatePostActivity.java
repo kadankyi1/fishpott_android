@@ -75,7 +75,7 @@ public class CreatePostActivity extends AppCompatActivity implements View.OnClic
         mRemoveVideosIconImageView = findViewById(R.id.removenewsvideo_icon_imageview);
         mAddSharesButton = findViewById(R.id.add_shares_button);
 
-        if(Config.getSharedPreferenceInt(getApplicationContext(), Config.SHARED_PREF_KEY_USER_MEDIA_POSTING_ALLOWED) == 1){
+        if(Config.getSharedPreferenceInt(getApplicationContext(), Config.SHARED_PREF_KEY_USER_MEDIA_POSTING_ALLOWED) == 0){
             mSelectNewsImageImageView.setVisibility(View.VISIBLE);
             mSelectNewsVideoImageView.setVisibility(View.VISIBLE);
             mImagesCountConstraintLayout.setVisibility(View.VISIBLE);

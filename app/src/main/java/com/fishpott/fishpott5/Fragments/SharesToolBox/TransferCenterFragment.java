@@ -296,6 +296,11 @@ public class TransferCenterFragment extends Fragment implements View.OnClickList
         // populate the message from the cursor
         if(getActivity() != null){
             int totalCount = 1;
+            sharesNamesStringArrayList.clear();
+            sharesIdStringArrayList.clear();
+            sharesAvailableQuantityStringArrayList.clear();
+            shareCostPricesStringArrayList.clear();
+            sharesMaxPriceStringArrayList.clear();
             sharesNamesStringArrayList.add(getString(R.string.choose_shares));
             sharesIdStringArrayList.add("0");
             sharesAvailableQuantityStringArrayList.add("0");
@@ -464,6 +469,8 @@ public class TransferCenterFragment extends Fragment implements View.OnClickList
                         Config.setSharedPreferenceInt(getActivity().getApplicationContext(), Config.SHARED_PREF_KEY_UPDATE_ACTIVITY_UPDATE_VERSION_CODE, o.getInt("4"));
 
                         if (myStatus == 1) {
+                            mSharesInfoTextView.setText("");
+                            mTransferFeeTextView.setText("");
                             transferThread = new Thread(new Runnable() {
                                 @Override
                                 public void run() {

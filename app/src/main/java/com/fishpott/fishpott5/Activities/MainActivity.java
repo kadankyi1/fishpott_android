@@ -541,7 +541,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     }
                 });
                 postNewsThread.start();
-                Config.showToastType1(MainActivity.this, getString(R.string.post_is_uploading));
+                //Config.showToastType1(MainActivity.this, getString(R.string.post_is_uploading));
                 NewsFeedFragment.mNewsRecyclerView.getAdapter().notifyItemInserted(1);
             }
         }

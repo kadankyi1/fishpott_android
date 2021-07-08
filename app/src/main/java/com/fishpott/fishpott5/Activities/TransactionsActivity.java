@@ -271,11 +271,25 @@ public class TransactionsActivity extends AppCompatActivity implements View.OnCl
                 ((CreditViewHolder) holder).mAmountTextView.setText(TransactionsListDataGenerator.getAllData().get(position).getTotalCharge());
                 ((CreditViewHolder) holder).mStatusTextView.setText(TransactionsListDataGenerator.getAllData().get(position).getStatusOrBuyerName());
                 ((CreditViewHolder) holder).mNameTextView.setText(TransactionsListDataGenerator.getAllData().get(position).getQuantityOrAmount());
-                ((CreditViewHolder) holder).mAddedPottName.setText(TransactionsListDataGenerator.getAllData().get(position).getItemNameOrReceiveNumberOrCreditType());
+                //((CreditViewHolder) holder).mAddedPottName.setText(TransactionsListDataGenerator.getAllData().get(position).getItemNameOrReceiveNumberOrCreditType());
+                ((CreditViewHolder) holder).mAddedPottName.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Config.copyToClipBoardId(getApplicationContext(), "INFO", TransactionsListDataGenerator.getAllData().get(position).getItemNameOrReceiveNumberOrCreditType());
+                        Config.showToastType1(TransactionsActivity.this, "Copied");
+                    }
+                });
                 setTransactionStatusColor(TransactionsListDataGenerator.getAllData().get(position).getStatusNumber(), ((CreditViewHolder) holder).mStatusTextView);
             } else if (holder instanceof WithdrawalViewHolder) {
                 ((WithdrawalViewHolder) holder).mDateTextView.setText(TransactionsListDataGenerator.getAllData().get(position).getDate());
-                ((WithdrawalViewHolder) holder).mQuantityTextView.setText(TransactionsListDataGenerator.getAllData().get(position).getQuantityOrAmount());
+                //((WithdrawalViewHolder) holder).mQuantityTextView.setText(TransactionsListDataGenerator.getAllData().get(position).getQuantityOrAmount());
+                ((WithdrawalViewHolder) holder).mQuantityTextView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Config.copyToClipBoardId(getApplicationContext(), "INFO", TransactionsListDataGenerator.getAllData().get(position).getQuantityOrAmount());
+                        Config.showToastType1(TransactionsActivity.this, "Copied");
+                    }
+                });
                 ((WithdrawalViewHolder) holder).mAmountTextView.setText(TransactionsListDataGenerator.getAllData().get(position).getTotalCharge());
                 ((WithdrawalViewHolder) holder).mStatusTextView.setText(TransactionsListDataGenerator.getAllData().get(position).getStatusOrBuyerName());
                 ((WithdrawalViewHolder) holder).mNameTextView.setText(TransactionsListDataGenerator.getAllData().get(position).getItemNameOrReceiveNumberOrCreditType());
