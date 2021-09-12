@@ -99,10 +99,12 @@ public class StartActivity extends AppCompatActivity implements Animation.Animat
         mFpLogoStaticImageView = findViewById(R.id.start_activity_fpStaticimageView);
         mPrivacyPolicyHolderConstraintLayout = findViewById(R.id.start_activity_privacypolicy_holder);
 
+        /*
         mLangEnglishTextView.setOnClickListener(this);
         mLangFrenchTextView.setOnClickListener(this);
         mLangChineseTextView.setOnClickListener(this);
-        mPrivacyPolicyHolderConstraintLayout.setOnClickListener(this);
+         */
+        //mPrivacyPolicyHolderConstraintLayout.setOnClickListener(this);
         mStartButton.setOnClickListener(this);
 
         // STARTING ANIMATION
@@ -112,9 +114,11 @@ public class StartActivity extends AppCompatActivity implements Animation.Animat
                 mFpCoverImageView.setVisibility(View.GONE);
 
             }
+            /*
             mLangEnglishTextView.setVisibility(View.GONE);
             mLangFrenchTextView.setVisibility(View.GONE);
             mLangChineseTextView.setVisibility(View.GONE);
+             */
             mFpLogoStaticImageView.setVisibility(View.GONE);
 
             Animation moveFBLogoAnimation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.start_fp_logo_move);
@@ -128,7 +132,7 @@ public class StartActivity extends AppCompatActivity implements Animation.Animat
                 mProgressBar.setVisibility(View.VISIBLE);
             } else {
                 mStartButton.setVisibility(View.VISIBLE);
-                mPrivacyPolicyHolderConstraintLayout.setVisibility(View.VISIBLE);
+                //mPrivacyPolicyHolderConstraintLayout.setVisibility(View.VISIBLE);
             }
             mFpLogoImageView.setVisibility(View.GONE);
         }
@@ -143,11 +147,11 @@ public class StartActivity extends AppCompatActivity implements Animation.Animat
     @Override
     public void onClick(View view) {
         if(view.getId() ==  R.id.start_activity_englishLanguageTextView){
-            boldenLanguageChosenText("en");
+            //boldenLanguageChosenText("en");
         } else if(view.getId() ==  R.id.start_activity_frenchLanguageTextView){
-            boldenLanguageChosenText("fr");
+            //boldenLanguageChosenText("fr");
         } else if(view.getId() ==  R.id.start_activity_chineseLanguageTextView){
-            boldenLanguageChosenText("zh");
+            //boldenLanguageChosenText("zh");
         } else if(view.getId() ==  R.id.start_activity_startbutton){
             Config.openActivity(StartActivity.this, SliderActivity.class, 1, 0, 0, "", "");
         } else if(view.getId() == R.id.start_activity_privacypolicy_holder){
@@ -178,31 +182,41 @@ public class StartActivity extends AppCompatActivity implements Animation.Animat
         } else {
             mStartButton.setAlpha(0f);
             mStartButton.setVisibility(View.VISIBLE);
-            mPrivacyPolicyHolderConstraintLayout.setAlpha(0f);
-            mPrivacyPolicyHolderConstraintLayout.setVisibility(View.VISIBLE);
+            //mPrivacyPolicyHolderConstraintLayout.setAlpha(0f);
+            //mPrivacyPolicyHolderConstraintLayout.setVisibility(View.VISIBLE);
         }
+        /*
         mLangEnglishTextView.setAlpha(0f);
         mLangEnglishTextView.setVisibility(View.VISIBLE);
         mLangFrenchTextView.setAlpha(0f);
         mLangFrenchTextView.setVisibility(View.VISIBLE);
         mLangChineseTextView.setAlpha(0f);
         mLangChineseTextView.setVisibility(View.VISIBLE);
+         */
         if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
             mFpCoverImageView.setAlpha(0f);
             mFpCoverImageView.setVisibility(View.VISIBLE);
         }
         int mediumAnimationTime = getResources().getInteger(android.R.integer.config_mediumAnimTime);
+        /*
         mLangEnglishTextView.animate().alpha(1f).setDuration(mediumAnimationTime).setListener(null);
         mLangFrenchTextView.animate().alpha(1f).setDuration(mediumAnimationTime).setListener(null);
         mLangChineseTextView.animate().alpha(1f).setDuration(mediumAnimationTime).setListener(null);
+         */
         mStartButton.animate().alpha(1f).setDuration(mediumAnimationTime).setListener(null);
-        mPrivacyPolicyHolderConstraintLayout.animate().alpha(1f).setDuration(mediumAnimationTime).setListener(null);
+        //mPrivacyPolicyHolderConstraintLayout.animate().alpha(1f).setDuration(mediumAnimationTime).setListener(null);
         mProgressBar.animate().alpha(1f).setDuration(mediumAnimationTime).setListener(null);
 
         if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
             mFpCoverImageView.animate().alpha(1f).setDuration(mediumAnimationTime).setListener(null);
         }
-        if(Config.userIsLoggedIn(StartActivity.this)){mProgressBar.setVisibility(View.VISIBLE);} else {mStartButton.setVisibility(View.VISIBLE);mPrivacyPolicyHolderConstraintLayout.setVisibility(View.VISIBLE);}
+        if(Config.userIsLoggedIn(StartActivity.this))
+        {
+            mProgressBar.setVisibility(View.VISIBLE);
+        } else {
+            mStartButton.setVisibility(View.VISIBLE);
+            //mPrivacyPolicyHolderConstraintLayout.setVisibility(View.VISIBLE);
+        }
         new Handler().postDelayed(new Runnable() {
 
             @Override

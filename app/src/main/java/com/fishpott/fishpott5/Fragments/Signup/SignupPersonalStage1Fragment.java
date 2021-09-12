@@ -68,12 +68,12 @@ public class SignupPersonalStage1Fragment extends Fragment implements View.OnCli
     }
 
     public void setMaleClicked(){
-        gender = "male";
+        gender = "Male";
         mFemaleGenderRadioButton.setChecked(false);
     }
 
     public void setFemaleClicked(){
-        gender = "female";
+        gender = "Female";
         mMaleGenderRadioButton.setChecked(false);
     }
 

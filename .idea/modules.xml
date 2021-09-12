@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/FishPottNew.iml" filepath="$PROJECT_DIR$/FishPottNew.iml" group="FishPottNew" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="FishPottNew/app" />
-      <module fileurl="file://$PROJECT_DIR$/thetellerandroid/thetellerandroid.iml" filepath="$PROJECT_DIR$/thetellerandroid/thetellerandroid.iml" group="FishPottNew/thetellerandroid" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/fishpott_android.iml" filepath="$PROJECT_DIR$/.idea/fishpott_android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/fishpott_android.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/fishpott_android.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/thetellerandroid/fishpott_android.thetellerandroid.iml" filepath="$PROJECT_DIR$/.idea/modules/thetellerandroid/fishpott_android.thetellerandroid.iml" />
     </modules>
   </component>
 </project>

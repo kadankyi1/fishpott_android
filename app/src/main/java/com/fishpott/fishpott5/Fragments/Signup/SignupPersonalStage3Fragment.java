@@ -273,17 +273,36 @@ public class SignupPersonalStage3Fragment extends Fragment implements View.OnCli
             }
         });
 
+
+        Log.e("user_firstname", firstName);
+        Log.e("user_surname", lastName);
+        Log.e("user_gender", gender);
+        Log.e("user_dob", dob);
+        Log.e("user_country", country);
+        Log.e("user_pottname", pottname);
+        Log.e("user_referred_by", referrerPottName);
+        Log.e("user_phone_number", phoneNumber);
+        Log.e("password", password);
+        Log.e("user_language", language);
+        Log.e("user_firstname", firstName);
+        Log.e("user_firstname", firstName);
+        Log.e("user_firstname", firstName);
+        Log.e("app_version_code", String.valueOf(Config.getSharedPreferenceInt(getActivity().getApplicationContext(), Config.SHARED_PREF_KEY_UPDATE_ACTIVITY_UPDATE_VERSION_CODE)));
+
+        return;
+        /*
         AndroidNetworking.post(Config.LINK_SIGNUP_PERSONAL)
-                .addBodyParameter("first_name", firstName)
-                .addBodyParameter("last_name", lastName)
-                .addBodyParameter("gender", gender)
-                .addBodyParameter("dob", dob)
-                .addBodyParameter("country", country)
-                .addBodyParameter("pott_name", pottname)
-                .addBodyParameter("referrer_pott_name", referrerPottName)
-                .addBodyParameter("phone_number", phoneNumber)
+                .addBodyParameter("user_firstname", firstName)
+                .addBodyParameter("user_surname", lastName)
+                .addBodyParameter("user_gender", gender)
+                .addBodyParameter("user_dob", dob)
+                .addBodyParameter("user_country", country)
+                .addBodyParameter("user_pottname", pottname)
+                .addBodyParameter("user_referred_by", referrerPottName)
+                .addBodyParameter("user_phone_number", phoneNumber)
                 .addBodyParameter("password", password)
-                .addBodyParameter("language", language)
+                .addBodyParameter("app_type", "ANDROID")
+                .addBodyParameter("user_language", language)
                 .addBodyParameter("app_version_code", String.valueOf(Config.getSharedPreferenceInt(getActivity().getApplicationContext(), Config.SHARED_PREF_KEY_UPDATE_ACTIVITY_UPDATE_VERSION_CODE)))
                 .setTag("signup_fragment_signup_personalstage3")
                 .setPriority(Priority.MEDIUM)
@@ -408,6 +427,7 @@ public class SignupPersonalStage3Fragment extends Fragment implements View.OnCli
 
             }
         });
+         */
 
     }
 }
