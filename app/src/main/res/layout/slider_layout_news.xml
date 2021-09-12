@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/slider_layout_news_layout_root_constraintlayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorNews">
+    android:background="@color/colorNews2">
 
     <android.support.constraint.Guideline
         android:id="@+id/slider_activity_slider_layout_h_guideline1"
@@ -36,7 +37,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:background="@color/colorNewsDark"
+        android:background="@color/colorNewsDark2"
         app:srcCompat="@drawable/slider_activity_news_cover_image" />
 
     <TextView
@@ -47,7 +48,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="@string/slider_activity_news"
+        android:text="Answer-To-Discover"
         android:textAlignment="center"
         android:textColor="@color/colorAccent"
         android:textSize="25sp"
@@ -65,7 +66,8 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="@string/slider_activity_find_out_whats_buzzing_let_the_world_feel_your_influence_by_posting_what_s_going_on_with_you_and_get_likes_that_give_you_pearls_you_can_cash_out_oops_your_posts_can_be_disliked_too_and_that_s_gonna_cost_you_pearls_so_be_smart_pearls_can_be_poached_so_stay_on_line_or_buy_shields_to_protect_them"
+        android:textSize="16sp"
+        android:text="Discover your trading nature. Train your FishPott to receive stocks that you like. Build your nature to match with stocks and have your FishPott suggest them to you. Let your FishPott think like you."
         android:textAlignment="center"
         android:textColor="@color/colorAccent"
         app:layout_constraintBottom_toTopOf="@+id/slider_activity_slider_layout_h_guideline3"

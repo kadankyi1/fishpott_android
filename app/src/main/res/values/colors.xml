@@ -16,6 +16,10 @@
     <color name="colorFishPottOrange">#ec9102</color>
     <color name="colorUpdateActivityBackground">#192a31</color>
 
+    <!-- SLIDER ACTIVITY 2-->
+    <color name="colorNews2">#1B1D1E</color>
+    <color name="colorNewsDark2">#151517</color>
+
     <!-- SLIDER ACTIVITY -->
     <color name="colorNews">#8a8b8c</color>
     <color name="colorNewsDark">#53535c</color>

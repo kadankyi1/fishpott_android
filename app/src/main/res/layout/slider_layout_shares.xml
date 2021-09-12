@@ -4,7 +4,7 @@
     android:id="@+id/slider_layout_news_layout_root_constraintlayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorSharesForSale">
+    android:background="@color/colorNews2">
 
     <android.support.constraint.Guideline
         android:id="@+id/slider_activity_slider_layout_h_guideline1"
@@ -36,26 +36,28 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:background="@color/colorSharesForSaleDark"
+        android:background="@color/colorNewsDark2"
         app:srcCompat="@drawable/slider_activity_shares_for_sale_cover_image" />
 
     <TextView
         android:id="@+id/slider_activity_slider_layout_slider_text_title"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="@string/slider_activity_shares_on_sale"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="Suggested Stocks"
         android:textAlignment="center"
         android:textColor="@color/colorAccent"
         android:textSize="25sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/slider_activity_slider_layout_h_guideline2"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/slider_activity_slider_layout_slider_image" />
+        app:layout_constraintTop_toBottomOf="@+id/slider_activity_slider_layout_slider_image"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/slider_activity_slider_layout_slider_text_body"
@@ -65,7 +67,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="@string/slider_activity_buy_and_sell_shares_from_around_the_world_build_a_portfolio_that_pays_you_returns"
+        android:text="Train your FishPott enough and it suggest stocks you like to you. Buy stocks and protect your invest. Start a FishPott. It's safe and exciting"
         android:textAlignment="center"
         android:textColor="@color/colorAccent"
         app:layout_constraintBottom_toTopOf="@+id/slider_activity_slider_layout_h_guideline3"
