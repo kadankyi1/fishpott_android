@@ -27,17 +27,27 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.97" />
 
-    <ImageView
-        android:id="@+id/slider_activity_slider_layout_slider_image"
+    <android.support.constraint.ConstraintLayout
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:contentDescription="@string/none"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/slider_activity_slider_layout_h_guideline1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:background="@color/colorNewsDark2"
-        app:srcCompat="@drawable/slider_activity_shares_for_sale_cover_image" />
+        android:background="@color/colorAccent">
+
+        <ImageView
+            android:id="@+id/slider_activity_slider_layout_slider_image"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:contentDescription="@string/none"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_think_outside_the_box" />
+
+    </android.support.constraint.ConstraintLayout>
 
     <TextView
         android:id="@+id/slider_activity_slider_layout_slider_text_title"
@@ -56,7 +66,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/slider_activity_slider_layout_slider_image"
+        app:layout_constraintTop_toBottomOf="@+id/slider_activity_slider_layout_h_guideline1"
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
