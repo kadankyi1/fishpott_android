@@ -4,16 +4,12 @@ import android.app.Dialog;
 import android.content.DialogInterface;
 import android.os.Handler;
 import android.os.Looper;
-import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.NumberPicker;
@@ -27,9 +23,7 @@ import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.StringRequestListener;
 import com.fishpott.fishpott5.Inc.Config;
 import com.fishpott.fishpott5.Inc.Connectivity;
-import com.fishpott.fishpott5.ListDataGenerators.NewsStatsListDataGenerator;
 import com.fishpott.fishpott5.Miscellaneous.LocaleHelper;
-import com.fishpott.fishpott5.Models.NewsStatsModel;
 import com.fishpott.fishpott5.R;
 import com.fishpott.fishpott5.Util.MyLifecycleHandler;
 import com.fishpott.fishpott5.Views.CircleImageView;
@@ -300,7 +294,7 @@ public class BuySharesForSaleActivity extends AppCompatActivity implements View.
         });
             AndroidNetworking.post(Config.LINK_GET_FINAL_PRICE)
                     .addBodyParameter("log_phone", Config.getSharedPreferenceString(getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_PHONE))
-                    .addBodyParameter("log_pass_token", Config.getSharedPreferenceString(getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_PASSWORD))
+                    .addBodyParameter("log_pass_token", Config.getSharedPreferenceString(getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_PASSWORD_ACCESS_TOKEN))
                     .addBodyParameter("mypottname", Config.getSharedPreferenceString(getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_POTT_NAME))
                     .addBodyParameter("my_currency", Config.getSharedPreferenceString(getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_CURRENCY))
                     .addBodyParameter("share_id", theStockID)
@@ -443,7 +437,7 @@ public class BuySharesForSaleActivity extends AppCompatActivity implements View.
 
         AndroidNetworking.post(Config.LINK_COMPLETE_PURCHASE)
                 .addBodyParameter("log_phone", Config.getSharedPreferenceString(getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_PHONE))
-                .addBodyParameter("log_pass_token", Config.getSharedPreferenceString(getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_PASSWORD))
+                .addBodyParameter("log_pass_token", Config.getSharedPreferenceString(getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_PASSWORD_ACCESS_TOKEN))
                 .addBodyParameter("mypottname", Config.getSharedPreferenceString(getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_POTT_NAME))
                 .addBodyParameter("my_currency", Config.getSharedPreferenceString(getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_CURRENCY))
                 .addBodyParameter("share_id", theStockID)

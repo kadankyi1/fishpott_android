@@ -31,7 +31,6 @@ import com.fishpott.fishpott5.Adapters.MyShares_DatabaseAdapter;
 import com.fishpott.fishpott5.Adapters.Notifications_DatabaseAdapter;
 import com.fishpott.fishpott5.Inc.Config;
 import com.fishpott.fishpott5.ListDataGenerators.Notifications_ListDataGenerator;
-import com.fishpott.fishpott5.Miscellaneous.Home;
 import com.fishpott.fishpott5.Miscellaneous.LocaleHelper;
 import com.fishpott.fishpott5.Models.Notification_Model;
 import com.fishpott.fishpott5.R;
@@ -321,7 +320,7 @@ public class CancelSharesFragment extends Fragment implements View.OnClickListen
 
             AndroidNetworking.post(Config.LINK_TRANSFER_SHARES)
                     .addBodyParameter("log_phone", Config.getSharedPreferenceString(context, Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_PHONE))
-                    .addBodyParameter("log_pass_token", Config.getSharedPreferenceString(context, Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_PASSWORD))
+                    .addBodyParameter("log_pass_token", Config.getSharedPreferenceString(context, Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_PASSWORD_ACCESS_TOKEN))
                     .addBodyParameter("mypottname", Config.getSharedPreferenceString(context, Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_POTT_NAME))
                     .addBodyParameter("my_currency", Config.getSharedPreferenceString(context, Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_CURRENCY))
                     .addBodyParameter("added_item_id", chosenSharesInfo[0])

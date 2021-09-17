@@ -58,9 +58,7 @@ import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.method.LinkMovementMethod;
 import android.text.style.URLSpan;
-import android.text.util.Linkify;
 import android.util.Log;
-import android.util.Patterns;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
@@ -77,22 +75,17 @@ import android.widget.Toast;
 import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.common.Priority;
 import com.androidnetworking.error.ANError;
-import com.androidnetworking.interfaces.DownloadListener;
 import com.androidnetworking.interfaces.StringRequestListener;
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.RequestBuilder;
 import com.bumptech.glide.load.DataSource;
 import com.bumptech.glide.load.engine.GlideException;
 import com.bumptech.glide.request.RequestListener;
-import com.bumptech.glide.request.target.SimpleTarget;
 import com.bumptech.glide.request.target.Target;
-import com.bumptech.glide.request.transition.Transition;
 import com.fishpott.fishpott5.Activities.ConfirmPhoneNumberActivity;
 import com.fishpott.fishpott5.Activities.FlaggedAccountActivity;
 import com.fishpott.fishpott5.Activities.FullNewsActivity;
 import com.fishpott.fishpott5.Activities.GovernmentIDVerificationActivity;
 import com.fishpott.fishpott5.Activities.LoginActivity;
-import com.fishpott.fishpott5.Activities.MainActivity;
 import com.fishpott.fishpott5.Activities.MessengerActivity;
 import com.fishpott.fishpott5.Activities.SetProfilePictureActivity;
 import com.fishpott.fishpott5.Activities.StartActivity;
@@ -131,7 +124,6 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Random;
 import java.util.Set;
-import java.util.concurrent.ExecutionException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -141,7 +133,7 @@ public class Config {
 	public static final String[] mimeTypes = {"image/jpeg", "image/png"};
 
 	// CURRENT HTTP
-	public static final String CURRENT_HTTP_IN_USE = "https://";
+	public static final String CURRENT_HTTP_IN_USE = "http://";
 	public static final String FP_ID = "_r_030250308659e9029382af83.46926837";
 
 	// DIRECTORIES-NAMES
@@ -279,7 +271,7 @@ public class Config {
 	public static final String CHAT_NOTIFICATION_UNREAD_COUNT = "CHAT_NOTIFICATION_UNREAD_COUNT";
 
 	// SERVER-SIDE API FOR SIGNUP
-    public static final String LINK_SIGNUP_PERSONAL = CURRENT_HTTP_IN_USE + "www.fishpott.com/inc/android/signup_personal.php";
+    public static final String LINK_SIGNUP_PERSONAL = CURRENT_HTTP_IN_USE + "144.202.111.61/api/v1/user/register-personal";
     public static final String LINK_SIGNUP_BUSINESS = CURRENT_HTTP_IN_USE + "www.fishpott.com/inc/android/signup_business.php";
 
     // SERVER-SIDE API FOR POTT-PIC-UPLOAD-AT-SIGNUP-OR-FORCED
@@ -421,7 +413,7 @@ public class Config {
 	//USER CREDENTAILS : START ACTIVITY VIEWING CYCLE COUNT KEYS FOR SHARED PREFERENCES
 	public static final String SHARED_PREF_KEY_USER_CREDENTIALS_USER_PHONE = "USER_PHONE";
 	public static final String SHARED_PREF_KEY_USER_CREDENTIALS_USER_ID = "USER_ID";
-	public static final String SHARED_PREF_KEY_USER_CREDENTIALS_USER_PASSWORD = "USER_PASSWORD";
+	public static final String SHARED_PREF_KEY_USER_CREDENTIALS_USER_PASSWORD_ACCESS_TOKEN = "USER_PASSWORD";
 	public static final String SHARED_PREF_KEY_USER_CREDENTIALS_USER_SERVER_SESSION_ID = "SERVER_SESSION_ID";
 	public static final String SHARED_PREF_KEY_USER_CREDENTIALS_USER_DEVICE_TOKEN = "DEVICE_TOKEN";
 	public static final String SHARED_PREF_KEY_USER_CREDENTIALS_USER_POTT_NAME = "USER_POTT_NAME";
@@ -1014,7 +1006,7 @@ public class Config {
 	// CHECK IF USER IS LOGGED IN
 	public static Boolean userIsLoggedIn(Activity thisActivity){
 		Boolean userIsLoggedIn = false;
-		if(!getSharedPreferenceString(thisActivity.getApplicationContext(), SHARED_PREF_KEY_USER_CREDENTIALS_USER_PHONE).trim().equalsIgnoreCase("") && !getSharedPreferenceString(thisActivity.getApplicationContext(), SHARED_PREF_KEY_USER_CREDENTIALS_USER_PASSWORD).trim().equalsIgnoreCase("")){
+		if(!getSharedPreferenceString(thisActivity.getApplicationContext(), SHARED_PREF_KEY_USER_CREDENTIALS_USER_PHONE).trim().equalsIgnoreCase("") && !getSharedPreferenceString(thisActivity.getApplicationContext(), SHARED_PREF_KEY_USER_CREDENTIALS_USER_PASSWORD_ACCESS_TOKEN).trim().equalsIgnoreCase("")){
 			userIsLoggedIn = true;
 		} else {
 			userIsLoggedIn = false;
@@ -1024,7 +1016,7 @@ public class Config {
 
 	public static Boolean userIsLoggedIn2(Context context){
 		Boolean userIsLoggedIn = false;
-		if(!getSharedPreferenceString(context, SHARED_PREF_KEY_USER_CREDENTIALS_USER_PHONE).trim().equalsIgnoreCase("") && !getSharedPreferenceString(context, SHARED_PREF_KEY_USER_CREDENTIALS_USER_PASSWORD).trim().equalsIgnoreCase("")){
+		if(!getSharedPreferenceString(context, SHARED_PREF_KEY_USER_CREDENTIALS_USER_PHONE).trim().equalsIgnoreCase("") && !getSharedPreferenceString(context, SHARED_PREF_KEY_USER_CREDENTIALS_USER_PASSWORD_ACCESS_TOKEN).trim().equalsIgnoreCase("")){
 			userIsLoggedIn = true;
 		} else {
 			userIsLoggedIn = false;
@@ -2735,7 +2727,7 @@ public class Config {
 
 			AndroidNetworking.post(Config.LINK_GET_NEW_CHAT_MESSAGES)
 					.addBodyParameter("log_phone", Config.getSharedPreferenceString(context, Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_PHONE))
-					.addBodyParameter("log_pass_token", Config.getSharedPreferenceString(context, Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_PASSWORD))
+					.addBodyParameter("log_pass_token", Config.getSharedPreferenceString(context, Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_PASSWORD_ACCESS_TOKEN))
 					.addBodyParameter("mypottname", Config.getSharedPreferenceString(context, Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_POTT_NAME))
 					.addBodyParameter("my_currency", Config.getSharedPreferenceString(context, Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_CURRENCY))
 					.addBodyParameter("chat_id", chatID)
@@ -2883,7 +2875,7 @@ public class Config {
 
 		AndroidNetworking.post(Config.LINK_LIKE_OR_DISLIKE_NEWS)
 				.addBodyParameter("log_phone", Config.getSharedPreferenceString(context, Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_PHONE))
-				.addBodyParameter("log_pass_token", Config.getSharedPreferenceString(context, Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_PASSWORD))
+				.addBodyParameter("log_pass_token", Config.getSharedPreferenceString(context, Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_PASSWORD_ACCESS_TOKEN))
 				.addBodyParameter("mypottname", Config.getSharedPreferenceString(context, Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_POTT_NAME))
 				.addBodyParameter("my_currency", Config.getSharedPreferenceString(context, Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_CURRENCY))
 				.addBodyParameter("like_type", String.valueOf(type))
@@ -2959,7 +2951,7 @@ public class Config {
 
 		AndroidNetworking.post(Config.LINK_SET_NEWS_VIEWED)
 				.addBodyParameter("log_phone", Config.getSharedPreferenceString(context, Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_PHONE))
-				.addBodyParameter("log_pass_token", Config.getSharedPreferenceString(context, Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_PASSWORD))
+				.addBodyParameter("log_pass_token", Config.getSharedPreferenceString(context, Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_PASSWORD_ACCESS_TOKEN))
 				.addBodyParameter("mypottname", Config.getSharedPreferenceString(context, Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_POTT_NAME))
 				.addBodyParameter("my_currency", Config.getSharedPreferenceString(context, Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_CURRENCY))
 				.addBodyParameter("news_id", newsId)

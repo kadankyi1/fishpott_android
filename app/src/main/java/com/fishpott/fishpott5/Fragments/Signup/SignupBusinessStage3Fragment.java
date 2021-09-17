@@ -1,8 +1,6 @@
 package com.fishpott.fishpott5.Fragments.Signup;
 
 import android.app.Dialog;
-import android.arch.lifecycle.ViewModelProviders;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.os.Handler;
@@ -27,7 +25,6 @@ import com.fishpott.fishpott5.Activities.ConfirmPhoneNumberActivity;
 import com.fishpott.fishpott5.Activities.SetProfilePictureActivity;
 import com.fishpott.fishpott5.Inc.Config;
 import com.fishpott.fishpott5.Inc.Connectivity;
-import com.fishpott.fishpott5.Miscellaneous.Home;
 import com.fishpott.fishpott5.Miscellaneous.LocaleHelper;
 import com.fishpott.fishpott5.R;
 import com.fishpott.fishpott5.Util.MyLifecycleHandler;
@@ -298,7 +295,7 @@ public class SignupBusinessStage3Fragment extends Fragment implements View.OnCli
                                         if (myStatus.equalsIgnoreCase("yes")) {
                                             Config.setSharedPreferenceString(getActivity().getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_PHONE, phoneNumber);
                                             Config.setSharedPreferenceString(getActivity().getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_ID, o.getString("user_id"));
-                                            Config.setSharedPreferenceString(getActivity().getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_PASSWORD, o.getString("user_pass"));
+                                            Config.setSharedPreferenceString(getActivity().getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_PASSWORD_ACCESS_TOKEN, o.getString("user_pass"));
                                             Config.setSharedPreferenceString(getActivity().getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_POTT_NAME, o.getString("user_pott_name"));
                                             Config.setSharedPreferenceString(getActivity().getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_FULL_NAME, o.getString("user_full_name"));
                                             Config.setSharedPreferenceString(getActivity().getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_COUNTRY, o.getString("user_country"));

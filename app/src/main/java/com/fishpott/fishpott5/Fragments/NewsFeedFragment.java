@@ -51,7 +51,6 @@ import com.fishpott.fishpott5.Models.NewsType_28_Story_Model;
 import com.fishpott.fishpott5.Models.Vertical_NewsType_Model;
 import com.fishpott.fishpott5.R;
 import com.fishpott.fishpott5.Services.NewsFetcherAndPreparerService;
-import com.fishpott.fishpott5.Util.NonUnderlinedClickableSpan;
 import com.fishpott.fishpott5.Util.WrapContentLinearLayoutManager;
 import com.fishpott.fishpott5.Views.CircleImageView;
 import com.fishpott.fishpott5.Views.ExoPlayerRecyclerView;
@@ -5032,7 +5031,7 @@ public class NewsFeedFragment extends Fragment implements View.OnClickListener {
     public void sendLinkUp(Context context, final String language, final String linkupId){
         AndroidNetworking.post(Config.LINK_ADD_LINKUPS)
                 .addBodyParameter("log_id_token", Config.getSharedPreferenceString(context, Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_ID))
-                .addBodyParameter("log_pass_token", Config.getSharedPreferenceString(context, Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_PASSWORD))
+                .addBodyParameter("log_pass_token", Config.getSharedPreferenceString(context, Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_PASSWORD_ACCESS_TOKEN))
                 .addBodyParameter("linkup_id", linkupId)
                 .addBodyParameter("language", language)
                 .addBodyParameter("app_version_code", String.valueOf(Config.getSharedPreferenceInt(context, Config.SHARED_PREF_KEY_UPDATE_ACTIVITY_UPDATE_VERSION_CODE)))

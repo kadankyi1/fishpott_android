@@ -2,7 +2,6 @@ package com.fishpott.fishpott5.Activities;
 
 import android.Manifest;
 import android.app.Dialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -310,7 +309,7 @@ public class SetProfilePictureActivity extends AppCompatActivity implements View
                 AndroidNetworking.upload(Config.LINK_UPLOAD_POTT_PICTURE)
                         .addMultipartFile("pott_pic", uploadPottPictureFile)
                         .addMultipartParameter("log_id_token", Config.getSharedPreferenceString(getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_ID))
-                        .addMultipartParameter("log_pass_token", Config.getSharedPreferenceString(getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_PASSWORD))
+                        .addMultipartParameter("log_pass_token", Config.getSharedPreferenceString(getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_PASSWORD_ACCESS_TOKEN))
                         .addMultipartParameter("language", language)
                         .addMultipartParameter("app_version_code", String.valueOf(Config.getSharedPreferenceInt(getApplicationContext(), Config.SHARED_PREF_KEY_UPDATE_ACTIVITY_UPDATE_VERSION_CODE)))
                         .setTag("setprofilepicture_activity_pottpictureupload")

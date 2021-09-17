@@ -537,7 +537,7 @@ public class SuggestedLinkUpsActivity extends AppCompatActivity implements View.
                 AndroidNetworking.post(Config.LINK_GET_SUGGESTED_LINKUPS)
                         .addBodyParameter("session_id", sessionId)
                         .addBodyParameter("log_id_token", Config.getSharedPreferenceString(getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_ID))
-                        .addBodyParameter("log_pass_token", Config.getSharedPreferenceString(getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_PASSWORD))
+                        .addBodyParameter("log_pass_token", Config.getSharedPreferenceString(getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_PASSWORD_ACCESS_TOKEN))
                         .addBodyParameter("mypottname", Config.getSharedPreferenceString(getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_POTT_NAME))
                         .addBodyParameter("all_contacts_names", allContactsNames)
                         .addBodyParameter("all_contacts_numbers", allContactsPhoneNumbers)
@@ -717,7 +717,7 @@ public class SuggestedLinkUpsActivity extends AppCompatActivity implements View.
     public void addLinkUp(final String language, final String linkupId){
         AndroidNetworking.post(Config.LINK_ADD_LINKUPS)
                 .addBodyParameter("log_id_token", Config.getSharedPreferenceString(getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_ID))
-                .addBodyParameter("log_pass_token", Config.getSharedPreferenceString(getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_PASSWORD))
+                .addBodyParameter("log_pass_token", Config.getSharedPreferenceString(getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_PASSWORD_ACCESS_TOKEN))
                 .addBodyParameter("linkup_id", linkupId)
                 .addBodyParameter("language", language)
                 .addBodyParameter("app_version_code", String.valueOf(Config.getSharedPreferenceInt(getApplicationContext(), Config.SHARED_PREF_KEY_UPDATE_ACTIVITY_UPDATE_VERSION_CODE)))

@@ -23,7 +23,6 @@ import com.androidnetworking.interfaces.StringRequestListener;
 import com.fishpott.fishpott5.Inc.Config;
 import com.fishpott.fishpott5.Inc.Connectivity;
 import com.fishpott.fishpott5.ListDataGenerators.MySharesViewingListDataGenerator;
-import com.fishpott.fishpott5.ListDataGenerators.MyShares_ListDataGenerator;
 import com.fishpott.fishpott5.Miscellaneous.LocaleHelper;
 import com.fishpott.fishpott5.Models.SharesModel;
 import com.fishpott.fishpott5.R;
@@ -282,7 +281,7 @@ public class MySharesActivity extends AppCompatActivity implements View.OnClickL
 
         AndroidNetworking.post(Config.LINK_GET_MY_SHARES)
                 .addBodyParameter("log_phone", Config.getSharedPreferenceString(getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_PHONE))
-                .addBodyParameter("log_pass_token", Config.getSharedPreferenceString(getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_PASSWORD))
+                .addBodyParameter("log_pass_token", Config.getSharedPreferenceString(getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_PASSWORD_ACCESS_TOKEN))
                 .addBodyParameter("mypottname", Config.getSharedPreferenceString(getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_POTT_NAME))
                 .addBodyParameter("my_currency", Config.getSharedPreferenceString(getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_CURRENCY))
                 .addBodyParameter("language", LocaleHelper.getLanguage(MySharesActivity.this))

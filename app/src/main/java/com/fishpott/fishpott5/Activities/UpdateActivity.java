@@ -1,6 +1,5 @@
 package com.fishpott.fishpott5.Activities;
 
-import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
@@ -12,7 +11,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.fishpott.fishpott5.Inc.Config;
-import com.fishpott.fishpott5.Miscellaneous.LocaleHelper;
 import com.fishpott.fishpott5.R;
 
 
@@ -95,7 +93,7 @@ public class UpdateActivity extends AppCompatActivity implements View.OnClickLis
         } else if(view.getId() == R.id.update_activity_textView3){
             Config.setSharedPreferenceString(getApplicationContext(), Config.SHARED_PREF_KEY_UPDATE_ACTIVITY_UPDATE_NOT_NOW_DATE, Config.getCurrentDate());
             if(!Config.getSharedPreferenceString(getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_PHONE).equalsIgnoreCase("")
-                    && !Config.getSharedPreferenceString(getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_PASSWORD).equalsIgnoreCase("")
+                    && !Config.getSharedPreferenceString(getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_PASSWORD_ACCESS_TOKEN).equalsIgnoreCase("")
                     ){
                 if(Config.getSharedPreferenceString(getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_PROFILE_PICTURE).equalsIgnoreCase("")){
                     Config.openActivity(UpdateActivity.this, SetProfilePictureActivity.class, 1, 1, 0,"","");

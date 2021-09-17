@@ -20,7 +20,6 @@ import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
@@ -30,7 +29,6 @@ import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.common.Priority;
 import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.StringRequestListener;
-import com.fishpott.fishpott5.Fragments.NewsOptionsFragment;
 import com.fishpott.fishpott5.Inc.Config;
 import com.fishpott.fishpott5.Inc.Connectivity;
 import com.fishpott.fishpott5.ListDataGenerators.FullNewsListDataGenerator;
@@ -178,7 +176,7 @@ public class FullNewsActivity extends AppCompatActivity implements View.OnClickL
 
         AndroidNetworking.post(Config.LINK_GET_SINGLE_FULLNEWS_WITH_STATS)
                 .addBodyParameter("log_phone", Config.getSharedPreferenceString(context, Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_PHONE))
-                .addBodyParameter("log_pass_token", Config.getSharedPreferenceString(context, Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_PASSWORD))
+                .addBodyParameter("log_pass_token", Config.getSharedPreferenceString(context, Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_PASSWORD_ACCESS_TOKEN))
                 .addBodyParameter("mypottname", Config.getSharedPreferenceString(context, Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_POTT_NAME))
                 .addBodyParameter("my_currency", Config.getSharedPreferenceString(context, Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_CURRENCY))
                 .addBodyParameter("news_id", newsID)
@@ -4242,7 +4240,7 @@ public class FullNewsActivity extends AppCompatActivity implements View.OnClickL
     public void sendLinkUp(Context context, final String language, final String linkupId){
         AndroidNetworking.post(Config.LINK_ADD_LINKUPS)
                 .addBodyParameter("log_id_token", Config.getSharedPreferenceString(context, Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_ID))
-                .addBodyParameter("log_pass_token", Config.getSharedPreferenceString(context, Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_PASSWORD))
+                .addBodyParameter("log_pass_token", Config.getSharedPreferenceString(context, Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_PASSWORD_ACCESS_TOKEN))
                 .addBodyParameter("linkup_id", linkupId)
                 .addBodyParameter("language", language)
                 .addBodyParameter("app_version_code", String.valueOf(Config.getSharedPreferenceInt(context, Config.SHARED_PREF_KEY_UPDATE_ACTIVITY_UPDATE_VERSION_CODE)))

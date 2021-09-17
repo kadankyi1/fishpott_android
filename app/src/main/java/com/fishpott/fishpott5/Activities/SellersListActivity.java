@@ -1,8 +1,5 @@
 package com.fishpott.fishpott5.Activities;
 
-import android.Manifest;
-import android.app.Dialog;
-import android.content.DialogInterface;
 import android.os.Handler;
 import android.os.Looper;
 import android.support.annotation.NonNull;
@@ -373,7 +370,7 @@ public class SellersListActivity extends AppCompatActivity implements View.OnCli
 
         AndroidNetworking.post(Config.LINK_GET_SELLERS_OF_SHARES)
                 .addBodyParameter("log_phone", Config.getSharedPreferenceString(getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_PHONE))
-                .addBodyParameter("log_pass_token", Config.getSharedPreferenceString(getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_PASSWORD))
+                .addBodyParameter("log_pass_token", Config.getSharedPreferenceString(getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_PASSWORD_ACCESS_TOKEN))
                 .addBodyParameter("mypottname", Config.getSharedPreferenceString(getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_POTT_NAME))
                 .addBodyParameter("parentsharesid", parentSharesId)
                 .addBodyParameter("my_currency", Config.getSharedPreferenceString(getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_CURRENCY))

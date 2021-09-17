@@ -281,6 +281,7 @@
     <string name="login_activity_password_show">Show</string>
     <string name="login_activity_password_hide">Hide</string>
     <string name="login_activity_login_failed">Login Failed</string>
+    <string name="signup_failed">Registration failed.</string>
     <string name="login_activity_error">Error</string>
     <string name="login_activity_an_unexpected_error_occured">An unexpected error occurred.</string>
     <string name="login_activity_check_your_internet_connection_and_try_again">Check your internet connection and try again</string>

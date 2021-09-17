@@ -1,8 +1,6 @@
 package com.fishpott.fishpott5.Fragments.Signup;
 
 import android.app.Dialog;
-import android.arch.lifecycle.ViewModelProviders;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.os.Handler;
@@ -27,13 +25,10 @@ import com.fishpott.fishpott5.Activities.ConfirmPhoneNumberActivity;
 import com.fishpott.fishpott5.Activities.SetProfilePictureActivity;
 import com.fishpott.fishpott5.Inc.Config;
 import com.fishpott.fishpott5.Inc.Connectivity;
-import com.fishpott.fishpott5.Miscellaneous.Home;
 import com.fishpott.fishpott5.Miscellaneous.LocaleHelper;
 import com.fishpott.fishpott5.R;
 import com.fishpott.fishpott5.Util.MyLifecycleHandler;
-import com.fishpott.fishpott5.ViewModels.SignupPersonalStage3ViewModel;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -274,7 +269,7 @@ public class SignupPersonalStage3Fragment extends Fragment implements View.OnCli
         });
 
 
-        Log.e("user_firstname", firstName);
+        /*Log.e("user_firstname", firstName);
         Log.e("user_surname", lastName);
         Log.e("user_gender", gender);
         Log.e("user_dob", dob);
@@ -287,11 +282,85 @@ public class SignupPersonalStage3Fragment extends Fragment implements View.OnCli
         Log.e("user_firstname", firstName);
         Log.e("user_firstname", firstName);
         Log.e("user_firstname", firstName);
-        Log.e("app_version_code", String.valueOf(Config.getSharedPreferenceInt(getActivity().getApplicationContext(), Config.SHARED_PREF_KEY_UPDATE_ACTIVITY_UPDATE_VERSION_CODE)));
+        Log.e("app_version_code", String.valueOf(Config.getAppVersionCode(getActivity().getApplicationContext())));
 
         return;
+         */
+
+
+
         /*
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, Config.LINK_SIGNUP_PERSONAL,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        Log.e("SignupActivity", "response: " +  response);
+
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Log.e("SignupActivity", "error: " + error.toString());
+
+                        if (error instanceof TimeoutError || error instanceof NoConnectionError) {
+                            Config.showToastType1(getActivity(), "Check your internet connection and try again");
+                        } else if (error instanceof AuthFailureError) {
+                            Config.showToastType1(getActivity(), "We failed to recognize your account. Please re-sign-in and try again");
+                        } else if (error instanceof ServerError) {
+                            Config.showToastType1(getActivity(), "Registration failed. Account may already exist or incorrect form information. Try again later");
+                        } else if (error instanceof NetworkError) {
+                            Config.showToastType1(getActivity(), "Check your internet connection and try again");
+                        } else if (error instanceof ParseError) {
+                            Config.showToastType1(getActivity(), "An unexpected error occurred.");
+                        }
+                    }
+                }) {
+
+
+                //@Override
+                //public Map<String, String> getHeaders() throws AuthFailureError {
+                    //Map<String, String> headers = new HashMap<>();
+                    //headers.put("Accept", "application/json");
+                    //headers.put("ContentType","multipart/form-data");
+                    //headers.put("ContentType", "application/json");
+                    //return headers;
+                //}
+
+
+            @Override
+            protected Map<String, String> getParams() {
+                Map<String, String> map = new HashMap<>();
+                map.put("user_firstname", firstName);
+                map.put("user_surname", lastName);
+                map.put("user_gender", gender);
+                map.put("user_dob", dob);
+                map.put("user_country", country);
+                map.put("user_pottname", pottname);
+                map.put("user_referred_by", referrerPottName);
+                map.put("user_phone_number", phoneNumber);
+                map.put("password", password);
+                map.put("app_type", "ANDROID");
+                map.put("user_language", language);
+                map.put("app_version_code", String.valueOf(Config.getAppVersionCode(getActivity().getApplicationContext())));
+
+                Log.e("SignupActivity", "Map: " +  map.toString());
+                return map;
+            }
+        };
+        stringRequest.setShouldCache(false);
+        stringRequest.setRetryPolicy(new DefaultRetryPolicy(
+                DefaultRetryPolicy.DEFAULT_TIMEOUT_MS * 2,
+                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+
+        RequestQueue requestQueue = Volley.newRequestQueue(getActivity().getApplicationContext());
+        requestQueue.add(stringRequest);
+        */
+
+
         AndroidNetworking.post(Config.LINK_SIGNUP_PERSONAL)
+                //.addHeaders("Accept", "application/json")
                 .addBodyParameter("user_firstname", firstName)
                 .addBodyParameter("user_surname", lastName)
                 .addBodyParameter("user_gender", gender)
@@ -303,28 +372,26 @@ public class SignupPersonalStage3Fragment extends Fragment implements View.OnCli
                 .addBodyParameter("password", password)
                 .addBodyParameter("app_type", "ANDROID")
                 .addBodyParameter("user_language", language)
-                .addBodyParameter("app_version_code", String.valueOf(Config.getSharedPreferenceInt(getActivity().getApplicationContext(), Config.SHARED_PREF_KEY_UPDATE_ACTIVITY_UPDATE_VERSION_CODE)))
+                .addBodyParameter("app_version_code", String.valueOf(Config.getAppVersionCode(getActivity().getApplicationContext())))
                 .setTag("signup_fragment_signup_personalstage3")
                 .setPriority(Priority.MEDIUM)
                 .build().getAsString(new StringRequestListener() {
             @Override public void onResponse(String response) {
                 try {
-                    JSONObject jsonObject = new JSONObject(response);
-                    JSONArray array = jsonObject.getJSONArray("data_returned");
-                    JSONObject o = array.getJSONObject(0);
-
+                    Log.e("PSignup", response);
+                    JSONObject o = new JSONObject(response);
                     String myStatus = o.getString("status");
                     final String myStatusMessage = o.getString("message");
 
                     if (myStatus.equalsIgnoreCase("yes")) {
 
-                        Config.setSharedPreferenceString(getActivity().getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_PHONE, phoneNumber);
+                        Config.setSharedPreferenceString(getActivity().getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_PHONE, o.getString("user_phone"));
                         Config.setSharedPreferenceString(getActivity().getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_ID, o.getString("user_id"));
-                        Config.setSharedPreferenceString(getActivity().getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_PASSWORD, o.getString("user_pass"));
+                        Config.setSharedPreferenceString(getActivity().getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_PASSWORD_ACCESS_TOKEN, o.getString("access_token"));
                         Config.setSharedPreferenceString(getActivity().getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_POTT_NAME, o.getString("user_pott_name"));
                         Config.setSharedPreferenceString(getActivity().getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_FULL_NAME, o.getString("user_full_name"));
                         Config.setSharedPreferenceString(getActivity().getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_COUNTRY, o.getString("user_country"));
-                        Config.setSharedPreferenceString(getActivity().getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_VERIFIED_STATUS, "0");
+                        Config.setSharedPreferenceString(getActivity().getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_VERIFIED_STATUS, String.valueOf(o.getInt("user_verified_status")));
                         Config.setSharedPreferenceString(getActivity().getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_TYPE, o.getString("user_type"));
                         Config.setSharedPreferenceString(getActivity().getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_GENDER, o.getString("user_gender"));
                         Config.setSharedPreferenceString(getActivity().getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_DATE_OF_BIRTH, o.getString("user_date_of_birth"));
@@ -392,7 +459,7 @@ public class SignupPersonalStage3Fragment extends Fragment implements View.OnCli
                                 mReferrerPottNameEditTextHolder.setVisibility(View.VISIBLE);
                                 mContinueButton.setVisibility(View.VISIBLE);
                                 mSigningUpLoaderProgressBar.setVisibility(View.INVISIBLE);
-                                Config.showDialogType1(getActivity(), getString(R.string.login_activity_error), getResources().getString(R.string.login_activity_an_unexpected_error_occured), "", null, false, "", "");
+                                Config.showDialogType1(getActivity(), getString(R.string.signup_failed), getResources().getString(R.string.login_activity_an_unexpected_error_occured), "", null, false, "", "");
                             }
                         });
                     } else {
@@ -427,7 +494,7 @@ public class SignupPersonalStage3Fragment extends Fragment implements View.OnCli
 
             }
         });
-         */
+
 
     }
 }
