@@ -1119,43 +1119,15 @@ public class Config {
 		return mNumberSetListener;
 	}
 
-	public static Boolean checkUpdateAndForwardToUpdateActivity(Activity thisActivity, int newVersionCode, Boolean newForceUpdate, String newUpdateDate, Boolean goingBackIsAllowed){
+	public static Boolean checkUpdateAndForwardToUpdateActivity(Activity thisActivity, int newVersionCode, Boolean newForceUpdate){
 		Log.e("UpdateCheck", "THEnewVersionCode : " + String.valueOf(newVersionCode));
 		Log.e("UpdateCheck", "THEAppVersionCode : " + String.valueOf(Config.getAppVersionCode(thisActivity)));
-		long updateDateDaysDifference = 0;
-		if(newVersionCode > Config.getAppVersionCode(thisActivity)){
+		if(newVersionCode > Config.getAppVersionCode(thisActivity) && newForceUpdate){
 			Log.e("UpdateCheck", "HERE 1 : " + String.valueOf(newVersionCode));
 			setSharedPreferenceInt(thisActivity.getApplicationContext(),SHARED_PREF_KEY_UPDATE_ACTIVITY_UPDATE_VERSION_CODE, newVersionCode);
-			if(newForceUpdate){
-				setSharedPreferenceBoolean(thisActivity.getApplicationContext(), SHARED_PREF_KEY_UPDATE_ACTIVITY_UPDATE_BY_FORCE, newForceUpdate);
-			}
-			// IF THE NOT NOW UPDATE DATE IS NOT SET, THEN WE SET IT
-			if(getSharedPreferenceString(thisActivity.getApplicationContext(), SHARED_PREF_KEY_UPDATE_ACTIVITY_UPDATE_NOT_NOW_DATE).equalsIgnoreCase("")){
-
-				Log.e("UpdateCheck", "HERE 2 : " + String.valueOf(newVersionCode));
-				setSharedPreferenceString(thisActivity.getApplicationContext(), SHARED_PREF_KEY_UPDATE_ACTIVITY_UPDATE_NOT_NOW_DATE, newUpdateDate);
-				if(newVersionCode >  getAppVersionCode(thisActivity)){
-					if(goingBackIsAllowed && !newForceUpdate){
-						openActivity(thisActivity, UpdateActivity.class, 1, 0, 0, "", "");
-						return false;
-					} else {
-						openActivity(thisActivity, UpdateActivity.class, 1, 2, 1, KEY_ACTIVITY_FINISHED, "1");
-						return true;
-					}
-				}
-			} else {
-				Log.e("UpdateCheck", "HERE 3 : " + String.valueOf(newVersionCode));
-				updateDateDaysDifference = getDateDifferenceBetweenDates(getSharedPreferenceString(thisActivity.getApplicationContext(), SHARED_PREF_KEY_UPDATE_ACTIVITY_UPDATE_NOT_NOW_DATE), getCurrentDate());
-				if((newForceUpdate &&  newVersionCode >  getAppVersionCode(thisActivity)) || newVersionCode >  getAppVersionCode(thisActivity) && updateDateDaysDifference > 1){
-					if(goingBackIsAllowed && !newForceUpdate){
-						openActivity(thisActivity, UpdateActivity.class, 1, 0, 0, "", "");
-						return false;
-					} else {
-						openActivity(thisActivity, UpdateActivity.class, 1, 2, 1, KEY_ACTIVITY_FINISHED, "1");
-						return true;
-					}
-				}
-			}
+			setSharedPreferenceBoolean(thisActivity.getApplicationContext(), SHARED_PREF_KEY_UPDATE_ACTIVITY_UPDATE_BY_FORCE, newForceUpdate);
+			openActivity(thisActivity, UpdateActivity.class, 1, 2, 1, KEY_ACTIVITY_FINISHED, "1");
+			return true;
 		}
 		return false;
 	}
