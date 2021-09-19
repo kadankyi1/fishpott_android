@@ -22,7 +22,7 @@ import com.fishpott.fishpott5.ViewModels.SignupPersonalStage1ViewModel;
 public class SignupPersonalStage1Fragment extends Fragment implements View.OnClickListener {
 
     private String gender = "";
-    private EditText mFirstName, mLastName;
+    private EditText mFirstName, mLastName, mEmailAddress;
     private RadioButton mMaleGenderRadioButton, mFemaleGenderRadioButton;
     private ImageView mMaleGenderImageView, mFemaleGenderImageView, mBackImageView;
     private TextView mMaleGenderTextView, mFemaleGenderTextView;
@@ -46,6 +46,7 @@ public class SignupPersonalStage1Fragment extends Fragment implements View.OnCli
         mBackImageView = view.findViewById(R.id.fragment_signup_personalstage1_back_imageview);
         mFirstName = view.findViewById(R.id.fragment_signup_personalstage1_firstname_edit_text);
         mLastName = view.findViewById(R.id.fragment_signup_personalstage1_lastname_edit_text);
+        mEmailAddress = view.findViewById(R.id.fragment_signup_personalstage1_email_edit_text);
         mMaleGenderRadioButton = view.findViewById(R.id.fragment_signup_personalstage1_gender_male_radiobutton);
         mFemaleGenderRadioButton = view.findViewById(R.id.fragment_signup_personalstage1_gender_female_radiobutton);
         mMaleGenderImageView = view.findViewById(R.id.fragment_signup_personalstage1_gender_male_imageview);
@@ -97,8 +98,8 @@ public class SignupPersonalStage1Fragment extends Fragment implements View.OnCli
             mFemaleGenderRadioButton.performClick();
             setFemaleClicked();
         } else if(view.getId() == R.id.fragment_signup_personalstage1_continue_button){
-            if(!mFirstName.getText().toString().trim().equalsIgnoreCase("") && !mLastName.getText().toString().trim().equalsIgnoreCase("") && !gender.trim().equalsIgnoreCase("")){
-                Config.openFragment(getActivity().getSupportFragmentManager(),R.id.activity_signup_fragment_holder, SignupPersonalStage2Fragment.newInstance(mFirstName.getText().toString().trim(), mLastName.getText().toString().trim(), gender), "SignupPersonalStage2Fragment", 1);
+            if(!mFirstName.getText().toString().trim().equalsIgnoreCase("") && !mLastName.getText().toString().trim().equalsIgnoreCase("") && !gender.trim().equalsIgnoreCase("") && !mEmailAddress.getText().toString().trim().equalsIgnoreCase("")){
+                Config.openFragment(getActivity().getSupportFragmentManager(),R.id.activity_signup_fragment_holder, SignupPersonalStage2Fragment.newInstance(mFirstName.getText().toString().trim(), mLastName.getText().toString().trim(), gender, mEmailAddress.getText().toString().trim()), "SignupPersonalStage2Fragment", 1);
             }
         } else if(view.getId() == R.id.fragment_signup_personalstage1_back_imageview){
             getActivity().onBackPressed();

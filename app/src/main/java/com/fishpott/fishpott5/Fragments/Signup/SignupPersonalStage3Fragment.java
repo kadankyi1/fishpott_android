@@ -34,7 +34,7 @@ import org.json.JSONObject;
 
 public class SignupPersonalStage3Fragment extends Fragment implements View.OnClickListener {
 
-    private String firstName = "", lastName = "", gender = "", dob = "", country = "", countryCode = "", networkResponse = "";
+    private String firstName = "", lastName = "", gender = "", dob = "", country = "", countryCode = "", networkResponse = "", emailAddress = "";
     private ImageView mBackImageView;
     private EditText mPottNameEditText, mPhoneNumberEditText, mPasswordEditText, mRetypedPasswordEditText, mReferrerPottNameEditText;
     private TextInputLayout mPottNameEditTextHolder, mPhoneNumberEditTextHolder, mPasswordEditTextHolder, mRetypedPasswordEditTextHolder, mReferrerPottNameEditTextHolder;
@@ -45,13 +45,14 @@ public class SignupPersonalStage3Fragment extends Fragment implements View.OnCli
     private Dialog.OnCancelListener cancelListenerActive1;
     private View view = null;
 
-    public static SignupPersonalStage3Fragment newInstance(String firstName, String lastName, String gender, String dob, String country, String countryCode) {
+    public static SignupPersonalStage3Fragment newInstance(String firstName, String lastName, String gender, String dob, String emailAddress, String country, String countryCode) {
         SignupPersonalStage3Fragment fragment = new SignupPersonalStage3Fragment();
         Bundle args = new Bundle();
         args.putString("firstName", firstName);
         args.putString("lastName", lastName);
         args.putString("gender", gender);
         args.putString("dob", dob);
+        args.putString("emailAddress", emailAddress);
         args.putString("country", country);
         args.putString("countryCode", countryCode);
         fragment.setArguments(args);
@@ -66,6 +67,7 @@ public class SignupPersonalStage3Fragment extends Fragment implements View.OnCli
             lastName = getArguments().getString("lastName");
             gender = getArguments().getString("gender");
             dob = getArguments().getString("dob");
+            emailAddress = getArguments().getString("emailAddress");
             country = getArguments().getString("country");
             countryCode = getArguments().getString("countryCode");
         }
@@ -101,7 +103,7 @@ public class SignupPersonalStage3Fragment extends Fragment implements View.OnCli
                     signUpThread2 = new Thread(new Runnable() {
                         @Override
                         public void run() {
-                            signUpAndGetUserCredentials(firstName, lastName, gender, dob, country, mPottNameEditText.getText().toString().trim(), mPhoneNumberEditText.getText().toString().trim(), mPasswordEditText.getText().toString().trim(), mReferrerPottNameEditText.getText().toString().trim(), LocaleHelper.getLanguage(getActivity()));
+                            signUpAndGetUserCredentials(firstName, lastName, gender, dob, emailAddress, country, mPottNameEditText.getText().toString().trim(), mPhoneNumberEditText.getText().toString().trim(), mPasswordEditText.getText().toString().trim(), mReferrerPottNameEditText.getText().toString().trim(), LocaleHelper.getLanguage(getActivity()));
                         }
                     });
                     signUpThread2.start();
@@ -251,7 +253,7 @@ public class SignupPersonalStage3Fragment extends Fragment implements View.OnCli
         //Home.getRefWatcher(getActivity()).watch(this);
     }
 
-    public void signUpAndGetUserCredentials(final String firstName, final String lastName, final String gender, final String dob, final String country, final String pottname, final String phoneNumber, final String password, final String referrerPottName, final String language){
+    public void signUpAndGetUserCredentials(final String firstName, final String lastName, final String gender, final String dob, final String emailAddress, final String country, final String pottname, final String phoneNumber, final String password, final String referrerPottName, final String language){
         networkResponse = "";
         new Handler(Looper.getMainLooper()).post(new Runnable() {
             @Override
@@ -269,10 +271,11 @@ public class SignupPersonalStage3Fragment extends Fragment implements View.OnCli
         });
 
 
-        /*Log.e("user_firstname", firstName);
+        Log.e("user_firstname", firstName);
         Log.e("user_surname", lastName);
         Log.e("user_gender", gender);
         Log.e("user_dob", dob);
+        Log.e("user_email", emailAddress);
         Log.e("user_country", country);
         Log.e("user_pottname", pottname);
         Log.e("user_referred_by", referrerPottName);
@@ -283,9 +286,6 @@ public class SignupPersonalStage3Fragment extends Fragment implements View.OnCli
         Log.e("user_firstname", firstName);
         Log.e("user_firstname", firstName);
         Log.e("app_version_code", String.valueOf(Config.getAppVersionCode(getActivity().getApplicationContext())));
-
-        return;
-         */
 
 
 
@@ -365,6 +365,7 @@ public class SignupPersonalStage3Fragment extends Fragment implements View.OnCli
                 .addBodyParameter("user_surname", lastName)
                 .addBodyParameter("user_gender", gender)
                 .addBodyParameter("user_dob", dob)
+                .addBodyParameter("user_email", emailAddress)
                 .addBodyParameter("user_country", country)
                 .addBodyParameter("user_pottname", pottname)
                 .addBodyParameter("user_referred_by", referrerPottName)

@@ -32,16 +32,17 @@ public class SignupPersonalStage2Fragment extends Fragment implements View.OnCli
     private Button mContinueButton;
     private DatePickerDialog.OnDateSetListener mDateSetListener;
     private NumberPicker.OnValueChangeListener mNumberSetListener;
-    private String firstName = "", lastName = "", gender = "", dob = "", countryCode = "";
+    private String firstName = "", lastName = "", gender = "", dob = "", countryCode = "", emailAddress = "";
     private int presetDateDay = 19, presetDateMonth = 6, presetDateYear = 1995, defaultCountry = 0;
     View view = null;
 
-    public static SignupPersonalStage2Fragment newInstance(String firstName, String lastName, String gender) {
+    public static SignupPersonalStage2Fragment newInstance(String firstName, String lastName, String gender, String emailAddress) {
         SignupPersonalStage2Fragment fragment = new SignupPersonalStage2Fragment();
         Bundle args = new Bundle();
         args.putString("firstName", firstName);
         args.putString("lastName", lastName);
         args.putString("gender", gender);
+        args.putString("emailAddress", emailAddress);
         fragment.setArguments(args);
         return fragment;
     }
@@ -51,9 +52,9 @@ public class SignupPersonalStage2Fragment extends Fragment implements View.OnCli
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
             firstName = getArguments().getString("firstName");
-            firstName = getArguments().getString("firstName");
             lastName = getArguments().getString("lastName");
             gender = getArguments().getString("gender");
+            emailAddress = getArguments().getString("emailAddress");
         }
     }
 
@@ -130,7 +131,7 @@ public class SignupPersonalStage2Fragment extends Fragment implements View.OnCli
                     !dob.trim().equalsIgnoreCase("") && !countryCode.trim().equalsIgnoreCase("") &&
                     !mCountryTextView.getText().toString().trim().equalsIgnoreCase("") && !mCountryTextView.getText().toString().trim().equalsIgnoreCase(getResources().getString(R.string.choose_country))
                     ){
-                Config.openFragment(getActivity().getSupportFragmentManager(),R.id.activity_signup_fragment_holder, SignupPersonalStage3Fragment.newInstance(firstName, lastName, gender, dob, mCountryTextView.getText().toString().trim(), countryCode), "SignupPersonalStage3Fragment", 1);
+                Config.openFragment(getActivity().getSupportFragmentManager(),R.id.activity_signup_fragment_holder, SignupPersonalStage3Fragment.newInstance(firstName, lastName, gender, dob, emailAddress, mCountryTextView.getText().toString().trim(), countryCode), "SignupPersonalStage3Fragment", 1);
             } else {
                 Config.showToastType1(getActivity(), getString(R.string.fragment_signup_personalstage2_set_your_date_of_birth_and_country));
             }

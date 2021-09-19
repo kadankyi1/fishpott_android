@@ -346,7 +346,7 @@
         <item>Dec</item>
     </string-array>
 
-    <string name="fragment_signup_personalstage1_full_name_amp_gender">Full Name &amp; Gender</string>
+    <string name="fragment_signup_personalstage1_full_name_amp_gender">Full Name, Email &amp; Gender</string>
     <string name="fragment_signup_personalstage2_birth_day_country">Birth Day &amp; Country</string>
     <string name="fragment_signup_personalstage3_account_login_credentials">Account Login Credentials</string>
     <string name="fragment_signup_personalstage3_phone_number">Phone Number</string>
