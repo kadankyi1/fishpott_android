@@ -823,8 +823,8 @@ public class Config {
 				dialog.setCancelable(false);
 				dialog.setCanceledOnTouchOutside(false);
 			}
-			if (subBody.trim().equalsIgnoreCase("show-positive-image")) {
-				dialog.setContentView(R.layout.login_activity_dialog);
+			if (subBody2.trim().equalsIgnoreCase("show-positive-image")) {
+				dialog.setContentView(R.layout.positive_icon_dialog);
 			} else {
 				dialog.setContentView(R.layout.login_activity_dialog);
 			}
@@ -840,7 +840,7 @@ public class Config {
 				dialogTextView.setText(subBody);
 			}
 
-			if (subBody2.trim().equalsIgnoreCase("")) {
+			if (subBody2.trim().equalsIgnoreCase("") || subBody2.trim().equalsIgnoreCase("show-positive-image")) {
 				dialogTextView2.setVisibility(View.INVISIBLE);
 			} else {
 				dialogTextView2.setText(subBody2);

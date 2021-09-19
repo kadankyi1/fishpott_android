@@ -314,7 +314,7 @@ public class SignupBusinessStage3Fragment extends Fragment implements View.OnCli
                                         final String myStatusMessage = o.getString("message");
 
                                         if (myStatus.equalsIgnoreCase("yes")) {
-                                            Config.showDialogType1(getActivity(), "Signup Successful", "Your signup is pending approval. You will receive an notification via sms/call after approval", "", null, true, "", "");
+                                            Config.showDialogType1(getActivity(), "Signup Successful", "Your signup is pending approval. You will receive an notification via sms/call after approval", "show-positive-image", null, true, "", "");
 
                                             /*
                                             Config.setSharedPreferenceString(getActivity().getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_PHONE, o.getString("user_phone"));
