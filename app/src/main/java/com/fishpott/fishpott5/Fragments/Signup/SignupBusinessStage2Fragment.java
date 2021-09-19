@@ -27,16 +27,17 @@ public class SignupBusinessStage2Fragment extends Fragment implements View.OnCli
     private Button mContinueButton;
     private DatePickerDialog.OnDateSetListener mDateSetListener;
     private NumberPicker.OnValueChangeListener mNumberSetListener;
-    private String businessName = "", branchLocation = "", dob = "", countryCode = "";
+    private String businessName = "", branchLocation = "", dob = "", countryCode = "",  businessEmail ="";
     private int presetDateDay = 19, presetDateMonth = 6, presetDateYear = 2015, defaultCountry = 0;
     private View view = null;
 
 
-    public static SignupBusinessStage2Fragment newInstance(String businessName, String branchLocation) {
+    public static SignupBusinessStage2Fragment newInstance(String businessName, String branchLocation, String businessEmail) {
         SignupBusinessStage2Fragment fragment = new SignupBusinessStage2Fragment();
         Bundle args = new Bundle();
         args.putString("businessName", businessName);
         args.putString("branchLocation", branchLocation);
+        args.putString("branchEmail", businessEmail);
         fragment.setArguments(args);
         return fragment;
     }
@@ -47,6 +48,7 @@ public class SignupBusinessStage2Fragment extends Fragment implements View.OnCli
         if (getArguments() != null) {
             businessName = getArguments().getString("businessName");
             branchLocation = getArguments().getString("branchLocation");
+            businessEmail = getArguments().getString("businessEmail");
         }
     }
 
@@ -118,7 +120,7 @@ public class SignupBusinessStage2Fragment extends Fragment implements View.OnCli
                     !dob.trim().equalsIgnoreCase("") && !countryCode.trim().equalsIgnoreCase("") &&
                     !mCountryTextView.getText().toString().trim().equalsIgnoreCase("") && !mCountryTextView.getText().toString().trim().equalsIgnoreCase("country")
                     ){
-                Config.openFragment(getActivity().getSupportFragmentManager(),R.id.activity_signup_fragment_holder, SignupBusinessStage3Fragment.newInstance(businessName, branchLocation, dob, mCountryTextView.getText().toString().trim(), countryCode), "SignupBusinessStage3Fragment", 1);
+                Config.openFragment(getActivity().getSupportFragmentManager(),R.id.activity_signup_fragment_holder, SignupBusinessStage3Fragment.newInstance(businessName, branchLocation, businessEmail, dob, mCountryTextView.getText().toString().trim(), countryCode), "SignupBusinessStage3Fragment", 1);
             } else {
                 Config.showToastType1(getActivity(), getString(R.string.fragment_signup_businessstage2_set_the_business_start_date_and_country_of_operation));
             }
@@ -163,6 +165,7 @@ public class SignupBusinessStage2Fragment extends Fragment implements View.OnCli
         mNumberSetListener = null;
         mDateSetListener = null;
         businessName = null;
+        businessEmail = null;
         branchLocation = null;
         dob = null;
         countryCode = null;

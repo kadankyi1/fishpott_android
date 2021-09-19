@@ -432,7 +432,7 @@ public class SignupPersonalStage3Fragment extends Fragment implements View.OnCli
                                     mReferrerPottNameEditTextHolder.setVisibility(View.VISIBLE);
                                     mContinueButton.setVisibility(View.VISIBLE);
                                     mSigningUpLoaderProgressBar.setVisibility(View.INVISIBLE);
-                                    Config.showDialogType1(getActivity(), getString(R.string.login_activity_login_failed), myStatusMessage, "", null, true, "", "");
+                                    Config.showDialogType1(getActivity(), getString(R.string.signup_failed), myStatusMessage, "", null, true, "", "");
 
                                 }
                             });

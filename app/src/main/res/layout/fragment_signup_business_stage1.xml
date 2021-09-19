@@ -106,14 +106,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.5" />
+        app:layout_constraintGuide_percent="0.75" />
 
     <android.support.constraint.Guideline
         android:id="@+id/fragment_signup_businessstage1_guideline_h_7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.62" />
+        app:layout_constraintGuide_percent="0.59" />
 
     <android.support.constraint.ConstraintLayout
         android:id="@+id/fragment_signup_businessstage1_constraint_layout_2"
@@ -194,7 +194,7 @@
             android:hint="@string/fragment_signup_businessstage1_business_name"
             android:inputType="text"
             android:labelFor="@id/fragment_signup_businessstage1_businessname_edit_text"
-            android:maxLength="15"
+            android:maxLength="50"
             android:textColor="@drawable/login_activity_input_text_color" />
 
     </android.support.design.widget.TextInputLayout>
@@ -208,10 +208,10 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:theme="@style/loginActivityHintStyle"
-        app:layout_constraintBottom_toTopOf="@+id/fragment_signup_businessstage1_guideline_h_3"
+        app:layout_constraintBottom_toTopOf="@+id/fragment_signup_businessstage1_guideline_h_7"
         app:layout_constraintEnd_toStartOf="@+id/fragment_signup_businessstage1_guideline_v_6"
-        app:layout_constraintStart_toStartOf="@+id/fragment_signup_businessstage1_guideline_v_4"
-        app:layout_constraintTop_toTopOf="@+id/fragment_signup_businessstage1_guideline_h_2">
+        app:layout_constraintStart_toStartOf="@+id/fragment_signup_businessstage1_guideline_v_1"
+        app:layout_constraintTop_toBottomOf="@+id/fragment_signup_businessstage1_guideline_h_3">
 
         <EditText
             android:id="@+id/fragment_signup_businessstage1_businesslocation_edit_text"
@@ -220,10 +220,37 @@
             android:hint="@string/fragment_signup_businessstage1_branch_location"
             android:inputType="text"
             android:labelFor="@id/fragment_signup_businessstage1_businesslocation_edit_text"
-            android:maxLength="15"
+            android:maxLength="50"
             android:textColor="@drawable/login_activity_input_text_color" />
 
     </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/fragment_signup_businessstage1_businessemail_edit_text_layout_holder"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:theme="@style/loginActivityHintStyle"
+        app:layout_constraintBottom_toTopOf="@+id/fragment_signup_businessstage1_guideline_h_3"
+        app:layout_constraintEnd_toStartOf="@+id/fragment_signup_businessstage1_guideline_v_6"
+        app:layout_constraintStart_toStartOf="@+id/fragment_signup_businessstage1_guideline_v_4"
+        app:layout_constraintTop_toTopOf="@+id/fragment_signup_businessstage1_guideline_h_2">
+
+        <EditText
+            android:id="@+id/fragment_signup_businessstage1_businessemail_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="@string/fragment_signup_businessstage1_business_email"
+            android:inputType="text"
+            android:labelFor="@id/fragment_signup_businessstage1_businessemail_edit_text"
+            android:maxLength="50"
+            android:textColor="@drawable/login_activity_input_text_color" />
+
+    </android.support.design.widget.TextInputLayout>
+
 
     <Button
         android:id="@+id/fragment_signup_businessstage1_continue_button"

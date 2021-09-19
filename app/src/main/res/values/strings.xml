@@ -619,8 +619,9 @@
     <string name="login_activity_i_agree">Agree</string>
     <string name="login_activity_i_disagree">Disagree</string>
     <string name="fragment_signup_businessstage1_business_name">Business Name</string>
-    <string name="fragment_signup_businessstage1_branch_location">Branch Location</string>
-    <string name="fragment_signup_businessstage1_business_name_and_location">Business Name And Location</string>
+    <string name="fragment_signup_businessstage1_business_email">Business Email</string>
+    <string name="fragment_signup_businessstage1_branch_location">Head Office Location</string>
+    <string name="fragment_signup_businessstage1_business_name_and_location">Business Name, Email &amp; Location</string>
     <string name="fragment_signup_businessstage2_start_date_amp_country"><![CDATA[Start Date & Country]]></string>
     <string name="fragment_signup_businessstage2_business_date_of_commencement">Business Date Of Commencement</string>
     <string name="fragment_signup_businessstage2_set_the_business_start_date_and_country_of_operation">Set the business start date and country of operation</string>

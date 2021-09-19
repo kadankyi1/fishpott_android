@@ -272,7 +272,7 @@ public class Config {
 
 	// SERVER-SIDE API FOR SIGNUP
     public static final String LINK_SIGNUP_PERSONAL = CURRENT_HTTP_IN_USE + "144.202.111.61/api/v1/user/register-personal";
-    public static final String LINK_SIGNUP_BUSINESS = CURRENT_HTTP_IN_USE + "www.fishpott.com/inc/android/signup_business.php";
+    public static final String LINK_SIGNUP_BUSINESS = CURRENT_HTTP_IN_USE + "144.202.111.61/api/v1/user/register-business";
 
     // SERVER-SIDE API FOR POTT-PIC-UPLOAD-AT-SIGNUP-OR-FORCED
     public static final String LINK_UPLOAD_POTT_PICTURE = CURRENT_HTTP_IN_USE + "www.fishpott.com/inc/android/upload_pott_picture.php";

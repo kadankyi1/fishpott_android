@@ -36,7 +36,7 @@ import org.json.JSONObject;
 
 public class SignupBusinessStage3Fragment extends Fragment implements View.OnClickListener {
 
-    private String businessName = "", branchLocation = "", dob = "", country = "", countryCode = "", networkResponse = "";
+    private String businessName = "", branchLocation = "", dob = "", country = "", countryCode = "", networkResponse = "", businessEmail = "";
     private ImageView mBackImageView;
     private EditText mPottNameEditText, mPhoneNumberEditText, mPasswordEditText, mRetypedPasswordEditText, mReferrerPottNameEditText;
     private TextInputLayout mPottNameEditTextHolder, mPhoneNumberEditTextHolder, mPasswordEditTextHolder, mRetypedPasswordEditTextHolder, mReferrerPottNameEditTextHolder;
@@ -47,11 +47,12 @@ public class SignupBusinessStage3Fragment extends Fragment implements View.OnCli
     private Dialog.OnCancelListener cancelListenerActive1;
     private View view = null;
 
-    public static SignupBusinessStage3Fragment newInstance(String businessName, String branchLocation, String dob, String country, String countryCode) {
+    public static SignupBusinessStage3Fragment newInstance(String businessName, String branchLocation, String businessEmail, String dob, String country, String countryCode) {
         SignupBusinessStage3Fragment fragment = new SignupBusinessStage3Fragment();
         Bundle args = new Bundle();
         args.putString("businessName", businessName);
         args.putString("branchLocation", branchLocation);
+        args.putString("businessEmail", businessEmail);
         args.putString("dob", dob);
         args.putString("country", country);
         args.putString("countryCode", countryCode);
@@ -65,6 +66,7 @@ public class SignupBusinessStage3Fragment extends Fragment implements View.OnCli
         if (getArguments() != null) {
             businessName = getArguments().getString("businessName");
             branchLocation = getArguments().getString("branchLocation");
+            businessEmail = getArguments().getString("businessEmail");
             dob = getArguments().getString("dob");
             country = getArguments().getString("country");
             countryCode = getArguments().getString("countryCode");
@@ -102,7 +104,7 @@ public class SignupBusinessStage3Fragment extends Fragment implements View.OnCli
                     signUpThread2 = new Thread(new Runnable() {
                         @Override
                         public void run() {
-                            signUpAndGetUserCredentials(businessName, branchLocation, "business", dob, country, mPottNameEditText.getText().toString().trim(), mPhoneNumberEditText.getText().toString().trim(), mPasswordEditText.getText().toString().trim(), mReferrerPottNameEditText.getText().toString().trim(), LocaleHelper.getLanguage(getActivity()));
+                            signUpAndGetUserCredentials(businessName, branchLocation, businessEmail, "business", dob, country, mPottNameEditText.getText().toString().trim(), mPhoneNumberEditText.getText().toString().trim(), mPasswordEditText.getText().toString().trim(), mReferrerPottNameEditText.getText().toString().trim(), LocaleHelper.getLanguage(getActivity()));
                         }
                     });
                     signUpThread2.start();
@@ -121,7 +123,7 @@ public class SignupBusinessStage3Fragment extends Fragment implements View.OnCli
         } else if(view.getId() == R.id.fragment_signup_businessstage3_finish_button){
             if(!mPottNameEditText.getText().toString().trim().equalsIgnoreCase("") && !mPhoneNumberEditText.getText().toString().trim().equalsIgnoreCase("") &&
                     !mPasswordEditText.getText().toString().trim().equalsIgnoreCase("") && !mRetypedPasswordEditText.getText().toString().trim().equalsIgnoreCase("") &&
-                    !businessName.trim().equalsIgnoreCase("") && !branchLocation.trim().equalsIgnoreCase("") &&
+                    !businessName.trim().equalsIgnoreCase("") && !businessEmail.trim().equalsIgnoreCase("") && !branchLocation.trim().equalsIgnoreCase("") &&
                     !dob.trim().equalsIgnoreCase("") && !country.trim().equalsIgnoreCase("") && !countryCode.trim().equalsIgnoreCase("") &&
                     mPottNameEditText.getText().toString().trim().length() > 4 && !mPottNameEditText.getText().toString().trim().equalsIgnoreCase("linkups") &&
                     mPhoneNumberEditText.getText().toString().trim().length() > 10 &&
@@ -143,7 +145,7 @@ public class SignupBusinessStage3Fragment extends Fragment implements View.OnCli
                 Config.showDialogType1(getActivity(), "1", getString(R.string.fragment_signup_personalstage3_type_a_correct_phone_number_and_it_must_contain_your_country_code_like_this) + " " +  countryCode + "207393447", "", null, false, "", "");
             } else if(!mPasswordEditText.getText().toString().trim().equals(mRetypedPasswordEditText.getText().toString().trim())){
                 Config.showToastType1(getActivity(), getActivity().getResources().getString(R.string.fragment_signup_personalstage3_passwords_do_not_match));
-            } else if(businessName.trim().equalsIgnoreCase("") || branchLocation.trim().equalsIgnoreCase("")){
+            } else if(businessName.trim().equalsIgnoreCase("") || branchLocation.trim().equalsIgnoreCase("") || businessEmail.trim().equalsIgnoreCase("")){
                 Config.showDialogType1(getActivity(), "1", getString(R.string.fragment_signup_personalstage3_something_went_wrong_please_return_to_the_first_stage_to_fill_your_first_name_last_name_and_gender),"", null, true, "", "");
             } else if(dob.trim().equalsIgnoreCase("") || country.trim().equalsIgnoreCase("") || countryCode.trim().equalsIgnoreCase("")){
                 Config.showDialogType1(getActivity(), "1", getString(R.string.fragment_signup_personalstage3_something_went_wrong_please_return_to_the_first_stage_to_fill_your_first_name_last_name_and_gender),"", null, true, "", "");
@@ -251,7 +253,7 @@ public class SignupBusinessStage3Fragment extends Fragment implements View.OnCli
         //Home.getRefWatcher(getActivity()).watch(this);
     }
 
-    public void signUpAndGetUserCredentials(final String businessName, final String branchLocation, final String gender, final String dob, final String country, final String pottname, final String phoneNumber, final String password, final String referrerPottName, final String language){
+    public void signUpAndGetUserCredentials(final String businessName, final String branchLocation, final String businessEmail, final String gender, final String dob, final String country, final String pottname, final String phoneNumber, final String password, final String referrerPottName, final String language){
                 networkResponse = "";
         new Handler(Looper.getMainLooper()).post(new Runnable() {
                     @Override
@@ -268,64 +270,83 @@ public class SignupBusinessStage3Fragment extends Fragment implements View.OnCli
                     }
                 });
 
+        Log.e("user_firstname", businessName);
+        Log.e("user_surname", branchLocation);
+        Log.e("user_email", businessEmail);
+        Log.e("user_gender", "Business");
+        Log.e("user_dob", dob);
+        Log.e("user_country", country);
+        Log.e("user_pottname", pottname);
+        Log.e("user_referred_by", referrerPottName);
+        Log.e("user_phone_number", phoneNumber);
+        Log.e("password", password);
+        Log.e("app_type", "ANDROID");
+        Log.e("user_language", language);
+        Log.e("app_version_code", String.valueOf(Config.getAppVersionCode(getActivity().getApplicationContext())));
+
                         AndroidNetworking.post(Config.LINK_SIGNUP_BUSINESS)
-                                .addBodyParameter("business_name", businessName)
-                                .addBodyParameter("branch_location", branchLocation)
-                                .addBodyParameter("gender", gender)
-                                .addBodyParameter("dob", dob)
-                                .addBodyParameter("country", country)
-                                .addBodyParameter("pott_name", pottname)
-                                .addBodyParameter("referrer_pott_name", referrerPottName)
-                                .addBodyParameter("phone_number", phoneNumber)
+                                //.addHeaders("Accept", "application/json")
+                                .addBodyParameter("user_firstname", businessName)
+                                .addBodyParameter("user_surname", branchLocation)
+                                .addBodyParameter("user_email", businessEmail)
+                                .addBodyParameter("user_gender", "Business")
+                                .addBodyParameter("user_dob", dob)
+                                .addBodyParameter("user_country", country)
+                                .addBodyParameter("user_pottname", pottname)
+                                .addBodyParameter("user_referred_by", referrerPottName)
+                                .addBodyParameter("user_phone_number", phoneNumber)
                                 .addBodyParameter("password", password)
-                                .addBodyParameter("language", language)
-                                .addBodyParameter("app_version_code", String.valueOf(Config.getSharedPreferenceInt(getActivity().getApplicationContext(), Config.SHARED_PREF_KEY_UPDATE_ACTIVITY_UPDATE_VERSION_CODE)))
-                                .setTag("signup_fragment_signup_personalstage3")
+                                .addBodyParameter("app_type", "ANDROID")
+                                .addBodyParameter("user_language", language)
+                                .addBodyParameter("app_version_code", String.valueOf(Config.getAppVersionCode(getActivity().getApplicationContext())))
+                                .setTag("signup_fragment_signup_businessstage3")
                                 .setPriority(Priority.MEDIUM)
                                 .build().getAsString(new StringRequestListener() {
                             @Override public void onResponse(String response) {
                                     try {
                                         JSONObject jsonObject = new JSONObject(response);
-                                        JSONArray array = jsonObject.getJSONArray("data_returned");
-                                        JSONObject o = array.getJSONObject(0);
-
+                                        Log.e("PSignup", response);
+                                        JSONObject o = new JSONObject(response);
                                         String myStatus = o.getString("status");
                                         final String myStatusMessage = o.getString("message");
 
                                         if (myStatus.equalsIgnoreCase("yes")) {
-                                            Config.setSharedPreferenceString(getActivity().getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_PHONE, phoneNumber);
+                                            Config.showDialogType1(getActivity(), "Signup Successful", "Your signup is pending approval. You will receive an notification via sms/call after approval", "", null, true, "", "");
+
+                                            /*
+                                            Config.setSharedPreferenceString(getActivity().getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_PHONE, o.getString("user_phone"));
                                             Config.setSharedPreferenceString(getActivity().getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_ID, o.getString("user_id"));
-                                            Config.setSharedPreferenceString(getActivity().getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_PASSWORD_ACCESS_TOKEN, o.getString("user_pass"));
+                                            Config.setSharedPreferenceString(getActivity().getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_PASSWORD_ACCESS_TOKEN, o.getString("access_token"));
                                             Config.setSharedPreferenceString(getActivity().getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_POTT_NAME, o.getString("user_pott_name"));
                                             Config.setSharedPreferenceString(getActivity().getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_FULL_NAME, o.getString("user_full_name"));
                                             Config.setSharedPreferenceString(getActivity().getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_COUNTRY, o.getString("user_country"));
-                                            Config.setSharedPreferenceString(getActivity().getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_VERIFIED_STATUS, "0");
+                                            Config.setSharedPreferenceString(getActivity().getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_VERIFIED_STATUS, String.valueOf(o.getInt("user_verified_status")));
                                             Config.setSharedPreferenceString(getActivity().getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_TYPE, o.getString("user_type"));
                                             Config.setSharedPreferenceString(getActivity().getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_GENDER, o.getString("user_gender"));
                                             Config.setSharedPreferenceString(getActivity().getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_DATE_OF_BIRTH, o.getString("user_date_of_birth"));
                                             Config.setSharedPreferenceString(getActivity().getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_CURRENCY, o.getString("user_currency"));
                                             Config.setSharedPreferenceBoolean(getActivity().getApplicationContext(), Config.SHARED_PREF_KEY_USER_VERIFY_PHONE_NUMBER_IS_ON, o.getBoolean("phone_verification_is_on"));
-                                            Config.setSharedPreferenceString(getActivity().getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_MTN, o.getString("8"));
-                                            Config.setSharedPreferenceString(getActivity().getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_VODAFONE, o.getString("9"));
-                                            Config.setSharedPreferenceString(getActivity().getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_AIRTELTIGO, o.getString("10"));
-                                            Config.setSharedPreferenceString(getActivity().getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_MTN_NAME, o.getString("11"));
-                                            Config.setSharedPreferenceString(getActivity().getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_VODAFONE_NAME, o.getString("12"));
-                                            Config.setSharedPreferenceString(getActivity().getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_AIRTELTIGO_NAME, o.getString("13"));
+                                            Config.setSharedPreferenceString(getActivity().getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_MTN, o.getString("mtn_momo_number"));
+                                            Config.setSharedPreferenceString(getActivity().getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_VODAFONE, o.getString("vodafone_momo_number"));
+                                            Config.setSharedPreferenceString(getActivity().getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_AIRTELTIGO, o.getString("airteltigo_momo_number"));
+                                            Config.setSharedPreferenceString(getActivity().getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_MTN_NAME, o.getString("mtn_momo_acc_name"));
+                                            Config.setSharedPreferenceString(getActivity().getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_VODAFONE_NAME, o.getString("vodafone_momo_acc_name"));
+                                            Config.setSharedPreferenceString(getActivity().getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_AIRTELTIGO_NAME, o.getString("airteltigo_momo_acc_name"));
+                                            Config.setSharedPreferenceBoolean(getActivity().getApplicationContext(), Config.SHARED_PREF_KEY_UPDATE_ACTIVITY_UPDATE_BY_FORCE, o.getBoolean("user_android_app_force_update"));
+                                            Config.setSharedPreferenceInt(getActivity().getApplicationContext(), Config.SHARED_PREF_KEY_UPDATE_ACTIVITY_UPDATE_VERSION_CODE, o.getInt("user_android_app_max_vc"));
 
                                             if(o.getBoolean("phone_verification_is_on")){
                                                 Config.openActivity(getActivity(), ConfirmPhoneNumberActivity.class, 1, 2, 1, Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_PHONE, phoneNumber);
                                                 return;
                                             }
 
-                                            if (Config.checkUpdateAndForwardToUpdateActivity(getActivity(), o.getInt("highest_version_code"), o.getBoolean("force_update_status"), o.getString("update_date"), false)) {
-                                                Config.setSharedPreferenceString(getActivity().getApplicationContext(), Config.SHARED_PREF_KEY_UPDATE_ACTIVITY_UPDATE_NOT_NOW_DATE, o.getString("update_date"));
-                                                Config.setSharedPreferenceBoolean(getActivity().getApplicationContext(), Config.SHARED_PREF_KEY_UPDATE_ACTIVITY_UPDATE_BY_FORCE, o.getBoolean("force_update_status"));
-                                                Config.setSharedPreferenceInt(getActivity().getApplicationContext(), Config.SHARED_PREF_KEY_UPDATE_ACTIVITY_UPDATE_VERSION_CODE, o.getInt("highest_version_code"));
+                                            if(Config.checkUpdateAndForwardToUpdateActivity(getActivity(), o.getInt("user_android_app_max_vc"), o.getBoolean("user_android_app_force_update"))){
                                                 return;
                                             }
 
                                             Config.openActivity(getActivity(), SetProfilePictureActivity.class, 1, 2, 1, Config.KEY_ACTIVITY_FINISHED, "yes");
                                             return;
+                                            */
 
                                         } else {
                                             if(MyLifecycleHandler.isApplicationInForeground()){
@@ -341,7 +362,7 @@ public class SignupBusinessStage3Fragment extends Fragment implements View.OnCli
                                                         mReferrerPottNameEditTextHolder.setVisibility(View.VISIBLE);
                                                         mContinueButton.setVisibility(View.VISIBLE);
                                                         mSigningUpLoaderProgressBar.setVisibility(View.INVISIBLE);
-                                                        Config.showDialogType1(getActivity(), getString(R.string.login_activity_login_failed), myStatusMessage, "", null, true, "", "");
+                                                        Config.showDialogType1(getActivity(), getString(R.string.signup_failed), myStatusMessage, "", null, true, "", "");
                                                         networkResponse = "";
                                                     }
                                                 });
@@ -365,7 +386,7 @@ public class SignupBusinessStage3Fragment extends Fragment implements View.OnCli
                                                     mReferrerPottNameEditTextHolder.setVisibility(View.VISIBLE);
                                                     mContinueButton.setVisibility(View.VISIBLE);
                                                     mSigningUpLoaderProgressBar.setVisibility(View.INVISIBLE);
-                                                    Config.showDialogType1(getActivity(), getResources().getString(R.string.login_activity_error), getResources().getString(R.string.login_activity_an_unexpected_error_occured), "", null, false, "", "");
+                                                    Config.showDialogType1(getActivity(), getResources().getString(R.string.signup_failed), getResources().getString(R.string.login_activity_an_unexpected_error_occured), "", null, false, "", "");
                                                     networkResponse = "";
                                                 }
                                             });

@@ -306,7 +306,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                                     Config.setSharedPreferenceBoolean(getApplicationContext(), Config.SHARED_PREF_KEY_UPDATE_ACTIVITY_UPDATE_BY_FORCE, o.getBoolean("force_update_status"));
                                     Config.setSharedPreferenceInt(getApplicationContext(), Config.SHARED_PREF_KEY_UPDATE_ACTIVITY_UPDATE_VERSION_CODE, o.getInt("highest_version_code"));
 
-                                    Config.checkUpdateAndForwardToUpdateActivity(LoginActivity.this, o.getInt("highest_version_code"), o.getBoolean("force_update_status"), o.getString("update_date"), false);
+                                    Config.checkUpdateAndForwardToUpdateActivity(LoginActivity.this, o.getInt("highest_version_code"), o.getBoolean("force_update_status"));
 
 
                                     if (Config.userProfilePictureIsSet(LoginActivity.this)) {

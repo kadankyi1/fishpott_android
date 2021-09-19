@@ -575,7 +575,7 @@ public class SuggestedLinkUpsActivity extends AppCompatActivity implements View.
                                         return;
                                     }
 
-                                    if (Config.checkUpdateAndForwardToUpdateActivity(SuggestedLinkUpsActivity.this, o.getInt("6"), o.getBoolean("7"), o.getString("8"), false)) {
+                                    if (Config.checkUpdateAndForwardToUpdateActivity(SuggestedLinkUpsActivity.this, o.getInt("6"), o.getBoolean("7"))) {
                                         Config.setSharedPreferenceString(getApplicationContext(), Config.SHARED_PREF_KEY_UPDATE_ACTIVITY_UPDATE_NOT_NOW_DATE, o.getString("8"));
                                         Config.setSharedPreferenceBoolean(getApplicationContext(), Config.SHARED_PREF_KEY_UPDATE_ACTIVITY_UPDATE_BY_FORCE, o.getBoolean("7"));
                                         Config.setSharedPreferenceInt(getApplicationContext(), Config.SHARED_PREF_KEY_UPDATE_ACTIVITY_UPDATE_VERSION_CODE, o.getInt("6"));

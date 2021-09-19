@@ -340,7 +340,7 @@ public class SetProfilePictureActivity extends AppCompatActivity implements View
                                         return;
                                     }
 
-                                    if (Config.checkUpdateAndForwardToUpdateActivity(SetProfilePictureActivity.this, o.getInt("highest_version_code"), o.getBoolean("force_update_status"), o.getString("update_date"), false)) {
+                                    if (Config.checkUpdateAndForwardToUpdateActivity(SetProfilePictureActivity.this, o.getInt("highest_version_code"), o.getBoolean("force_update_status"))) {
                                         Config.setSharedPreferenceString(getApplicationContext(), Config.SHARED_PREF_KEY_UPDATE_ACTIVITY_UPDATE_NOT_NOW_DATE, o.getString("update_date"));
                                         Config.setSharedPreferenceBoolean(getApplicationContext(), Config.SHARED_PREF_KEY_UPDATE_ACTIVITY_UPDATE_BY_FORCE, o.getBoolean("force_update_status"));
                                         Config.setSharedPreferenceInt(getApplicationContext(), Config.SHARED_PREF_KEY_UPDATE_ACTIVITY_UPDATE_VERSION_CODE, o.getInt("highest_version_code"));
