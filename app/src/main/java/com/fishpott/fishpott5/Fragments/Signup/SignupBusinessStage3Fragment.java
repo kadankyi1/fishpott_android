@@ -50,6 +50,7 @@ public class SignupBusinessStage3Fragment extends Fragment implements View.OnCli
     public static SignupBusinessStage3Fragment newInstance(String businessName, String branchLocation, String businessEmail, String dob, String country, String countryCode) {
         SignupBusinessStage3Fragment fragment = new SignupBusinessStage3Fragment();
         Bundle args = new Bundle();
+        Log.e("businessEmail 1", businessEmail);
         args.putString("businessName", businessName);
         args.putString("branchLocation", branchLocation);
         args.putString("businessEmail", businessEmail);
@@ -70,6 +71,7 @@ public class SignupBusinessStage3Fragment extends Fragment implements View.OnCli
             dob = getArguments().getString("dob");
             country = getArguments().getString("country");
             countryCode = getArguments().getString("countryCode");
+            Log.e("businessEmail 2", businessEmail);
         }
     }
 
@@ -132,6 +134,7 @@ public class SignupBusinessStage3Fragment extends Fragment implements View.OnCli
                     !mReferrerPottNameEditText.getText().toString().trim().equalsIgnoreCase("linkups") &&
                     mPasswordEditText.getText().toString().trim().equals(mRetypedPasswordEditText.getText().toString().trim())
                     ){
+                Log.e("3 businessEmail", businessEmail);
                 cancelListenerActive1 = Config.showDialogType2(getActivity(), cancelListenerActive1, true);
             } else if(mPottNameEditText.getText().toString().trim().equalsIgnoreCase("") || mPottNameEditText.getText().toString().trim().length() < 5){
                 Config.showDialogType1(getActivity(), "1", getString(R.string.fragment_signup_personalstage3_pottname_must_be_5_letters_or_more), "", null, true, "", "");

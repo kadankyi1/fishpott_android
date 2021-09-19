@@ -37,7 +37,8 @@ public class SignupBusinessStage2Fragment extends Fragment implements View.OnCli
         Bundle args = new Bundle();
         args.putString("businessName", businessName);
         args.putString("branchLocation", branchLocation);
-        args.putString("branchEmail", businessEmail);
+        args.putString("businessEmail", businessEmail);
+        Log.e("2mBusinessEmail", businessEmail);
         fragment.setArguments(args);
         return fragment;
     }
@@ -49,6 +50,8 @@ public class SignupBusinessStage2Fragment extends Fragment implements View.OnCli
             businessName = getArguments().getString("businessName");
             branchLocation = getArguments().getString("branchLocation");
             businessEmail = getArguments().getString("businessEmail");
+
+            Log.e("3mBusinessEmail", businessEmail);
         }
     }
 
@@ -120,6 +123,7 @@ public class SignupBusinessStage2Fragment extends Fragment implements View.OnCli
                     !dob.trim().equalsIgnoreCase("") && !countryCode.trim().equalsIgnoreCase("") &&
                     !mCountryTextView.getText().toString().trim().equalsIgnoreCase("") && !mCountryTextView.getText().toString().trim().equalsIgnoreCase("country")
                     ){
+                Log.e("4mBusinessEmail", businessEmail);
                 Config.openFragment(getActivity().getSupportFragmentManager(),R.id.activity_signup_fragment_holder, SignupBusinessStage3Fragment.newInstance(businessName, branchLocation, businessEmail, dob, mCountryTextView.getText().toString().trim(), countryCode), "SignupBusinessStage3Fragment", 1);
             } else {
                 Config.showToastType1(getActivity(), getString(R.string.fragment_signup_businessstage2_set_the_business_start_date_and_country_of_operation));

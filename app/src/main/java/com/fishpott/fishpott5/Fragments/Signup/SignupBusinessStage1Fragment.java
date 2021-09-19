@@ -51,6 +51,7 @@ public class SignupBusinessStage1Fragment extends Fragment implements View.OnCli
     public void onClick(View view) {
         if(view.getId() == R.id.fragment_signup_businessstage1_continue_button){
             if(!mBusinessName.getText().toString().trim().equalsIgnoreCase("") && !mBranchLocation.getText().toString().trim().equalsIgnoreCase("") && !mBusinessEmail.getText().toString().trim().equalsIgnoreCase("")){
+                Log.e("1mBusinessEmail", mBusinessEmail.getText().toString().trim());
                 Config.openFragment(getActivity().getSupportFragmentManager(),R.id.activity_signup_fragment_holder, SignupBusinessStage2Fragment.newInstance(mBusinessName.getText().toString().trim(), mBranchLocation.getText().toString().trim(), mBusinessEmail.getText().toString().trim()), "SignupPersonalStage2Fragment", 1);
             }
         } else if(view.getId() == R.id.fragment_signup_businessstage1_back_imageview){

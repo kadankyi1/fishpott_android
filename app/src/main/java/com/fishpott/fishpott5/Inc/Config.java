@@ -823,7 +823,11 @@ public class Config {
 				dialog.setCancelable(false);
 				dialog.setCanceledOnTouchOutside(false);
 			}
-			dialog.setContentView(R.layout.login_activity_dialog);
+			if (subBody.trim().equalsIgnoreCase("show-positive-image")) {
+				dialog.setContentView(R.layout.login_activity_dialog);
+			} else {
+				dialog.setContentView(R.layout.login_activity_dialog);
+			}
 
 			TextView dialogTextView = dialog.findViewById(R.id.login_activity_dialog_text);
 			TextView dialogTextView2 = dialog.findViewById(R.id.login_activity_dialog_text2);
