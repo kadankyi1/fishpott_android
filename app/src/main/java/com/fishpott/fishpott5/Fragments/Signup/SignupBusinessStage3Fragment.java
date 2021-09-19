@@ -44,7 +44,7 @@ public class SignupBusinessStage3Fragment extends Fragment implements View.OnCli
     private ProgressBar mSigningUpLoaderProgressBar;
     private TextView mFinalTextTextView, mAtTextView;
     private Thread signUpThread2 = null;
-    private Dialog.OnCancelListener cancelListenerActive1;
+    private Dialog.OnCancelListener cancelListenerActive1, cancelListenerActive2;
     private View view = null;
 
     public static SignupBusinessStage3Fragment newInstance(String businessName, String branchLocation, String businessEmail, String dob, String country, String countryCode) {
@@ -98,6 +98,14 @@ public class SignupBusinessStage3Fragment extends Fragment implements View.OnCli
 
         mBackImageView.setOnClickListener(this);
         mContinueButton.setOnClickListener(this);
+
+
+        cancelListenerActive2 = new DialogInterface.OnCancelListener() {
+            @Override
+            public void onCancel(DialogInterface dialog) {
+                getActivity().finish();
+            }
+        };
 
         cancelListenerActive1 = new DialogInterface.OnCancelListener() {
             @Override
@@ -314,7 +322,7 @@ public class SignupBusinessStage3Fragment extends Fragment implements View.OnCli
                                         final String myStatusMessage = o.getString("message");
 
                                         if (myStatus.equalsIgnoreCase("yes")) {
-                                            Config.showDialogType1(getActivity(), "Signup Successful", "Your signup is pending approval. You will receive a confirmation email after approval", "show-positive-image", null, true, "", "");
+                                            cancelListenerActive2 = Config.showDialogType1(getActivity(), "Signup Successful", "Your signup is pending approval. You will receive a confirmation email after approval", "show-positive-image", cancelListenerActive2, true, "", "");
 
                                             /*
                                             Config.setSharedPreferenceString(getActivity().getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_PHONE, o.getString("user_phone"));
