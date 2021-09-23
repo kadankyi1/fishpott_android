@@ -306,9 +306,20 @@ public class SetProfilePictureActivity extends AppCompatActivity implements View
                     }
                 });
 
-                AndroidNetworking.upload(Config.LINK_UPLOAD_POTT_PICTURE)
+
+                    Log.e("Authorization", "Bearer " + Config.getSharedPreferenceString(getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_PASSWORD_ACCESS_TOKEN));
+                    Log.e("user_phone_number", Config.getSharedPreferenceString(getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_PHONE));
+                    Log.e("investor_id", Config.getSharedPreferenceString(getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_ID));
+                    Log.e("pott_picture", uploadPottPictureFile.toString());
+                    Log.e("user_language", language);
+                    Log.e("app_type", "ANDROID");
+                    Log.e("app_version_code", String.valueOf(Config.getAppVersionCode(getApplicationContext())));
+
+                    AndroidNetworking.upload(Config.LINK_UPLOAD_POTT_PICTURE)
+                        .addHeaders("Accept", "application/json")
+                        .addHeaders("Authorization", "Bearer " + Config.getSharedPreferenceString(getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_PASSWORD_ACCESS_TOKEN))
                         .addMultipartParameter("user_phone_number", Config.getSharedPreferenceString(getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_PHONE))
-                        .addMultipartParameter("investor_id", Config.getSharedPreferenceString(getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_PASSWORD_ACCESS_TOKEN))
+                        .addMultipartParameter("investor_id", Config.getSharedPreferenceString(getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_ID))
                         .addMultipartFile("pott_picture", uploadPottPictureFile)
                         .addMultipartParameter("user_language", language)
                         .addMultipartParameter("app_type", "ANDROID")
