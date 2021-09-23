@@ -33,6 +33,7 @@ import android.support.annotation.NonNull;
 import android.support.constraint.ConstraintLayout;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.util.Size;
 import android.view.Display;
@@ -392,8 +393,10 @@ public class CameraFragment extends Fragment implements SetProfilePictureInterfa
                 Boolean available = cameraCharacteristics.get(CameraCharacteristics.FLASH_INFO_AVAILABLE);
                 if (cameraCharacteristics.get(CameraCharacteristics.LENS_FACING) == cameraFacing) {
                     StreamConfigurationMap streamConfigurationMap = cameraCharacteristics.get(CameraCharacteristics.SCALER_STREAM_CONFIGURATION_MAP);
-                    previewSize = streamConfigurationMap.getOutputSizes(SurfaceTexture.class)[0];
-                    //previewSize = chooseOptimalSize(streamConfigurationMap.getOutputSizes(SurfaceTexture.class), );
+                    //previewSize = streamConfigurationMap.getOutputSizes(SurfaceTexture.class)[0];
+                    DisplayMetrics dm = new DisplayMetrics(); // comment out
+                    getActivity().getWindowManager().getDefaultDisplay().getMetrics(dm);  // comment out
+                    previewSize = chooseOptimalSize(streamConfigurationMap.getOutputSizes(SurfaceTexture.class), dm.widthPixels, dm.heightPixels);
                     this.cameraId = cameraId;
                     mBackCameraId = cameraId;
                     mFlashSupported = available == null ? false : available;

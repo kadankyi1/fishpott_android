@@ -125,8 +125,6 @@ public class SetProfilePictureActivity extends AppCompatActivity implements View
                         Config.showToastType1(SetProfilePictureActivity.this, getString(R.string.setprofilepicture_activity_your_device_camera_has_malfunctioned));
                     }
                 } else {
-                    //cancelListenerActive1 = Config.showDialogType1(SetProfilePictureActivity.this, getString(R.string.login_activity_error), "loginResponse", "", null, false, "", "");
-
                     cancelListenerActive1 = Config.showDialogType1(SetProfilePictureActivity.this, "1", getString(R.string.setprofilepicture_activity_fishpott_needs_your_permission_access_your_camera_and_storage_device_so_that_you_can_take_and_save_pictures_we_are_gonna_ask_you_for_these_permissions_should_we), "", cancelListenerActive1, true, getString(R.string.ask), getString(R.string.setprofilepicture_activity_not_now));
                 }
             }
