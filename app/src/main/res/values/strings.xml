@@ -642,7 +642,7 @@
     <string name="fragment_camera_permission_to_access_camera_and_file_has_not_been_granted">Permission to access camera and file has not been granted</string>
     <string name="suggestedlinkups_activity_continue">Continue</string>
     <string name="setprofilepicture_activity_please_choose_a_picture_for_your_pott">Please choose a picture for your pott</string>
-    <string name="setprofilepicture_activity_fishpott_needs_your_permission_access_your_camera_and_storage_device_so_that_you_can_take_and_save_pictures_we_are_gonna_ask_you_for_these_permissions_should_we">FishPott needs your permission to access your camera and your storage device so that you can take and save pictures to your device. We are gonna ask you for these permissions</string>
+    <string name="setprofilepicture_activity_fishpott_needs_your_permission_access_your_camera_and_storage_device_so_that_you_can_take_and_save_pictures_we_are_gonna_ask_you_for_these_permissions_should_we">To set a photo, grant permission to access your camera and your device storage. You cannot use FishPott without it</string>
     <string name="setprofilepicture_activity_without_granting_these_permissions_you_cannot_use_fishpott">Without granting these permissions, you cannot use FishPott</string>
     <string name="setprofilepicture_activity_i_will_allow">I will Allow</string>
     <string name="setprofilepicture_activity_not_now">Not Now</string>

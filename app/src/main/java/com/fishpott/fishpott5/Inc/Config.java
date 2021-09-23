@@ -847,7 +847,7 @@ public class Config {
 			}
 
 			if (subTitle.trim().equalsIgnoreCase("1")) {
-				dialogTextImageView.setVisibility(View.INVISIBLE);
+				dialogTextImageView.setVisibility(View.GONE);
 			}
 
 			dialogTextView2.setOnClickListener(new View.OnClickListener() {
