@@ -325,7 +325,6 @@ public class SetProfilePictureActivity extends AppCompatActivity implements View
                                 final String myStatusMessage = o.getString("message");
 
                                 if (myStatus.equalsIgnoreCase("yes")) {
-
                                     Config.setSharedPreferenceString(getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_PROFILE_PICTURE, o.getString("pott_pic_path"));
 
                                     if (o.getBoolean("phone_verification_is_on")) {
