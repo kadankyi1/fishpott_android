@@ -307,21 +307,20 @@ public class SetProfilePictureActivity extends AppCompatActivity implements View
                 });
 
                 AndroidNetworking.upload(Config.LINK_UPLOAD_POTT_PICTURE)
-                        .addMultipartFile("pott_pic", uploadPottPictureFile)
-                        .addMultipartParameter("log_id_token", Config.getSharedPreferenceString(getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_ID))
-                        .addMultipartParameter("log_pass_token", Config.getSharedPreferenceString(getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_PASSWORD_ACCESS_TOKEN))
-                        .addMultipartParameter("language", language)
-                        .addMultipartParameter("app_version_code", String.valueOf(Config.getSharedPreferenceInt(getApplicationContext(), Config.SHARED_PREF_KEY_UPDATE_ACTIVITY_UPDATE_VERSION_CODE)))
+                        .addMultipartParameter("user_phone_number", Config.getSharedPreferenceString(getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_PHONE))
+                        .addMultipartParameter("investor_id", Config.getSharedPreferenceString(getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_PASSWORD_ACCESS_TOKEN))
+                        .addMultipartFile("pott_picture", uploadPottPictureFile)
+                        .addMultipartParameter("user_language", language)
+                        .addMultipartParameter("app_type", "ANDROID")
+                        .addMultipartParameter("app_version_code", String.valueOf(Config.getAppVersionCode(getApplicationContext())))
                         .setTag("setprofilepicture_activity_pottpictureupload")
                         .setPriority(Priority.HIGH)
                         .build().getAsString(new StringRequestListener() {
                     @Override
                     public void onResponse(String response) {
                             try {
-                                JSONObject jsonObject = new JSONObject(response);
-                                JSONArray array = jsonObject.getJSONArray("data_returned");
-                                JSONObject o = array.getJSONObject(0);
-
+                                Log.e("PSignup", response);
+                                JSONObject o = new JSONObject(response);
                                 String myStatus = o.getString("status");
                                 final String myStatusMessage = o.getString("message");
 
@@ -334,16 +333,15 @@ public class SetProfilePictureActivity extends AppCompatActivity implements View
                                         return;
                                     }
 
-                                    if(o.getBoolean("9")){
+                                    if(o.getBoolean("government_verification_is_on")){
                                         Config.setSharedPreferenceBoolean(getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_ACCOUNT_GOVERNMENT_ID_VERIFICATION_NEEDED_STATUS, true);
                                         Config.openActivity(SetProfilePictureActivity.this, GovernmentIDVerificationActivity.class, 1, 2, 0, "", "");
                                         return;
                                     }
 
-                                    if (Config.checkUpdateAndForwardToUpdateActivity(SetProfilePictureActivity.this, o.getInt("highest_version_code"), o.getBoolean("force_update_status"))) {
-                                        Config.setSharedPreferenceString(getApplicationContext(), Config.SHARED_PREF_KEY_UPDATE_ACTIVITY_UPDATE_NOT_NOW_DATE, o.getString("update_date"));
-                                        Config.setSharedPreferenceBoolean(getApplicationContext(), Config.SHARED_PREF_KEY_UPDATE_ACTIVITY_UPDATE_BY_FORCE, o.getBoolean("force_update_status"));
-                                        Config.setSharedPreferenceInt(getApplicationContext(), Config.SHARED_PREF_KEY_UPDATE_ACTIVITY_UPDATE_VERSION_CODE, o.getInt("highest_version_code"));
+                                    if (Config.checkUpdateAndForwardToUpdateActivity(SetProfilePictureActivity.this, o.getInt("user_android_app_max_vc"), o.getBoolean("user_android_app_force_update"))) {
+                                        Config.setSharedPreferenceBoolean(getApplicationContext(), Config.SHARED_PREF_KEY_UPDATE_ACTIVITY_UPDATE_BY_FORCE, o.getBoolean("user_android_app_force_update"));
+                                        Config.setSharedPreferenceInt(getApplicationContext(), Config.SHARED_PREF_KEY_UPDATE_ACTIVITY_UPDATE_VERSION_CODE, o.getInt("user_android_app_max_vc"));
                                         return;
                                     }
 

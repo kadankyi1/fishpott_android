@@ -274,14 +274,14 @@ public class Config {
     public static final String LINK_SIGNUP_PERSONAL = CURRENT_HTTP_IN_USE + "144.202.111.61/api/v1/user/register-personal";
     public static final String LINK_SIGNUP_BUSINESS = CURRENT_HTTP_IN_USE + "144.202.111.61/api/v1/user/register-business";
 
+	// SERVER-SIDE API FOR LOGIN
+	public static final String LINK_LOGIN = CURRENT_HTTP_IN_USE + "144.202.111.61/api/v1/user/login";
+
     // SERVER-SIDE API FOR POTT-PIC-UPLOAD-AT-SIGNUP-OR-FORCED
-    public static final String LINK_UPLOAD_POTT_PICTURE = CURRENT_HTTP_IN_USE + "www.fishpott.com/inc/android/upload_pott_picture.php";
+    public static final String LINK_UPLOAD_POTT_PICTURE = CURRENT_HTTP_IN_USE + "144.202.111.61/api/v1/user/upload-pott-pic";
 
     // SERVER-SIDE API FOR POTT-PIC-UPLOAD-AT-SIGNUP-OR-FORCED
     public static final String LINK_POST_NEWS = CURRENT_HTTP_IN_USE + "www.fishpott.com/inc/android/post_news.php";
-
-    // SERVER-SIDE API FOR LOGIN
-	public static final String LINK_LOGIN = CURRENT_HTTP_IN_USE + "www.fishpott.com/inc/android/login.php";
 
 	// SERVER-SIDE API FOR LINKUPS
 	public static final String LINK_GET_SUGGESTED_LINKUPS = CURRENT_HTTP_IN_USE + "www.fishpott.com/inc/android/get_suggested_linkups.php";

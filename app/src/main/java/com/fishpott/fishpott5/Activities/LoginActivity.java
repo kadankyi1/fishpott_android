@@ -245,10 +245,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 });
 
                 AndroidNetworking.post(Config.LINK_LOGIN)
-                        .addBodyParameter("phone", phone)
+                        .addBodyParameter("user_phone_number", phone)
                         .addBodyParameter("password", password)
-                        .addBodyParameter("language", language)
-                        .addBodyParameter("app_version_code", String.valueOf(Config.getSharedPreferenceInt(getApplicationContext(), Config.SHARED_PREF_KEY_UPDATE_ACTIVITY_UPDATE_VERSION_CODE)))
+                        .addBodyParameter("user_language", language)
+                        .addBodyParameter("app_type", "ANDROID")
+                        .addBodyParameter("app_version_code", String.valueOf(Config.getAppVersionCode(getApplicationContext())))
                         .setTag("login_activity_login")
                         .setPriority(Priority.MEDIUM)
                         .build().getAsString(new StringRequestListener() {
