@@ -63,12 +63,16 @@ public class ForgotPasswordActivity extends AppCompatActivity implements View.On
     @Override
     public void onClick(View view) {
         if(view.getId() == R.id.activity_forgotpassword_send_reset_code){
-            if(!mPhoneNumberEditText.getText().toString().trim().equalsIgnoreCase("")){
+            if(
+                    !mPhoneNumberEditText.getText().toString().trim().equalsIgnoreCase("")
+                    && !mEmailEditText.getText().toString().trim().equalsIgnoreCase("")
+                    && !mPottnameEditText.getText().toString().trim().equalsIgnoreCase("")
+            ){
                 if(Connectivity.isConnected(getApplicationContext())){
                     sendResetCodeThread2 = new Thread(new Runnable() {
                         @Override
                         public void run() {
-                            getResetCode(mPhoneNumberEditText.getText().toString().trim(), LocaleHelper.getLanguage(getApplicationContext()));
+                            getResetCode(mPhoneNumberEditText.getText().toString().trim(), mEmailEditText.getText().toString().trim(), mPottnameEditText.getText().toString().trim(), LocaleHelper.getLanguage(getApplicationContext()));
                         }
                     });
                     sendResetCodeThread2.start();
@@ -166,7 +170,7 @@ public class ForgotPasswordActivity extends AppCompatActivity implements View.On
         Config.freeMemory();
     }
 
-    public void getResetCode(final String phone, final String language){
+    public void getResetCode(final String phone, final String email, final String pottname, final String language){
         networkResult = "";
         new Handler(Looper.getMainLooper()).post(new Runnable() {
             @Override
@@ -190,9 +194,12 @@ public class ForgotPasswordActivity extends AppCompatActivity implements View.On
 
 
         AndroidNetworking.post(Config.LINK_GET_RESET_CODE)
-                .addBodyParameter("phone", phone)
-                .addBodyParameter("language", language)
-                .addBodyParameter("app_version_code", String.valueOf(Config.getSharedPreferenceInt(getApplicationContext(), Config.SHARED_PREF_KEY_UPDATE_ACTIVITY_UPDATE_VERSION_CODE)))
+                .addBodyParameter("user_phone_number", phone)
+                .addBodyParameter("user_email", email)
+                .addBodyParameter("user_pottname", pottname)
+                .addBodyParameter("user_language", language)
+                .addBodyParameter("app_type", "ANDROID")
+                .addBodyParameter("app_version_code", String.valueOf(Config.getAppVersionCode(getApplicationContext())))
                 .setTag("forgotpassword_activity_sendresetcode")
                 .setPriority(Priority.MEDIUM)
                 .build().getAsString(new StringRequestListener() {
