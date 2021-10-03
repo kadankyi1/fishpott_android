@@ -30,9 +30,9 @@ import org.json.JSONObject;
 
 public class ForgotPasswordActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private EditText mPhoneNumberEditText;
+    private EditText mPhoneNumberEditText, mEmailEditText, mPottnameEditText;
     private Button mSendResetCodeButton;
-    private TextInputLayout mPhoneInputLayoutHolder;
+    private TextInputLayout mPhoneInputLayoutHolder, mEmailInputLayoutHolder, mPottnameInputLayoutHolder;
     private ImageView mBackArrowImageView, coverImageView;
     private ProgressBar mGettingCodeLoader;
     private Thread sendResetCodeThread2 = null;
@@ -45,8 +45,12 @@ public class ForgotPasswordActivity extends AppCompatActivity implements View.On
         setContentView(R.layout.activity_forgot_password);
 
         mPhoneNumberEditText = findViewById(R.id.activity_forgotpassword_phone_edit_text);
-        mSendResetCodeButton = findViewById(R.id.activity_forgotpassword_send_reset_code);
         mPhoneInputLayoutHolder = findViewById(R.id.activity_forgotpassword_phone_edit_text_layout_holder);
+        mEmailEditText = findViewById(R.id.activity_forgotpassword_email_edit_text);
+        mEmailInputLayoutHolder = findViewById(R.id.activity_forgotpassword_email_edit_text_layout_holder);
+        mPottnameEditText = findViewById(R.id.activity_forgotpassword_pottname_edit_text);
+        mPottnameInputLayoutHolder = findViewById(R.id.activity_forgotpassword_pottname_edit_text_layout_holder);
+        mSendResetCodeButton = findViewById(R.id.activity_forgotpassword_send_reset_code);
         mBackArrowImageView = findViewById(R.id.activity_forgotpassword_back_imageview);
         mGettingCodeLoader = findViewById(R.id.activity_forgotpassword_loader);
         coverImageView = findViewById(R.id.activity_forgotpassword_coverimage_imageView);
@@ -89,9 +93,13 @@ public class ForgotPasswordActivity extends AppCompatActivity implements View.On
     protected void onResume() {
         super.onResume();
         Log.e("memoryManage", "onResume STARTED FORGOTPASSWORD-ACTIVITY");
-        mPhoneNumberEditText = findViewById(R.id.activity_forgotpassword_phone_edit_text);
         mSendResetCodeButton = findViewById(R.id.activity_forgotpassword_send_reset_code);
+        mPhoneNumberEditText = findViewById(R.id.activity_forgotpassword_phone_edit_text);
         mPhoneInputLayoutHolder = findViewById(R.id.activity_forgotpassword_phone_edit_text_layout_holder);
+        mEmailEditText = findViewById(R.id.activity_forgotpassword_email_edit_text);
+        mEmailInputLayoutHolder = findViewById(R.id.activity_forgotpassword_email_edit_text_layout_holder);
+        mPottnameEditText = findViewById(R.id.activity_forgotpassword_pottname_edit_text);
+        mPottnameInputLayoutHolder = findViewById(R.id.activity_forgotpassword_pottname_edit_text_layout_holder);
         mBackArrowImageView = findViewById(R.id.activity_forgotpassword_back_imageview);
         mGettingCodeLoader = findViewById(R.id.activity_forgotpassword_loader);
         coverImageView = findViewById(R.id.activity_forgotpassword_coverimage_imageView);
@@ -101,8 +109,12 @@ public class ForgotPasswordActivity extends AppCompatActivity implements View.On
             Config.showDialogType1(ForgotPasswordActivity.this, getString(R.string.login_activity_error), networkResult, "", null, false, "", "");
             mGettingCodeLoader.setVisibility(View.INVISIBLE);
             mSendResetCodeButton.setVisibility(View.VISIBLE);
-            mPhoneInputLayoutHolder.setVisibility(View.VISIBLE);
             mPhoneNumberEditText.setVisibility(View.VISIBLE);
+            mPhoneInputLayoutHolder.setVisibility(View.VISIBLE);
+            mEmailEditText.setVisibility(View.VISIBLE);
+            mEmailInputLayoutHolder.setVisibility(View.VISIBLE);
+            mPottnameEditText.setVisibility(View.VISIBLE);
+            mPottnameInputLayoutHolder.setVisibility(View.VISIBLE);
             introTextTextView.setVisibility(View.VISIBLE);
             coverImageView.setVisibility(View.VISIBLE);
             networkResult = "";
@@ -113,9 +125,13 @@ public class ForgotPasswordActivity extends AppCompatActivity implements View.On
     protected void onStop() {
         super.onStop();
         Log.e("memoryManage", "onStop STARTED FORGOTPASSWORD-ACTIVITY");
-        mPhoneNumberEditText = null;
         mSendResetCodeButton = null;
+        mPhoneNumberEditText = null;
         mPhoneInputLayoutHolder = null;
+        mEmailEditText = null;
+        mEmailInputLayoutHolder = null;
+        mPottnameEditText = null;
+        mPottnameInputLayoutHolder = null;
         mBackArrowImageView = null;
         coverImageView = null;
         mGettingCodeLoader = null;
@@ -124,6 +140,7 @@ public class ForgotPasswordActivity extends AppCompatActivity implements View.On
             sendResetCodeThread2.interrupt();
             sendResetCodeThread2 = null;
         }
+
 
         Config.freeMemory();
     }
@@ -154,9 +171,13 @@ public class ForgotPasswordActivity extends AppCompatActivity implements View.On
         new Handler(Looper.getMainLooper()).post(new Runnable() {
             @Override
             public void run() {
-                mPhoneNumberEditText.setVisibility(View.INVISIBLE);
                 mSendResetCodeButton.setVisibility(View.INVISIBLE);
+                mPhoneNumberEditText.setVisibility(View.INVISIBLE);
                 mPhoneInputLayoutHolder.setVisibility(View.INVISIBLE);
+                mEmailEditText.setVisibility(View.INVISIBLE);
+                mEmailInputLayoutHolder.setVisibility(View.INVISIBLE);
+                mPottnameEditText.setVisibility(View.INVISIBLE);
+                mPottnameInputLayoutHolder.setVisibility(View.INVISIBLE);
                 introTextTextView.setVisibility(View.INVISIBLE);
                 if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT){
                     coverImageView.setVisibility(View.INVISIBLE);
@@ -196,8 +217,13 @@ public class ForgotPasswordActivity extends AppCompatActivity implements View.On
                                         Config.showDialogType1(ForgotPasswordActivity.this, getResources().getString(R.string.login_activity_login_failed), myStatusMessage, "", null, true, "", "");
                                         mGettingCodeLoader.setVisibility(View.INVISIBLE);
                                         mSendResetCodeButton.setVisibility(View.VISIBLE);
-                                        mPhoneInputLayoutHolder.setVisibility(View.VISIBLE);
                                         mPhoneNumberEditText.setVisibility(View.VISIBLE);
+                                        mPhoneInputLayoutHolder.setVisibility(View.VISIBLE);
+                                        mEmailEditText.setVisibility(View.VISIBLE);
+                                        mEmailInputLayoutHolder.setVisibility(View.VISIBLE);
+                                        mPottnameEditText.setVisibility(View.VISIBLE);
+                                        mPottnameInputLayoutHolder.setVisibility(View.VISIBLE);
+
                                         introTextTextView.setVisibility(View.VISIBLE);
                                         coverImageView.setVisibility(View.VISIBLE);
                                         networkResult = "";
@@ -215,9 +241,13 @@ public class ForgotPasswordActivity extends AppCompatActivity implements View.On
                                 public void run() {
                                     Config.showDialogType1(ForgotPasswordActivity.this, getResources().getString(R.string.login_activity_error), getString(R.string.login_activity_an_unexpected_error_occured), "", null, false, "", "");
                                     mGettingCodeLoader.setVisibility(View.INVISIBLE);
-                                    mPhoneInputLayoutHolder.setVisibility(View.VISIBLE);
                                     mSendResetCodeButton.setVisibility(View.VISIBLE);
                                     mPhoneNumberEditText.setVisibility(View.VISIBLE);
+                                    mPhoneInputLayoutHolder.setVisibility(View.VISIBLE);
+                                    mEmailEditText.setVisibility(View.VISIBLE);
+                                    mEmailInputLayoutHolder.setVisibility(View.VISIBLE);
+                                    mPottnameEditText.setVisibility(View.VISIBLE);
+                                    mPottnameInputLayoutHolder.setVisibility(View.VISIBLE);
                                     introTextTextView.setVisibility(View.VISIBLE);
                                     coverImageView.setVisibility(View.VISIBLE);
                                     networkResult = "";
@@ -238,8 +268,12 @@ public class ForgotPasswordActivity extends AppCompatActivity implements View.On
                             Config.showToastType1(ForgotPasswordActivity.this, getResources().getString(R.string.login_activity_check_your_internet_connection_and_try_again));
                             mGettingCodeLoader.setVisibility(View.INVISIBLE);
                             mSendResetCodeButton.setVisibility(View.VISIBLE);
-                            mPhoneInputLayoutHolder.setVisibility(View.VISIBLE);
                             mPhoneNumberEditText.setVisibility(View.VISIBLE);
+                            mPhoneInputLayoutHolder.setVisibility(View.VISIBLE);
+                            mEmailEditText.setVisibility(View.VISIBLE);
+                            mEmailInputLayoutHolder.setVisibility(View.VISIBLE);
+                            mPottnameEditText.setVisibility(View.VISIBLE);
+                            mPottnameInputLayoutHolder.setVisibility(View.VISIBLE);
                             introTextTextView.setVisibility(View.VISIBLE);
                             coverImageView.setVisibility(View.VISIBLE);
                             networkResult = "";

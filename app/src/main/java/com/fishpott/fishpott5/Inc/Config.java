@@ -280,6 +280,12 @@ public class Config {
     // SERVER-SIDE API FOR POTT-PIC-UPLOAD-AT-SIGNUP-OR-FORCED
     public static final String LINK_UPLOAD_POTT_PICTURE = CURRENT_HTTP_IN_USE + "144.202.111.61/api/v1/user/upload-pott-pic";
 
+	// SERVER-SIDE API FOR GETTING RESET CODE
+	public static final String LINK_GET_RESET_CODE = CURRENT_HTTP_IN_USE + "144.202.111.61/api/v1/user/upload-pott-pic";
+
+	// RESET PASSWORD WITH RESET PASSWORD WITH RESET CODE
+	public static final String LINK_RESET_PASSWORD_WITH_CODE = CURRENT_HTTP_IN_USE + "www.fishpott.com/inc/android/reset_password_with_reset_code.php";
+
     // SERVER-SIDE API FOR POTT-PIC-UPLOAD-AT-SIGNUP-OR-FORCED
     public static final String LINK_POST_NEWS = CURRENT_HTTP_IN_USE + "www.fishpott.com/inc/android/post_news.php";
 
@@ -380,12 +386,6 @@ public class Config {
 
 	// SERVER-SIDE API FOR ADDING-LINKUPS-AT-SIGNUP
 	public static final String LINK_BLOCK_POTT = CURRENT_HTTP_IN_USE + "www.fishpott.com/inc/android/block_pott.php";
-
-	// SERVER-SIDE API FOR GETTING RESET CODE
-	public static final String LINK_GET_RESET_CODE = CURRENT_HTTP_IN_USE + "www.fishpott.com/inc/android/send_password_reset_code.php";
-
-	// RESET PASSWORD WITH RESET PASSWORD WITH RESET CODE
-	public static final String LINK_RESET_PASSWORD_WITH_CODE = CURRENT_HTTP_IN_USE + "www.fishpott.com/inc/android/reset_password_with_reset_code.php";
 
 	// VERIFY PHONE NUMBER WITH CODE CODE
 	public static final String VERIFY_PHONE_NUMBER_WITH_CODE = CURRENT_HTTP_IN_USE + "www.fishpott.com/inc/android/verify_phone_number_with_sms_code.php";
