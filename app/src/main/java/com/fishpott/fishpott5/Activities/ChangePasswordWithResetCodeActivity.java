@@ -249,11 +249,11 @@ public class ChangePasswordWithResetCodeActivity extends AppCompatActivity imple
             public void onResponse(String response) {
                 Log.e("resetPass", "response: " + response);
                 try {
-                    JSONObject jsonObject = new JSONObject(response);
-                    JSONArray array = jsonObject.getJSONArray("data_returned");
-                    JSONObject o = array.getJSONObject(0);
+                    Log.e("PSignup", response);
+                    JSONObject o = new JSONObject(response);
                     String myStatus = o.getString("status");
                     final String myStatusMessage = o.getString("message");
+                    //Config.showToastType1(ForgotPasswordActivity.this, myStatusMessage);
 
                     if (myStatus.equalsIgnoreCase("yes")) {
                         if(MyLifecycleHandler.isApplicationInForeground()) {
