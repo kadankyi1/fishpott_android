@@ -191,6 +191,11 @@ public class ForgotPasswordActivity extends AppCompatActivity implements View.On
         });
 
         Log.e("resetPass", "FORGOT phone: " + phone);
+        Log.e("resetPass", "FORGOT email: " + email);
+        Log.e("resetPass", "FORGOT pottname: " + pottname);
+        Log.e("user_language", language);
+        Log.e("app_type", "ANDROID");
+        Log.e("app_version_code", String.valueOf(Config.getAppVersionCode(getApplicationContext())));
 
 
         AndroidNetworking.post(Config.LINK_GET_RESET_CODE)
@@ -206,11 +211,13 @@ public class ForgotPasswordActivity extends AppCompatActivity implements View.On
             @Override
             public void onResponse(String response) {
                     try {
-                        JSONObject jsonObject = new JSONObject(response);
-                        JSONArray array = jsonObject.getJSONArray("data_returned");
-                        JSONObject o = array.getJSONObject(0);
+
+                        Log.e("PSignup", response);
+                        JSONObject o = new JSONObject(response);
                         String myStatus = o.getString("status");
                         final String myStatusMessage = o.getString("message");
+                        //Config.showToastType1(ForgotPasswordActivity.this, myStatusMessage);
+
                         if (myStatus.equalsIgnoreCase("yes")) {
                             Config.openActivity(ForgotPasswordActivity.this, ChangePasswordWithResetCodeActivity.class, 1, 1, 1, "RESET_PASSWORD_PHONE_NUMBER", phone);
                         } else if(myStatus.equalsIgnoreCase("0")){

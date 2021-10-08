@@ -236,11 +236,12 @@ public class ChangePasswordWithResetCodeActivity extends AppCompatActivity imple
         Log.e("resetPass", "app_version_code: " + String.valueOf(Config.getSharedPreferenceInt(getApplicationContext(), Config.SHARED_PREF_KEY_UPDATE_ACTIVITY_UPDATE_VERSION_CODE)));
 
         AndroidNetworking.post(Config.LINK_RESET_PASSWORD_WITH_CODE)
-                .addBodyParameter("phone", phone)
-                .addBodyParameter("new_password", new_password)
-                .addBodyParameter("reset_code", reset_code)
-                .addBodyParameter("language", language)
-                .addBodyParameter("app_version_code", String.valueOf(Config.getSharedPreferenceInt(getApplicationContext(), Config.SHARED_PREF_KEY_UPDATE_ACTIVITY_UPDATE_VERSION_CODE)))
+                .addBodyParameter("user_phone_number", phone)
+                .addBodyParameter("user_new_password", new_password)
+                .addBodyParameter("user_password_reset_code", reset_code)
+                .addBodyParameter("user_language", language)
+                .addBodyParameter("app_type", "ANDROID")
+                .addBodyParameter("app_version_code", String.valueOf(Config.getAppVersionCode(getApplicationContext())))
                 .setTag("changepassword_activity_resetpassword")
                 .setPriority(Priority.MEDIUM)
                 .build().getAsString(new StringRequestListener() {

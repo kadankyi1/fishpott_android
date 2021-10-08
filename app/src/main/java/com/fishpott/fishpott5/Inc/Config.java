@@ -281,7 +281,7 @@ public class Config {
     public static final String LINK_UPLOAD_POTT_PICTURE = CURRENT_HTTP_IN_USE + "144.202.111.61/api/v1/user/upload-pott-pic";
 
 	// SERVER-SIDE API FOR GETTING RESET CODE
-	public static final String LINK_GET_RESET_CODE = CURRENT_HTTP_IN_USE + "144.202.111.61/api/v1/user/upload-pott-pic";
+	public static final String LINK_GET_RESET_CODE = CURRENT_HTTP_IN_USE + "144.202.111.61/api/v1/user/send-password-reset-code";
 
 	// RESET PASSWORD WITH RESET PASSWORD WITH RESET CODE
 	public static final String LINK_RESET_PASSWORD_WITH_CODE = CURRENT_HTTP_IN_USE + "www.fishpott.com/inc/android/reset_password_with_reset_code.php";

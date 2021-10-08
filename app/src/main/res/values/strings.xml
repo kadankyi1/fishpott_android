@@ -630,7 +630,7 @@
     <string name="confirmphonenumber_activity_phone_number_verification">Phone Number Verification</string>
     <string name="confirmphonenumber_activity_verification_code">Verification Code</string>
     <string name="confirmphonenumber_activity_verify">Verify</string>
-    <string name="changepasswordwithresetcode_activity_type_the_reset_code_sent_to_your_phone_number_and_your_new_password">Type the reset code sent to your phone number and your new password</string>
+    <string name="changepasswordwithresetcode_activity_type_the_reset_code_sent_to_your_phone_number_and_your_new_password">If you have an account with us, check your inbox/spam for a reset code to reset your password</string>
     <string name="confirmphonenumber_activity_an_sms_code_has_been_sent_to_your_phone_type_it_in_to_verify_your_phone_number">An sms code has been sent to your phone. Type it in to verify your phone number</string>
     <string name="forgotpassword_activity_forgetting_passwords_happens_to_us_all_simply_type_in_your_phone_number_and_you_will_receive_a_reset_code">Forgetting passwords happens to us all. Simply identify your account and you will receive a reset code</string>
     <string name="activity_setprofilepicture_set_pott_picture">Set Pott Picture</string>
