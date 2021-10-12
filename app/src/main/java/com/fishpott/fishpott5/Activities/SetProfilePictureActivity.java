@@ -358,7 +358,7 @@ public class SetProfilePictureActivity extends AppCompatActivity implements View
                                     if(redirectPath.trim().equalsIgnoreCase("1")){
                                         finish();
                                     } else {
-                                        Config.openActivity(SetProfilePictureActivity.this, SuggestedLinkUpsActivity.class, 1, 2, 0, "", "");
+                                        Config.openActivity(SetProfilePictureActivity.this, MainActivity.class, 1, 2, 0, "", "");
                                     }
                                 } else if(myStatus.equalsIgnoreCase("0")){
                                     Config.setSharedPreferenceInt(getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_ACCOUNT_SUSPENDED_STATUS, 1);
