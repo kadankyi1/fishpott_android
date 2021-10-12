@@ -27,7 +27,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.1" />
+        app:layout_constraintGuide_percent="0.15" />
 
     <android.support.constraint.Guideline
         android:id="@+id/start_activity_h_guideline2"
@@ -139,7 +139,7 @@
         android:contentDescription="@string/none"
         app:layout_constraintEnd_toStartOf="@+id/start_activity_v_guideline2"
         app:layout_constraintStart_toStartOf="@+id/start_activity_v_guideline1"
-        app:layout_constraintTop_toTopOf="@+id/start_activity_h_guideline1"
+        app:layout_constraintTop_toBottomOf="@+id/start_activity_h_guideline1"
         app:srcCompat="@drawable/fishpott_splash_icon" />
 
     <ProgressBar
