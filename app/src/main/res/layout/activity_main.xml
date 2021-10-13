@@ -257,8 +257,8 @@
 
             <ImageView
                 android:id="@+id/activity_mainactivity_constraint_layout_menubar_newsfeed_imageview"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="27dp"
+                android:layout_height="27dp"
                 android:layout_centerInParent="true"
                 android:layout_marginBottom="8dp"
                 android:layout_marginEnd="8dp"
@@ -296,8 +296,8 @@
 
             <ImageView
                 android:id="@+id/activity_mainactivity_constraint_layout_menubar_messenger_icon_imageview"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="27dp"
+                android:layout_height="27dp"
                 android:layout_centerInParent="true"
                 android:layout_marginBottom="8dp"
                 android:layout_marginEnd="8dp"
@@ -335,8 +335,8 @@
 
             <ImageView
                 android:id="@+id/activity_mainactivity_constraint_layout_menubar_notification_imageview"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="27dp"
+                android:layout_height="27dp"
                 android:layout_centerInParent="true"
                 android:layout_marginBottom="8dp"
                 android:layout_marginEnd="8dp"
@@ -374,8 +374,8 @@
 
             <ImageView
                 android:id="@+id/activity_mainactivity_constraint_layout_menubar_transfercenter_imageview"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="27dp"
+                android:layout_height="27dp"
                 android:layout_centerInParent="true"
                 android:layout_marginBottom="8dp"
                 android:layout_marginEnd="8dp"
