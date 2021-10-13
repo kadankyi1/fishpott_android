@@ -452,7 +452,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/activity_mainactivity_guideline_h_2" />
+        app:layout_constraintTop_toTopOf="@+id/activity_mainactivity_guideline_h_1" />
 
 
     <android.support.constraint.Guideline
