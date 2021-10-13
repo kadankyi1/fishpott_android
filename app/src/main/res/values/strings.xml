@@ -1036,10 +1036,10 @@
     <string name="type_of_data_fishpott_collects">Type Of Data FishPott Collects</string>
     <string name="signup_information_legal_name_age_country_gender_phone_number_usage_information_news_posts_and_comments_and_phone_contacts">Signup information(legal name, age, country, gender, phone number), usage information (news posts and comments) and phone contacts</string>
     <string name="how_the_data_is_used">How The Data is Used</string>
-    <string name="fishpott_will_like_access_to_collect_your_phonebook_contacts">FishPott will like access to collect your phonebook contacts.</string>
+    <string name="fishpott_will_like_access_to_collect_your_phonebook_contacts">FishPott will like access to phonebook contacts.</string>
     <string name="type_of_data_being_collected">Type Of Data Being Collected</string>
     <string name="phonebook_contacts">Phonebook Contacts</string>
-    <string name="how_does_fishpott_use_the_data">How Does FishPott Use The Data</string>
-    <string name="checking_for_new_messages_n_suggesting_other_investors_to_you_to_connect_with_n_suggesting_good_stocks_your_friends_are_buying_to_you"><![CDATA[> Checking for new messages\n> Suggesting other investors to you to connect with\n> Suggesting good stocks your friends are buying to you]]></string>
+    <string name="how_does_fishpott_use_the_data">How It\'s Used</string>
+    <string name="checking_for_new_messages_n_suggesting_other_investors_to_you_to_connect_with_n_suggesting_good_stocks_your_friends_are_buying_to_you"><![CDATA[Checking for new messages and suggesting good stocks your friends are buying to you]]></string>
 
 </resources>

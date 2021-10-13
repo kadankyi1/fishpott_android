@@ -403,6 +403,7 @@
             android:id="@+id/activity_mainactivity_constraint_layout_menubar_holder_sharescenter_constraintlayout"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:visibility="gone"
             android:orientation="horizontal"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/activity_mainactivity_constraint_layout_menu_bar_guideline_v_2"
