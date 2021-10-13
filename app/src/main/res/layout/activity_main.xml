@@ -222,28 +222,28 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.2" />
+            app:layout_constraintGuide_percent="0.25" />
 
         <android.support.constraint.Guideline
             android:id="@+id/activity_mainactivity_constraint_layout_menu_bar_guideline_v_2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.4" />
+            app:layout_constraintGuide_percent="0.25" />
 
         <android.support.constraint.Guideline
             android:id="@+id/activity_mainactivity_constraint_layout_menu_bar_guideline_v_3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.6" />
+            app:layout_constraintGuide_percent="0.5" />
 
         <android.support.constraint.Guideline
             android:id="@+id/activity_mainactivity_constraint_layout_menu_bar_guideline_v_4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.8" />
+            app:layout_constraintGuide_percent="0.75" />
 
         <android.support.constraint.ConstraintLayout
             android:id="@+id/activity_mainactivity_constraint_layout_menubar_holder_newsfeed_constraintlayout"
