@@ -215,7 +215,8 @@
     <android.support.constraint.ConstraintLayout
         android:id="@+id/activity_mainactivity_constraint_layout_menu_bar_constraintlayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:visibility="gone">
 
         <android.support.constraint.Guideline
             android:id="@+id/activity_mainactivity_constraint_layout_menu_bar_guideline_v_1"
