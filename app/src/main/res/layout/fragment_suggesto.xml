@@ -26,7 +26,7 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:text="Dinner with Jay-Z or $50,000?"
+            android:text="Dinner with Jay-Z  or $50,000?"
             android:fontFamily="@font/ephesis"
             android:gravity="center"
             android:textSize="35sp"
