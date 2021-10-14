@@ -15,6 +15,7 @@
         app:layout_constraintGuide_percent="0.45" />
 
     <android.support.constraint.ConstraintLayout
+        android:id="@+id/fragment_suggesto_question_holder_constraintlayout"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:background="@color/colorPrimary"
@@ -24,9 +25,10 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
+            android:id="@+id/fragment_suggesto_question_textview"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:text="Dinner with Jay-Z  or $50,000?"
+            android:text="Dinner with Jay-Z or $50,000?"
             android:fontFamily="@font/ephesis"
             android:gravity="center"
             android:textSize="35sp"
@@ -40,5 +42,34 @@
 
     </android.support.constraint.ConstraintLayout>
 
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/fragment_suggesto_answer1_holder_constraintlayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@color/colorAccentGray"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fragment_suggesto_h_guideline_1"
+        app:layout_constraintVertical_bias="0.0">
+
+        <TextView
+            android:id="@+id/fragment_suggesto_answer1_textview"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="Dinner with Jay-Z or $50,000?"
+            android:textColor="@color/colorPrimary"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </android.support.constraint.ConstraintLayout>
 
 </android.support.constraint.ConstraintLayout>

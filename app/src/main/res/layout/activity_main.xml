@@ -191,6 +191,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:elevation="15dp"
+        android:visibility="gone"
         android:background="@color/colorAccent"
         app:cardCornerRadius="0dp"
         app:layout_constraintBottom_toTopOf="@+id/activity_mainactivity_guideline_h_2"
