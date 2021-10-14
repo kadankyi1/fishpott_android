@@ -104,7 +104,7 @@
 
 
     <android.support.constraint.ConstraintLayout
-        android:id="@+id/fragment_suggesto_answer1_holder_constraintlayout"
+        android:id="@+id/fragment_suggesto_answer3_holder_constraintlayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
@@ -116,7 +116,7 @@
         app:layout_constraintVertical_bias="0.0">
 
         <TextView
-            android:id="@+id/fragment_suggesto_answer1_textview"
+            android:id="@+id/fragment_suggesto_answer3_textview"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:fontFamily="@font/roboto"
