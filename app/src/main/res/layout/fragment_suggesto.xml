@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.45" />
+        app:layout_constraintGuide_percent="0.4" />
 
     <android.support.constraint.ConstraintLayout
         android:id="@+id/fragment_suggesto_question_holder_constraintlayout"
@@ -43,17 +43,49 @@
 
     </android.support.constraint.ConstraintLayout>
 
+    <ProgressBar
+        android:id="@+id/activity_login_loader"
+        style="@style/ProgressBarBlack"
+        android:layout_width="26dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="8dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/fragment_suggesto_allanswers_holder_constraintlayout"
+        app:layout_constraintStart_toStartOf="@+id/fragment_suggesto_allanswers_holder_constraintlayout"
+        app:layout_constraintTop_toBottomOf="@+id/fragment_suggesto_question_holder_constraintlayout" />
+
     <android.support.constraint.ConstraintLayout
-        android:id="@+id/fragment_suggesto_allanswers_holder_constraintlayout"
+        android:id="@+id/fragment_suggesto_answersoffriends_holder_constraintlayout"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fragment_suggesto_h_guideline_1">
 
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/fragment_suggesto_answersoffriends_holder_recyclerview"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
+    </android.support.constraint.ConstraintLayout>
 
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/fragment_suggesto_allanswers_holder_constraintlayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fragment_suggesto_h_guideline_1">
 
         <android.support.constraint.ConstraintLayout
             android:id="@+id/fragment_suggesto_answer1_holder_constraintlayout"
