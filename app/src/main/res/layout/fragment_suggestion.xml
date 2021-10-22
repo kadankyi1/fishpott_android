@@ -300,6 +300,80 @@
 
 
                     <TextView
+                        android:id="@+id/fragment_suggestion_business_pitchlabel_textview"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto"
+                        android:gravity="start"
+                        android:paddingStart="25dp"
+                        android:text="Pitch"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toTopOf="@+id/fragment_suggestion_business_pitchseparator_view"
+                        app:layout_constraintEnd_toStartOf="@+id/fragment_suggestion_business_pitch_imageview"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.35000002" />
+
+                    <ImageView
+                        android:id="@+id/fragment_suggestion_business_pitch_imageview"
+                        android:layout_width="51dp"
+                        android:layout_height="51dp"
+                        android:layout_marginEnd="20dp"
+                        android:layout_marginTop="10dp"
+                        android:src="@drawable/ic_investors"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/fragment_suggestion_business_pitchlabel_textview"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.0" />
+
+                    <View
+                        android:id="@+id/fragment_suggestion_business_pitchseparator_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginStart="25dp"
+                        android:layout_marginEnd="25dp"
+                        android:background="@color/colorAccentGray"
+                        android:orientation="horizontal"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/fragment_suggestion_business_pitch_imageview"
+                        app:layout_constraintVertical_bias="0.0" />
+
+                </android.support.constraint.ConstraintLayout>
+
+            </android.support.constraint.ConstraintLayout>
+
+
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/fragment_suggestion_businessinfo_holder3_textview"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="20dp"
+                android:elevation="15dp"
+                android:background="@drawable/rounded_corner_shape_ash"
+                app:layout_constraintTop_toBottomOf="@+id/fragment_suggestion_businessinfo_holder2_textview"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <android.support.constraint.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/rounded_corner_shape"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="1.0">
+
+
+                    <TextView
                         android:id="@+id/fragment_suggestion_business_financeslabel_textview"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -341,37 +415,6 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/fragment_suggestion_business_finances_imageview"
                         app:layout_constraintVertical_bias="0.0" />
-
-
-                </android.support.constraint.ConstraintLayout>
-
-            </android.support.constraint.ConstraintLayout>
-
-
-
-            <android.support.constraint.ConstraintLayout
-                android:id="@+id/fragment_suggestion_businessinfo_holder3_textview"
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
-                android:layout_marginTop="20dp"
-                android:elevation="15dp"
-                android:background="@drawable/rounded_corner_shape_ash"
-                app:layout_constraintTop_toBottomOf="@+id/fragment_suggestion_businessinfo_holder2_textview"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent">
-
-                <android.support.constraint.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/rounded_corner_shape"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="1.0"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="1.0">
 
                 </android.support.constraint.ConstraintLayout>
 
