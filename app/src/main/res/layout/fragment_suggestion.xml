@@ -187,13 +187,29 @@
                         android:fontFamily="@font/roboto"
                         android:gravity="start"
                         android:paddingStart="10dp"
-                        android:text="Ghana"
-                        android:textColor="@color/colorAccent"
+                        android:text="$200K"
+                        android:textColor="@color/colorPrimaryDark"
                         android:textSize="15sp"
                         android:textStyle="bold"
-                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintBottom_toTopOf="@+id/fragment_suggestion_business_networthlabel_textview"
                         app:layout_constraintStart_toEndOf="@+id/fragment_suggestion_business_networth_imageview"
-                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/fragment_suggestion_business_networth_imageview"
+                        app:layout_constraintVertical_bias="0.0" />
+
+                    <TextView
+                        android:id="@+id/fragment_suggestion_business_networthlabel_textview"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto"
+                        android:gravity="start"
+                        android:paddingStart="10dp"
+                        android:text="Net Worth"
+                        android:textColor="@color/colorAccentAsh"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="@+id/fragment_suggestion_business_networth_imageview"
+                        app:layout_constraintStart_toEndOf="@+id/fragment_suggestion_business_networth_imageview"
+                        app:layout_constraintTop_toBottomOf="@+id/fragment_suggestion_business_networthvalue_textview"
                         app:layout_constraintVertical_bias="0.0" />
 
                 </android.support.constraint.ConstraintLayout>
