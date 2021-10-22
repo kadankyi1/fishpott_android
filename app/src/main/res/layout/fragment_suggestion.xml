@@ -171,8 +171,14 @@
                     app:layout_constraintTop_toTopOf="parent">
 
                     <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:id="@+id/fragment_suggestion_business_networth_textview"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:src="@drawable/ic_networth"
+                        android:paddingStart="10dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
                 </android.support.constraint.ConstraintLayout>
 
