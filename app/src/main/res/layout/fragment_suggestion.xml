@@ -53,7 +53,7 @@
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="1.0">
+                app:layout_constraintVertical_bias="0.0">
 
                 <android.support.constraint.Guideline
                     android:id="@+id/fragment_suggestion_businesslogo_h_guideline_1"
@@ -87,8 +87,8 @@
                 <com.fishpott.fishpott5.Views.CircleImageView
                     android:layout_width="0dp"
                     android:layout_height="0dp"
-                    android:src="@drawable/testlogo"
                     android:scaleType="centerCrop"
+                    android:src="@drawable/testlogo"
                     app:layout_constraintBottom_toTopOf="@+id/fragment_suggestion_businesslogo_h_guideline_2"
                     app:layout_constraintEnd_toStartOf="@+id/fragment_suggestion_business_v_guideline_2"
                     app:layout_constraintStart_toStartOf="@+id/fragment_suggestion_business_v_guideline_1"
@@ -279,7 +279,7 @@
             <android.support.constraint.ConstraintLayout
                 android:id="@+id/fragment_suggestion_businessinfo_holder2_textview"
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
+                android:layout_height="300dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
                 android:layout_marginTop="20dp"
@@ -322,7 +322,7 @@
                         android:layout_height="51dp"
                         android:layout_marginEnd="20dp"
                         android:layout_marginTop="10dp"
-                        android:src="@drawable/ic_investors"
+                        android:src="@drawable/ic_pitch"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/fragment_suggestion_business_pitchlabel_textview"
                         app:layout_constraintTop_toTopOf="parent"
@@ -336,11 +336,36 @@
                         android:layout_marginEnd="25dp"
                         android:background="@color/colorAccentGray"
                         android:orientation="horizontal"
-                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/fragment_suggestion_business_pitch_imageview"
                         app:layout_constraintVertical_bias="0.0" />
+
+
+                    <TextView
+                        android:id="@+id/fragment_suggestion_business_pitchtext_textview"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="25dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="25dp"
+                        android:fontFamily="@font/roboto"
+                        android:gravity="start"
+                        android:text="Investors will by design, want to invest in businesses that will make them a profit. We are your target business."
+                        android:textColor="@color/colorAccentAsh"
+                        android:textSize="15sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/fragment_suggestion_business_pitchseparator_view"
+                        app:layout_constraintVertical_bias="0.0" />
+
+                    <WebView
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/fragment_suggestion_business_pitchtext_textview" />
 
                 </android.support.constraint.ConstraintLayout>
 
@@ -414,6 +439,22 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/fragment_suggestion_business_finances_imageview"
+                        app:layout_constraintVertical_bias="0.0" />
+
+                    <TextView
+                        android:id="@+id/fragment_suggestion_business_lastyearrevenuetext_textview"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="25dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="25dp"
+                        android:fontFamily="@font/roboto"
+                        android:gravity="start"
+                        android:text="Revenue"
+                        android:textColor="@color/colorAccentAsh"
+                        android:textSize="15sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/fragment_suggestion_business_financesseparator_view"
                         app:layout_constraintVertical_bias="0.0" />
 
                 </android.support.constraint.ConstraintLayout>
