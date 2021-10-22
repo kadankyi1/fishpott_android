@@ -209,6 +209,7 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
                 android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
                 android:elevation="15dp"
                 android:background="@drawable/rounded_corner_shape_ash"
                 app:layout_constraintTop_toBottomOf="@+id/fragment_suggestion_businessinfo_holder2_textview"
