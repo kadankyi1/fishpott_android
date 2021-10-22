@@ -7,122 +7,161 @@
     android:layout_height="match_parent"
     tools:context=".Fragments.SuggestionFragment">
 
-    <android.support.constraint.ConstraintLayout
-        android:id="@+id/fragment_suggestion_business_holder_constraintlayout"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="visible">
-
-        <android.support.constraint.Guideline
-            android:id="@+id/fragment_suggestion_business_h_guideline_1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.4" />
-
-        <android.support.constraint.Guideline
-            android:id="@+id/fragment_suggestion_business_h_guideline_2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.3" />
-
-        <android.support.constraint.Guideline
-            android:id="@+id/fragment_suggestion_business_h_guideline_3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.5" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
         <android.support.constraint.ConstraintLayout
-            android:id="@+id/fragment_suggestion_section1_holder_constraintlayout"
+            android:id="@+id/fragment_suggestion_business_holder_constraintlayout"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:background="@drawable/trainer_background"
-            android:elevation="20dp"
-            app:layout_constraintBottom_toTopOf="@+id/fragment_suggestion_business_h_guideline_1"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="1.0">
+            android:layout_height="wrap_content"
+            android:visibility="visible">
 
             <android.support.constraint.Guideline
-                android:id="@+id/fragment_suggestion_businesslogo_h_guideline_1"
+                android:id="@+id/fragment_suggestion_business_h_guideline_1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                app:layout_constraintGuide_begin="43dp" />
+                app:layout_constraintGuide_percent="0.3" />
 
             <android.support.constraint.Guideline
-                android:id="@+id/fragment_suggestion_businesslogo_h_guideline_2"
+                android:id="@+id/fragment_suggestion_business_h_guideline_2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                app:layout_constraintGuide_begin="123dp" />
+                app:layout_constraintGuide_percent="0.25" />
 
             <android.support.constraint.Guideline
-                android:id="@+id/fragment_suggestion_business_v_guideline_1"
+                android:id="@+id/fragment_suggestion_business_h_guideline_3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                app:layout_constraintGuide_percent="0.7080292" />
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.5" />
 
-            <android.support.constraint.Guideline
-                android:id="@+id/fragment_suggestion_business_v_guideline_2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                app:layout_constraintGuide_percent="0.9026764" />
-
-
-            <com.fishpott.fishpott5.Views.RoundedCornerImageView
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:src="@drawable/mtn_momo"
-                android:scaleType="centerCrop"
-                app:layout_constraintBottom_toTopOf="@+id/fragment_suggestion_businesslogo_h_guideline_2"
-                app:layout_constraintEnd_toStartOf="@+id/fragment_suggestion_business_v_guideline_2"
-                app:layout_constraintStart_toStartOf="@+id/fragment_suggestion_business_v_guideline_1"
-                app:layout_constraintTop_toTopOf="@+id/fragment_suggestion_businesslogo_h_guideline_1" />
-
-            <!--android:backgroundTint="@color/transparent"-->
-
-            <TextView
-                android:id="@+id/fragment_suggestion_business_name_textview"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:fontFamily="@font/roboto"
-                android:gravity="start"
-                android:padding="10dp"
-                android:text="Access Bank Ghana Limited"
-                android:textColor="@color/colorAccent"
-                android:textSize="22sp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toTopOf="@+id/fragment_suggestion_businesslogo_h_guideline_2"
-                app:layout_constraintEnd_toStartOf="@+id/fragment_suggestion_business_v_guideline_1"
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/fragment_suggestion_section1_holder_constraintlayout"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:background="@drawable/trainer_background"
+                android:elevation="20dp"
+                app:layout_constraintBottom_toTopOf="@+id/fragment_suggestion_business_h_guideline_1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/fragment_suggestion_businesslogo_h_guideline_1" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="1.0">
 
-            <TextView
-                android:id="@+id/fragment_suggestion_business_country_textview"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:fontFamily="@font/roboto"
-                android:gravity="start"
-                android:paddingStart="10dp"
-                android:text="Ghana"
-                android:textColor="@color/colorAccent"
-                android:textSize="15sp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/fragment_suggestion_business_v_guideline_1"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/fragment_suggestion_business_name_textview" />
+                <android.support.constraint.Guideline
+                    android:id="@+id/fragment_suggestion_businesslogo_h_guideline_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.19634703" />
 
+                <android.support.constraint.Guideline
+                    android:id="@+id/fragment_suggestion_businesslogo_h_guideline_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.56164384" />
+
+                <android.support.constraint.Guideline
+                    android:id="@+id/fragment_suggestion_business_v_guideline_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.7080292" />
+
+                <android.support.constraint.Guideline
+                    android:id="@+id/fragment_suggestion_business_v_guideline_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.9026764" />
+
+
+                <com.fishpott.fishpott5.Views.CircleImageView
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:src="@drawable/testlogo"
+                    android:scaleType="centerCrop"
+                    app:layout_constraintBottom_toTopOf="@+id/fragment_suggestion_businesslogo_h_guideline_2"
+                    app:layout_constraintEnd_toStartOf="@+id/fragment_suggestion_business_v_guideline_2"
+                    app:layout_constraintStart_toStartOf="@+id/fragment_suggestion_business_v_guideline_1"
+                    app:layout_constraintTop_toTopOf="@+id/fragment_suggestion_businesslogo_h_guideline_1" />
+
+                <!--android:backgroundTint="@color/transparent"-->
+
+                <TextView
+                    android:id="@+id/fragment_suggestion_investin_textview"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:fontFamily="@font/roboto"
+                    android:gravity="start|bottom"
+                    android:paddingStart="10dp"
+                    android:text="Invest In"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="14sp"
+                    android:textStyle="italic"
+                    app:layout_constraintBottom_toTopOf="@+id/fragment_suggestion_businesslogo_h_guideline_1"
+                    app:layout_constraintEnd_toStartOf="@+id/fragment_suggestion_business_v_guideline_1"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/fragment_suggestion_business_name_textview"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto"
+                    android:gravity="start"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:text="Access Bank Ghana Limited"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@+id/fragment_suggestion_businesslogo_h_guideline_2"
+                    app:layout_constraintEnd_toStartOf="@+id/fragment_suggestion_business_v_guideline_1"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/fragment_suggestion_businesslogo_h_guideline_1"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <TextView
+                    android:id="@+id/fragment_suggestion_business_country_textview"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto"
+                    android:gravity="start"
+                    android:paddingStart="10dp"
+                    android:text="Ghana"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/fragment_suggestion_business_v_guideline_1"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/fragment_suggestion_business_name_textview"
+                    app:layout_constraintVertical_bias="0.0" />
+
+            </android.support.constraint.ConstraintLayout>
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                ma
+                app:layout_constraintTop_toBottomOf="@+id/fragment_suggestion_business_h_guideline_2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+            </android.support.constraint.ConstraintLayout>
         </android.support.constraint.ConstraintLayout>
 
-    </android.support.constraint.ConstraintLayout>
+
+    </ScrollView>
 
     <android.support.constraint.ConstraintLayout
         android:id="@+id/fragment_suggestion_drill_holder_constraintlayout"
