@@ -33,7 +33,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                app:layout_constraintGuide_percent="0.25" />
+                app:layout_constraintGuide_percent="0.24" />
 
             <android.support.constraint.Guideline
                 android:id="@+id/fragment_suggestion_business_h_guideline_3"
@@ -45,9 +45,9 @@
             <android.support.constraint.ConstraintLayout
                 android:id="@+id/fragment_suggestion_section1_holder_constraintlayout"
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
+                android:layout_height="220dp"
                 android:background="@drawable/trainer_background"
-                android:elevation="20dp"
+                android:elevation="10dp"
                 app:layout_constraintBottom_toTopOf="@+id/fragment_suggestion_business_h_guideline_1"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
@@ -150,14 +150,55 @@
             </android.support.constraint.ConstraintLayout>
 
             <android.support.constraint.ConstraintLayout
+                android:id="@+id/fragment_suggestion_businessinfo_holder1_textview"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                ma
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:elevation="15dp"
+                android:background="@drawable/rounded_corner_shape_ash"
                 app:layout_constraintTop_toBottomOf="@+id/fragment_suggestion_business_h_guideline_2"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent">
 
+                <android.support.constraint.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/rounded_corner_shape"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                </android.support.constraint.ConstraintLayout>
+
             </android.support.constraint.ConstraintLayout>
+
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:elevation="15dp"
+                android:background="@drawable/rounded_corner_shape_ash"
+                app:layout_constraintTop_toBottomOf="@+id/fragment_suggestion_business_h_guideline_2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <android.support.constraint.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/rounded_corner_shape"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                </android.support.constraint.ConstraintLayout>
+
+            </android.support.constraint.ConstraintLayout>
+
         </android.support.constraint.ConstraintLayout>
 
 
