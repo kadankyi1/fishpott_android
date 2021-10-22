@@ -176,6 +176,7 @@
                         android:layout_height="45dp"
                         android:src="@drawable/ic_networth"
                         android:paddingStart="10dp"
+                        app:layout_constraintEnd_toStartOf="@+id/fragment_suggestion_business_networthvalue_textview"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -209,6 +210,65 @@
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="@+id/fragment_suggestion_business_networth_imageview"
                         app:layout_constraintStart_toEndOf="@+id/fragment_suggestion_business_networth_imageview"
+                        app:layout_constraintEnd_toStartOf="@+id/fragment_suggestion_business_bioseparator_view"
+                        app:layout_constraintTop_toBottomOf="@+id/fragment_suggestion_business_networthvalue_textview"
+                        app:layout_constraintVertical_bias="0.0" />
+
+                    <View
+                        android:id="@+id/fragment_suggestion_business_bioseparator_view"
+                        android:layout_width="1dp"
+                        android:layout_height="0dp"
+                        android:background="@color/colorAccentGray"
+                        android:layout_margin="25dp"
+                        android:orientation="vertical"
+                        android:paddingTop="10dp"
+                        app:layout_constraintEnd_toStartOf="@+id/fragment_suggestion_business_investors_imageview"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/fragment_suggestion_business_networthlabel_textview"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:id="@+id/fragment_suggestion_business_investors_imageview"
+                        android:layout_width="51dp"
+                        android:layout_height="51dp"
+                        android:src="@drawable/ic_investors"
+                        android:paddingStart="10dp"
+                        app:layout_constraintEnd_toStartOf="@+id/fragment_suggestion_business_investorsvalue_textview"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/fragment_suggestion_business_bioseparator_view"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/fragment_suggestion_business_investorsvalue_textview"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto"
+                        android:gravity="start"
+                        android:paddingStart="10dp"
+                        android:text="$200K"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toTopOf="@+id/fragment_suggestion_business_networthlabel_textview"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/fragment_suggestion_business_investors_imageview"
+                        app:layout_constraintTop_toTopOf="@+id/fragment_suggestion_business_investors_imageview"
+                        app:layout_constraintVertical_bias="0.0" />
+
+                    <TextView
+                        android:id="@+id/fragment_suggestion_business_investorslabel_textview"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto"
+                        android:gravity="start"
+                        android:paddingStart="10dp"
+                        android:text="Investors"
+                        android:textColor="@color/colorAccentAsh"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="@+id/fragment_suggestion_business_investors_imageview"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/fragment_suggestion_business_investors_imageview"
                         app:layout_constraintTop_toBottomOf="@+id/fragment_suggestion_business_networthvalue_textview"
                         app:layout_constraintVertical_bias="0.0" />
 
@@ -237,6 +297,51 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
+
+
+                    <TextView
+                        android:id="@+id/fragment_suggestion_business_financeslabel_textview"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto"
+                        android:gravity="start"
+                        android:paddingStart="25dp"
+                        android:text="Financial Overview"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toTopOf="@+id/fragment_suggestion_business_financesseparator_view"
+                        app:layout_constraintEnd_toStartOf="@+id/fragment_suggestion_business_finances_imageview"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.35000002" />
+
+                    <ImageView
+                        android:id="@+id/fragment_suggestion_business_finances_imageview"
+                        android:layout_width="51dp"
+                        android:layout_height="51dp"
+                        android:layout_marginEnd="20dp"
+                        android:layout_marginTop="10dp"
+                        android:src="@drawable/ic_investors"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/fragment_suggestion_business_financeslabel_textview"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.0" />
+
+                    <View
+                        android:id="@+id/fragment_suggestion_business_financesseparator_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginStart="25dp"
+                        android:layout_marginEnd="25dp"
+                        android:background="@color/colorAccentGray"
+                        android:orientation="horizontal"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/fragment_suggestion_business_finances_imageview"
+                        app:layout_constraintVertical_bias="0.0" />
+
 
                 </android.support.constraint.ConstraintLayout>
 
