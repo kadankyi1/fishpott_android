@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Fragments.SuggestionFragment">
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/fragment_suggestion_business_holder_constraintlayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible">
+
+        <android.support.constraint.Guideline
+            android:id="@+id/fragment_suggestion_business_h_guideline_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.4" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/fragment_suggestion_business_h_guideline_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.3" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/fragment_suggestion_business_h_guideline_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.5" />
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/fragment_suggestion_section1_holder_constraintlayout"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@drawable/trainer_background"
+            android:elevation="20dp"
+            app:layout_constraintBottom_toTopOf="@+id/fragment_suggestion_business_h_guideline_1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0">
+
+            <android.support.constraint.Guideline
+                android:id="@+id/fragment_suggestion_businesslogo_h_guideline_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_begin="43dp" />
+
+            <android.support.constraint.Guideline
+                android:id="@+id/fragment_suggestion_businesslogo_h_guideline_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_begin="123dp" />
+
+            <android.support.constraint.Guideline
+                android:id="@+id/fragment_suggestion_business_v_guideline_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.7080292" />
+
+            <android.support.constraint.Guideline
+                android:id="@+id/fragment_suggestion_business_v_guideline_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.9026764" />
+
+
+            <com.fishpott.fishpott5.Views.RoundedCornerImageView
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:src="@drawable/mtn_momo"
+                android:scaleType="centerCrop"
+                app:layout_constraintBottom_toTopOf="@+id/fragment_suggestion_businesslogo_h_guideline_2"
+                app:layout_constraintEnd_toStartOf="@+id/fragment_suggestion_business_v_guideline_2"
+                app:layout_constraintStart_toStartOf="@+id/fragment_suggestion_business_v_guideline_1"
+                app:layout_constraintTop_toTopOf="@+id/fragment_suggestion_businesslogo_h_guideline_1" />
+
+            <!--android:backgroundTint="@color/transparent"-->
+
+            <TextView
+                android:id="@+id/fragment_suggestion_business_name_textview"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:fontFamily="@font/roboto"
+                android:gravity="start"
+                android:padding="10dp"
+                android:text="Access Bank Ghana Limited"
+                android:textColor="@color/colorAccent"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/fragment_suggestion_businesslogo_h_guideline_2"
+                app:layout_constraintEnd_toStartOf="@+id/fragment_suggestion_business_v_guideline_1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/fragment_suggestion_businesslogo_h_guideline_1" />
+
+            <TextView
+                android:id="@+id/fragment_suggestion_business_country_textview"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:fontFamily="@font/roboto"
+                android:gravity="start"
+                android:paddingStart="10dp"
+                android:text="Ghana"
+                android:textColor="@color/colorAccent"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/fragment_suggestion_business_v_guideline_1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fragment_suggestion_business_name_textview" />
+
+        </android.support.constraint.ConstraintLayout>
+
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/fragment_suggestion_drill_holder_constraintlayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <android.support.constraint.Guideline
+            android:id="@+id/fragment_suggestion_h_guideline_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.4" />
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/fragment_suggestion_question_holder_constraintlayout"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/fragment_suggestion_h_guideline_1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:background="@drawable/trainer_background"
+            android:elevation="20dp">
+
+            <TextView
+                android:id="@+id/fragment_suggestion_question_textview"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:text="Dinner with Jay-Z or $50,000?"
+                android:fontFamily="@font/ephesis"
+                android:gravity="center"
+                android:textSize="35sp"
+                android:padding="10dp"
+                android:textStyle="bold|italic"
+                android:textColor="@color/colorAccent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </android.support.constraint.ConstraintLayout>
+
+        <ProgressBar
+            android:id="@+id/activity_login_loader"
+            style="@style/ProgressBarBlack"
+            android:layout_width="26dp"
+            android:layout_height="32dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginBottom="8dp"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/fragment_suggestion_allanswers_holder_constraintlayout"
+            app:layout_constraintStart_toStartOf="@+id/fragment_suggestion_allanswers_holder_constraintlayout"
+            app:layout_constraintTop_toBottomOf="@+id/fragment_suggestion_question_holder_constraintlayout" />
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/fragment_suggestion_answersoffriends_holder_constraintlayout"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/fragment_suggestion_h_guideline_1">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/fragment_suggestion_answersoffriends_holder_recyclerview"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </android.support.constraint.ConstraintLayout>
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/fragment_suggestion_allanswers_holder_constraintlayout"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/fragment_suggestion_h_guideline_1">
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/fragment_suggestion_answer1_holder_constraintlayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/fragment_suggestion_answer2_holder_constraintlayout"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintVertical_bias="0.0">
+
+                <Button
+                    android:id="@+id/fragment_suggestion_answer1_textview"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_white_background_pressed_gray"
+                    android:fontFamily="@font/roboto"
+                    android:gravity="center"
+                    android:text="I'll take the dinner"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="17sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </android.support.constraint.ConstraintLayout>
+
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/fragment_suggestion_answer2_holder_constraintlayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/fragment_suggestion_answer3_holder_constraintlayout"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fragment_suggestion_answer1_holder_constraintlayout"
+                app:layout_constraintVertical_bias="0.0">
+
+                <Button
+                    android:id="@+id/fragment_suggestion_answer2_textview"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_white_background_pressed_gray"
+                    android:fontFamily="@font/roboto"
+                    android:gravity="center"
+                    android:text="Give me my $50k"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="17sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </android.support.constraint.ConstraintLayout>
+
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/fragment_suggestion_answer3_holder_constraintlayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                app:layout_constraintBottom_toTopOf="@+id/fragment_suggestion_answer4_holder_constraintlayout"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fragment_suggestion_answer2_holder_constraintlayout"
+                app:layout_constraintVertical_bias="0.0">
+
+                <Button
+                    android:id="@+id/fragment_suggestion_answer3_textview"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_white_background_pressed_gray"
+                    android:fontFamily="@font/roboto"
+                    android:gravity="center"
+                    android:text="Who the hell is Jay Z?"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="17sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </android.support.constraint.ConstraintLayout>
+
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/fragment_suggestion_answer4_holder_constraintlayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fragment_suggestion_answer3_holder_constraintlayout"
+                app:layout_constraintVertical_bias="0.0">
+
+                <Button
+                    android:id="@+id/fragment_suggestion_answer4_textview"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_white_background_pressed_gray"
+                    android:fontFamily="@font/roboto"
+                    android:gravity="center"
+                    android:text="I don't need Jay or the money"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="17sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </android.support.constraint.ConstraintLayout>
+
+        </android.support.constraint.ConstraintLayout>
+
+    </android.support.constraint.ConstraintLayout>
+</android.support.constraint.ConstraintLayout>

@@ -32,10 +32,9 @@ import com.fishpott.fishpott5.Fragments.ChatListFragment;
 import com.fishpott.fishpott5.Fragments.InfoFragment;
 import com.fishpott.fishpott5.Fragments.NewsFeedFragment;
 import com.fishpott.fishpott5.Fragments.NotificationsFragment;
-import com.fishpott.fishpott5.Fragments.SharesCenterFragment;
 import com.fishpott.fishpott5.Fragments.SettingsFragment;
 import com.fishpott.fishpott5.Fragments.SharesToolBox.TransferCenterFragment;
-import com.fishpott.fishpott5.Fragments.SuggestoFragment;
+import com.fishpott.fishpott5.Fragments.SuggestionFragment;
 import com.fishpott.fishpott5.Inc.Config;
 import com.fishpott.fishpott5.Inc.Connectivity;
 import com.fishpott.fishpott5.ListDataGenerators.Vertical_NewsType_ListDataGenerator;
@@ -468,7 +467,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         fList.add(SettingsFragment.newInstance());
         //fList.add(NewsFeedFragment.newInstance());
-        fList.add(SuggestoFragment.newInstance());
+        fList.add(SuggestionFragment.newInstance());
         //fList.add(SharesCenterFragment.newInstance());
         fList.add(ChatListFragment.newInstance());
         fList.add(TransferCenterFragment.newInstance());
