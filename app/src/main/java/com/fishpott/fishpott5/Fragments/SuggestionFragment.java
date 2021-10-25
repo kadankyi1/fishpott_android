@@ -95,7 +95,7 @@ public class SuggestionFragment extends Fragment implements View.OnClickListener
     public void onClick(View v) {
         // WHEN THE LOAD SUGGESTION FP LOGO IS CLICKED
         if(v.getId() == R.id.fragment_suggestion_loader_imageview){
-            v.startAnimation(AnimationUtils.loadAnimation(getActivity(), R.anim.main_activity_onclick_icon_anim));
+            v.startAnimation(AnimationUtils.loadAnimation(getActivity(), R.anim.suggestion_loading_anim));
         }
     }
 
