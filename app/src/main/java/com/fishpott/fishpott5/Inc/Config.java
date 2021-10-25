@@ -286,6 +286,15 @@ public class Config {
 	// RESET PASSWORD WITH RESET PASSWORD WITH RESET CODE
 	public static final String LINK_RESET_PASSWORD_WITH_CODE = CURRENT_HTTP_IN_USE + "144.202.111.61/api/v1/user/change-password-with-reset-code";
 
+	// GET MY SUGGESTION
+	public static final String LINK_GET_MY_SUGGESTION = CURRENT_HTTP_IN_USE + "144.202.111.61/api/v1/user/get-my-suggestion";
+
+	/********************************************************************************************************************************************
+
+	 OLD LINKS OLD LINKS OLD LINKS OLD LINKS OLD LINKS OLD LINKS OLD LINKS OLD LINKS OLD LINKS OLD LINKS OLD LINKS OLD LINKS OLD LINKS OLD LINKS
+
+	 ********************************************************************************************************************************************/
+
     // SERVER-SIDE API FOR POTT-PIC-UPLOAD-AT-SIGNUP-OR-FORCED
     public static final String LINK_POST_NEWS = CURRENT_HTTP_IN_USE + "www.fishpott.com/inc/android/post_news.php";
 
