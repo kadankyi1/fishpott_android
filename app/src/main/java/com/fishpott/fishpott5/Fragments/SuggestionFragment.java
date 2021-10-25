@@ -44,7 +44,7 @@ import org.json.JSONObject;
  * Use the {@link SuggestionFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class SuggestionFragment extends Fragment {
+public class SuggestionFragment extends Fragment implements View.OnClickListener {
 
     private ConstraintLayout mDrillSuggestionHolderConstraintLayout;
     private ScrollView mBusinessSuggestionHolderScrollView;
@@ -84,7 +84,18 @@ public class SuggestionFragment extends Fragment {
         // BUSINESS SUGGESTION OBJECTS
         mBusinessSuggestionHolderScrollView = view.findViewById(R.id.fragment_suggestion_business_holder_constraintlayout);
 
+
+        mSuggestionLoaderImageView.setOnClickListener(this);
         return view;
+    }
+
+
+    @Override
+    public void onClick(View v) {
+        // WHEN THE LOAD SUGGESTION FP LOGO IS CLICKED
+        if(v.getId() == R.id.fragment_suggestion_loader_imageview){
+            v.startAnimation(AnimationUtils.loadAnimation(getActivity(), R.anim.main_activity_onclick_icon_anim));
+        }
     }
 
 
@@ -131,11 +142,11 @@ public class SuggestionFragment extends Fragment {
                                     @Override
                                     public void run() {
                                         if(myStatusMessage.equalsIgnoreCase("drill")){
-                                            mSuggestionLoaderProgressBar.setVisibility(View.INVISIBLE);
+                                            mSuggestionLoaderImageView.setVisibility(View.INVISIBLE);
                                             mBusinessSuggestionHolderScrollView.setVisibility(View.INVISIBLE);
                                             mDrillSuggestionHolderConstraintLayout.setVisibility(View.VISIBLE);
                                         } else if(myStatusMessage.equalsIgnoreCase("business")){
-                                            mSuggestionLoaderProgressBar.setVisibility(View.INVISIBLE);
+                                            mSuggestionLoaderImageView.setVisibility(View.INVISIBLE);
                                             mBusinessSuggestionHolderScrollView.setVisibility(View.INVISIBLE);
                                             mDrillSuggestionHolderConstraintLayout.setVisibility(View.VISIBLE);
                                         } else {
