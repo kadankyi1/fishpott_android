@@ -254,7 +254,7 @@
             android:background="@drawable/white_background_pressed_darker"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/pott_intelligence_imageview"
+            app:layout_constraintTop_toBottomOf="@+id/pott_intelligence_holder_contrainlayout"
             app:layout_constraintBottom_toTopOf="@+id/myshares_holder_contrainlayout">
 
             <ImageView
@@ -318,7 +318,7 @@
             android:background="@drawable/white_background_pressed_darker"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/pott_intelligence_holder_contrainlayout"
+            app:layout_constraintTop_toBottomOf="@+id/active_bness_suggest_holder_contrainlayout"
             app:layout_constraintBottom_toTopOf="@+id/myshares_holder_contrainlayout">
 
             <ImageView
