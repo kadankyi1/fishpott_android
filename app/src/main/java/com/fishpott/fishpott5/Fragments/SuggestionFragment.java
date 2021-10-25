@@ -9,6 +9,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.support.constraint.ConstraintLayout;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -86,7 +87,7 @@ public class SuggestionFragment extends Fragment {
     }
 
 
-    private void startSharesTransfer(Context context, final String receiverPottName){
+    private void getLatestSuggestion(Context context, final String receiverPottName){
 
             new Handler(Looper.getMainLooper()).post(new Runnable() {
                 @Override
@@ -98,33 +99,25 @@ public class SuggestionFragment extends Fragment {
             });
 
             AndroidNetworking.post(Config.LINK_TRANSFER_SHARES)
-                    .addBodyParameter("log_phone", Config.getSharedPreferenceString(context, Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_PHONE))
-                    .addBodyParameter("log_pass_token", Config.getSharedPreferenceString(context, Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_PASSWORD_ACCESS_TOKEN))
-                    .addBodyParameter("mypottname", Config.getSharedPreferenceString(context, Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_POTT_NAME))
-                    .addBodyParameter("my_currency", Config.getSharedPreferenceString(context, Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_CURRENCY))
-                    .addBodyParameter("added_item_id", chosenSharesInfo[0])
-                    .addBodyParameter("added_item_quantity", chosenSharesInfo[2])
-                    .addBodyParameter("added_item_price", chosenSharesInfo[3])
-                    .addBodyParameter("myrawpass", chosenSharesInfo[4])
-                    .addBodyParameter("receiver_pottname", receiverPottName)
-                    .addBodyParameter("language", LocaleHelper.getLanguage(getActivity()))
-                    .addBodyParameter("app_version_code", String.valueOf(Config.getSharedPreferenceInt(context, Config.SHARED_PREF_KEY_UPDATE_ACTIVITY_UPDATE_VERSION_CODE)))
-                    .setTag("transfer_my_shares")
+                    .addBodyParameter("user_phone_number", Config.getSharedPreferenceString(context, Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_PHONE))
+                    .addBodyParameter("user_pottname", Config.getSharedPreferenceString(context, Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_POTT_NAME))
+                    .addBodyParameter("investor_id", Config.getSharedPreferenceString(context, Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_ID))
+                    .addBodyParameter("app_type", "ANDROID")
+                    .addBodyParameter("app_version_code", String.valueOf(Config.getAppVersionCode(getActivity().getApplicationContext())))
+                    .addBodyParameter("user_language", LocaleHelper.getLanguage(getActivity()))
+                    .setTag("get_suggestion")
                     .setPriority(Priority.HIGH)
                     .build().getAsString(new StringRequestListener() {
                 @Override
                 public void onResponse(String response) {
 
                     try {
-                        JSONObject jsonObject = new JSONObject(response);
-                        JSONArray array = jsonObject.getJSONArray("data_returned");
+                        Log.e("GetSuggestion", response);
+                        JSONObject o = new JSONObject(response);
+                        String myStatus = o.getString("status");
+                        final String myStatusMessage = o.getString("message");
 
-                        JSONObject o = array.getJSONObject(0);
-                        int myStatus = o.getInt("1");
-                        String statusMsg = o.getString("2");
-                        networkResponse = statusMsg;
-
-                        if(myStatus != 1){
+                        if(myStatus.equalsIgnoreCase("yes")){
                             if(MyLifecycleHandler.isApplicationInForeground()){
                                 new Handler(Looper.getMainLooper()).post(new Runnable() {
                                     @Override
