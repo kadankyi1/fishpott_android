@@ -746,8 +746,8 @@
 
     <ImageView
         android:id="@+id/fragment_suggestion_loader_imageview"
-        android:layout_width="55dp"
-        android:layout_height="55dp"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
         android:layout_marginStart="8dp"
         android:layout_marginBottom="8dp"
         android:src="@drawable/roundlogo"

@@ -95,12 +95,13 @@ public class SuggestionFragment extends Fragment implements View.OnClickListener
     public void onClick(View v) {
         // WHEN THE LOAD SUGGESTION FP LOGO IS CLICKED
         if(v.getId() == R.id.fragment_suggestion_loader_imageview){
+            getLatestSuggestion(getActivity().getApplicationContext());
             v.startAnimation(AnimationUtils.loadAnimation(getActivity(), R.anim.suggestion_loading_anim));
         }
     }
 
 
-    private void getLatestSuggestion(Context context, final String receiverPottName){
+    private void getLatestSuggestion(Context context){
 
             new Handler(Looper.getMainLooper()).post(new Runnable() {
                 @Override
