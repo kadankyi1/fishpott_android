@@ -21,6 +21,7 @@
             android:textColor="@color/colorSharesForSaleDark"
             android:textSize="16sp"
             android:textStyle="bold"
+            android:visibility="gone"
             app:layout_constraintBottom_toTopOf="@+id/withdrawal_wallet_label_textview"
             app:layout_constraintEnd_toEndOf="@+id/withdrawal_wallet_label_textview"
             app:layout_constraintStart_toStartOf="@+id/withdrawal_wallet_label_textview"
@@ -35,6 +36,7 @@
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
             android:text="@string/withdrawal_wallet"
+            android:visibility="gone"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="12sp"
             android:textStyle="bold"
@@ -48,6 +50,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:visibility="gone"
             android:textColor="@color/colorSharesForSaleDark"
             android:textSize="16sp"
             android:textStyle="bold"
@@ -63,6 +66,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
+            android:visibility="gone"
             android:text="@string/debit_wallet"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="12sp"
@@ -77,6 +81,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:visibility="gone"
             android:textColor="@color/colorSharesForSaleDark"
             android:textSize="16sp"
             android:textStyle="bold"
@@ -91,6 +96,7 @@
             android:id="@+id/pott_pearls_textview_textview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:visibility="gone"
             android:layout_marginEnd="8dp"
             android:text="@string/pott_pearls"
             android:textColor="@color/colorPrimaryDark"
@@ -109,7 +115,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/withdrawal_wallet_label_textview"
-            app:layout_constraintBottom_toTopOf="@+id/credit_wallet_holder_contrainlayout">
+            app:layout_constraintBottom_toTopOf="@+id/pott_intelligence_holder_contrainlayout">
 
             <ImageView
                 android:id="@+id/about_wallet_imageview"
@@ -164,7 +170,7 @@
         </android.support.constraint.ConstraintLayout>
 
         <android.support.constraint.ConstraintLayout
-            android:id="@+id/credit_wallet_holder_contrainlayout"
+            android:id="@+id/pott_intelligence_holder_contrainlayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingBottom="5dp"
@@ -172,6 +178,69 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/about_holder_contrainlayout"
+            app:layout_constraintBottom_toTopOf="@+id/credit_wallet_holder_contrainlayout">
+
+            <ImageView
+                android:id="@+id/pott_intelligence_imageview"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="22dp"
+                android:layout_marginBottom="9dp"
+                android:contentDescription="@string/none"
+                android:src="@drawable/add_money_icon"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintEnd_toStartOf="@+id/pott_intelligence_textview"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <TextView
+                android:id="@+id/pott_intelligence_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="9dp"
+                android:text="Pott Intelligence"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/pott_intelligence_imageview"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/pott_intelligence_info_textview"
+                />
+
+            <TextView
+                android:id="@+id/pott_intelligence_info_textview"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginBottom="9dp"
+                android:text="How well you've trained pott"
+                android:textColor="@color/colorSignupFragmentIntroText"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/pott_intelligence_imageview"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/pott_intelligence_textview"/>
+
+        </android.support.constraint.ConstraintLayout>
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/credit_wallet_holder_contrainlayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="5dp"
+            android:background="@drawable/white_background_pressed_darker"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/pott_intelligence_holder_contrainlayout"
             app:layout_constraintBottom_toTopOf="@+id/myshares_holder_contrainlayout">
 
             <ImageView
