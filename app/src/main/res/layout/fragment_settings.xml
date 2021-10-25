@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/root_settings_fragment"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:background="@color/colorAccent"
     android:clickable="true"
     tools:context="com.fishpott.fishpott5.Fragments.SettingsFragment">
@@ -111,11 +111,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:background="@drawable/white_background_pressed_darker"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/active_bness_suggest_holder_contrainlayout"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/withdrawal_wallet_label_textview"
-            app:layout_constraintBottom_toTopOf="@+id/pott_intelligence_holder_contrainlayout">
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/pott_intelligence_holder_contrainlayout"
+            android:background="@drawable/white_background_pressed_darker">
 
             <ImageView
                 android:id="@+id/about_wallet_imageview"
@@ -175,10 +175,10 @@
             android:layout_height="wrap_content"
             android:background="@drawable/white_background_pressed_darker"
             android:paddingBottom="5dp"
-            app:layout_constraintBottom_toTopOf="@+id/active_bness_suggest_holder_contrainlayout"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/about_holder_contrainlayout">
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/about_holder_contrainlayout">
 
             <ImageView
                 android:id="@+id/pott_intelligence_imageview"
@@ -254,18 +254,18 @@
             android:background="@drawable/white_background_pressed_darker"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/pott_intelligence_holder_contrainlayout"
-            app:layout_constraintBottom_toTopOf="@+id/myshares_holder_contrainlayout">
+            app:layout_constraintTop_toBottomOf="@+id/about_holder_contrainlayout"
+            app:layout_constraintBottom_toTopOf="@+id/external_suggestion_holder_contrainlayout">
 
             <ImageView
                 android:id="@+id/active_bness_suggestions_imageview"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
                 android:layout_marginStart="24dp"
-                android:layout_marginTop="22dp"
+                android:layout_marginTop="12dp"
                 android:layout_marginBottom="9dp"
                 android:contentDescription="@string/none"
-                android:src="@drawable/add_money_icon"
+                android:src="@drawable/ic_active_stocks_business"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintHorizontal_chainStyle="packed"
                 app:layout_constraintEnd_toStartOf="@+id/active_bness_suggestions_textview"
@@ -280,7 +280,7 @@
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="9dp"
-                android:text="@string/credit_wallet"
+                android:text="Active Stock Suggestions"
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="17sp"
                 android:textStyle="bold"
@@ -297,7 +297,7 @@
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="24dp"
                 android:layout_marginBottom="9dp"
-                android:text="@string/add_money_to_your_account"
+                android:text="See your active stocks suggestions you can buy"
                 android:textColor="@color/colorSignupFragmentIntroText"
                 android:textSize="13sp"
                 android:textStyle="bold"
@@ -311,7 +311,7 @@
 
 
         <android.support.constraint.ConstraintLayout
-            android:id="@+id/credit_wallet_holder_contrainlayout"
+            android:id="@+id/external_suggestion_holder_contrainlayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingBottom="5dp"
@@ -319,6 +319,71 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/active_bness_suggest_holder_contrainlayout"
+            app:layout_constraintBottom_toTopOf="@+id/myshares_holder_contrainlayout">
+
+            <ImageView
+                android:id="@+id/external_suggestion_imageview"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="9dp"
+                android:contentDescription="@string/none"
+                android:src="@drawable/ic_coupon_code"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintEnd_toStartOf="@+id/external_suggestion_textview"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <TextView
+                android:id="@+id/external_suggestion_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="9dp"
+                android:text="Use External Suggestion Code"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/external_suggestion_imageview"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/external_suggestion_info_textview"
+                />
+
+            <TextView
+                android:id="@+id/external_suggestion_info_textview"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginBottom="9dp"
+                android:text="Bring up a business stock with a code"
+                android:textColor="@color/colorSignupFragmentIntroText"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/external_suggestion_imageview"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/external_suggestion_textview"/>
+
+        </android.support.constraint.ConstraintLayout>
+
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/credit_wallet_holder_contrainlayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="5dp"
+            android:visibility="gone"
+            android:background="@drawable/white_background_pressed_darker"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/external_suggestion_holder_contrainlayout"
             app:layout_constraintBottom_toTopOf="@+id/myshares_holder_contrainlayout">
 
             <ImageView
@@ -820,6 +885,7 @@
             android:id="@+id/privacy_policy_holder_contrainlayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:visibility="gone"
             android:background="@drawable/white_background_pressed_darker"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -883,6 +949,7 @@
             android:id="@+id/tos_holder_contrainlayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:visibility="gone"
             android:background="@drawable/white_background_pressed_darker"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
