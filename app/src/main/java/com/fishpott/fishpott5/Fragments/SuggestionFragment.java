@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ProgressBar;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.androidnetworking.AndroidNetworking;
@@ -43,7 +44,8 @@ import org.json.JSONObject;
  */
 public class SuggestionFragment extends Fragment {
 
-    private ConstraintLayout mDrillSuggestionHolderConstraintLayout;
+    private ConstraintLayout mDrillSuggestionHolderConstraintLayout
+    private ScrollView mBusinessSuggestionHolderScrollView;
     private TextView mDrillQuestionTextView;
     private Button mAnswer1Button, mAnswer2Button, mAnswer3Button, mAnswer4Button;
     private ProgressBar mSuggestionLoaderProgressBar;
@@ -77,6 +79,8 @@ public class SuggestionFragment extends Fragment {
         mAnswer3Button = view.findViewById(R.id.fragment_suggestion_answer3_button);
         mAnswer4Button = view.findViewById(R.id.fragment_suggestion_answer4_button);
 
+        // BUSINESS SUGGESTION OBJECTS
+        mBusinessSuggestionHolderScrollView = view.findViewById(R.id.fragment_suggestion_business_holder_constraintlayout);
 
         return view;
     }
@@ -88,8 +92,8 @@ public class SuggestionFragment extends Fragment {
                 @Override
                 public void run() {
                     mDrillSuggestionHolderConstraintLayout.setVisibility(View.INVISIBLE);
-                    mDrillSuggestionHolderConstraintLayout.setVisibility(View.INVISIBLE);
-                    mStage2ConstraintLayout.setVisibility(View.VISIBLE);
+                    mBusinessSuggestionHolderScrollView.setVisibility(View.INVISIBLE);
+                    mSuggestionLoaderProgressBar.setVisibility(View.VISIBLE);
                 }
             });
 
