@@ -84,8 +84,9 @@ public class SuggestionFragment extends Fragment implements View.OnClickListener
         // BUSINESS SUGGESTION OBJECTS
         mBusinessSuggestionHolderScrollView = view.findViewById(R.id.fragment_suggestion_business_holder_constraintlayout);
 
-
+        // SETTING CLICK LISTENERS
         mSuggestionLoaderImageView.setOnClickListener(this);
+
         return view;
     }
 
