@@ -15,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -49,7 +50,7 @@ public class SuggestionFragment extends Fragment {
     private ScrollView mBusinessSuggestionHolderScrollView;
     private TextView mDrillQuestionTextView;
     private Button mAnswer1Button, mAnswer2Button, mAnswer3Button, mAnswer4Button;
-    private ProgressBar mSuggestionLoaderProgressBar;
+    private ImageView mSuggestionLoaderImageView;
 
     public SuggestionFragment() {
         // Required empty public constructor
@@ -71,7 +72,7 @@ public class SuggestionFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_suggestion, container, false);
         // LOADER
-        mSuggestionLoaderProgressBar = view.findViewById(R.id.fragment_suggestion_loader);
+        mSuggestionLoaderImageView = view.findViewById(R.id.fragment_suggestion_loader_imageview);
 
         // DRILL SUGGESTION OBJECTS
         mDrillSuggestionHolderConstraintLayout = view.findViewById(R.id.fragment_suggestion_drill_holder_constraintlayout);
@@ -94,7 +95,7 @@ public class SuggestionFragment extends Fragment {
                 public void run() {
                     mDrillSuggestionHolderConstraintLayout.setVisibility(View.INVISIBLE);
                     mBusinessSuggestionHolderScrollView.setVisibility(View.INVISIBLE);
-                    mSuggestionLoaderProgressBar.setVisibility(View.VISIBLE);
+                    mSuggestionLoaderImageView.setVisibility(View.VISIBLE);
                 }
             });
 
