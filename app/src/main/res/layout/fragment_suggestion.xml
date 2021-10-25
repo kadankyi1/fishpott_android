@@ -746,7 +746,7 @@
     </ScrollView>
 
     <ProgressBar
-        android:id="@+id/activity_login_loader"
+        android:id="@+id/fragment_suggestion_loader"
         style="@style/ProgressBarBlack"
         android:layout_width="26dp"
         android:layout_height="32dp"
@@ -762,7 +762,7 @@
         android:id="@+id/fragment_suggestion_drill_holder_constraintlayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="gone">
+        android:visibility="visible">
 
         <android.support.constraint.Guideline
             android:id="@+id/fragment_suggestion_h_guideline_1"
@@ -844,7 +844,7 @@
                 app:layout_constraintVertical_bias="0.0">
 
                 <Button
-                    android:id="@+id/fragment_suggestion_answer1_textview"
+                    android:id="@+id/fragment_suggestion_answer1_button"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:background="@drawable/button_white_background_pressed_gray"
@@ -875,7 +875,7 @@
                 app:layout_constraintVertical_bias="0.0">
 
                 <Button
-                    android:id="@+id/fragment_suggestion_answer2_textview"
+                    android:id="@+id/fragment_suggestion_answer2_button"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:background="@drawable/button_white_background_pressed_gray"
@@ -905,7 +905,7 @@
                 app:layout_constraintVertical_bias="0.0">
 
                 <Button
-                    android:id="@+id/fragment_suggestion_answer3_textview"
+                    android:id="@+id/fragment_suggestion_answer3_button"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:background="@drawable/button_white_background_pressed_gray"
@@ -935,7 +935,7 @@
                 app:layout_constraintVertical_bias="0.0">
 
                 <Button
-                    android:id="@+id/fragment_suggestion_answer4_textview"
+                    android:id="@+id/fragment_suggestion_answer4_button"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:background="@drawable/button_white_background_pressed_gray"

@@ -205,7 +205,6 @@
                 android:text="Pott Intelligence - "
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="17sp"
-                android:textStyle="italic"
                 app:layout_constraintBottom_toTopOf="@+id/pott_intelligence_info_textview"
                 app:layout_constraintEnd_toStartOf="@+id/pott_intelligence_count_textview"
                 app:layout_constraintStart_toEndOf="@+id/pott_intelligence_imageview"
@@ -215,7 +214,6 @@
                 android:id="@+id/pott_intelligence_count_textview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
                 android:layout_marginTop="9dp"
                 android:layout_marginEnd="8dp"
                 android:text="10"
@@ -238,12 +236,25 @@
                 android:textColor="@color/colorSignupFragmentIntroText"
                 android:textSize="13sp"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/grey_line_view"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toEndOf="@+id/pott_intelligence_imageview"
                 app:layout_constraintTop_toBottomOf="@+id/pott_intelligence_textview" />
 
+            <View
+                android:id="@+id/grey_line_view"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginStart="70dp"
+                android:layout_marginEnd="70dp"
+                android:layout_marginTop="20dp"
+                android:background="@color/colorAccentGray"
+                app:layout_constraintTop_toBottomOf="@+id/pott_intelligence_info_textview"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                />
         </android.support.constraint.ConstraintLayout>
 
         <android.support.constraint.ConstraintLayout
