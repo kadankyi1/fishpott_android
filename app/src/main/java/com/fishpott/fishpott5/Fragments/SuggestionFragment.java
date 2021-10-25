@@ -48,9 +48,10 @@ public class SuggestionFragment extends Fragment implements View.OnClickListener
 
     private ConstraintLayout mDrillSuggestionHolderConstraintLayout;
     private ScrollView mBusinessSuggestionHolderScrollView;
-    private TextView mDrillQuestionTextView;
+    private TextView mDrillQuestionTextView, mSuggestionLoaderTextTextView;
     private Button mAnswer1Button, mAnswer2Button, mAnswer3Button, mAnswer4Button;
     private ImageView mSuggestionLoaderImageView;
+    private Boolean getSuggestionStarted = false;
 
     public SuggestionFragment() {
         // Required empty public constructor
@@ -73,6 +74,7 @@ public class SuggestionFragment extends Fragment implements View.OnClickListener
         View view = inflater.inflate(R.layout.fragment_suggestion, container, false);
         // LOADER
         mSuggestionLoaderImageView = view.findViewById(R.id.fragment_suggestion_loader_imageview);
+        mSuggestionLoaderTextTextView = view.findViewById(R.id.fragment_suggestion_loadertext_textview);
 
         // DRILL SUGGESTION OBJECTS
         mDrillSuggestionHolderConstraintLayout = view.findViewById(R.id.fragment_suggestion_drill_holder_constraintlayout);
@@ -94,21 +96,21 @@ public class SuggestionFragment extends Fragment implements View.OnClickListener
     @Override
     public void onClick(View v) {
         // WHEN THE LOAD SUGGESTION FP LOGO IS CLICKED
-        if(v.getId() == R.id.fragment_suggestion_loader_imageview){
+        if(v.getId() == R.id.fragment_suggestion_loader_imageview && !getSuggestionStarted){
             getLatestSuggestion(getActivity().getApplicationContext());
-            v.startAnimation(AnimationUtils.loadAnimation(getActivity(), R.anim.suggestion_loading_anim));
         }
     }
 
 
     private void getLatestSuggestion(Context context){
-
+        getSuggestionStarted = true;
             new Handler(Looper.getMainLooper()).post(new Runnable() {
                 @Override
                 public void run() {
                     mDrillSuggestionHolderConstraintLayout.setVisibility(View.INVISIBLE);
                     mBusinessSuggestionHolderScrollView.setVisibility(View.INVISIBLE);
-                    mSuggestionLoaderImageView.setVisibility(View.VISIBLE);
+                    mSuggestionLoaderImageView.startAnimation(AnimationUtils.loadAnimation(getActivity(), R.anim.suggestion_loading_anim));
+                    mSuggestionLoaderTextTextView.setText("Getting your next Pott Suggestion...");
                 }
             });
 
@@ -124,6 +126,7 @@ public class SuggestionFragment extends Fragment implements View.OnClickListener
                     .build().getAsString(new StringRequestListener() {
                 @Override
                 public void onResponse(String response) {
+                    getSuggestionStarted = false;
 
                     try {
                         Log.e("GetSuggestion", response);
@@ -189,6 +192,7 @@ public class SuggestionFragment extends Fragment implements View.OnClickListener
 
                 @Override
                 public void onError(ANError anError) {
+                    getSuggestionStarted = false;
                     if(MyLifecycleHandler.isApplicationInForeground()){
                             /*
                             ADD XML TO FRONT SO USER CAN CLICK TO TRY AGAIN IF IT FAILS
