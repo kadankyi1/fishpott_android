@@ -15,6 +15,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
+import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
@@ -41,6 +42,7 @@ import com.fishpott.fishpott5.Models.Notification_Model;
 import com.fishpott.fishpott5.R;
 import com.fishpott.fishpott5.Services.NewsFetcherAndPreparerService;
 import com.fishpott.fishpott5.Util.MyLifecycleHandler;
+import com.fishpott.fishpott5.Views.CircleImageView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -58,10 +60,15 @@ public class SuggestionFragment extends Fragment implements View.OnClickListener
 
     private ConstraintLayout mDrillSuggestionHolderConstraintLayout;
     private ScrollView mBusinessSuggestionHolderScrollView;
-    private TextView mDrillQuestionTextView, mSuggestionLoaderTextTextView;
+    private TextView mDrillQuestionTextView, mSuggestionLoaderTextTextView, mSuggestionBusinessNameTextView, mSuggestionBusinessCountryTextView, mSuggestionBusinessNetworthTextView,
+            mBusinessCountInvestorsTextView, mSuggestionBusinessPitchTextView, mSuggestionBusinessCEOTextView, mSuggestionBusinessCOOTextView, mSuggestionBusinessServicesBioTextView,
+            mBusinessWebsiteTextView, mBusinessRevenueLastYrTextView, mBusinessDebtTextView, mBusinessInvestmentsInTextView, mSuggestionBusinessFinanceBioTextView, mSuggestionBusinessFinanceFullReportTextView;
+    private CircleImageView mBusinessLogoCircleImageView;
+    private WebView mBusinessPitchVideoWebView;
     private Button mAnswer1Button, mAnswer2Button, mAnswer3Button, mAnswer4Button;
     private ImageView mSuggestionLoaderImageView;
     private Boolean getSuggestionStarted = false;
+    private String drillID = "", businessID = "";
 
     public SuggestionFragment() {
         // Required empty public constructor
@@ -96,6 +103,22 @@ public class SuggestionFragment extends Fragment implements View.OnClickListener
 
         // BUSINESS SUGGESTION OBJECTS
         mBusinessSuggestionHolderScrollView = view.findViewById(R.id.fragment_suggestion_business_holder_constraintlayout);
+        mSuggestionBusinessNameTextView = view.findViewById(R.id.fragment_suggestion_business_name_textview);
+        mBusinessLogoCircleImageView = view.findViewById(R.id.fragment_suggestion_business_logo_textview);
+        mSuggestionBusinessCountryTextView = view.findViewById(R.id.fragment_suggestion_business_country_textview);
+        mSuggestionBusinessNetworthTextView = view.findViewById(R.id.fragment_suggestion_business_networthvalue_textview);
+        mBusinessCountInvestorsTextView = view.findViewById(R.id.fragment_suggestion_business_investorsvalue_textview);
+        mSuggestionBusinessPitchTextView = view.findViewById(R.id.fragment_suggestion_business_pitchtext_textview);
+        mBusinessPitchVideoWebView = view.findViewById(R.id.fragment_suggestion_business_pitchvideo_webview);
+        mSuggestionBusinessCEOTextView = view.findViewById(R.id.fragment_suggestion_business_ceotext_textview);
+        mSuggestionBusinessCOOTextView = view.findViewById(R.id.fragment_suggestion_business_cootext_textview);
+        mSuggestionBusinessServicesBioTextView = view.findViewById(R.id.fragment_suggestion_business_servicetext_textview);
+        mBusinessWebsiteTextView = view.findViewById(R.id.fragment_suggestion_business_servicewebsite_textview);
+        mBusinessRevenueLastYrTextView = view.findViewById(R.id.fragment_suggestion_business_lastyearrevenuelabel_textview);
+        mBusinessDebtTextView = view.findViewById(R.id.fragment_suggestion_business_lastyeardebtlabel_textview);
+        mBusinessInvestmentsInTextView = view.findViewById(R.id.fragment_suggestion_business_lastyearinvestslabel_textview);
+        mSuggestionBusinessFinanceBioTextView = view.findViewById(R.id.fragment_suggestion_business_finance_biotext_textview);
+        mSuggestionBusinessFinanceFullReportTextView = view.findViewById(R.id.fragment_suggestion_business_finance_fullreporttext_textview);
 
         // SETTING CLICK LISTENERS
         mSuggestionLoaderImageView.setOnClickListener(this);
@@ -151,11 +174,36 @@ public class SuggestionFragment extends Fragment implements View.OnClickListener
                         final JSONObject o = new JSONObject(response);
                         int myStatus = o.getInt("status");
                         final String myStatusMessage = o.getString("message");
-                        final String drillQuestion = o.getJSONObject("data").getString("drill_question");
-                        final String drillAnswer1 = o.getJSONObject("data").getString("drill_answer_1");
-                        final String drillAnswer2 = o.getJSONObject("data").getString("drill_answer_2");
-                        final String drillAnswer3 = o.getJSONObject("data").getString("drill_answer_3");
-                        final String drillAnswer4 = o.getJSONObject("data").getString("drill_answer_4");
+                        // DRILL
+                        String drillQuestion = "";
+                        String drillAnswer1 = "";
+                        String drillAnswer2 = "";
+                        String drillAnswer3 = "";
+                        String drillAnswer4 = "";
+                        // BUSINESS
+                        String businessName = "";
+                        String businessLogoUrl = "";
+                        String businessName = "";
+                        String businessName = "";
+
+                        if(myStatusMessage.equalsIgnoreCase("drill")){
+                            drillID = o.getJSONObject("data").getString("drill_sys_id");
+                            drillQuestion = o.getJSONObject("data").getString("drill_question");
+                            drillAnswer1 = o.getJSONObject("data").getString("drill_answer_1");
+                            drillAnswer2 = o.getJSONObject("data").getString("drill_answer_2");
+                            drillAnswer3 = o.getJSONObject("data").getString("drill_answer_3");
+                            drillAnswer4 = o.getJSONObject("data").getString("drill_answer_4");
+                        } else if(myStatusMessage.equalsIgnoreCase("business")){
+                            businessID = o.getJSONObject("data").getString("business_sys_id");
+                            businessName = o.getJSONObject("data").getString("business_full_name");
+                            businessLogoUrl = o.getJSONObject("data").getString("business_logo");
+                            drillAnswer1 = o.getJSONObject("data").getString("drill_answer_1");
+                            drillAnswer1 = o.getJSONObject("data").getString("drill_answer_1");
+                            drillAnswer1 = o.getJSONObject("data").getString("drill_answer_1");
+                            drillAnswer1 = o.getJSONObject("data").getString("drill_answer_1");
+                            drillAnswer1 = o.getJSONObject("data").getString("drill_answer_1");
+                        }
+
 
                         //STORING THE USER DATA
                         Config.setSharedPreferenceBoolean(getActivity().getApplicationContext(), Config.SHARED_PREF_KEY_USER_VERIFY_PHONE_NUMBER_IS_ON, o.getBoolean("phone_verification_is_on"));
@@ -167,6 +215,11 @@ public class SuggestionFragment extends Fragment implements View.OnClickListener
                         if(myStatus == 1){
 
                             if(MyLifecycleHandler.isApplicationInForeground()){
+                                final String finalDrillAnswer = drillAnswer1;
+                                final String finalDrillQuestion = drillQuestion;
+                                final String finalDrillAnswer1 = drillAnswer2;
+                                final String finalDrillAnswer2 = drillAnswer3;
+                                final String finalDrillAnswer3 = drillAnswer4;
                                 new Handler(Looper.getMainLooper()).post(new Runnable() {
                                     @Override
                                     public void run() {
@@ -175,16 +228,34 @@ public class SuggestionFragment extends Fragment implements View.OnClickListener
                                             mSuggestionLoaderImageView.setVisibility(View.INVISIBLE);
                                             mSuggestionLoaderTextTextView.setVisibility(View.INVISIBLE);
                                             mBusinessSuggestionHolderScrollView.setVisibility(View.INVISIBLE);
-                                            mDrillQuestionTextView.setText(drillQuestion);
-                                            mAnswer1Button.setText(drillAnswer1);
-                                            mAnswer2Button.setText(drillAnswer2);
-                                            mAnswer3Button.setText(drillAnswer3);
-                                            mAnswer4Button.setText(drillAnswer4);
+                                            mDrillQuestionTextView.setText(finalDrillQuestion);
+                                            mAnswer1Button.setText(finalDrillAnswer);
+                                            mAnswer2Button.setText(finalDrillAnswer1);
+                                            mAnswer3Button.setText(finalDrillAnswer2);
+                                            mAnswer4Button.setText(finalDrillAnswer3);
                                             mDrillSuggestionHolderConstraintLayout.setVisibility(View.VISIBLE);
                                         } else if(myStatusMessage.equalsIgnoreCase("business")){
+                                            mSuggestionBusinessNameTextView.setText(businessName);
+                                            Config.loadUrlImage(getActivity(), true, businessLogoUrl, mBusinessLogoCircleImageView, 0, 60, 60);
+                                            mSuggestionBusinessCountryTextView.setText();
+                                            mSuggestionBusinessNetworthTextView.setText();
+                                            mBusinessCountInvestorsTextView.setText();
+                                            mSuggestionBusinessPitchTextView.setText();
+                                            mBusinessPitchVideoWebView.setText();
+                                            mSuggestionBusinessCEOTextView.setText();
+                                            mSuggestionBusinessCOOTextView.setText();
+                                            mSuggestionBusinessServicesBioTextView.setText();
+                                            mBusinessWebsiteTextView.setText();
+                                            mBusinessRevenueLastYrTextView.setText();
+                                            mBusinessDebtTextView.setText();
+                                            mBusinessInvestmentsInTextView.setText();
+                                            mSuggestionBusinessFinanceBioTextView.setText();
+                                            mSuggestionBusinessFinanceFullReportTextView.setText();
+
                                             mSuggestionLoaderImageView.setVisibility(View.INVISIBLE);
-                                            mBusinessSuggestionHolderScrollView.setVisibility(View.INVISIBLE);
-                                            mDrillSuggestionHolderConstraintLayout.setVisibility(View.VISIBLE);
+                                            mSuggestionLoaderTextTextView.setVisibility(View.INVISIBLE);
+                                            mDrillSuggestionHolderConstraintLayout.setVisibility(View.INVISIBLE);
+                                            mBusinessSuggestionHolderScrollView.setVisibility(View.VISIBLE);
                                         } else {
 
                                         }
