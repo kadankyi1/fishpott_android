@@ -183,8 +183,20 @@ public class SuggestionFragment extends Fragment implements View.OnClickListener
                         // BUSINESS
                         String businessName = "";
                         String businessLogoUrl = "";
-                        String businessName = "";
-                        String businessName = "";
+                        String businessCountry = "";
+                        String businessNetworth = "";
+                        String businessCountInvestors = "";
+                        String businessPitch = "";
+                        String businessPitchVideo = "";
+                        String businessCEO = "";
+                        String businessCOO = "";
+                        String businessServicesBio = "";
+                        String businessServicesWebsite = "";
+                        String businessLastYrRevenue = "";
+                        String businessProfitOrLoss = "";
+                        String businessInvestments = "";
+                        String businessFinanceBio = "";
+                        String businessFinanceFullReport = "";
 
                         if(myStatusMessage.equalsIgnoreCase("drill")){
                             drillID = o.getJSONObject("data").getString("drill_sys_id");
@@ -197,11 +209,21 @@ public class SuggestionFragment extends Fragment implements View.OnClickListener
                             businessID = o.getJSONObject("data").getString("business_sys_id");
                             businessName = o.getJSONObject("data").getString("business_full_name");
                             businessLogoUrl = o.getJSONObject("data").getString("business_logo");
-                            drillAnswer1 = o.getJSONObject("data").getString("drill_answer_1");
-                            drillAnswer1 = o.getJSONObject("data").getString("drill_answer_1");
-                            drillAnswer1 = o.getJSONObject("data").getString("drill_answer_1");
-                            drillAnswer1 = o.getJSONObject("data").getString("drill_answer_1");
-                            drillAnswer1 = o.getJSONObject("data").getString("drill_answer_1");
+                            businessCountry = o.getString("country");
+                            businessNetworth = o.getJSONObject("data").getString("business_net_worth_usd");
+                            businessCountInvestors = o.getJSONObject("data").getString("business_current_shareholders");
+                            businessPitch = o.getJSONObject("data").getString("business_pitch_text");
+                            businessPitchVideo = o.getJSONObject("data").getString("business_pitch_video");
+                            businessCEO = o.getJSONObject("data").getString("business_executive1_firstname") + " " + o.getJSONObject("data").getString("business_executive1_lastname");
+                            businessCOO = o.getJSONObject("data").getString("business_executive2_firstname") + " " + o.getJSONObject("data").getString("business_executive2_lastname");
+                            businessCOO = o.getJSONObject("data").getString("drill_answer_1");
+                            businessServicesBio = o.getJSONObject("data").getString("business_descriptive_bio");
+                            businessServicesWebsite = o.getJSONObject("data").getString("business_website");
+                            businessLastYrRevenue = o.getJSONObject("data").getString("business_lastyr_revenue_usd");
+                            businessProfitOrLoss = o.getJSONObject("data").getString("business_lastyr_profit_or_loss_usd");
+                            businessInvestments = o.getJSONObject("data").getString("business_investments_amount_needed_usd");
+                            businessFinanceBio = o.getJSONObject("data").getString("business_descriptive_financial_bio");
+                            businessFinanceFullReport = o.getJSONObject("data").getString("business_website");
                         }
 
 
@@ -237,15 +259,15 @@ public class SuggestionFragment extends Fragment implements View.OnClickListener
                                         } else if(myStatusMessage.equalsIgnoreCase("business")){
                                             mSuggestionBusinessNameTextView.setText(businessName);
                                             Config.loadUrlImage(getActivity(), true, businessLogoUrl, mBusinessLogoCircleImageView, 0, 60, 60);
-                                            mSuggestionBusinessCountryTextView.setText();
-                                            mSuggestionBusinessNetworthTextView.setText();
-                                            mBusinessCountInvestorsTextView.setText();
-                                            mSuggestionBusinessPitchTextView.setText();
-                                            mBusinessPitchVideoWebView.setText();
-                                            mSuggestionBusinessCEOTextView.setText();
-                                            mSuggestionBusinessCOOTextView.setText();
-                                            mSuggestionBusinessServicesBioTextView.setText();
-                                            mBusinessWebsiteTextView.setText();
+                                            mSuggestionBusinessCountryTextView.setText(businessCountry);
+                                            mSuggestionBusinessNetworthTextView.setText(businessNetworth);
+                                            mBusinessCountInvestorsTextView.setText(businessCountInvestors);
+                                            mSuggestionBusinessPitchTextView.setText(businessPitch);
+                                            //mBusinessPitchVideoWebView.setText(businessPitchVideo);
+                                            mSuggestionBusinessCEOTextView.setText(businessCEO);
+                                            mSuggestionBusinessCOOTextView.setText(businessCOO);
+                                            mSuggestionBusinessServicesBioTextView.setText(businessServicesBio);
+                                            mBusinessWebsiteTextView.setText(businessServicesWebsite);
                                             mBusinessRevenueLastYrTextView.setText();
                                             mBusinessDebtTextView.setText();
                                             mBusinessInvestmentsInTextView.setText();
