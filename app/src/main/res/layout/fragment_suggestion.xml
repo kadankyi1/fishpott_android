@@ -765,7 +765,7 @@
         android:layout_marginTop="15dp"
         android:gravity="center"
         android:textColor="@color/colorPrimaryDark"
-        android:text="Click to get your next suggestion"
+        android:text="Click the icon to get your next suggestion"
         android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

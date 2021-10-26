@@ -82,6 +82,7 @@ public class SuggestionFragment extends Fragment implements View.OnClickListener
 
         // DRILL SUGGESTION OBJECTS
         mDrillSuggestionHolderConstraintLayout = view.findViewById(R.id.fragment_suggestion_drill_holder_constraintlayout);
+        mDrillQuestionTextView = view.findViewById(R.id.fragment_suggestion_question_textview);
         mAnswer1Button = view.findViewById(R.id.fragment_suggestion_answer1_button);
         mAnswer2Button = view.findViewById(R.id.fragment_suggestion_answer2_button);
         mAnswer3Button = view.findViewById(R.id.fragment_suggestion_answer3_button);
@@ -134,9 +135,14 @@ public class SuggestionFragment extends Fragment implements View.OnClickListener
 
                     try {
                         Log.e("GetSuggestion", response);
-                        JSONObject o = new JSONObject(response);
+                        final JSONObject o = new JSONObject(response);
                         int myStatus = o.getInt("status");
                         final String myStatusMessage = o.getString("message");
+                        final String drillQuestion = o.getJSONObject("data").getString("drill_question");
+                        final String drillAnswer1 = o.getJSONObject("data").getString("drill_answer_1");
+                        final String drillAnswer2 = o.getJSONObject("data").getString("drill_answer_2");
+                        final String drillAnswer3 = o.getJSONObject("data").getString("drill_answer_3");
+                        final String drillAnswer4 = o.getJSONObject("data").getString("drill_answer_4");
 
                         //STORING THE USER DATA
                         Config.setSharedPreferenceBoolean(getActivity().getApplicationContext(), Config.SHARED_PREF_KEY_USER_VERIFY_PHONE_NUMBER_IS_ON, o.getBoolean("phone_verification_is_on"));
@@ -146,13 +152,21 @@ public class SuggestionFragment extends Fragment implements View.OnClickListener
                         Config.setSharedPreferenceInt(getActivity().getApplicationContext(), Config.SHARED_PREF_KEY_UPDATE_ACTIVITY_UPDATE_VERSION_CODE, o.getInt("user_android_app_max_vc"));
 
                         if(myStatus == 1){
+
                             if(MyLifecycleHandler.isApplicationInForeground()){
                                 new Handler(Looper.getMainLooper()).post(new Runnable() {
                                     @Override
                                     public void run() {
                                         if(myStatusMessage.equalsIgnoreCase("drill")){
+                                            mSuggestionLoaderImageView.clearAnimation();
                                             mSuggestionLoaderImageView.setVisibility(View.INVISIBLE);
+                                            mSuggestionLoaderTextTextView.setVisibility(View.INVISIBLE);
                                             mBusinessSuggestionHolderScrollView.setVisibility(View.INVISIBLE);
+                                            mDrillQuestionTextView.setText(drillQuestion);
+                                            mAnswer1Button.setText(drillAnswer1);
+                                            mAnswer2Button.setText(drillAnswer2);
+                                            mAnswer3Button.setText(drillAnswer3);
+                                            mAnswer4Button.setText(drillAnswer4);
                                             mDrillSuggestionHolderConstraintLayout.setVisibility(View.VISIBLE);
                                         } else if(myStatusMessage.equalsIgnoreCase("business")){
                                             mSuggestionLoaderImageView.setVisibility(View.INVISIBLE);
@@ -171,6 +185,8 @@ public class SuggestionFragment extends Fragment implements View.OnClickListener
                             return;
                         } else if(myStatus == 3){
                             // GENERAL ERROR
+                            mSuggestionLoaderImageView.clearAnimation();
+                            mSuggestionLoaderTextTextView.setText("Click the icon to get your next suggestion");
                             Config.showToastType1(getActivity(), myStatusMessage);
                             return;
                         } else if(myStatus == 4){
