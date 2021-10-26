@@ -25,7 +25,13 @@ import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.common.Priority;
 import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.StringRequestListener;
+import com.fishpott.fishpott5.Activities.FlaggedAccountActivity;
+import com.fishpott.fishpott5.Activities.FullNewsActivity;
+import com.fishpott.fishpott5.Activities.GovernmentIDVerificationActivity;
 import com.fishpott.fishpott5.Activities.MainActivity;
+import com.fishpott.fishpott5.Activities.ProfileOfDifferentPottActivity;
+import com.fishpott.fishpott5.Activities.SetProfilePictureActivity;
+import com.fishpott.fishpott5.Activities.StartActivity;
 import com.fishpott.fishpott5.Activities.UpdateActivity;
 import com.fishpott.fishpott5.Adapters.Notifications_DatabaseAdapter;
 import com.fishpott.fishpott5.Inc.Config;
@@ -102,7 +108,16 @@ public class SuggestionFragment extends Fragment implements View.OnClickListener
     public void onClick(View v) {
         // WHEN THE LOAD SUGGESTION FP LOGO IS CLICKED
         if(v.getId() == R.id.fragment_suggestion_loader_imageview && !getSuggestionStarted){
-            getLatestSuggestion(getActivity().getApplicationContext());
+
+            mSuggestionLoaderImageView.startAnimation(AnimationUtils.loadAnimation(getActivity(), R.anim.suggestion_loading_anim));
+            mSuggestionLoaderTextTextView.setText("Getting your next Pott Suggestion...");
+            // DELAYING getLatestSuggestion FOR 5S FOR ANIM TO RUN
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    getLatestSuggestion(getActivity().getApplicationContext());
+                }
+            }, 5000);
         }
     }
 
@@ -114,8 +129,6 @@ public class SuggestionFragment extends Fragment implements View.OnClickListener
                 public void run() {
                     mDrillSuggestionHolderConstraintLayout.setVisibility(View.INVISIBLE);
                     mBusinessSuggestionHolderScrollView.setVisibility(View.INVISIBLE);
-                    mSuggestionLoaderImageView.startAnimation(AnimationUtils.loadAnimation(getActivity(), R.anim.suggestion_loading_anim));
-                    mSuggestionLoaderTextTextView.setText("Getting your next Pott Suggestion...");
                 }
             });
 
