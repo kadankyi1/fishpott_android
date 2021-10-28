@@ -59,7 +59,7 @@ import java.net.URLEncoder;
 public class SuggestionFragment extends Fragment implements View.OnClickListener {
 
     private ConstraintLayout mDrillSuggestionHolderConstraintLayout;
-    private ScrollView mBusinessSuggestionHolderScrollView;
+    private ScrollView mBusinessSuggestionHolderScrollView, mAnswersCountScrollView;
     private TextView mDrillQuestionTextView, mSuggestionLoaderTextTextView, mSuggestionBusinessNameTextView, mSuggestionBusinessCountryTextView, mSuggestionBusinessNetworthTextView,
             mBusinessCountInvestorsTextView, mSuggestionBusinessPitchTextView, mSuggestionBusinessCEOTextView, mSuggestionBusinessCOOTextView, mSuggestionBusinessServicesBioTextView,
             mBusinessWebsiteTextView, mBusinessRevenueLastYrTextView, mBusinessDebtTextView, mBusinessInvestmentsInTextView, mSuggestionBusinessFinanceBioTextView, mSuggestionBusinessFinanceFullReportTextView;
@@ -100,6 +100,17 @@ public class SuggestionFragment extends Fragment implements View.OnClickListener
         mAnswer2Button = view.findViewById(R.id.fragment_suggestion_answer2_button);
         mAnswer3Button = view.findViewById(R.id.fragment_suggestion_answer3_button);
         mAnswer4Button = view.findViewById(R.id.fragment_suggestion_answer4_button);
+
+        // DRILL ANSWERS COUNT OBJECTS
+        mAnswersCountScrollView = view.findViewById(R.id.fragment_suggestion_answersoffriends_holder_scrollview);
+        mAnswer1CountTextView = view.findViewById(R.id.fragment_suggestion_answersoffriends_answer1_answerscount_textview);
+        mAnswer2CountTextView = view.findViewById(R.id.fragment_suggestion_answersoffriends_answer2_answerscount_textview);
+        mAnswer3CountTextView = view.findViewById(R.id.fragment_suggestion_answersoffriends_answer3_answerscount_textview);
+        mAnswer4CountTextView = view.findViewById(R.id.fragment_suggestion_answersoffriends_answer4_answerscount_textview);
+        mAnswer1TextView = view.findViewById(R.id.fragment_suggestion_answersoffriends_answer1_answer_textview);
+        mAnswer2TextView = view.findViewById(R.id.fragment_suggestion_answersoffriends_answer2_answer_textview);
+        mAnswer3TextView = view.findViewById(R.id.fragment_suggestion_answersoffriends_answer3_answer_textview);
+        mAnswer4TextView = view.findViewById(R.id.fragment_suggestion_answersoffriends_answer4_answer_textview);
 
         // BUSINESS SUGGESTION OBJECTS
         mBusinessSuggestionHolderScrollView = view.findViewById(R.id.fragment_suggestion_business_holder_constraintlayout);
