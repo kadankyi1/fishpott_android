@@ -57,12 +57,13 @@ import java.net.URLEncoder;
  * create an instance of this fragment.
  */
 public class SuggestionFragment extends Fragment implements View.OnClickListener {
-
     private ConstraintLayout mDrillSuggestionHolderConstraintLayout;
     private ScrollView mBusinessSuggestionHolderScrollView, mAnswersCountScrollView;
     private TextView mDrillQuestionTextView, mSuggestionLoaderTextTextView, mSuggestionBusinessNameTextView, mSuggestionBusinessCountryTextView, mSuggestionBusinessNetworthTextView,
             mBusinessCountInvestorsTextView, mSuggestionBusinessPitchTextView, mSuggestionBusinessCEOTextView, mSuggestionBusinessCOOTextView, mSuggestionBusinessServicesBioTextView,
-            mBusinessWebsiteTextView, mBusinessRevenueLastYrTextView, mBusinessDebtTextView, mBusinessInvestmentsInTextView, mSuggestionBusinessFinanceBioTextView, mSuggestionBusinessFinanceFullReportTextView;
+            mBusinessWebsiteTextView, mBusinessRevenueLastYrTextView, mBusinessDebtTextView, mBusinessInvestmentsInTextView, mSuggestionBusinessFinanceBioTextView,
+            mSuggestionBusinessFinanceFullReportTextView, mAnswer1CountTextView, mAnswer2CountTextView, mAnswer3CountTextView, mAnswer4CountTextView,
+            mAnswer1TextView, mAnswer2TextView, mAnswer3TextView, mAnswer4TextView;
     private CircleImageView mBusinessLogoCircleImageView;
     private WebView mBusinessPitchVideoWebView;
     private Button mAnswer1Button, mAnswer2Button, mAnswer3Button, mAnswer4Button;
