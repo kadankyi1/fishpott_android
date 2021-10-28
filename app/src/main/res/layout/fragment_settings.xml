@@ -639,6 +639,7 @@
 
         </android.support.constraint.ConstraintLayout>
 
+
         <android.support.constraint.ConstraintLayout
             android:id="@+id/transactions_holder_contrainlayout"
             android:layout_width="match_parent"
@@ -648,7 +649,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/redeem_shares_coupon_holder_contrainlayout"
-            app:layout_constraintBottom_toTopOf="@+id/withdraw_funds_holder_contrainlayout">
+            app:layout_constraintBottom_toTopOf="@+id/sellquestion_holder_contrainlayout">
 
             <ImageView
                 android:id="@+id/transactions_icon_imageview"
@@ -701,6 +702,67 @@
 
         </android.support.constraint.ConstraintLayout>
 
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/sellquestion_holder_contrainlayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="5dp"
+            android:background="@drawable/white_background_pressed_darker"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/transactions_holder_contrainlayout"
+            app:layout_constraintBottom_toTopOf="@+id/withdraw_funds_holder_contrainlayout">
+
+            <ImageView
+                android:id="@+id/sellquestion_icon_imageview"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_marginBottom="9dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="9dp"
+                android:contentDescription="@string/none"
+                android:src="@drawable/ic_sell_question"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/sellquestion_textview"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/sellquestion_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="9dp"
+                android:text="Sell A Question"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/sellquestion_info_textview"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/sellquestion_icon_imageview"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/sellquestion_info_textview"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="9dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="24dp"
+                android:text="Do you have an interesting question/phrase/scenario? Try selling it."
+                android:textColor="@color/colorSignupFragmentIntroText"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/sellquestion_icon_imageview"
+                app:layout_constraintTop_toBottomOf="@+id/sellquestion_textview" />
+
+        </android.support.constraint.ConstraintLayout>
 
 
         <android.support.constraint.ConstraintLayout
@@ -711,7 +773,7 @@
             android:background="@drawable/white_background_pressed_darker"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/transactions_holder_contrainlayout"
+            app:layout_constraintTop_toBottomOf="@+id/sellquestion_holder_contrainlayout"
             app:layout_constraintBottom_toTopOf="@+id/change_password_holder_contrainlayout">
 
             <ImageView
