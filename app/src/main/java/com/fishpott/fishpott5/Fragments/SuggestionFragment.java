@@ -346,4 +346,105 @@ public class SuggestionFragment extends Fragment implements View.OnClickListener
                 }
             });
     }
+
+
+    private void saveDrillAndGetAnswersCount(Context context){
+        getSuggestionStarted = true;
+        new Handler(Looper.getMainLooper()).post(new Runnable() {
+            @Override
+            public void run() {
+                mDrillSuggestionHolderConstraintLayout.setVisibility(View.INVISIBLE);
+                mBusinessSuggestionHolderScrollView.setVisibility(View.INVISIBLE);
+            }
+        });
+
+        AndroidNetworking.get(Config.LINK_SAVE_DRILL_AND_GET_ANSWERS_COUNT)
+                .addHeaders("Accept", "application/json")
+                .addHeaders("Authorization", "Bearer " + Config.getSharedPreferenceString(getActivity().getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_PASSWORD_ACCESS_TOKEN))
+                .setTag("get_suggestion")
+                .setPriority(Priority.HIGH)
+                .build().getAsString(new StringRequestListener() {
+            @Override
+            public void onResponse(String response) {
+                getSuggestionStarted = false;
+
+                try {
+                    Log.e("GetSuggestion", response);
+                    final JSONObject o = new JSONObject(response);
+                    int myStatus = o.getInt("status");
+                    final String myStatusMessage = o.getString("message");
+                    drillID = o.getJSONObject("data").getString("drill_sys_id");
+
+                    //STORING THE USER DATA
+                    Config.setSharedPreferenceBoolean(getActivity().getApplicationContext(), Config.SHARED_PREF_KEY_USER_VERIFY_PHONE_NUMBER_IS_ON, o.getBoolean("phone_verification_is_on"));
+
+                    // UPDATING THE VERSION CODE AND FORCE STATUS OF THE APP.
+                    Config.setSharedPreferenceBoolean(getActivity().getApplicationContext(), Config.SHARED_PREF_KEY_UPDATE_ACTIVITY_UPDATE_BY_FORCE, o.getBoolean("user_android_app_force_update"));
+                    Config.setSharedPreferenceInt(getActivity().getApplicationContext(), Config.SHARED_PREF_KEY_UPDATE_ACTIVITY_UPDATE_VERSION_CODE, o.getInt("user_android_app_max_vc"));
+
+                    if(myStatus == 1){
+                        if(MyLifecycleHandler.isApplicationInForeground()){
+                            new Handler(Looper.getMainLooper()).post(new Runnable() {
+                                @Override
+                                public void run() {
+                                    /*
+                                        mSuggestionLoaderImageView.clearAnimation();
+                                        mSuggestionLoaderImageView.setVisibility(View.INVISIBLE);
+                                        mSuggestionLoaderTextTextView.setVisibility(View.INVISIBLE);
+                                        mBusinessSuggestionHolderScrollView.setVisibility(View.INVISIBLE);
+                                        mDrillQuestionTextView.setText(finalDrillQuestion);
+                                        mAnswer1Button.setText(finalDrillAnswer);
+                                        mAnswer2Button.setText(finalDrillAnswer1);
+                                        mAnswer3Button.setText(finalDrillAnswer2);
+                                        mAnswer4Button.setText(finalDrillAnswer3);
+                                        mDrillSuggestionHolderConstraintLayout.setVisibility(View.VISIBLE);
+                                     */
+                                }
+                            });
+                        }
+                    } else if(myStatus == 2){
+                        // IF USER'S APP IS OUTDATED AND NOT ALLOWED TO BE USED
+                        Config.setSharedPreferenceBoolean(getActivity().getApplicationContext(), Config.SHARED_PREF_KEY_UPDATE_ACTIVITY_UPDATE_BY_FORCE, true);
+                        Config.openActivity3(getActivity().getApplicationContext(), UpdateActivity.class, 1, Config.KEY_ACTIVITY_FINISHED, "1");
+                        return;
+                    } else if(myStatus == 3){
+                        // GENERAL ERROR
+                        mSuggestionLoaderImageView.clearAnimation();
+                        mSuggestionLoaderTextTextView.setText("Click the icon to get your next suggestion");
+                        Config.showToastType1(getActivity(), myStatusMessage);
+                        return;
+                    } else if(myStatus == 4){
+                        // IF USER'S ACCOUNT HAS BEEN SUSPENDED, WE SIGN USER OUT
+                        Config.showToastType1(getActivity(), myStatusMessage);
+                        Config.signOutUser(getActivity().getApplicationContext(), false, null, null, 0, 2);
+                    } else if(myStatus == 5){
+                        Config.setSharedPreferenceBoolean(getActivity().getApplicationContext(), Config.SHARED_PREF_KEY_UPDATE_ACTIVITY_UPDATE_BY_FORCE, true);
+                        Config.openActivity3(getActivity().getApplicationContext(), UpdateActivity.class, 1, Config.KEY_ACTIVITY_FINISHED, "1");
+                        return;
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    if(MyLifecycleHandler.isApplicationInForeground()){
+                            /*
+                            ADD XML TO FRONT SO USER CAN CLICK TO TRY AGAIN IF IT FAILS
+                             */
+                    } else {
+                        //networkResponse = getString(R.string.login_activity_an_unexpected_error_occured);
+                    }
+                }
+            }
+
+            @Override
+            public void onError(ANError anError) {
+                getSuggestionStarted = false;
+                if(MyLifecycleHandler.isApplicationInForeground()){
+                            /*
+                            ADD XML TO FRONT SO USER CAN CLICK TO TRY AGAIN IF IT FAILS
+                             */
+                } else {
+                    //networkResponse = getString(R.string.login_activity_check_your_internet_connection_and_try_again);
+                }
+            }
+        });
+    }
 }

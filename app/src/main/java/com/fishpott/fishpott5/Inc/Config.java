@@ -289,6 +289,9 @@ public class Config {
 	// GET MY SUGGESTION
 	public static final String LINK_GET_MY_SUGGESTION = CURRENT_HTTP_IN_USE + "144.202.111.61/api/v1/user/get-my-suggestion";
 
+	// GET MY SUGGESTION
+	public static final String LINK_SAVE_DRILL_AND_GET_ANSWERS_COUNT = CURRENT_HTTP_IN_USE + "144.202.111.61/api/v1/user/save-drill-answer";
+
 	/********************************************************************************************************************************************
 
 	 OLD LINKS OLD LINKS OLD LINKS OLD LINKS OLD LINKS OLD LINKS OLD LINKS OLD LINKS OLD LINKS OLD LINKS OLD LINKS OLD LINKS OLD LINKS OLD LINKS

@@ -232,7 +232,7 @@
                 android:layout_marginStart="24dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginBottom="9dp"
-                android:text="How well you've trained your FishPott. Max is 1000"
+                android:text="How well you've trained your FishPott."
                 android:textColor="@color/colorSignupFragmentIntroText"
                 android:textSize="13sp"
                 android:textStyle="bold"
