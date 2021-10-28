@@ -780,6 +780,10 @@
         android:id="@+id/fragment_suggestion_drill_holder_constraintlayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         android:visibility="visible">
 
         <android.support.constraint.Guideline
@@ -818,6 +822,7 @@
 
         </android.support.constraint.ConstraintLayout>
 
+
         <android.support.constraint.ConstraintLayout
             android:id="@+id/fragment_suggestion_answersoffriends_holder_constraintlayout"
             android:layout_width="0dp"
@@ -828,14 +833,106 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/fragment_suggestion_h_guideline_1">
 
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/fragment_suggestion_answersoffriends_holder_recyclerview"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                app:layout_constraintBottom_toBottomOf="parent"
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/fragment_suggestion_answersoffriends_answer1_holder_constraintlayou"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/rounded_corner_shape_ash"
+                android:elevation="15dp"
+                app:layout_constraintBottom_toBottomOf="@+id/"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent">
+
+                <android.support.constraint.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/rounded_corner_shape"
+                    android:paddingBottom="10dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+
+                    <TextView
+                        android:id="@+id/fragment_suggestion_answersoffriends_answer1_answerscount_textview"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto"
+                        android:gravity="start"
+                        android:layout_marginTop="10dp"
+                        android:paddingStart="25dp"
+                        android:text="200K"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toTopOf="@+id/fragment_suggestion_answersoffriends_answer1_answerscount_view"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="1.0" />
+
+
+                    <TextView
+                        android:id="@+id/fragment_suggestion_answersoffriends_answer1_said_textview"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto"
+                        android:gravity="center"
+                        android:paddingStart="25dp"
+                        android:paddingEnd="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:text="People said"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="15sp"
+                        android:textStyle="normal"
+                        app:layout_constraintBottom_toTopOf="@+id/fragment_suggestion_answersoffriends_answer1_answer_textview"
+                        app:layout_constraintEnd_toStartOf="@+id/fragment_suggestion_answersoffriends_answer1_answerscount_view"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/fragment_suggestion_answersoffriends_answer1_answerscount_textview"
+                        app:layout_constraintVertical_bias="0.0" />
+
+                    <View
+                        android:id="@+id/fragment_suggestion_answersoffriends_answer1_answerscount_view"
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        android:layout_marginStart="25dp"
+                        android:layout_marginEnd="25dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@color/colorAccentGray"
+                        android:orientation="horizontal"
+                        app:layout_constraintBottom_toTopOf="@+id/fragment_suggestion_answersoffriends_answer1_answer_textview"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/fragment_suggestion_answersoffriends_answer1_said_textview"
+                        app:layout_constraintTop_toBottomOf="@+id/fragment_suggestion_answersoffriends_answer1_answerscount_textview"
+                        app:layout_constraintVertical_bias="0.0" />
+
+
+                    <TextView
+                        android:id="@+id/fragment_suggestion_answersoffriends_answer1_answer_textview"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="25dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="25dp"
+                        android:fontFamily="@font/roboto"
+                        android:gravity="start"
+                        android:text="This business seem to have a good financial back. This business seem to have a good financial back. "
+                        android:textColor="@color/colorAccentAsh"
+                        android:textSize="15sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/fragment_suggestion_answersoffriends_answer1_answerscount_view"
+                        app:layout_constraintVertical_bias="0.0" />
+
+                </android.support.constraint.ConstraintLayout>
+
+            </android.support.constraint.ConstraintLayout>
 
         </android.support.constraint.ConstraintLayout>
 
