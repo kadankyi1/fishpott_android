@@ -1,8 +1,5 @@
 package com.fishpott.fishpott5.Fragments;
 
-import static com.fishpott.fishpott5.Activities.MainActivity.mNotificationMenuIconUpdateIconConstraintLayout;
-import static com.fishpott.fishpott5.Fragments.NotificationsFragment.mNotificationsRecyclerView;
-
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
@@ -18,7 +15,6 @@ import android.view.animation.AnimationUtils;
 import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
@@ -26,30 +22,15 @@ import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.common.Priority;
 import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.StringRequestListener;
-import com.fishpott.fishpott5.Activities.FlaggedAccountActivity;
-import com.fishpott.fishpott5.Activities.FullNewsActivity;
-import com.fishpott.fishpott5.Activities.GovernmentIDVerificationActivity;
-import com.fishpott.fishpott5.Activities.MainActivity;
-import com.fishpott.fishpott5.Activities.ProfileOfDifferentPottActivity;
-import com.fishpott.fishpott5.Activities.SetProfilePictureActivity;
-import com.fishpott.fishpott5.Activities.StartActivity;
 import com.fishpott.fishpott5.Activities.UpdateActivity;
-import com.fishpott.fishpott5.Adapters.Notifications_DatabaseAdapter;
 import com.fishpott.fishpott5.Inc.Config;
-import com.fishpott.fishpott5.ListDataGenerators.Notifications_ListDataGenerator;
 import com.fishpott.fishpott5.Miscellaneous.LocaleHelper;
-import com.fishpott.fishpott5.Models.Notification_Model;
 import com.fishpott.fishpott5.R;
-import com.fishpott.fishpott5.Services.NewsFetcherAndPreparerService;
 import com.fishpott.fishpott5.Util.MyLifecycleHandler;
 import com.fishpott.fishpott5.Views.CircleImageView;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -57,7 +38,7 @@ import java.net.URLEncoder;
  * create an instance of this fragment.
  */
 public class SuggestionFragment extends Fragment implements View.OnClickListener {
-    private ConstraintLayout mDrillSuggestionHolderConstraintLayout;
+    private ConstraintLayout mDrillSuggestionHolderConstraintLayout, mAnswerHolderConstraintLayout;
     private ScrollView mBusinessSuggestionHolderScrollView, mAnswersCountScrollView;
     private TextView mDrillQuestionTextView, mSuggestionLoaderTextTextView, mSuggestionBusinessNameTextView, mSuggestionBusinessCountryTextView, mSuggestionBusinessNetworthTextView,
             mBusinessCountInvestorsTextView, mSuggestionBusinessPitchTextView, mSuggestionBusinessCEOTextView, mSuggestionBusinessCOOTextView, mSuggestionBusinessServicesBioTextView,
@@ -68,7 +49,7 @@ public class SuggestionFragment extends Fragment implements View.OnClickListener
     private WebView mBusinessPitchVideoWebView;
     private Button mAnswer1Button, mAnswer2Button, mAnswer3Button, mAnswer4Button;
     private ImageView mSuggestionLoaderImageView;
-    private Boolean getSuggestionStarted = false;
+    private Boolean networkRequestStarted = false;
     private String drillID = "", businessID = "";
 
     public SuggestionFragment() {
@@ -96,6 +77,7 @@ public class SuggestionFragment extends Fragment implements View.OnClickListener
 
         // DRILL SUGGESTION OBJECTS
         mDrillSuggestionHolderConstraintLayout = view.findViewById(R.id.fragment_suggestion_drill_holder_constraintlayout);
+        mAnswerHolderConstraintLayout = view.findViewById(R.id.fragment_suggestion_allanswers_holder_constraintlayout);
         mDrillQuestionTextView = view.findViewById(R.id.fragment_suggestion_question_textview);
         mAnswer1Button = view.findViewById(R.id.fragment_suggestion_answer1_button);
         mAnswer2Button = view.findViewById(R.id.fragment_suggestion_answer2_button);
@@ -134,16 +116,19 @@ public class SuggestionFragment extends Fragment implements View.OnClickListener
 
         // SETTING CLICK LISTENERS
         mSuggestionLoaderImageView.setOnClickListener(this);
+        mAnswer1Button.setOnClickListener(this);
+        mAnswer2Button.setOnClickListener(this);
+        mAnswer3Button.setOnClickListener(this);
+        mAnswer4Button.setOnClickListener(this);
 
         return view;
     }
 
 
     @Override
-    public void onClick(View v) {
+    public void onClick(final View v) {
         // WHEN THE LOAD SUGGESTION FP LOGO IS CLICKED
-        if(v.getId() == R.id.fragment_suggestion_loader_imageview && !getSuggestionStarted){
-
+        if(v.getId() == mSuggestionLoaderImageView.getId() && !networkRequestStarted){
             mSuggestionLoaderImageView.startAnimation(AnimationUtils.loadAnimation(getActivity(), R.anim.suggestion_loading_anim));
             mSuggestionLoaderTextTextView.setText("Getting your next Pott Suggestion...");
             // DELAYING getLatestSuggestion FOR 5S FOR ANIM TO RUN
@@ -153,12 +138,40 @@ public class SuggestionFragment extends Fragment implements View.OnClickListener
                     getLatestSuggestion(getActivity().getApplicationContext());
                 }
             }, 5000);
+        } else if((v.getId() == mAnswer1Button.getId() || v.getId() == mAnswer2Button.getId() || v.getId() == mAnswer3Button.getId() || v.getId() == mAnswer4Button.getId()) && !networkRequestStarted){
+            if(drillID.equalsIgnoreCase("")){
+                Config.showToastType1(getActivity(), "Drill error. Please restart the app.");
+                return;
+            }
+            mAnswerHolderConstraintLayout.setVisibility(View.INVISIBLE);
+            mAnswersCountScrollView.setVisibility(View.INVISIBLE);
+            mBusinessSuggestionHolderScrollView.setVisibility(View.INVISIBLE);
+            mSuggestionLoaderImageView.setVisibility(View.VISIBLE);
+            mSuggestionLoaderTextTextView.setVisibility(View.VISIBLE);
+            mSuggestionLoaderImageView.startAnimation(AnimationUtils.loadAnimation(getActivity(), R.anim.suggestion_loading_anim));
+            mSuggestionLoaderTextTextView.setText("Saving your drill answer.. Increasing your pott intelligence...");
+
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+
+                    if(v.getId() == mAnswer1Button.getId()){
+                        saveDrillAndGetAnswersCount(getActivity().getApplicationContext(), drillID, "1");
+                    } else if(v.getId() == mAnswer2Button.getId()){
+                        saveDrillAndGetAnswersCount(getActivity().getApplicationContext(), drillID, "2");
+                    } else if(v.getId() == mAnswer3Button.getId()){
+                        saveDrillAndGetAnswersCount(getActivity().getApplicationContext(), drillID, "3");
+                    } else if(v.getId() == mAnswer4Button.getId()){
+                        saveDrillAndGetAnswersCount(getActivity().getApplicationContext(), drillID, "4");
+                    }
+                }
+            }, 2500);
         }
     }
 
 
     private void getLatestSuggestion(Context context){
-        getSuggestionStarted = true;
+        networkRequestStarted = true;
             new Handler(Looper.getMainLooper()).post(new Runnable() {
                 @Override
                 public void run() {
@@ -179,7 +192,7 @@ public class SuggestionFragment extends Fragment implements View.OnClickListener
                     .build().getAsString(new StringRequestListener() {
                 @Override
                 public void onResponse(String response) {
-                    getSuggestionStarted = false;
+                    networkRequestStarted = false;
 
                     try {
                         Log.e("GetSuggestion", response);
@@ -347,7 +360,7 @@ public class SuggestionFragment extends Fragment implements View.OnClickListener
 
                 @Override
                 public void onError(ANError anError) {
-                    getSuggestionStarted = false;
+                    networkRequestStarted = false;
                     if(MyLifecycleHandler.isApplicationInForeground()){
                             /*
                             ADD XML TO FRONT SO USER CAN CLICK TO TRY AGAIN IF IT FAILS
@@ -360,32 +373,40 @@ public class SuggestionFragment extends Fragment implements View.OnClickListener
     }
 
 
-    private void saveDrillAndGetAnswersCount(Context context){
-        getSuggestionStarted = true;
-        new Handler(Looper.getMainLooper()).post(new Runnable() {
-            @Override
-            public void run() {
-                mDrillSuggestionHolderConstraintLayout.setVisibility(View.INVISIBLE);
-                mBusinessSuggestionHolderScrollView.setVisibility(View.INVISIBLE);
-            }
-        });
+    private void saveDrillAndGetAnswersCount(Context context, String theDrillID, String theAnswerNumber){
+        networkRequestStarted = true;
 
-        AndroidNetworking.get(Config.LINK_SAVE_DRILL_AND_GET_ANSWERS_COUNT)
+        AndroidNetworking.post(Config.LINK_SAVE_DRILL_AND_GET_ANSWERS_COUNT)
                 .addHeaders("Accept", "application/json")
                 .addHeaders("Authorization", "Bearer " + Config.getSharedPreferenceString(getActivity().getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_PASSWORD_ACCESS_TOKEN))
-                .setTag("get_suggestion")
+                .addBodyParameter("user_phone_number", Config.getSharedPreferenceString(getActivity().getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_PHONE))
+                .addBodyParameter("user_pottname", Config.getSharedPreferenceString(getActivity().getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_POTT_NAME))
+                .addBodyParameter("investor_id", Config.getSharedPreferenceString(getActivity().getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_ID))
+                .addBodyParameter("app_type", "ANDROID")
+                .addBodyParameter("app_version_code", String.valueOf(Config.getAppVersionCode(getActivity().getApplicationContext())))
+                .addBodyParameter("user_language", LocaleHelper.getLanguage(getActivity()))
+                .addBodyParameter("drill_id", theDrillID)
+                .addBodyParameter("drill_answer", theAnswerNumber)
+                .setTag("save_drill_answer")
                 .setPriority(Priority.HIGH)
                 .build().getAsString(new StringRequestListener() {
             @Override
             public void onResponse(String response) {
-                getSuggestionStarted = false;
+                networkRequestStarted = false;
 
                 try {
-                    Log.e("GetSuggestion", response);
+                    Log.e("save_drill_answer", response);
                     final JSONObject o = new JSONObject(response);
                     int myStatus = o.getInt("status");
                     final String myStatusMessage = o.getString("message");
-                    drillID = o.getJSONObject("data").getString("drill_sys_id");
+                    final String answer1 = o.getJSONObject("data").getString("answer_1");
+                    final String answer2 = o.getJSONObject("data").getString("answer_2");
+                    final String answer3 = o.getJSONObject("data").getString("answer_3");
+                    final String answer4 = o.getJSONObject("data").getString("answer_4");
+                    final String answer1Count = o.getJSONObject("data").getString("answer_1_count");
+                    final String answer2Count = o.getJSONObject("data").getString("answer_2_count");
+                    final String answer3Count = o.getJSONObject("data").getString("answer_3_count");
+                    final String answer4Count = o.getJSONObject("data").getString("answer_4_count");
 
                     //STORING THE USER DATA
                     Config.setSharedPreferenceBoolean(getActivity().getApplicationContext(), Config.SHARED_PREF_KEY_USER_VERIFY_PHONE_NUMBER_IS_ON, o.getBoolean("phone_verification_is_on"));
@@ -399,18 +420,19 @@ public class SuggestionFragment extends Fragment implements View.OnClickListener
                             new Handler(Looper.getMainLooper()).post(new Runnable() {
                                 @Override
                                 public void run() {
-                                    /*
-                                        mSuggestionLoaderImageView.clearAnimation();
-                                        mSuggestionLoaderImageView.setVisibility(View.INVISIBLE);
-                                        mSuggestionLoaderTextTextView.setVisibility(View.INVISIBLE);
-                                        mBusinessSuggestionHolderScrollView.setVisibility(View.INVISIBLE);
-                                        mDrillQuestionTextView.setText(finalDrillQuestion);
-                                        mAnswer1Button.setText(finalDrillAnswer);
-                                        mAnswer2Button.setText(finalDrillAnswer1);
-                                        mAnswer3Button.setText(finalDrillAnswer2);
-                                        mAnswer4Button.setText(finalDrillAnswer3);
-                                        mDrillSuggestionHolderConstraintLayout.setVisibility(View.VISIBLE);
-                                     */
+                                    mSuggestionLoaderImageView.clearAnimation();
+                                    mSuggestionLoaderImageView.setVisibility(View.INVISIBLE);
+                                    mSuggestionLoaderTextTextView.setVisibility(View.INVISIBLE);
+                                    mBusinessSuggestionHolderScrollView.setVisibility(View.INVISIBLE);
+                                    mAnswer1CountTextView.setText(answer1Count);
+                                    mAnswer1TextView.setText(answer1);
+                                    mAnswer2CountTextView.setText(answer2Count);
+                                    mAnswer2TextView.setText(answer2);
+                                    mAnswer3CountTextView.setText(answer3Count);
+                                    mAnswer3TextView.setText(answer3);
+                                    mAnswer4CountTextView.setText(answer4Count);
+                                    mAnswer4TextView.setText(answer4);
+                                    mAnswersCountScrollView.setVisibility(View.VISIBLE);
                                 }
                             });
                         }
@@ -448,7 +470,7 @@ public class SuggestionFragment extends Fragment implements View.OnClickListener
 
             @Override
             public void onError(ANError anError) {
-                getSuggestionStarted = false;
+                networkRequestStarted = false;
                 if(MyLifecycleHandler.isApplicationInForeground()){
                             /*
                             ADD XML TO FRONT SO USER CAN CLICK TO TRY AGAIN IF IT FAILS
