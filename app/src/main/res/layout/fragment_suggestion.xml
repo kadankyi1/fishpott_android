@@ -372,15 +372,35 @@
                         app:layout_constraintTop_toBottomOf="@+id/fragment_suggestion_business_pitchseparator_view"
                         app:layout_constraintVertical_bias="0.0" />
 
-                    <WebView
-                        android:id="@+id/fragment_suggestion_business_pitchvideo_webview"
+                    <android.support.constraint.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="150dp"
+                        android:elevation="30dp"
+                        android:background="@color/colorPrimaryDark"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/fragment_suggestion_business_pitchtext_textview" />
+                        app:layout_constraintTop_toBottomOf="@+id/fragment_suggestion_business_pitchtext_textview">
+                        <VideoView
+                            android:id="@+id/fragment_suggestion_business_pitchvideo_videoview"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/colorPrimaryDark"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
 
+                        <ImageView
+                            android:layout_width="55dp"
+                            android:layout_height="55dp"
+                            android:src="@drawable/play_icon"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            />
+                    </android.support.constraint.ConstraintLayout>
                 </android.support.constraint.ConstraintLayout>
 
             </android.support.constraint.ConstraintLayout>
@@ -753,7 +773,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginBottom="8dp"
         android:src="@drawable/roundlogo"
-        android:visibility="gone"
+        android:visibility="visible"
         app:layout_constraintBottom_toTopOf="@+id/fragment_suggestion_loadertext_textview"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -766,7 +786,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:gravity="center"
-        android:visibility="gone"
+        android:visibility="visible"
         android:textColor="@color/colorPrimaryDark"
         android:text="Click the icon to get your next suggestion"
         android:textAlignment="center"
@@ -784,7 +804,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:visibility="visible">
+        android:visibility="gone">
 
         <android.support.constraint.Guideline
             android:id="@+id/fragment_suggestion_h_guideline_1"
@@ -827,7 +847,7 @@
             android:id="@+id/fragment_suggestion_answersoffriends_holder_scrollview"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:visibility="visible"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -843,6 +863,22 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
+            <TextView
+                android:id="@+id/fragment_suggestion_answersoffriends_notify_textview"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="Your next drill will be in 1hr"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="16sp"
+                android:textStyle="bold|italic"
+                app:layout_constraintBottom_toTopOf="@+id/fragment_suggestion_answersoffriends_answer1_holder_constraintlayou"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
             <android.support.constraint.ConstraintLayout
                 android:id="@+id/fragment_suggestion_answersoffriends_answer1_holder_constraintlayou"
                 android:layout_width="match_parent"
@@ -855,7 +891,7 @@
                 app:layout_constraintBottom_toTopOf="@+id/fragment_suggestion_answersoffriends_answer2_holder_constraintlayou"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintTop_toBottomOf="@+id/fragment_suggestion_answersoffriends_notify_textview">
 
                 <android.support.constraint.ConstraintLayout
                     android:layout_width="match_parent"
@@ -1257,7 +1293,7 @@
             android:id="@+id/fragment_suggestion_allanswers_holder_constraintlayout"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:visibility="gone"
+            android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

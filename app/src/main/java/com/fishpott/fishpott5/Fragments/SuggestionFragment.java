@@ -12,11 +12,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
-import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.VideoView;
 
 import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.common.Priority;
@@ -44,9 +44,9 @@ public class SuggestionFragment extends Fragment implements View.OnClickListener
             mBusinessCountInvestorsTextView, mSuggestionBusinessPitchTextView, mSuggestionBusinessCEOTextView, mSuggestionBusinessCOOTextView, mSuggestionBusinessServicesBioTextView,
             mBusinessWebsiteTextView, mBusinessRevenueLastYrTextView, mBusinessDebtTextView, mBusinessInvestmentsInTextView, mSuggestionBusinessFinanceBioTextView,
             mSuggestionBusinessFinanceFullReportTextView, mAnswer1CountTextView, mAnswer2CountTextView, mAnswer3CountTextView, mAnswer4CountTextView,
-            mAnswer1TextView, mAnswer2TextView, mAnswer3TextView, mAnswer4TextView;
+            mAnswer1TextView, mAnswer2TextView, mAnswer3TextView, mAnswer4TextView, mNextDrillTextView;
     private CircleImageView mBusinessLogoCircleImageView;
-    private WebView mBusinessPitchVideoWebView;
+    private VideoView mBusinessPitchVideoVideoView;
     private Button mAnswer1Button, mAnswer2Button, mAnswer3Button, mAnswer4Button;
     private ImageView mSuggestionLoaderImageView;
     private Boolean networkRequestStarted = false;
@@ -86,6 +86,7 @@ public class SuggestionFragment extends Fragment implements View.OnClickListener
 
         // DRILL ANSWERS COUNT OBJECTS
         mAnswersCountScrollView = view.findViewById(R.id.fragment_suggestion_answersoffriends_holder_scrollview);
+        mNextDrillTextView = view.findViewById(R.id.fragment_suggestion_answersoffriends_notify_textview);
         mAnswer1CountTextView = view.findViewById(R.id.fragment_suggestion_answersoffriends_answer1_answerscount_textview);
         mAnswer2CountTextView = view.findViewById(R.id.fragment_suggestion_answersoffriends_answer2_answerscount_textview);
         mAnswer3CountTextView = view.findViewById(R.id.fragment_suggestion_answersoffriends_answer3_answerscount_textview);
@@ -103,7 +104,7 @@ public class SuggestionFragment extends Fragment implements View.OnClickListener
         mSuggestionBusinessNetworthTextView = view.findViewById(R.id.fragment_suggestion_business_networthvalue_textview);
         mBusinessCountInvestorsTextView = view.findViewById(R.id.fragment_suggestion_business_investorsvalue_textview);
         mSuggestionBusinessPitchTextView = view.findViewById(R.id.fragment_suggestion_business_pitchtext_textview);
-        mBusinessPitchVideoWebView = view.findViewById(R.id.fragment_suggestion_business_pitchvideo_webview);
+        mBusinessPitchVideoVideoView = view.findViewById(R.id.fragment_suggestion_business_pitchvideo_videoview);
         mSuggestionBusinessCEOTextView = view.findViewById(R.id.fragment_suggestion_business_ceotext_textview);
         mSuggestionBusinessCOOTextView = view.findViewById(R.id.fragment_suggestion_business_cootext_textview);
         mSuggestionBusinessServicesBioTextView = view.findViewById(R.id.fragment_suggestion_business_servicetext_textview);
@@ -149,7 +150,7 @@ public class SuggestionFragment extends Fragment implements View.OnClickListener
             mSuggestionLoaderImageView.setVisibility(View.VISIBLE);
             mSuggestionLoaderTextTextView.setVisibility(View.VISIBLE);
             mSuggestionLoaderImageView.startAnimation(AnimationUtils.loadAnimation(getActivity(), R.anim.suggestion_loading_anim));
-            mSuggestionLoaderTextTextView.setText("Saving your drill answer.. Increasing your pott intelligence...");
+            mSuggestionLoaderTextTextView.setText("Saving drill answer. Increasing your pott intelligence...");
 
             new Handler().postDelayed(new Runnable() {
                 @Override
@@ -399,6 +400,7 @@ public class SuggestionFragment extends Fragment implements View.OnClickListener
                     final JSONObject o = new JSONObject(response);
                     int myStatus = o.getInt("status");
                     final String myStatusMessage = o.getString("message");
+                    final String drill_next_one_time = o.getJSONObject("data").getString("drill_next_one_time");
                     final String answer1 = o.getJSONObject("data").getString("answer_1");
                     final String answer2 = o.getJSONObject("data").getString("answer_2");
                     final String answer3 = o.getJSONObject("data").getString("answer_3");
@@ -416,6 +418,8 @@ public class SuggestionFragment extends Fragment implements View.OnClickListener
                     Config.setSharedPreferenceInt(getActivity().getApplicationContext(), Config.SHARED_PREF_KEY_UPDATE_ACTIVITY_UPDATE_VERSION_CODE, o.getInt("user_android_app_max_vc"));
 
                     if(myStatus == 1){
+
+                        Config.showToastType1(getActivity(), myStatusMessage);
                         if(MyLifecycleHandler.isApplicationInForeground()){
                             new Handler(Looper.getMainLooper()).post(new Runnable() {
                                 @Override
@@ -424,6 +428,7 @@ public class SuggestionFragment extends Fragment implements View.OnClickListener
                                     mSuggestionLoaderImageView.setVisibility(View.INVISIBLE);
                                     mSuggestionLoaderTextTextView.setVisibility(View.INVISIBLE);
                                     mBusinessSuggestionHolderScrollView.setVisibility(View.INVISIBLE);
+                                    mNextDrillTextView.setText(drill_next_one_time);
                                     mAnswer1CountTextView.setText(answer1Count);
                                     mAnswer1TextView.setText(answer1);
                                     mAnswer2CountTextView.setText(answer2Count);
