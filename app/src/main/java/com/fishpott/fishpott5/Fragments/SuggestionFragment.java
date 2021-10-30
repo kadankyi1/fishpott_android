@@ -55,7 +55,7 @@ public class SuggestionFragment extends Fragment implements View.OnClickListener
     private Button mAnswer1Button, mAnswer2Button, mAnswer3Button, mAnswer4Button;
     private ImageView mSuggestionLoaderImageView;
     private Boolean networkRequestStarted = false;
-    private String drillID = "", businessID = "", businessWebsite = "";
+    private String drillID = "", businessID = "", businessWebsite = "", businessFullReport = "";
 
     public SuggestionFragment() {
         // Required empty public constructor
@@ -114,9 +114,9 @@ public class SuggestionFragment extends Fragment implements View.OnClickListener
         mSuggestionBusinessCOOTextView = view.findViewById(R.id.fragment_suggestion_business_cootext_textview);
         mSuggestionBusinessServicesBioTextView = view.findViewById(R.id.fragment_suggestion_business_servicetext_textview);
         mBusinessWebsiteTextView = view.findViewById(R.id.fragment_suggestion_business_servicewebsite_textview);
-        mBusinessRevenueLastYrTextView = view.findViewById(R.id.fragment_suggestion_business_lastyearrevenuelabel_textview);
-        mBusinessDebtTextView = view.findViewById(R.id.fragment_suggestion_business_lastyeardebtlabel_textview);
-        mBusinessInvestmentsInTextView = view.findViewById(R.id.fragment_suggestion_business_lastyearinvestslabel_textview);
+        mBusinessRevenueLastYrTextView = view.findViewById(R.id.fragment_suggestion_business_lastyearrevenuetext_textview);
+        mBusinessDebtTextView = view.findViewById(R.id.fragment_suggestion_business_lastyeardebttext_textview);
+        mBusinessInvestmentsInTextView = view.findViewById(R.id.fragment_suggestion_business_lastyearinveststext_textview);
         mSuggestionBusinessFinanceBioTextView = view.findViewById(R.id.fragment_suggestion_business_finance_biotext_textview);
         mSuggestionBusinessFinanceFullReportTextView = view.findViewById(R.id.fragment_suggestion_business_finance_fullreporttext_textview);
 
@@ -127,6 +127,7 @@ public class SuggestionFragment extends Fragment implements View.OnClickListener
         mAnswer3Button.setOnClickListener(this);
         mAnswer4Button.setOnClickListener(this);
         mBusinessWebsiteTextView.setOnClickListener(this);
+        mSuggestionBusinessFinanceFullReportTextView.setOnClickListener(this);
 
         return view;
     }
@@ -175,6 +176,8 @@ public class SuggestionFragment extends Fragment implements View.OnClickListener
                 }
             }, 2500);
         } else if (v.getId() == mBusinessWebsiteTextView.getId() && !businessWebsite.trim().equalsIgnoreCase("")) {
+            Config.openActivity(getActivity(), WebViewActivity.class, 1, 0, 1, Config.WEBVIEW_KEY_URL, businessWebsite);
+        } else if (v.getId() == mSuggestionBusinessFinanceFullReportTextView.getId() && !businessWebsite.trim().equalsIgnoreCase("")) {
             Config.openActivity(getActivity(), WebViewActivity.class, 1, 0, 1, Config.WEBVIEW_KEY_URL, businessWebsite);
         }
     }
