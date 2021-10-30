@@ -22,7 +22,9 @@ import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.common.Priority;
 import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.StringRequestListener;
+import com.fishpott.fishpott5.Activities.StartActivity;
 import com.fishpott.fishpott5.Activities.UpdateActivity;
+import com.fishpott.fishpott5.Activities.WebViewActivity;
 import com.fishpott.fishpott5.Inc.Config;
 import com.fishpott.fishpott5.Miscellaneous.LocaleHelper;
 import com.fishpott.fishpott5.R;
@@ -53,7 +55,7 @@ public class SuggestionFragment extends Fragment implements View.OnClickListener
     private Button mAnswer1Button, mAnswer2Button, mAnswer3Button, mAnswer4Button;
     private ImageView mSuggestionLoaderImageView;
     private Boolean networkRequestStarted = false;
-    private String drillID = "", businessID = "";
+    private String drillID = "", businessID = "", businessWebsite = "";
 
     public SuggestionFragment() {
         // Required empty public constructor
@@ -124,6 +126,7 @@ public class SuggestionFragment extends Fragment implements View.OnClickListener
         mAnswer2Button.setOnClickListener(this);
         mAnswer3Button.setOnClickListener(this);
         mAnswer4Button.setOnClickListener(this);
+        mBusinessWebsiteTextView.setOnClickListener(this);
 
         return view;
     }
@@ -133,7 +136,7 @@ public class SuggestionFragment extends Fragment implements View.OnClickListener
     @Override
     public void onClick(final View v) {
         // WHEN THE LOAD SUGGESTION FP LOGO IS CLICKED
-        if(v.getId() == mSuggestionLoaderImageView.getId() && !networkRequestStarted){
+        if (v.getId() == mSuggestionLoaderImageView.getId() && !networkRequestStarted) {
             mSuggestionLoaderImageView.startAnimation(AnimationUtils.loadAnimation(getActivity(), R.anim.suggestion_loading_anim));
             mSuggestionLoaderTextTextView.setText("Getting your next Pott Suggestion...");
             // DELAYING getLatestSuggestion FOR 5S FOR ANIM TO RUN
@@ -143,8 +146,8 @@ public class SuggestionFragment extends Fragment implements View.OnClickListener
                     getLatestSuggestion(getActivity().getApplicationContext());
                 }
             }, 5000);
-        } else if((v.getId() == mAnswer1Button.getId() || v.getId() == mAnswer2Button.getId() || v.getId() == mAnswer3Button.getId() || v.getId() == mAnswer4Button.getId()) && !networkRequestStarted){
-            if(drillID.equalsIgnoreCase("")){
+        } else if ((v.getId() == mAnswer1Button.getId() || v.getId() == mAnswer2Button.getId() || v.getId() == mAnswer3Button.getId() || v.getId() == mAnswer4Button.getId()) && !networkRequestStarted) {
+            if (drillID.equalsIgnoreCase("")) {
                 Config.showToastType1(getActivity(), "Drill error. Please restart the app.");
                 return;
             }
@@ -160,17 +163,19 @@ public class SuggestionFragment extends Fragment implements View.OnClickListener
                 @Override
                 public void run() {
 
-                    if(v.getId() == mAnswer1Button.getId()){
+                    if (v.getId() == mAnswer1Button.getId()) {
                         saveDrillAndGetAnswersCount(getActivity().getApplicationContext(), drillID, "1");
-                    } else if(v.getId() == mAnswer2Button.getId()){
+                    } else if (v.getId() == mAnswer2Button.getId()) {
                         saveDrillAndGetAnswersCount(getActivity().getApplicationContext(), drillID, "2");
-                    } else if(v.getId() == mAnswer3Button.getId()){
+                    } else if (v.getId() == mAnswer3Button.getId()) {
                         saveDrillAndGetAnswersCount(getActivity().getApplicationContext(), drillID, "3");
-                    } else if(v.getId() == mAnswer4Button.getId()){
+                    } else if (v.getId() == mAnswer4Button.getId()) {
                         saveDrillAndGetAnswersCount(getActivity().getApplicationContext(), drillID, "4");
                     }
                 }
             }, 2500);
+        } else if (v.getId() == mBusinessWebsiteTextView.getId() && !businessWebsite.trim().equalsIgnoreCase("")) {
+            Config.openActivity(getActivity(), WebViewActivity.class, 1, 0, 1, Config.WEBVIEW_KEY_URL, businessWebsite);
         }
     }
 
@@ -248,6 +253,7 @@ public class SuggestionFragment extends Fragment implements View.OnClickListener
                             businessCOO = o.getJSONObject("data").getString("business_executive2_firstname") + " " + o.getJSONObject("data").getString("business_executive2_lastname");
                             businessServicesBio = o.getJSONObject("data").getString("business_descriptive_bio");
                             businessServicesWebsite = o.getJSONObject("data").getString("business_website");
+                            businessWebsite = businessServicesWebsite;
                             businessLastYrRevenue = o.getJSONObject("data").getString("business_lastyr_revenue_usd");
                             businessProfitOrLoss = o.getJSONObject("data").getString("business_lastyr_profit_or_loss_usd");
                             businessInvestments = o.getJSONObject("data").getString("business_investments_amount_needed_usd");
