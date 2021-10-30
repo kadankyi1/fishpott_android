@@ -21,9 +21,11 @@ import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.common.Priority;
 import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.StringRequestListener;
+import com.fishpott.fishpott5.Activities.ProfileOfDifferentPottActivity;
 import com.fishpott.fishpott5.Activities.UpdateActivity;
 import com.fishpott.fishpott5.Activities.WebViewActivity;
 import com.fishpott.fishpott5.Inc.Config;
+import com.fishpott.fishpott5.ListDataGenerators.Notifications_ListDataGenerator;
 import com.fishpott.fishpott5.Miscellaneous.LocaleHelper;
 import com.fishpott.fishpott5.R;
 import com.fishpott.fishpott5.Util.MyLifecycleHandler;
@@ -53,6 +55,7 @@ public class SuggestionFragment extends Fragment implements View.OnClickListener
     private Button mAnswer1Button, mAnswer2Button, mAnswer3Button, mAnswer4Button;
     private ImageView mSuggestionLoaderImageView;
     private Boolean networkRequestStarted = false;
+    private Button mSuggestionBusinessBuySharesButton;
     private String drillID = "", businessID = "", businessWebsiteUrl = "", businessFullReportUrl = "";
 
     public SuggestionFragment() {
@@ -104,6 +107,7 @@ public class SuggestionFragment extends Fragment implements View.OnClickListener
         mSuggestionBusinessNameTextView = view.findViewById(R.id.fragment_suggestion_business_name_textview);
         mBusinessLogoCircleImageView = view.findViewById(R.id.fragment_suggestion_business_logo_textview);
         mSuggestionBusinessCountryTextView = view.findViewById(R.id.fragment_suggestion_business_country_textview);
+        mSuggestionBusinessBuySharesButton = view.findViewById(R.id.buyshares_button_pp_dialog);
         mSuggestionBusinessNetworthTextView = view.findViewById(R.id.fragment_suggestion_business_networthvalue_textview);
         mBusinessCountInvestorsTextView = view.findViewById(R.id.fragment_suggestion_business_investorsvalue_textview);
         mSuggestionBusinessPitchTextView = view.findViewById(R.id.fragment_suggestion_business_pitchtext_textview);
@@ -124,6 +128,7 @@ public class SuggestionFragment extends Fragment implements View.OnClickListener
         mAnswer2Button.setOnClickListener(this);
         mAnswer3Button.setOnClickListener(this);
         mAnswer4Button.setOnClickListener(this);
+        mSuggestionBusinessBuySharesButton.setOnClickListener(this);
         mBusinessWebsiteTextView.setOnClickListener(this);
         mSuggestionBusinessFinanceFullReportTextView.setOnClickListener(this);
 
@@ -177,6 +182,8 @@ public class SuggestionFragment extends Fragment implements View.OnClickListener
             Config.openActivity(getActivity(), WebViewActivity.class, 1, 0, 1, Config.WEBVIEW_KEY_URL, businessWebsiteUrl);
         } else if (v.getId() == mSuggestionBusinessFinanceFullReportTextView.getId() && !businessFullReportUrl.trim().equalsIgnoreCase("")) {
             Config.openActivity(getActivity(), WebViewActivity.class, 1, 0, 1, Config.WEBVIEW_KEY_URL, businessFullReportUrl);
+        } else if (v.getId() == mSuggestionBusinessBuySharesButton.getId()) {
+            Config.openActivity(getActivity(), ProfileOfDifferentPottActivity.class, 0, 0, 1, "pottname", Notifications_ListDataGenerator.getAllData().get(position).getRelevantId_2());
         }
     }
 
@@ -259,8 +266,9 @@ public class SuggestionFragment extends Fragment implements View.OnClickListener
                             businessProfitOrLoss = o.getJSONObject("data").getString("business_lastyr_profit_or_loss_usd");
                             businessInvestments = o.getJSONObject("data").getString("business_investments_amount_needed_usd");
                             businessFinanceBio = o.getJSONObject("data").getString("business_descriptive_financial_bio");
+                            //businessFinanceFullReport = "https://docs.google.com/gview?embedded=true&url=https://github.github.com/training-kit/downloads/github-git-cheat-sheet.pdf"; //o.getJSONObject("data").getString("business_full_financial_report_pdf_url");
                             businessFinanceFullReport = o.getJSONObject("data").getString("business_full_financial_report_pdf_url");
-                            businessFullReportUrl = businessFinanceFullReport;
+                            businessFullReportUrl = "https://docs.google.com/gview?embedded=true&url=" + businessFinanceFullReport;
                         }
 
 

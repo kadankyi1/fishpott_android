@@ -57,6 +57,8 @@ public class WebViewActivity extends AppCompatActivity implements View.OnClickLi
             mHttpsLockImageView.setImageResource(R.drawable.webview_activity_open_lock);
             mHttpsLockImageView.setColorFilter(ContextCompat.getColor(getApplicationContext(), R.color.color_webview_activity_insecure_padlock), android.graphics.PorterDuff.Mode.SRC_IN);
         }
+        mWebView.getSettings().setLoadWithOverviewMode(true);
+        mWebView.getSettings().setJavaScriptEnabled(true);
 
         mWebView.getSettings().setJavaScriptEnabled(true);
         mWebView.setWebViewClient(new MyBrowser());
