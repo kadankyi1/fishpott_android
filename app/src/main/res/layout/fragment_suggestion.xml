@@ -10,7 +10,7 @@
         android:id="@+id/fragment_suggestion_business_holder_constraintlayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="gone"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -292,7 +292,7 @@
             <android.support.constraint.ConstraintLayout
                 android:id="@+id/fragment_suggestion_businessinfo_holder2_textview"
                 android:layout_width="match_parent"
-                android:layout_height="300dp"
+                android:layout_height="365dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="20dp"
@@ -372,35 +372,17 @@
                         app:layout_constraintTop_toBottomOf="@+id/fragment_suggestion_business_pitchseparator_view"
                         app:layout_constraintVertical_bias="0.0" />
 
-                    <android.support.constraint.ConstraintLayout
+                    <hb.xvideoplayer.MxVideoPlayerWidget
+                        android:id="@+id/mpw_video_player"
                         android:layout_width="match_parent"
-                        android:layout_height="150dp"
+                        android:layout_height="wrap_content"
                         android:elevation="30dp"
                         android:background="@color/colorPrimaryDark"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/fragment_suggestion_business_pitchtext_textview">
-                        <VideoView
-                            android:id="@+id/fragment_suggestion_business_pitchvideo_videoview"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:background="@color/colorPrimaryDark"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
+                        app:layout_constraintTop_toBottomOf="@+id/fragment_suggestion_business_pitchtext_textview" />
 
-                        <ImageView
-                            android:layout_width="55dp"
-                            android:layout_height="55dp"
-                            android:src="@drawable/play_icon"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            />
-                    </android.support.constraint.ConstraintLayout>
                 </android.support.constraint.ConstraintLayout>
 
             </android.support.constraint.ConstraintLayout>
@@ -773,7 +755,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginBottom="8dp"
         android:src="@drawable/roundlogo"
-        android:visibility="visible"
+        android:visibility="gone"
         app:layout_constraintBottom_toTopOf="@+id/fragment_suggestion_loadertext_textview"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -786,7 +768,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:gravity="center"
-        android:visibility="visible"
+        android:visibility="gone"
         android:textColor="@color/colorPrimaryDark"
         android:text="Click the icon to get your next suggestion"
         android:textAlignment="center"

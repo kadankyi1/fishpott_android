@@ -32,6 +32,9 @@ import com.fishpott.fishpott5.Views.CircleImageView;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import hb.xvideoplayer.MxVideoPlayer;
+import hb.xvideoplayer.MxVideoPlayerWidget;
+
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link SuggestionFragment#newInstance} factory method to
@@ -46,7 +49,7 @@ public class SuggestionFragment extends Fragment implements View.OnClickListener
             mSuggestionBusinessFinanceFullReportTextView, mAnswer1CountTextView, mAnswer2CountTextView, mAnswer3CountTextView, mAnswer4CountTextView,
             mAnswer1TextView, mAnswer2TextView, mAnswer3TextView, mAnswer4TextView, mNextDrillTextView;
     private CircleImageView mBusinessLogoCircleImageView;
-    private VideoView mBusinessPitchVideoVideoView;
+    private MxVideoPlayerWidget mBusinessPitchVideoMxVideoPlayerWidget;
     private Button mAnswer1Button, mAnswer2Button, mAnswer3Button, mAnswer4Button;
     private ImageView mSuggestionLoaderImageView;
     private Boolean networkRequestStarted = false;
@@ -104,7 +107,7 @@ public class SuggestionFragment extends Fragment implements View.OnClickListener
         mSuggestionBusinessNetworthTextView = view.findViewById(R.id.fragment_suggestion_business_networthvalue_textview);
         mBusinessCountInvestorsTextView = view.findViewById(R.id.fragment_suggestion_business_investorsvalue_textview);
         mSuggestionBusinessPitchTextView = view.findViewById(R.id.fragment_suggestion_business_pitchtext_textview);
-        mBusinessPitchVideoVideoView = view.findViewById(R.id.fragment_suggestion_business_pitchvideo_videoview);
+        mBusinessPitchVideoMxVideoPlayerWidget = view.findViewById(R.id.mpw_video_player);
         mSuggestionBusinessCEOTextView = view.findViewById(R.id.fragment_suggestion_business_ceotext_textview);
         mSuggestionBusinessCOOTextView = view.findViewById(R.id.fragment_suggestion_business_cootext_textview);
         mSuggestionBusinessServicesBioTextView = view.findViewById(R.id.fragment_suggestion_business_servicetext_textview);
@@ -305,7 +308,7 @@ public class SuggestionFragment extends Fragment implements View.OnClickListener
                                             mSuggestionBusinessNetworthTextView.setText(finalBusinessNetworth);
                                             mBusinessCountInvestorsTextView.setText(finalBusinessCountInvestors);
                                             mSuggestionBusinessPitchTextView.setText(finalBusinessPitch);
-                                            //mBusinessPitchVideoWebView.setText(finalBusinessPitchVideo);
+                                            mBusinessPitchVideoMxVideoPlayerWidget.startPlay(finalBusinessPitchVideo, MxVideoPlayer.SCREEN_LAYOUT_NORMAL, "Pitch");
                                             mSuggestionBusinessCEOTextView.setText(finalBusinessCEO);
                                             mSuggestionBusinessCOOTextView.setText(finalBusinessCOO);
                                             mSuggestionBusinessServicesBioTextView.setText(finalBusinessServicesBio);
