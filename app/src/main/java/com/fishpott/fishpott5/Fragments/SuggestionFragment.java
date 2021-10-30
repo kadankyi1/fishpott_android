@@ -129,6 +129,7 @@ public class SuggestionFragment extends Fragment implements View.OnClickListener
     }
 
 
+
     @Override
     public void onClick(final View v) {
         // WHEN THE LOAD SUGGESTION FP LOGO IS CLICKED
@@ -308,7 +309,7 @@ public class SuggestionFragment extends Fragment implements View.OnClickListener
                                             mSuggestionBusinessNetworthTextView.setText(finalBusinessNetworth);
                                             mBusinessCountInvestorsTextView.setText(finalBusinessCountInvestors);
                                             mSuggestionBusinessPitchTextView.setText(finalBusinessPitch);
-                                            mBusinessPitchVideoMxVideoPlayerWidget.startPlay(finalBusinessPitchVideo, MxVideoPlayer.SCREEN_LAYOUT_NORMAL, "Pitch");
+                                            mBusinessPitchVideoMxVideoPlayerWidget.startPlay(finalBusinessPitchVideo, MxVideoPlayer.SCREEN_LAYOUT_NORMAL, "");
                                             mSuggestionBusinessCEOTextView.setText(finalBusinessCEO);
                                             mSuggestionBusinessCOOTextView.setText(finalBusinessCOO);
                                             mSuggestionBusinessServicesBioTextView.setText(finalBusinessServicesBio);
@@ -318,7 +319,6 @@ public class SuggestionFragment extends Fragment implements View.OnClickListener
                                             mBusinessInvestmentsInTextView.setText(finalBusinessInvestments);
                                             mSuggestionBusinessFinanceBioTextView.setText(finalBusinessFinanceBio);
                                             mSuggestionBusinessFinanceFullReportTextView.setText(finalBusinessFinanceFullReport);
-
                                             mSuggestionLoaderImageView.clearAnimation();
                                             mSuggestionLoaderImageView.setVisibility(View.INVISIBLE);
                                             mSuggestionLoaderTextTextView.setVisibility(View.INVISIBLE);
