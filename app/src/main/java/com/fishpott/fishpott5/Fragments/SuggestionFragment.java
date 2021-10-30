@@ -21,10 +21,13 @@ import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.common.Priority;
 import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.StringRequestListener;
+import com.fishpott.fishpott5.Activities.BuyBusinessStockSuggestedActivity;
+import com.fishpott.fishpott5.Activities.BuySharesForSaleActivity;
 import com.fishpott.fishpott5.Activities.ProfileOfDifferentPottActivity;
 import com.fishpott.fishpott5.Activities.UpdateActivity;
 import com.fishpott.fishpott5.Activities.WebViewActivity;
 import com.fishpott.fishpott5.Inc.Config;
+import com.fishpott.fishpott5.ListDataGenerators.NewsType_15_Sharesforsale_horizontal_ListDataGenerator;
 import com.fishpott.fishpott5.ListDataGenerators.Notifications_ListDataGenerator;
 import com.fishpott.fishpott5.Miscellaneous.LocaleHelper;
 import com.fishpott.fishpott5.R;
@@ -56,7 +59,7 @@ public class SuggestionFragment extends Fragment implements View.OnClickListener
     private ImageView mSuggestionLoaderImageView;
     private Boolean networkRequestStarted = false;
     private Button mSuggestionBusinessBuySharesButton;
-    private String drillID = "", businessID = "", businessWebsiteUrl = "", businessFullReportUrl = "";
+    private String drillID = "", businessID = "", businessNameGlobal = "", businessLogoUrl = "", businessWebsiteUrl = "", businessFullReportUrl = "";
 
     public SuggestionFragment() {
         // Required empty public constructor
@@ -182,8 +185,13 @@ public class SuggestionFragment extends Fragment implements View.OnClickListener
             Config.openActivity(getActivity(), WebViewActivity.class, 1, 0, 1, Config.WEBVIEW_KEY_URL, businessWebsiteUrl);
         } else if (v.getId() == mSuggestionBusinessFinanceFullReportTextView.getId() && !businessFullReportUrl.trim().equalsIgnoreCase("")) {
             Config.openActivity(getActivity(), WebViewActivity.class, 1, 0, 1, Config.WEBVIEW_KEY_URL, businessFullReportUrl);
-        } else if (v.getId() == mSuggestionBusinessBuySharesButton.getId()) {
-            Config.openActivity(getActivity(), ProfileOfDifferentPottActivity.class, 0, 0, 1, "pottname", Notifications_ListDataGenerator.getAllData().get(position).getRelevantId_2());
+        } else if (v.getId() == mSuggestionBusinessBuySharesButton.getId() && !businessID.trim().equalsIgnoreCase("")) {
+            String[] buyData = {
+                    businessID,
+                    businessLogoUrl,
+                    businessNameGlobal
+            };
+            Config.openActivity4(getActivity(), BuyBusinessStockSuggestedActivity.class, 0, 0, 1, "BUY_INFO", buyData);
         }
     }
 
@@ -225,7 +233,7 @@ public class SuggestionFragment extends Fragment implements View.OnClickListener
                         String drillAnswer4 = "";
                         // BUSINESS
                         String businessName = "";
-                        String businessLogoUrl = "";
+                        String businessLogo = "";
                         String businessCountry = "";
                         String businessNetworth = "";
                         String businessCountInvestors = "";
@@ -251,7 +259,9 @@ public class SuggestionFragment extends Fragment implements View.OnClickListener
                         } else if(myStatusMessage.equalsIgnoreCase("business")){
                             businessID = o.getJSONObject("data").getString("business_sys_id");
                             businessName = o.getJSONObject("data").getString("business_full_name");
-                            businessLogoUrl = o.getJSONObject("data").getString("business_logo");
+                            businessNameGlobal = businessName;
+                            businessLogo = o.getJSONObject("data").getString("business_logo");
+                            businessLogoUrl = businessLogo;
                             businessCountry = o.getJSONObject("data").getString("business_country");
                             businessNetworth = o.getJSONObject("data").getString("business_net_worth_usd");
                             businessCountInvestors = o.getJSONObject("data").getString("business_current_shareholders");
@@ -289,7 +299,7 @@ public class SuggestionFragment extends Fragment implements View.OnClickListener
                                 final String finalDrillAnswer3 = drillAnswer4;
 
                                 final String finalBusinessName = businessName;
-                                final String finalBusinessLogoUrl = businessLogoUrl;
+                                final String finalBusinessLogoUrl = businessLogo;
                                 final String finalBusinessCountry = businessCountry;
                                 final String finalBusinessNetworth = businessNetworth;
                                 final String finalBusinessCountInvestors = businessCountInvestors;

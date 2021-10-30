@@ -75,6 +75,36 @@
 
     </android.support.constraint.ConstraintLayout>
 
+    <ImageView
+        android:id="@+id/loader_imageview"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="8dp"
+        android:src="@drawable/roundlogo"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title_bar_guideline_h_1"
+        app:layout_constraintVertical_bias="0.35000002" />
+
+    <TextView
+        android:id="@+id/fragment_suggestion_loadertext_textview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:gravity="center"
+        android:visibility="gone"
+        android:textColor="@color/colorPrimaryDark"
+        android:text="Getting final purchase summary"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/loader_imageview"
+        app:layout_constraintVertical_bias="0.0" />
+
     <ProgressBar
         android:id="@+id/loader"
         style="@style/ProgressBarBlack"
@@ -84,12 +114,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title_bar_guideline_h_1"
-        app:layout_constraintVertical_bias="0.35000002" />
+        android:visibility="gone" />
 
     <ScrollView
         android:id="@+id/contents_holder"
@@ -186,8 +211,8 @@
                 android:id="@+id/amount_sent_textinputlayout"
                 android:layout_width="0dp"
                 android:layout_height="55dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginStart="8dp"
+                android:layout_marginEnd="25dp"
+                android:layout_marginStart="25dp"
                 android:layout_marginTop="16dp"
                 android:gravity="center"
                 android:theme="@style/loginActivityHintStyle"
@@ -203,7 +228,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:digits="0123456789"
-                    android:hint="@string/how_many_shares"
+                    android:hint="Investment amount ($)"
                     android:inputType="number"
                     android:labelFor="@id/amount_sent_textinputlayout"
                     android:maxLength="45"
@@ -215,8 +240,8 @@
                 android:id="@+id/password_textinputlayout"
                 android:layout_width="0dp"
                 android:layout_height="55dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginStart="8dp"
+                android:layout_marginEnd="25dp"
+                android:layout_marginStart="25dp"
                 android:layout_marginTop="4dp"
                 android:gravity="center"
                 android:theme="@style/loginActivityHintStyle"
@@ -243,8 +268,8 @@
                 android:id="@+id/risk_input_textview"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginStart="8dp"
+                android:layout_marginEnd="25dp"
+                android:layout_marginStart="25dp"
                 android:layout_marginTop="16dp"
                 android:background="@drawable/fragment_signup_personalstage1_textview_background_with_borders"
                 android:gravity="center"
@@ -263,9 +288,9 @@
                 android:layout_width="0dp"
                 android:layout_height="@dimen/button_height"
                 android:layout_centerHorizontal="true"
-                android:layout_marginEnd="24dp"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginEnd="25dp"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="25dp"
                 android:background="@drawable/start_a_fishpott_acc_button_background"
                 android:fontFamily="sans-serif-condensed"
                 android:gravity="center_vertical|center_horizontal"

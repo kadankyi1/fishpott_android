@@ -22,7 +22,7 @@ import java.util.List;
 
 public class BuyBusinessStockSuggestedActivity extends AppCompatActivity {
 
-    private String suggestionBusinessID = "", shareLogo = "", shareParentID = "", shareName = "",  = "", shareQuantity = "",
+    private String suggestionBusinessID = "", shareLogo = "", shareParentID = "", shareName = "", shareQuantity = "",
             receiverPottName = "", finalRiskType = "", finalQuantity = "", finalPassword = "", networkResponse = "";
     private int shareQuantityInt = 0, selectedRiskIndex = 0, finalPurchaseStatus = 0;
     private ImageView mBackImageView;
@@ -36,7 +36,7 @@ public class BuyBusinessStockSuggestedActivity extends AppCompatActivity {
             mFinalRateTextView, mFinalTotalTextView, mFinalYieldInfoTextView, mRiskTextView, mFinalRiskTextView, mFinalItemNameTextView,
             mTermAndConditionsTextView;
     private List<String> sharesNamesStringArrayList = new ArrayList<>();
-    private EditText mQuantityEditText, mReceiverPottNameEditText, mPasswordEditText;
+    private EditText mHowMuchToInvestEditText, mPasswordEditText;
     private Thread imageLoaderThread = null, networkThread = null;
     private NumberPicker.OnValueChangeListener mSharesSetListener;
     private Dialog.OnCancelListener cancelListenerActive1;
@@ -66,5 +66,30 @@ public class BuyBusinessStockSuggestedActivity extends AppCompatActivity {
             finish();
         }
 
+        sharesNamesStringArrayList.add(getResources().getString(R.string.choose_risk_protection));
+        sharesNamesStringArrayList.add(getString(R.string._100_risk_protection));
+        sharesNamesStringArrayList.add(getString(R.string._50_risk_protection));
+        sharesNamesStringArrayList.add(getString(R.string._no_risk_protection));
+        riskNames = new String[]{
+                getResources().getString(R.string.choose_risk_protection),
+                getResources().getString(R.string._100_risk_protection),
+                getResources().getString(R.string._50_risk_protection),
+                getResources().getString(R.string._no_risk_protection)
+        };
+
+        mBackImageView = findViewById(R.id.title_bar_back_icon_imageview);
+        mSharesLogoCircleImageView = findViewById(R.id.shares_for_sale_logo_circleimageview);
+        mShareNameTextView = findViewById(R.id.share_name_textview);
+
+        mItemHolderScrollView = findViewById(R.id.contents_holder);
+        mHowMuchToInvestEditText = findViewById(R.id.amount_sent_edittext);
+        mPasswordEditText = findViewById(R.id.password_edittext);
+        mRiskTextView = findViewById(R.id.risk_input_textview);
+
+        // LOADING THE LOGO IMAGE
+        Config.loadUrlImage(BuyBusinessStockSuggestedActivity.this, true, shareLogo, mSharesLogoCircleImageView, 0, 60, 60);
+
+        // SETTING THE BUSINESS NAME
+        mShareNameTextView.setText(shareName);
     }
 }
