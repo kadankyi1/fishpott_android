@@ -170,19 +170,20 @@ public class BuyBusinessStockSuggestedActivity extends AppCompatActivity impleme
                     final String answer4Count = o.getJSONObject("data").getString("answer_4_count");
 
                     //STORING THE USER DATA
-                    Config.setSharedPreferenceBoolean(getActivity().getApplicationContext(), Config.SHARED_PREF_KEY_USER_VERIFY_PHONE_NUMBER_IS_ON, o.getBoolean("phone_verification_is_on"));
+                    Config.setSharedPreferenceBoolean(BuyBusinessStockSuggestedActivity.this, Config.SHARED_PREF_KEY_USER_VERIFY_PHONE_NUMBER_IS_ON, o.getBoolean("phone_verification_is_on"));
 
                     // UPDATING THE VERSION CODE AND FORCE STATUS OF THE APP.
-                    Config.setSharedPreferenceBoolean(getActivity().getApplicationContext(), Config.SHARED_PREF_KEY_UPDATE_ACTIVITY_UPDATE_BY_FORCE, o.getBoolean("user_android_app_force_update"));
-                    Config.setSharedPreferenceInt(getActivity().getApplicationContext(), Config.SHARED_PREF_KEY_UPDATE_ACTIVITY_UPDATE_VERSION_CODE, o.getInt("user_android_app_max_vc"));
+                    Config.setSharedPreferenceBoolean(BuyBusinessStockSuggestedActivity.this, Config.SHARED_PREF_KEY_UPDATE_ACTIVITY_UPDATE_BY_FORCE, o.getBoolean("user_android_app_force_update"));
+                    Config.setSharedPreferenceInt(BuyBusinessStockSuggestedActivity.this, Config.SHARED_PREF_KEY_UPDATE_ACTIVITY_UPDATE_VERSION_CODE, o.getInt("user_android_app_max_vc"));
 
                     if(myStatus == 1){
 
-                        Config.showToastType1(getActivity(), myStatusMessage);
+                        Config.showToastType1(BuyBusinessStockSuggestedActivity.this, myStatusMessage);
                         if(MyLifecycleHandler.isApplicationInForeground()){
                             new Handler(Looper.getMainLooper()).post(new Runnable() {
                                 @Override
                                 public void run() {
+                                    /*
                                     mSuggestionLoaderImageView.clearAnimation();
                                     mSuggestionLoaderImageView.setVisibility(View.INVISIBLE);
                                     mSuggestionLoaderTextTextView.setVisibility(View.INVISIBLE);
@@ -197,27 +198,28 @@ public class BuyBusinessStockSuggestedActivity extends AppCompatActivity impleme
                                     mAnswer4CountTextView.setText(answer4Count);
                                     mAnswer4TextView.setText(answer4);
                                     mAnswersCountScrollView.setVisibility(View.VISIBLE);
+                                     */
                                 }
                             });
                         }
                     } else if(myStatus == 2){
                         // IF USER'S APP IS OUTDATED AND NOT ALLOWED TO BE USED
-                        Config.setSharedPreferenceBoolean(getActivity().getApplicationContext(), Config.SHARED_PREF_KEY_UPDATE_ACTIVITY_UPDATE_BY_FORCE, true);
-                        Config.openActivity3(getActivity().getApplicationContext(), UpdateActivity.class, 1, Config.KEY_ACTIVITY_FINISHED, "1");
+                        Config.setSharedPreferenceBoolean(BuyBusinessStockSuggestedActivity.this, Config.SHARED_PREF_KEY_UPDATE_ACTIVITY_UPDATE_BY_FORCE, true);
+                        Config.openActivity3(BuyBusinessStockSuggestedActivity.this, UpdateActivity.class, 1, Config.KEY_ACTIVITY_FINISHED, "1");
                         return;
                     } else if(myStatus == 3){
                         // GENERAL ERROR
-                        mSuggestionLoaderImageView.clearAnimation();
-                        mSuggestionLoaderTextTextView.setText("Click the icon to get your next suggestion");
-                        Config.showToastType1(getActivity(), myStatusMessage);
+                        //mSuggestionLoaderImageView.clearAnimation();
+                        //mSuggestionLoaderTextTextView.setText("Click the icon to get your next suggestion");
+                        //Config.showToastType1(getActivity(), myStatusMessage);
                         return;
                     } else if(myStatus == 4){
                         // IF USER'S ACCOUNT HAS BEEN SUSPENDED, WE SIGN USER OUT
-                        Config.showToastType1(getActivity(), myStatusMessage);
-                        Config.signOutUser(getActivity().getApplicationContext(), false, null, null, 0, 2);
+                        //Config.showToastType1(getActivity(), myStatusMessage);
+                        //Config.signOutUser(getActivity().getApplicationContext(), false, null, null, 0, 2);
                     } else if(myStatus == 5){
-                        Config.setSharedPreferenceBoolean(getActivity().getApplicationContext(), Config.SHARED_PREF_KEY_UPDATE_ACTIVITY_UPDATE_BY_FORCE, true);
-                        Config.openActivity3(getActivity().getApplicationContext(), UpdateActivity.class, 1, Config.KEY_ACTIVITY_FINISHED, "1");
+                        //Config.setSharedPreferenceBoolean(getActivity().getApplicationContext(), Config.SHARED_PREF_KEY_UPDATE_ACTIVITY_UPDATE_BY_FORCE, true);
+                        //Config.openActivity3(getActivity().getApplicationContext(), UpdateActivity.class, 1, Config.KEY_ACTIVITY_FINISHED, "1");
                         return;
                     }
                 } catch (JSONException e) {
