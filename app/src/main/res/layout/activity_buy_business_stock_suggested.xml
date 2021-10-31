@@ -90,7 +90,7 @@
         app:layout_constraintVertical_bias="0.35000002" />
 
     <TextView
-        android:id="@+id/fragment_suggestion_loadertext_textview"
+        android:id="@+id/loadertext_textview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
@@ -110,7 +110,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:paddingTop="25dp"
-        android:visibility="gone"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -127,7 +127,7 @@
                 android:layout_height="80dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="25dp"
                 android:background="@drawable/main_activity_info_fragment_icon_imageview_circle_white_background"
                 android:elevation="3dp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -207,7 +207,7 @@
                 android:layout_marginTop="16dp"
                 android:gravity="center"
                 android:theme="@style/loginActivityHintStyle"
-                app:layout_constraintBottom_toTopOf="@+id/password_textinputlayout"
+                app:layout_constraintBottom_toTopOf="@+id/risk_input_textview"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/share_name_textview"
@@ -221,57 +221,29 @@
                     android:digits="0123456789"
                     android:hint="Investment amount ($)"
                     android:inputType="number"
+                    android:textSize="17sp"
                     android:labelFor="@id/amount_sent_textinputlayout"
                     android:maxLength="45"
                     android:textColor="@drawable/login_activity_input_text_color" />
 
             </android.support.design.widget.TextInputLayout>
 
-            <android.support.design.widget.TextInputLayout
-                android:id="@+id/password_textinputlayout"
-                android:layout_width="0dp"
-                android:layout_height="55dp"
-                android:layout_marginEnd="25dp"
-                android:layout_marginStart="25dp"
-                android:layout_marginTop="4dp"
-                android:gravity="center"
-                android:theme="@style/loginActivityHintStyle"
-                app:layout_constraintBottom_toTopOf="@+id/risk_input_textview"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/amount_sent_textinputlayout"
-                app:layout_constraintVertical_bias="0.35000002"
-                app:layout_constraintVertical_chainStyle="packed">
-
-                <EditText
-                    android:id="@+id/password_edittext"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:hint="@string/password"
-                    android:inputType="textPassword"
-                    android:labelFor="@id/password_textinputlayout"
-                    android:maxLength="20"
-                    android:textColor="@drawable/login_activity_input_text_color" />
-
-            </android.support.design.widget.TextInputLayout>
 
             <TextView
                 android:id="@+id/risk_input_textview"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="40dp"
                 android:layout_marginEnd="25dp"
                 android:layout_marginStart="25dp"
                 android:layout_marginTop="16dp"
+                android:gravity="start|bottom"
                 android:background="@drawable/risk_protection_text_border"
-                android:gravity="center"
                 android:text="@string/choose_risk_protection"
-                android:textAlignment="center"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toTopOf="@+id/amount_sent_textinputlayout"
+                android:textSize="17sp"
+                app:layout_constraintBottom_toTopOf="@+id/price_button"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/password_textinputlayout" />
+                app:layout_constraintTop_toBottomOf="@+id/amount_sent_textinputlayout" />
 
 
             <Button

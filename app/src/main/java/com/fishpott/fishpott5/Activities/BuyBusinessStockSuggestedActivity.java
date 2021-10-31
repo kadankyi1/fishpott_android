@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -39,18 +40,18 @@ public class BuyBusinessStockSuggestedActivity extends AppCompatActivity impleme
     private String suggestionBusinessID = "", shareLogo = "", shareParentID = "", shareName = "", shareQuantity = "",
             receiverPottName = "", finalRiskType = "", finalQuantity = "", finalPassword = "", networkResponse = "";
     private int shareQuantityInt = 0, selectedRiskIndex = 0, finalPurchaseStatus = 0;
-    private ImageView mBackImageView;
+    private ImageView mBackImageView, mLoaderImageView;
     private ScrollView mItemHolderScrollView, mFinalHolderScrollView;
     private Button mBuyButton, mGetPriceButton, mResetButton;
     private TextInputLayout mQuantityTextInputLayout;
     private CircleImageView mSharesLogoCircleImageView;
     private ProgressBar mLoadingProgressBar;
     private String[] riskNames;
-    private TextView mShareNameTextView, mFinalPricePerShareTextView, mFinalQuantityTextView, mInsuranceFeeTextView, mProcessingFeeTextView,
+    private TextView mLoaderTextView, mShareNameTextView, mFinalPricePerShareTextView, mFinalQuantityTextView, mInsuranceFeeTextView, mProcessingFeeTextView,
             mFinalRateTextView, mFinalTotalTextView, mFinalYieldInfoTextView, mRiskTextView, mFinalRiskTextView, mFinalItemNameTextView,
             mTermAndConditionsTextView;
     private List<String> sharesNamesStringArrayList = new ArrayList<>();
-    private EditText mHowMuchToInvestEditText, mPasswordEditText;
+    private EditText mHowMuchToInvestEditText;
     private Thread imageLoaderThread = null, networkThread = null;
     private NumberPicker.OnValueChangeListener mSharesSetListener;
     private Dialog.OnCancelListener cancelListenerActive1;
@@ -91,14 +92,33 @@ public class BuyBusinessStockSuggestedActivity extends AppCompatActivity impleme
                 getResources().getString(R.string._no_risk_protection)
         };
 
+        // NAVIGATION BAR
         mBackImageView = findViewById(R.id.title_bar_back_icon_imageview);
         mSharesLogoCircleImageView = findViewById(R.id.shares_for_sale_logo_circleimageview);
         mShareNameTextView = findViewById(R.id.share_name_textview);
 
+        // LOADER
+        mLoaderImageView = findViewById(R.id.loader_imageview);
+        mLoaderTextView = findViewById(R.id.loadertext_textview);
+
+        // GET PRICE VIEW
         mItemHolderScrollView = findViewById(R.id.contents_holder);
         mHowMuchToInvestEditText = findViewById(R.id.amount_sent_edittext);
-        mPasswordEditText = findViewById(R.id.password_edittext);
         mRiskTextView = findViewById(R.id.risk_input_textview);
+        mGetPriceButton = findViewById(R.id.price_button);
+
+        // FINAL PRICE BUY VIEW
+        mFinalHolderScrollView = findViewById(R.id.contents_holder2);
+        mFinalItemNameTextView = findViewById(R.id.share_name_textview2);
+        mFinalPricePerShareTextView = findViewById(R.id.price_per_share_textview);
+        mFinalQuantityTextView = findViewById(R.id.quantity_textview);
+        mFinalRateTextView = findViewById(R.id.rate_textview);
+        mFinalRiskTextView = findViewById(R.id.risk_textview);
+        mInsuranceFeeTextView = findViewById(R.id.risk_fee_textview);
+        mProcessingFeeTextView = findViewById(R.id.processing_fee_textview);
+        mFinalTotalTextView = findViewById(R.id.total_textview);
+        mFinalYieldInfoTextView = findViewById(R.id.agree_checkbox);
+        mTermAndConditionsTextView = findViewById(R.id.t_and_c_textview);
 
         // LOADING THE LOGO IMAGE
         Config.loadUrlImage(BuyBusinessStockSuggestedActivity.this, true, shareLogo, mSharesLogoCircleImageView, 0, 60, 60);
@@ -108,6 +128,8 @@ public class BuyBusinessStockSuggestedActivity extends AppCompatActivity impleme
 
         // SETTING ONCLICK LISTENERS
         mRiskTextView.setOnClickListener(this);
+        mGetPriceButton.setOnClickListener(this);
+        mTermAndConditionsTextView.setOnClickListener(this);
 
         // SETTING RISK LISTENER DATA
         mSharesSetListener = new NumberPicker.OnValueChangeListener() {
@@ -128,26 +150,46 @@ public class BuyBusinessStockSuggestedActivity extends AppCompatActivity impleme
     public void onClick(View view) {
         if (view.getId() == mRiskTextView.getId()) {
             mSharesSetListener = Config.openNumberPickerForCountries(BuyBusinessStockSuggestedActivity.this, mSharesSetListener, 0, sharesNamesStringArrayList.size() - 1, true, riskNames, selectedRiskIndex);
+        } else if(view.getId() ==  mGetPriceButton.getId() && !mHowMuchToInvestEditText.getText().toString().equalsIgnoreCase("") && !finalRiskType.equalsIgnoreCase("")){
+            mItemHolderScrollView.setVisibility(View.INVISIBLE);
+            mFinalHolderScrollView.setVisibility(View.INVISIBLE);
+            mLoaderImageView.setVisibility(View.VISIBLE);
+            mLoaderTextView.setVisibility(View.VISIBLE);
+            mLoaderImageView.startAnimation(AnimationUtils.loadAnimation(BuyBusinessStockSuggestedActivity.this, R.anim.suggestion_loading_anim));
+            mLoaderTextView.setText("Getting final price summary...");
+            // DELAYING getLatestSuggestion FOR 5S FOR ANIM TO RUN
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    getFinalInvestmentPriceSummary(suggestionBusinessID, mHowMuchToInvestEditText.getText().toString(), finalRiskType);
+                }
+            }, 5000);
+        } else if (view.getId() == mTermAndConditionsTextView.getId()) {
+            Config.openActivity(BuyBusinessStockSuggestedActivity.this, WebViewActivity.class, 0, 0, 1, Config.WEBVIEW_KEY_URL, Config.FISHPOTT_TERMS_OF_SERVICE);
         }
     }
 
 
 
-    private void getFinalInvestmentPriceSummary(Context context, String theDrillID, String theAnswerNumber){
+    private void getFinalInvestmentPriceSummary(String theBusinessID, String theBuyAmt, String theRiskInsurance){
         networkRequestStarted = true;
+        Log.e("getFinalPriceSummary", "suggestionBusinessID: " + suggestionBusinessID);
+        Log.e("getFinalPriceSummary", "theBuyAmt: " + theBuyAmt);
+        Log.e("getFinalPriceSummary", "theRiskInsurance: " + theRiskInsurance);
 
-        AndroidNetworking.post(Config.LINK_SAVE_DRILL_AND_GET_ANSWERS_COUNT)
+        AndroidNetworking.post(Config.LINK_GET_FINAL_PRICE_SUMMARY)
                 .addHeaders("Accept", "application/json")
                 .addHeaders("Authorization", "Bearer " + Config.getSharedPreferenceString(BuyBusinessStockSuggestedActivity.this, Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_PASSWORD_ACCESS_TOKEN))
                 .addBodyParameter("user_phone_number", Config.getSharedPreferenceString(BuyBusinessStockSuggestedActivity.this, Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_PHONE))
                 .addBodyParameter("user_pottname", Config.getSharedPreferenceString(BuyBusinessStockSuggestedActivity.this, Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_POTT_NAME))
                 .addBodyParameter("investor_id", Config.getSharedPreferenceString(BuyBusinessStockSuggestedActivity.this, Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_ID))
+                .addBodyParameter("user_language", LocaleHelper.getLanguage(BuyBusinessStockSuggestedActivity.this))
                 .addBodyParameter("app_type", "ANDROID")
                 .addBodyParameter("app_version_code", String.valueOf(Config.getAppVersionCode(BuyBusinessStockSuggestedActivity.this.getApplicationContext())))
-                .addBodyParameter("user_language", LocaleHelper.getLanguage(BuyBusinessStockSuggestedActivity.this))
-                .addBodyParameter("drill_id", theDrillID)
-                .addBodyParameter("drill_answer", theAnswerNumber)
-                .setTag("save_drill_answer")
+                .addBodyParameter("business_id", theBusinessID)
+                .addBodyParameter("investment_amt_in_dollars", theBuyAmt)
+                .addBodyParameter("investment_risk_protection", theRiskInsurance)
+                .setTag("get_final_price")
                 .setPriority(Priority.HIGH)
                 .build().getAsString(new StringRequestListener() {
             @Override
@@ -159,15 +201,17 @@ public class BuyBusinessStockSuggestedActivity extends AppCompatActivity impleme
                     final JSONObject o = new JSONObject(response);
                     int myStatus = o.getInt("status");
                     final String myStatusMessage = o.getString("message");
-                    final String drill_next_one_time = o.getJSONObject("data").getString("drill_next_one_time");
-                    final String answer1 = o.getJSONObject("data").getString("answer_1");
-                    final String answer2 = o.getJSONObject("data").getString("answer_2");
-                    final String answer3 = o.getJSONObject("data").getString("answer_3");
-                    final String answer4 = o.getJSONObject("data").getString("answer_4");
-                    final String answer1Count = o.getJSONObject("data").getString("answer_1_count");
-                    final String answer2Count = o.getJSONObject("data").getString("answer_2_count");
-                    final String answer3Count = o.getJSONObject("data").getString("answer_3_count");
-                    final String answer4Count = o.getJSONObject("data").getString("answer_4_count");
+                    final String itemName = o.getJSONObject("data").getString("item");
+                    final String pricePerItem = o.getJSONObject("data").getString("price_per_item");
+                    final String quantity = o.getJSONObject("data").getString("quantity");
+                    final String rate = o.getJSONObject("data").getString("rate");
+                    final String risk = o.getJSONObject("data").getString("risk");
+                    final String riskStatement = o.getJSONObject("data").getString("risk_statement");
+                    final String riskInsuranceFee = o.getJSONObject("data").getString("risk_insurance_fee");
+                    final String processingFee = o.getJSONObject("data").getString("processing_fee");
+                    final String overallTotalUsd = o.getJSONObject("data").getString("overall_total_usd");
+                    final String overallTotalLocalCurrency = o.getJSONObject("data").getString("overall_total_local_currency");
+                    final String financialYieldInfo = o.getJSONObject("data").getString("financial_yield_info");
 
                     //STORING THE USER DATA
                     Config.setSharedPreferenceBoolean(BuyBusinessStockSuggestedActivity.this, Config.SHARED_PREF_KEY_USER_VERIFY_PHONE_NUMBER_IS_ON, o.getBoolean("phone_verification_is_on"));
@@ -177,28 +221,27 @@ public class BuyBusinessStockSuggestedActivity extends AppCompatActivity impleme
                     Config.setSharedPreferenceInt(BuyBusinessStockSuggestedActivity.this, Config.SHARED_PREF_KEY_UPDATE_ACTIVITY_UPDATE_VERSION_CODE, o.getInt("user_android_app_max_vc"));
 
                     if(myStatus == 1){
-
                         Config.showToastType1(BuyBusinessStockSuggestedActivity.this, myStatusMessage);
                         if(MyLifecycleHandler.isApplicationInForeground()){
                             new Handler(Looper.getMainLooper()).post(new Runnable() {
                                 @Override
                                 public void run() {
-                                    /*
-                                    mSuggestionLoaderImageView.clearAnimation();
-                                    mSuggestionLoaderImageView.setVisibility(View.INVISIBLE);
-                                    mSuggestionLoaderTextTextView.setVisibility(View.INVISIBLE);
-                                    mBusinessSuggestionHolderScrollView.setVisibility(View.INVISIBLE);
-                                    mNextDrillTextView.setText(drill_next_one_time);
-                                    mAnswer1CountTextView.setText(answer1Count);
-                                    mAnswer1TextView.setText(answer1);
-                                    mAnswer2CountTextView.setText(answer2Count);
-                                    mAnswer2TextView.setText(answer2);
-                                    mAnswer3CountTextView.setText(answer3Count);
-                                    mAnswer3TextView.setText(answer3);
-                                    mAnswer4CountTextView.setText(answer4Count);
-                                    mAnswer4TextView.setText(answer4);
-                                    mAnswersCountScrollView.setVisibility(View.VISIBLE);
-                                     */
+                                    mLoaderImageView.clearAnimation();
+                                    mLoaderImageView.setVisibility(View.INVISIBLE);
+                                    mLoaderTextView.setVisibility(View.INVISIBLE);
+                                    mItemHolderScrollView.setVisibility(View.INVISIBLE);
+
+                                    mFinalItemNameTextView.setText("Item: " + itemName);
+                                    mFinalPricePerShareTextView.setText("Price Per Item: " + pricePerItem);
+                                    mFinalQuantityTextView.setText("Stocks Quantity: " + quantity);
+                                    mFinalRateTextView.setText("Exchange Rate: " + rate);
+                                    mFinalRiskTextView.setText("Risk Statement: " + riskStatement);
+                                    mInsuranceFeeTextView.setText("Risk Insurance Fee: " + riskInsuranceFee);
+                                    mProcessingFeeTextView.setText("Processing Fee: " + processingFee);
+                                    mFinalTotalTextView.setText("Final Charge: " + overallTotalUsd + " | " + overallTotalLocalCurrency);
+                                    mFinalYieldInfoTextView.setText(financialYieldInfo);
+                                    mFinalHolderScrollView.setVisibility(View.VISIBLE);
+
                                 }
                             });
                         }

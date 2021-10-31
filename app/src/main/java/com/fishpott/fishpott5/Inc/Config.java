@@ -292,6 +292,9 @@ public class Config {
 	// GET MY SUGGESTION
 	public static final String LINK_SAVE_DRILL_AND_GET_ANSWERS_COUNT = CURRENT_HTTP_IN_USE + "144.202.111.61/api/v1/user/save-drill-answer";
 
+	// GET FINAL PRICE SUMMARY
+	public static final String LINK_GET_FINAL_PRICE_SUMMARY = CURRENT_HTTP_IN_USE + "144.202.111.61/api/v1/user/get-final-price";
+
 	/********************************************************************************************************************************************
 
 	 OLD LINKS OLD LINKS OLD LINKS OLD LINKS OLD LINKS OLD LINKS OLD LINKS OLD LINKS OLD LINKS OLD LINKS OLD LINKS OLD LINKS OLD LINKS OLD LINKS
