@@ -1,5 +1,7 @@
 package com.fishpott.fishpott5.Fragments;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.constraint.ConstraintLayout;
 import android.support.v4.app.Fragment;
@@ -140,12 +142,27 @@ public class SettingsFragment extends Fragment implements View.OnClickListener {
         }  else if(view.getId() == R.id.change_password_holder_contrainlayout){
             Config.openActivity(getActivity(), ChangePasswordActivity.class, 1, 0, 0, "", "");
         } else if(view.getId() == R.id.contact_fishpott_holder_contrainlayout){
+            /*
             String[] chatData = {
                     "s_" + Config.getSharedPreferenceString(getActivity().getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_ID) + Config.FP_ID,
                     "fishpot_inc",
                     "fp"
             };
             Config.openActivity4(getActivity(), MessengerActivity.class, 1, 0, 1, "CHAT_INFO", chatData);
+             */
+            String fishpottEmail = "info@fishpott.com";
+            if(!Config.getSharedPreferenceString(getActivity().getApplicationContext(), Config.SHARED_PREF_KEY_USER_FISHPOTT_EMAIL).trim().equalsIgnoreCase("")){
+                fishpottEmail = Config.getSharedPreferenceString(getActivity().getApplicationContext(), Config.SHARED_PREF_KEY_USER_FISHPOTT_EMAIL);
+            }
+            try {
+                Intent intent = new Intent(Intent.ACTION_SENDTO);
+                intent.setData(Uri.parse("mailto:")); // only email apps should handle this
+                intent.putExtra(Intent.EXTRA_EMAIL, new String[]{fishpottEmail});
+                intent.putExtra(Intent.EXTRA_SUBJECT, "PLEASE TYPE SUBJECT");
+                startActivity(intent);
+            } catch (android.content.ActivityNotFoundException ex) {
+                Config.showToastType1(getActivity(), "No email client installed on your device.");
+            }
         }  else if(view.getId() == R.id.privacy_policy_holder_contrainlayout){
             Config.openActivity(getActivity(), WebViewActivity.class, 1, 0, 1, Config.WEBVIEW_KEY_URL, Config.FISHPOTT_PRIVACY_POLICY);
         }  else if(view.getId() == R.id.tos_holder_contrainlayout){

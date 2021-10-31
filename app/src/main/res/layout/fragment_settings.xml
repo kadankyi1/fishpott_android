@@ -1,4 +1,4 @@
-<ScrollView
+<android.support.constraint.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -9,9 +9,36 @@
     android:clickable="true"
     tools:context="com.fishpott.fishpott5.Fragments.SettingsFragment">
 
+    <TextView
+        android:id="@+id/vimtext_info_textview"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:textAlignment="center"
+        android:text="Give It A chance"
+        android:textColor="@color/colorSignupFragmentIntroText"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+
+    <ScrollView
+        android:id="@+id/scrollview_settings_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/vimtext_info_textview"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent">
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
         <TextView
             android:id="@+id/withdrawal_wallet_textview"
@@ -929,7 +956,7 @@
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="9dp"
-                android:text="Contact FishPott"
+                android:text="@string/contact_fishpott"
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="17sp"
                 android:textStyle="bold"
@@ -945,7 +972,7 @@
                 android:layout_marginBottom="9dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="24dp"
-                android:text="info@fishpott.com"
+                android:text="If you need to reach us, please click here"
                 android:textColor="@color/colorSignupFragmentIntroText"
                 android:textSize="13sp"
                 android:textStyle="bold"
@@ -1086,5 +1113,6 @@
         </android.support.constraint.ConstraintLayout>
 
     </android.support.constraint.ConstraintLayout>
+    </ScrollView>
 
-</ScrollView>
+</android.support.constraint.ConstraintLayout>
