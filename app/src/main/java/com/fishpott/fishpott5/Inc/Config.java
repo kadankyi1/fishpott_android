@@ -295,6 +295,9 @@ public class Config {
 	// GET FINAL PRICE SUMMARY
 	public static final String LINK_GET_FINAL_PRICE_SUMMARY = CURRENT_HTTP_IN_USE + "144.202.111.61/api/v1/user/get-final-price";
 
+	// SEND WITHDRAWAL REQUEST
+	public static final String LINK_WITHDRAW_FUNDS = CURRENT_HTTP_IN_USE + "144.202.111.61/api/v1/user/send-withdrawal-request";
+
 	/********************************************************************************************************************************************
 
 	 OLD LINKS OLD LINKS OLD LINKS OLD LINKS OLD LINKS OLD LINKS OLD LINKS OLD LINKS OLD LINKS OLD LINKS OLD LINKS OLD LINKS OLD LINKS OLD LINKS
@@ -354,8 +357,6 @@ public class Config {
 	// SERVER-SIDE API FOR REDEEMING WALLET CREDIT CODE
 	public static final String LINK_REDEEM_WALLET_CREDIT_CODE = CURRENT_HTTP_IN_USE + "www.fishpott.com/inc/android/redeem_wallet_credit_code.php";
 
-	// SERVER-SIDE API FOR REDEEMING WALLET CREDIT CODE
-	public static final String LINK_WITHDRAW_FUNDS = CURRENT_HTTP_IN_USE + "www.fishpott.com/inc/android/withdraw_funds.php";
 
 	// SERVER-SIDE API FOR MOBILE MONEY DEPOSIT
 	public static final String LINK_MOBILE_MONEY_CREDIT = CURRENT_HTTP_IN_USE + "www.fishpott.com/inc/android/mobile_money_credit_request.php";
@@ -444,6 +445,7 @@ public class Config {
 	public static final String SHARED_PREF_KEY_USER_CREDENTIALS_USER_CURRENCY = "USER_CURRENCY";
 	public static final String SHARED_PREF_KEY_USER_VERIFY_PHONE_NUMBER_IS_ON = "VERIFY_PHONE_NUMBER_IS_ON";
 	public static final String SHARED_PREF_KEY_USER_CONTACTS_ACTIVITY_DIALOG_SHOWN = "CONTACTS_ACTIVITY_DIALOG_SHOWN";
+	public static final String SHARED_PREF_KEY_USER_CREDENTIALS_USER_WALLET = "USER_WALLET";
 	public static final String SHARED_PREF_KEY_USER_CREDENTIALS_USER_WITHDRAWAL_WALLET = "USER_WITHDRAWAL_WALLET";
 	public static final String SHARED_PREF_KEY_USER_CREDENTIALS_USER_DEBIT_WALLET = "USER_DEBIT_WALLET";
 	public static final String SHARED_PREF_KEY_USER_CREDENTIALS_USER_POTT_PEARLS = "USER_POTT_PEARLS";

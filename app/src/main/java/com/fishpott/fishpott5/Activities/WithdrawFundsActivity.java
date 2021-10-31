@@ -5,6 +5,7 @@ import android.os.Looper;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -34,7 +35,7 @@ import java.util.List;
 public class WithdrawFundsActivity extends AppCompatActivity  implements View.OnClickListener {
 
     private ImageView mBackImageView;
-    private TextView mCountryTextView, mCountryTextViewLabel, mBankInfoTextView;
+    private TextView  mBankInfoTextView, mCountryTextView, mCountryTextViewLabel;
     private EditText mAmountEditText, mBankMomoNetworkNameEditText, mAccNameEditText,
             mAccNumberEditText, mRoutingNumberEditText, mPasswordEditText;
     private TextInputLayout mAmountEditTextEditTextInputLayout, mBankMomoNetworkNameEditTextInputLayout,
@@ -78,28 +79,27 @@ public class WithdrawFundsActivity extends AppCompatActivity  implements View.On
 
         mAmountEditTextEditTextInputLayout.setHint(getResources().getString(R.string.amount) + "(" + Config.getSharedPreferenceString(getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_CURRENCY) + Config.getSharedPreferenceString(getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_WITHDRAWAL_WALLET)  + " " + getResources().getString(R.string.available) + ")");
 
-
         mCountryTextView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mNumberSetListener = Config.openNumberPickerForCountries(WithdrawFundsActivity.this, mNumberSetListener, 0, countriesStringArraySet.length-1, true, getResources().getStringArray(R.array.countries_array_starting_with_choose_country), defaultCountry);
-            }
-        });
+        @Override
+        public void onClick(View v) {
+            mNumberSetListener = Config.openNumberPickerForCountries(WithdrawFundsActivity.this, mNumberSetListener, 0, countriesStringArraySet.length-1, true, getResources().getStringArray(R.array.countries_array_starting_with_choose_country), defaultCountry);
+        }
+    });
 
-        mNumberSetListener = new NumberPicker.OnValueChangeListener() {
-            @Override
-            public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
-                defaultCountry = newVal;
-                mCountryTextView.setText(countriesStringArrayList.get(newVal));
-                selectedCountry = countriesStringArrayList.get(newVal);
-            }
-        };
+    mNumberSetListener = new NumberPicker.OnValueChangeListener() {
+        @Override
+        public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
+            defaultCountry = newVal;
+            // mCountryTextView.setText(countriesStringArrayList.get(newVal));
+            selectedCountry = countriesStringArrayList.get(newVal);
+        }
+    };
 
 
         mBackImageView.setOnClickListener(this);
         mRedeemButton.setOnClickListener(this);
 
-    }
+}
 
     @Override
     public void onClick(View view) {
@@ -107,42 +107,42 @@ public class WithdrawFundsActivity extends AppCompatActivity  implements View.On
             onBackPressed();
         } else if(view.getId() == R.id.request_button){
 
-                    if(Connectivity.isConnected(getApplicationContext())) {
-                        if(     !selectedCountry.trim().equalsIgnoreCase("")
-                                && !selectedCountry.trim().equalsIgnoreCase(getString(R.string.choose_country))
-                                && mAmountEditText.getText().toString().trim().length() > 1
+            if(Connectivity.isConnected(getApplicationContext())) {
+                if(     //!selectedCountry.trim().equalsIgnoreCase("")
+                    //&& !selectedCountry.trim().equalsIgnoreCase(getString(R.string.choose_country))
+                        mAmountEditText.getText().toString().trim().length() > 1
                                 && mBankMomoNetworkNameEditText.getText().toString().trim().length() > 1
                                 && mAccNameEditText.getText().toString().trim().length() > 1
                                 && mAccNumberEditText.getText().toString().trim().length() > 1
                                 && mPasswordEditText.getText().toString().trim().length() > 1 ){
 
-                            String bankMomoName = "Mobile Money";
-                            if(!mBankMomoNetworkNameEditText.getText().toString().trim().equalsIgnoreCase("")){
-                                bankMomoName = mBankMomoNetworkNameEditText.getText().toString().trim();
-                            }
-
-                            final String amount = mAmountEditText.getText().toString().trim();
-                            final String bankMomoNetworkName = bankMomoName;
-                            final String accName = mAccNameEditText.getText().toString().trim();
-                            final String accNumber = mAccNumberEditText.getText().toString().trim();
-                            final String routingNumber = mRoutingNumberEditText.getText().toString().trim();
-                            final String password = mPasswordEditText.getText().toString().trim();
-
-
-
-                            networkRequestThread = new Thread(new Runnable() {
-                                @Override
-                                public void run() {
-                                    makeRequest(selectedCountry, amount, bankMomoNetworkName,accName, accNumber, routingNumber, password);
-                                }
-                            });
-                            networkRequestThread.start();
-                        } else {
-                            Config.showToastType1(WithdrawFundsActivity.this, getResources().getString(R.string.the_form_is_incomplete));
-                        }
-                    } else {
-                        Config.showToastType1(WithdrawFundsActivity.this, getResources().getString(R.string.login_activity_check_your_internet_connection_and_try_again));
+                    String bankMomoName = "Mobile Money";
+                    if(!mBankMomoNetworkNameEditText.getText().toString().trim().equalsIgnoreCase("")){
+                        bankMomoName = mBankMomoNetworkNameEditText.getText().toString().trim();
                     }
+
+                    final String amount = mAmountEditText.getText().toString().trim();
+                    final String bankMomoNetworkName = bankMomoName;
+                    final String accName = mAccNameEditText.getText().toString().trim();
+                    final String accNumber = mAccNumberEditText.getText().toString().trim();
+                    final String routingNumber = mRoutingNumberEditText.getText().toString().trim();
+                    final String password = mPasswordEditText.getText().toString().trim();
+
+
+
+                    networkRequestThread = new Thread(new Runnable() {
+                        @Override
+                        public void run() {
+                            makeRequest(selectedCountry, amount, bankMomoNetworkName,accName, accNumber, routingNumber, password);
+                        }
+                    });
+                    networkRequestThread.start();
+                } else {
+                    Config.showToastType1(WithdrawFundsActivity.this, getResources().getString(R.string.the_form_is_incomplete));
+                }
+            } else {
+                Config.showToastType1(WithdrawFundsActivity.this, getResources().getString(R.string.login_activity_check_your_internet_connection_and_try_again));
+            }
         }
     }
 
@@ -150,8 +150,8 @@ public class WithdrawFundsActivity extends AppCompatActivity  implements View.On
     protected void onResume() {
         super.onResume();
         mBackImageView = findViewById(R.id.title_bar_back_icon_imageview);
-        mCountryTextViewLabel = findViewById(R.id.country_label_withdrawfunds_activity_textview);
-        mCountryTextView = findViewById(R.id.country_withdrawfunds_activity_textview);
+        // mCountryTextViewLabel = findViewById(R.id.country_label_withdrawfunds_activity_textview);
+        // mCountryTextView = findViewById(R.id.country_withdrawfunds_activity_textview);
         mAmountEditText = findViewById(R.id.amount_edittext);
         mBankMomoNetworkNameEditText = findViewById(R.id.network_name_edittext);
         mAccNameEditText = findViewById(R.id.account_name_edittext);
@@ -178,8 +178,8 @@ public class WithdrawFundsActivity extends AppCompatActivity  implements View.On
             mPasswordEditTextInputLayout.setVisibility(View.VISIBLE);
             mRedeemButton.setVisibility(View.VISIBLE);
             mBankInfoTextView.setVisibility(View.VISIBLE);
-            mCountryTextViewLabel.setVisibility(View.VISIBLE);
-            mCountryTextView.setVisibility(View.VISIBLE);
+            // mCountryTextViewLabel.setVisibility(View.VISIBLE);
+            // mCountryTextView.setVisibility(View.VISIBLE);
             networkResponse = "";
         }
 
@@ -189,8 +189,8 @@ public class WithdrawFundsActivity extends AppCompatActivity  implements View.On
     protected void onStop() {
         super.onStop();
         mBackImageView = null;
-        mCountryTextView = null;
-        mCountryTextViewLabel = null;
+        // mCountryTextView = null;
+        // mCountryTextViewLabel = null;
         mBankInfoTextView = null;
         mAmountEditText = null;
         mBankMomoNetworkNameEditText = null;
@@ -220,8 +220,8 @@ public class WithdrawFundsActivity extends AppCompatActivity  implements View.On
     protected void onDestroy() {
         super.onDestroy();
         mBackImageView = null;
-        mCountryTextView = null;
-        mCountryTextViewLabel = null;
+        // mCountryTextView = null;
+        // mCountryTextViewLabel = null;
         mBankInfoTextView = null;
         mAmountEditText = null;
         mBankMomoNetworkNameEditText = null;
@@ -260,33 +260,34 @@ public class WithdrawFundsActivity extends AppCompatActivity  implements View.On
                     mRoutingNumberEditTextInputLayout.setVisibility(View.INVISIBLE);
                     mPasswordEditTextInputLayout.setVisibility(View.INVISIBLE);
                     mRedeemButton.setVisibility(View.INVISIBLE);
-                    mCountryTextViewLabel.setVisibility(View.INVISIBLE);
-                    mCountryTextView.setVisibility(View.INVISIBLE);
+                    // mCountryTextViewLabel.setVisibility(View.INVISIBLE);
+                    // mCountryTextView.setVisibility(View.INVISIBLE);
                     mBankInfoTextView.setVisibility(View.INVISIBLE);
                     mLoadingProgressBar.setVisibility(View.VISIBLE);
                 }
             });
 
             AndroidNetworking.post(Config.LINK_WITHDRAW_FUNDS)
-                    .addBodyParameter("log_phone", Config.getSharedPreferenceString(getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_PHONE))
-                    .addBodyParameter("log_pass_token", Config.getSharedPreferenceString(getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_PASSWORD_ACCESS_TOKEN))
-                    .addBodyParameter("mypottname", Config.getSharedPreferenceString(getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_POTT_NAME))
-                    .addBodyParameter("my_currency", Config.getSharedPreferenceString(getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_CURRENCY))
-                    .addBodyParameter("settle_type", "")
-                    .addBodyParameter("country", country)
-                    .addBodyParameter("withdrawal_amount", amount)
-                    .addBodyParameter("bank_or_network_name", bankorNetworkName)
-                    .addBodyParameter("acc_name", accName)
-                    .addBodyParameter("acc_number", accNumber)
-                    .addBodyParameter("routing_number", routingNumber)
-                    .addBodyParameter("raw_pass", rawPass)
-                    .addBodyParameter("language", LocaleHelper.getLanguage(getApplicationContext()))
-                    .addBodyParameter("app_version_code", String.valueOf(Config.getSharedPreferenceInt(getApplicationContext(), Config.SHARED_PREF_KEY_UPDATE_ACTIVITY_UPDATE_VERSION_CODE)))
+                    .addHeaders("Accept", "application/json")
+                    .addHeaders("Authorization", "Bearer " + Config.getSharedPreferenceString(WithdrawFundsActivity.this, Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_PASSWORD_ACCESS_TOKEN))
+                    .addBodyParameter("user_phone_number", Config.getSharedPreferenceString(WithdrawFundsActivity.this, Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_PHONE))
+                    .addBodyParameter("user_pottname", Config.getSharedPreferenceString(WithdrawFundsActivity.this, Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_POTT_NAME))
+                    .addBodyParameter("investor_id", Config.getSharedPreferenceString(WithdrawFundsActivity.this, Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_ID))
+                    .addBodyParameter("user_language", LocaleHelper.getLanguage(WithdrawFundsActivity.this))
+                    .addBodyParameter("app_type", "ANDROID")
+                    .addBodyParameter("app_version_code", String.valueOf(Config.getAppVersionCode(WithdrawFundsActivity.this.getApplicationContext())))
+                    .addBodyParameter("withdrawal_amt", amount)
+                    .addBodyParameter("withdrawal_receiving_bank_or_momo_account_name", accName)
+                    .addBodyParameter("withdrawal_receiving_bank_or_momo_account_number", accNumber)
+                    .addBodyParameter("withdrawal_receiving_bank_or_momo_name", bankorNetworkName)
+                    .addBodyParameter("withdrawal_receiving_bank_routing_number", routingNumber)
+                    .addBodyParameter("password", rawPass)
                     .setTag("withdraw_funds")
                     .setPriority(Priority.HIGH)
                     .build().getAsString(new StringRequestListener() {
                 @Override
                 public void onResponse(String response) {
+                    Log.e("send_withdrawal_request", response);
                     if(MyLifecycleHandler.isApplicationInForeground()){
                         new Handler(Looper.getMainLooper()).post(new Runnable() {
                             @Override
@@ -300,19 +301,16 @@ public class WithdrawFundsActivity extends AppCompatActivity  implements View.On
                                 mPasswordEditTextInputLayout.setVisibility(View.VISIBLE);
                                 mRedeemButton.setVisibility(View.VISIBLE);
                                 mBankInfoTextView.setVisibility(View.VISIBLE);
-                                mCountryTextViewLabel.setVisibility(View.VISIBLE);
-                                mCountryTextView.setVisibility(View.VISIBLE);
+                                // mCountryTextViewLabel.setVisibility(View.VISIBLE);
+                                // mCountryTextView.setVisibility(View.VISIBLE);
                             }
                         });
                     }
 
                     try {
-                        JSONObject jsonObject = new JSONObject(response);
-                        JSONArray array = jsonObject.getJSONArray("data_returned");
-
-                        final JSONObject o = array.getJSONObject(0);
-                        int myStatus = o.getInt("1");
-                        final String statusMsg = o.getString("2");
+                        final JSONObject o = new JSONObject(response);
+                        int myStatus = o.getInt("status");
+                        final String statusMsg = o.getString("message");
                         networkResponse = statusMsg;
 
                         // IF USER'S APP IS OUTDATED AND NOT ALLOWED TO BE USED
@@ -335,12 +333,11 @@ public class WithdrawFundsActivity extends AppCompatActivity  implements View.On
                         }
 
                         //STORING THE USER DATA
-                        Config.setSharedPreferenceBoolean(getApplicationContext(), Config.SHARED_PREF_KEY_USER_VERIFY_PHONE_NUMBER_IS_ON, o.getBoolean("3"));
+                        Config.setSharedPreferenceBoolean(WithdrawFundsActivity.this, Config.SHARED_PREF_KEY_USER_VERIFY_PHONE_NUMBER_IS_ON, o.getBoolean("phone_verification_is_on"));
 
                         // UPDATING THE VERSION CODE AND FORCE STATUS OF THE APP.
-                        Config.setSharedPreferenceString(getApplicationContext(), Config.SHARED_PREF_KEY_UPDATE_ACTIVITY_UPDATE_NOT_NOW_DATE, o.getString("6"));
-                        Config.setSharedPreferenceBoolean(getApplicationContext(), Config.SHARED_PREF_KEY_UPDATE_ACTIVITY_UPDATE_BY_FORCE, o.getBoolean("5"));
-                        Config.setSharedPreferenceInt(getApplicationContext(), Config.SHARED_PREF_KEY_UPDATE_ACTIVITY_UPDATE_VERSION_CODE, o.getInt("4"));
+                        Config.setSharedPreferenceBoolean(WithdrawFundsActivity.this, Config.SHARED_PREF_KEY_UPDATE_ACTIVITY_UPDATE_BY_FORCE, o.getBoolean("user_android_app_force_update"));
+                        Config.setSharedPreferenceInt(WithdrawFundsActivity.this, Config.SHARED_PREF_KEY_UPDATE_ACTIVITY_UPDATE_VERSION_CODE, o.getInt("user_android_app_max_vc"));
 
                         if(myStatus == 1){
 
@@ -358,12 +355,14 @@ public class WithdrawFundsActivity extends AppCompatActivity  implements View.On
                                             mRoutingNumberEditText.setText("");
                                             mPasswordEditText.setText("");
 
-                                            SettingsFragment.mDebitWalletBalanceTextView.setText(Config.getSharedPreferenceString(getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_CURRENCY) + o.getString("8"));
-                                            SettingsFragment.mWithdrawalWalletBalanceTextView.setText(Config.getSharedPreferenceString(getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_CURRENCY) + o.getString("9"));
-                                            SettingsFragment.mPottPearlsBalanceTextView.setText(o.getString("10"));
-                                            Config.setSharedPreferenceString(getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_WITHDRAWAL_WALLET, o.getString("9"));
-                                            Config.setSharedPreferenceString(getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_DEBIT_WALLET, o.getString("8"));
-                                            Config.setSharedPreferenceString(getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_POTT_PEARLS, o.getString("10"));
+                                            //SettingsFragment.mDebitWalletBalanceTextView.setText(Config.getSharedPreferenceString(getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_CURRENCY) + o.getString("8"));
+                                            //SettingsFragment.mWithdrawalWalletBalanceTextView.setText(Config.getSharedPreferenceString(getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_CURRENCY) + o.getString("9"));
+                                            //SettingsFragment.mPottPearlsBalanceTextView.setText(o.getString("10"));
+                                            Config.setSharedPreferenceString(getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_WALLET, o.getJSONObject("data").getString("new_wallet_bal"));
+
+                                            //Config.setSharedPreferenceString(getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_WITHDRAWAL_WALLET, o.getString("9"));
+                                            //Config.setSharedPreferenceString(getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_DEBIT_WALLET, o.getString("8"));
+                                            //Config.setSharedPreferenceString(getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_POTT_PEARLS, o.getString("10"));
 
                                         } catch (JSONException e) {
                                             e.printStackTrace();
@@ -391,8 +390,8 @@ public class WithdrawFundsActivity extends AppCompatActivity  implements View.On
                                     mRoutingNumberEditTextInputLayout.setVisibility(View.VISIBLE);
                                     mPasswordEditTextInputLayout.setVisibility(View.VISIBLE);
                                     mRedeemButton.setVisibility(View.VISIBLE);
-                                    mCountryTextViewLabel.setVisibility(View.VISIBLE);
-                                    mCountryTextView.setVisibility(View.VISIBLE);
+                                    // mCountryTextViewLabel.setVisibility(View.VISIBLE);
+                                    // mCountryTextView.setVisibility(View.VISIBLE);
                                     mBankInfoTextView.setVisibility(View.VISIBLE);
                                 }
                             });
@@ -404,6 +403,7 @@ public class WithdrawFundsActivity extends AppCompatActivity  implements View.On
 
                 @Override
                 public void onError(ANError anError) {
+                    Log.e("send_withdrawal_request", anError.getErrorBody().toString());
                     if(MyLifecycleHandler.isApplicationInForeground()) {
                         new Handler(Looper.getMainLooper()).post(new Runnable() {
                             @Override
@@ -417,8 +417,8 @@ public class WithdrawFundsActivity extends AppCompatActivity  implements View.On
                                 mRoutingNumberEditTextInputLayout.setVisibility(View.VISIBLE);
                                 mPasswordEditTextInputLayout.setVisibility(View.VISIBLE);
                                 mRedeemButton.setVisibility(View.VISIBLE);
-                                mCountryTextViewLabel.setVisibility(View.VISIBLE);
-                                mCountryTextView.setVisibility(View.VISIBLE);
+                                // mCountryTextViewLabel.setVisibility(View.VISIBLE);
+                                // mCountryTextView.setVisibility(View.VISIBLE);
                                 mBankInfoTextView.setVisibility(View.VISIBLE);
                             }
                         });

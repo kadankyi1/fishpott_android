@@ -3,6 +3,8 @@ package com.fishpott.fishpott5.Activities;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import com.fishpott.fishpott5.R;
+
 public class ContactOrUploadDocumentActivity extends AppCompatActivity {
 
     @Override
