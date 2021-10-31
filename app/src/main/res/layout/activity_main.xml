@@ -88,6 +88,20 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
+                android:id="@+id/activity_mainactivity_constraintlayout2_searchicon_imageview"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="8dp"
+                android:contentDescription="@string/none"
+                android:visibility="visible"
+                android:tint="@color/colorAccent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_info_box" />
+
+            <ImageView
                 android:id="@+id/activity_mainactivity_constraintlayout2_profileicon_imageview"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
@@ -95,6 +109,7 @@
                 android:layout_marginEnd="4dp"
                 android:layout_marginStart="4dp"
                 android:layout_marginTop="8dp"
+                android:visibility="gone"
                 android:contentDescription="@string/none"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -130,19 +145,6 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="1.0" />
 
-        <ImageView
-            android:id="@+id/activity_mainactivity_constraintlayout2_searchicon_imageview"
-            android:layout_width="28dp"
-            android:layout_height="28dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="12dp"
-            android:contentDescription="@string/none"
-            android:visibility="invisible"
-            app:layout_constraintBottom_toTopOf="@+id/activity_mainactivity_constraintlayout2_searchbar_view"
-            app:layout_constraintStart_toStartOf="@+id/activity_mainactivity_constraintlayout2_searchbar_view"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/question_mark" />
-
 
         <TextView
             android:id="@+id/activity_mainactivity_constraintlayout2_searchtext_textView"
@@ -153,11 +155,10 @@
             android:textAlignment="center"
             android:textColor="@color/colorAccent"
             android:textSize="16sp"
-            android:visibility="invisible"
+            android:visibility="gone"
             app:layout_constraintBottom_toTopOf="@+id/activity_mainactivity_constraintlayout2_searchbar_view"
             app:layout_constraintEnd_toEndOf="@+id/activity_mainactivity_constraintlayout2_searchbar_view"
             app:layout_constraintHorizontal_bias="0.02"
-            app:layout_constraintStart_toEndOf="@+id/activity_mainactivity_constraintlayout2_searchicon_imageview"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.75" />
 
@@ -169,14 +170,14 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="12dp"
             android:fontFamily="@font/splashfont"
-            android:gravity="bottom"
+            android:gravity="center"
             android:text=" FishPott "
             android:textAlignment="center"
             android:textColor="@color/colorAccent"
             android:textSize="34sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/activity_mainactivity_constraintlayout2_searchbar_view"
-            app:layout_constraintStart_toStartOf="@+id/activity_mainactivity_constraintlayout2_guideline_v_4"
+            app:layout_constraintStart_toEndOf="@+id/activity_mainactivity_constraintlayout2_guideline_v_4"
             app:layout_constraintTop_toTopOf="parent" />
     </android.support.constraint.ConstraintLayout>
 

@@ -119,6 +119,8 @@ public class BuyBusinessStockSuggestedActivity extends AppCompatActivity impleme
         mFinalTotalTextView = findViewById(R.id.total_textview);
         mFinalYieldInfoTextView = findViewById(R.id.agree_checkbox);
         mTermAndConditionsTextView = findViewById(R.id.t_and_c_textview);
+        mResetButton = findViewById(R.id.reset_button);
+        mBuyButton = findViewById(R.id.request_button);
 
         // LOADING THE LOGO IMAGE
         Config.loadUrlImage(BuyBusinessStockSuggestedActivity.this, true, shareLogo, mSharesLogoCircleImageView, 0, 60, 60);
@@ -130,6 +132,9 @@ public class BuyBusinessStockSuggestedActivity extends AppCompatActivity impleme
         mRiskTextView.setOnClickListener(this);
         mGetPriceButton.setOnClickListener(this);
         mTermAndConditionsTextView.setOnClickListener(this);
+        mResetButton.setOnClickListener(this);
+        mBackImageView.setOnClickListener(this);
+        mBuyButton.setOnClickListener(this);
 
         // SETTING RISK LISTENER DATA
         mSharesSetListener = new NumberPicker.OnValueChangeListener() {
@@ -164,8 +169,15 @@ public class BuyBusinessStockSuggestedActivity extends AppCompatActivity impleme
                     getFinalInvestmentPriceSummary(suggestionBusinessID, mHowMuchToInvestEditText.getText().toString(), finalRiskType);
                 }
             }, 5000);
+        } else if (view.getId() == mBackImageView.getId()) {
+            BuyBusinessStockSuggestedActivity.this.onBackPressed();
         } else if (view.getId() == mTermAndConditionsTextView.getId()) {
             Config.openActivity(BuyBusinessStockSuggestedActivity.this, WebViewActivity.class, 0, 0, 1, Config.WEBVIEW_KEY_URL, Config.FISHPOTT_TERMS_OF_SERVICE);
+        } else if (view.getId() == mResetButton.getId()) {
+            mFinalHolderScrollView.setVisibility(View.INVISIBLE);
+            mItemHolderScrollView.setVisibility(View.VISIBLE);
+        } else if(view.getId() == mBuyButton.getId()){
+            Config.openActivity(BuyBusinessStockSuggestedActivity.this, TheTellerActivity.class, 1, 0, 0, "", "");
         }
     }
 
@@ -221,7 +233,7 @@ public class BuyBusinessStockSuggestedActivity extends AppCompatActivity impleme
                     Config.setSharedPreferenceInt(BuyBusinessStockSuggestedActivity.this, Config.SHARED_PREF_KEY_UPDATE_ACTIVITY_UPDATE_VERSION_CODE, o.getInt("user_android_app_max_vc"));
 
                     if(myStatus == 1){
-                        Config.showToastType1(BuyBusinessStockSuggestedActivity.this, myStatusMessage);
+                        //Config.showToastType1(BuyBusinessStockSuggestedActivity.this, myStatusMessage);
                         if(MyLifecycleHandler.isApplicationInForeground()){
                             new Handler(Looper.getMainLooper()).post(new Runnable() {
                                 @Override
@@ -238,7 +250,7 @@ public class BuyBusinessStockSuggestedActivity extends AppCompatActivity impleme
                                     mFinalRiskTextView.setText("Risk Statement: " + riskStatement);
                                     mInsuranceFeeTextView.setText("Risk Insurance Fee: " + riskInsuranceFee);
                                     mProcessingFeeTextView.setText("Processing Fee: " + processingFee);
-                                    mFinalTotalTextView.setText("Final Charge: " + overallTotalUsd + " | " + overallTotalLocalCurrency);
+                                    mFinalTotalTextView.setText("Final Charge: " + overallTotalUsd + " OR " + overallTotalLocalCurrency);
                                     mFinalYieldInfoTextView.setText(financialYieldInfo);
                                     mFinalHolderScrollView.setVisibility(View.VISIBLE);
 

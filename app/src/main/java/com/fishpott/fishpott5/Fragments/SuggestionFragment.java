@@ -23,6 +23,7 @@ import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.StringRequestListener;
 import com.fishpott.fishpott5.Activities.BuyBusinessStockSuggestedActivity;
 import com.fishpott.fishpott5.Activities.BuySharesForSaleActivity;
+import com.fishpott.fishpott5.Activities.LoginActivity;
 import com.fishpott.fishpott5.Activities.ProfileOfDifferentPottActivity;
 import com.fishpott.fishpott5.Activities.UpdateActivity;
 import com.fishpott.fishpott5.Activities.WebViewActivity;
@@ -257,6 +258,7 @@ public class SuggestionFragment extends Fragment implements View.OnClickListener
                             drillAnswer3 = o.getJSONObject("data").getString("drill_answer_3");
                             drillAnswer4 = o.getJSONObject("data").getString("drill_answer_4");
                         } else if(myStatusMessage.equalsIgnoreCase("business")){
+                            Config.showDialogType1(getActivity(), "1", "You have a business suggestion. Carefully look at the business profile and if you want to be a part-owner of the business, simply click 'Buy Shares' and buy share ownership", "", null, false, "", "");
                             businessID = o.getJSONObject("data").getString("business_sys_id");
                             businessName = o.getJSONObject("data").getString("business_full_name");
                             businessNameGlobal = businessName;

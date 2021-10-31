@@ -33,6 +33,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".Activities.ContactOrUploadDocumentActivity"
+            android:exported="true" />
+        <activity
             android:name=".Activities.BuyBusinessStockSuggestedActivity"
             android:exported="true" />
         <activity
