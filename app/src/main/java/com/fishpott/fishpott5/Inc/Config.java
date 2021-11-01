@@ -304,6 +304,9 @@ public class Config {
 	// SERVER-SIDE API FOR GETTING MY OWNED SHARES
 	public static final String LINK_GET_MY_SHARES = CURRENT_HTTP_IN_USE + "144.202.111.61/api/v1/user/get-my-investments";
 
+	// SERVER-SIDE API FOR FINDING A BUSINESS
+	public static final String LINK_GET_FIND_BUSINESS = CURRENT_HTTP_IN_USE + "144.202.111.61/api/v1/user/find-business";
+
 	/********************************************************************************************************************************************
 
 	 OLD LINKS OLD LINKS OLD LINKS OLD LINKS OLD LINKS OLD LINKS OLD LINKS OLD LINKS OLD LINKS OLD LINKS OLD LINKS OLD LINKS OLD LINKS OLD LINKS

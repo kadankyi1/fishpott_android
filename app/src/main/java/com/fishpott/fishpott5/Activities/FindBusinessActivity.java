@@ -99,25 +99,30 @@ public class FindBusinessActivity extends AppCompatActivity implements View.OnCl
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    getLatestSuggestion(getApplicationContext());
+                    getLatestSuggestion(mBusinessCodeEditText.getText().toString().trim());
                 }
             }, 5000);
         } else if (v.getId() == mBusinessWebsiteTextView.getId() && !businessWebsiteUrl.trim().equalsIgnoreCase("")) {
             Config.openActivity(FindBusinessActivity.this, WebViewActivity.class, 1, 0, 1, Config.WEBVIEW_KEY_URL, businessWebsiteUrl);
         } else if (v.getId() == mSuggestionBusinessFinanceFullReportTextView.getId() && !businessFullReportUrl.trim().equalsIgnoreCase("")) {
             Config.openActivity(FindBusinessActivity.this, WebViewActivity.class, 1, 0, 1, Config.WEBVIEW_KEY_URL, businessFullReportUrl);
-        } else if (v.getId() == mSuggestionBusinessBuySharesButton.getId() && !businessID.trim().equalsIgnoreCase("") && canBuy.trim().equalsIgnoreCase("yes")) {
-            String[] buyData = {
-                    businessID,
-                    businessLogoUrl,
-                    businessNameGlobal
-            };
-            Config.openActivity4(FindBusinessActivity.this, BuyBusinessStockSuggestedActivity.class, 0, 0, 1, "BUY_INFO", buyData);
+        } else if (v.getId() == mSuggestionBusinessBuySharesButton.getId() && !businessID.trim().equalsIgnoreCase("")) {
+            if(canBuy.trim().equalsIgnoreCase("yes")){
+                String[] buyData = {
+                        businessID,
+                        businessLogoUrl,
+                        businessNameGlobal
+                };
+                Config.openActivity4(FindBusinessActivity.this, BuyBusinessStockSuggestedActivity.class, 0, 0, 1, "BUY_INFO", buyData);
+
+            } else {
+                Config.showDialogType1(FindBusinessActivity.this, "1", "Unfortunately, your pott has not suggested this business to you. Please train your pott with drills so it can get businesses for you to invest in", "", null, false, "", "");
+            }
         }
     }
 
 
-    private void getLatestSuggestion(Context context){
+    private void getLatestSuggestion(String searchCode){
         networkRequestStarted = true;
         new Handler(Looper.getMainLooper()).post(new Runnable() {
             @Override
@@ -126,13 +131,17 @@ public class FindBusinessActivity extends AppCompatActivity implements View.OnCl
             }
         });
 
-        String final_url = Config.LINK_GET_MY_SUGGESTION + "?user_phone_number=" + Uri.encode(Config.getSharedPreferenceString(context, Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_PHONE)) + "&user_pottname=" + Config.getSharedPreferenceString(context, Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_POTT_NAME) + "&investor_id=" + Config.getSharedPreferenceString(context, Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_ID) + "&app_type=ANDROID&app_version_code=" + String.valueOf(Config.getAppVersionCode(getApplicationContext())) + "&user_language=" + LocaleHelper.getLanguage(FindBusinessActivity.this);
 
-
-        Log.e("GetSuggestion", final_url);
-        AndroidNetworking.get(final_url)
+        AndroidNetworking.post(Config.LINK_GET_FIND_BUSINESS)
                 .addHeaders("Accept", "application/json")
-                .addHeaders("Authorization", "Bearer " + Config.getSharedPreferenceString(getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_PASSWORD_ACCESS_TOKEN))
+                .addHeaders("Authorization", "Bearer " + Config.getSharedPreferenceString(FindBusinessActivity.this, Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_PASSWORD_ACCESS_TOKEN))
+                .addBodyParameter("user_phone_number", Config.getSharedPreferenceString(FindBusinessActivity.this, Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_PHONE))
+                .addBodyParameter("user_pottname", Config.getSharedPreferenceString(FindBusinessActivity.this, Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_POTT_NAME))
+                .addBodyParameter("investor_id", Config.getSharedPreferenceString(FindBusinessActivity.this, Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_ID))
+                .addBodyParameter("user_language", LocaleHelper.getLanguage(FindBusinessActivity.this))
+                .addBodyParameter("app_type", "ANDROID")
+                .addBodyParameter("app_version_code", String.valueOf(Config.getAppVersionCode(FindBusinessActivity.this.getApplicationContext())))
+                .addBodyParameter("business_id", searchCode)
                 .setTag("get_suggestion")
                 .setPriority(Priority.HIGH)
                 .build().getAsString(new StringRequestListener() {
@@ -145,8 +154,6 @@ public class FindBusinessActivity extends AppCompatActivity implements View.OnCl
                     final JSONObject o = new JSONObject(response);
                     int myStatus = o.getInt("status");
                     final String myStatusMessage = o.getString("message");
-                    final String investMessage = o.getString("invest_message");
-                    canBuy = o.getString("can_buy");
                     // BUSINESS
                     String businessName = "";
                     String businessLogo = "";
@@ -165,6 +172,8 @@ public class FindBusinessActivity extends AppCompatActivity implements View.OnCl
                     String businessFinanceBio = "";
                     String businessFinanceFullReport = "";
                     if(myStatusMessage.equalsIgnoreCase("business")){
+                        final String investMessage = o.getString("invest_message");
+                        canBuy = o.getString("can_buy");
                         Config.showDialogType1(FindBusinessActivity.this, "1", investMessage, "", null, false, "", "");
                         businessID = o.getJSONObject("data").getString("business_sys_id");
                         businessName = o.getJSONObject("data").getString("business_full_name");
