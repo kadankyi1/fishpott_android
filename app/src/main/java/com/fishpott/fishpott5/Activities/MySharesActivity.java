@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -234,12 +235,12 @@ public class MySharesActivity extends AppCompatActivity implements View.OnClickL
 
         @Override
         public void onBindViewHolder(@NonNull final RecyclerView.ViewHolder holder, final int position) {
-            if(MySharesViewingListDataGenerator.getAllData().get(position).getProfitOrLoss().equalsIgnoreCase("1")){
+            if(MySharesViewingListDataGenerator.getAllData().get(position).getProfitOrLoss().equalsIgnoreCase("Value Profit")){
                 ((ViewHolder) holder).mProfitLossValueInfoTextView.setText("Value Profit");
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                     ((ViewHolder) holder).mProfitLossValueInfoTextView.setTextColor(getColor(R.color.colorYardsale));
                 }
-            } else if(MySharesViewingListDataGenerator.getAllData().get(position).getProfitOrLoss().equalsIgnoreCase("-1")){
+            } else if(MySharesViewingListDataGenerator.getAllData().get(position).getProfitOrLoss().equalsIgnoreCase("Value Loss")){
                 ((ViewHolder) holder).mProfitLossValueInfoTextView.setText("Value Loss");
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                     ((ViewHolder) holder).mProfitLossValueInfoTextView.setTextColor(getColor(R.color.newsBackgroundDeepRed2));
@@ -280,17 +281,20 @@ public class MySharesActivity extends AppCompatActivity implements View.OnClickL
         }); //END OF HANDLER-1-TO-MAIN-THREAD
 
         AndroidNetworking.post(Config.LINK_GET_MY_SHARES)
-                .addBodyParameter("log_phone", Config.getSharedPreferenceString(getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_PHONE))
-                .addBodyParameter("log_pass_token", Config.getSharedPreferenceString(getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_PASSWORD_ACCESS_TOKEN))
-                .addBodyParameter("mypottname", Config.getSharedPreferenceString(getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_POTT_NAME))
-                .addBodyParameter("my_currency", Config.getSharedPreferenceString(getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_CURRENCY))
-                .addBodyParameter("language", LocaleHelper.getLanguage(MySharesActivity.this))
-                .addBodyParameter("app_version_code", String.valueOf(Config.getSharedPreferenceInt(getApplicationContext(), Config.SHARED_PREF_KEY_UPDATE_ACTIVITY_UPDATE_VERSION_CODE)))
+                .addHeaders("Accept", "application/json")
+                .addHeaders("Authorization", "Bearer " + Config.getSharedPreferenceString(MySharesActivity.this, Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_PASSWORD_ACCESS_TOKEN))
+                .addBodyParameter("user_phone_number", Config.getSharedPreferenceString(MySharesActivity.this, Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_PHONE))
+                .addBodyParameter("user_pottname", Config.getSharedPreferenceString(MySharesActivity.this, Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_POTT_NAME))
+                .addBodyParameter("investor_id", Config.getSharedPreferenceString(MySharesActivity.this, Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_ID))
+                .addBodyParameter("user_language", LocaleHelper.getLanguage(MySharesActivity.this))
+                .addBodyParameter("app_type", "ANDROID")
+                .addBodyParameter("app_version_code", String.valueOf(Config.getAppVersionCode(MySharesActivity.this.getApplicationContext())))
                 .setTag("get_my_shares")
                 .setPriority(Priority.HIGH)
                 .build().getAsString(new StringRequestListener() {
             @Override
             public void onResponse(String response) {
+                Log.e("get_my_shares", response);
                 if (MyLifecycleHandler.isApplicationInForeground()) {
                     new Handler(Looper.getMainLooper()).post(new Runnable() {
                         @Override
@@ -333,17 +337,14 @@ public class MySharesActivity extends AppCompatActivity implements View.OnClickL
                         }
 
                         //STORING THE USER DATA
-                        Config.setSharedPreferenceBoolean(getApplicationContext(), Config.SHARED_PREF_KEY_USER_VERIFY_PHONE_NUMBER_IS_ON, o.getBoolean("3"));
+                        Config.setSharedPreferenceBoolean(MySharesActivity.this, Config.SHARED_PREF_KEY_USER_VERIFY_PHONE_NUMBER_IS_ON, o.getBoolean("phone_verification_is_on"));
 
                         // UPDATING THE VERSION CODE AND FORCE STATUS OF THE APP.
-                        Config.setSharedPreferenceString(getApplicationContext(), Config.SHARED_PREF_KEY_UPDATE_ACTIVITY_UPDATE_NOT_NOW_DATE, o.getString("6"));
-                        Config.setSharedPreferenceBoolean(getApplicationContext(), Config.SHARED_PREF_KEY_UPDATE_ACTIVITY_UPDATE_BY_FORCE, o.getBoolean("5"));
-                        Config.setSharedPreferenceInt(getApplicationContext(), Config.SHARED_PREF_KEY_UPDATE_ACTIVITY_UPDATE_VERSION_CODE, o.getInt("4"));
-
-                        Config.setSharedPreferenceString(getApplicationContext(), Config.SHARED_PREF_KEY_USER_TRANSFER_FEE, o.getString("8"));
+                        Config.setSharedPreferenceBoolean(MySharesActivity.this, Config.SHARED_PREF_KEY_UPDATE_ACTIVITY_UPDATE_BY_FORCE, o.getBoolean("user_android_app_force_update"));
+                        Config.setSharedPreferenceInt(MySharesActivity.this, Config.SHARED_PREF_KEY_UPDATE_ACTIVITY_UPDATE_VERSION_CODE, o.getInt("user_android_app_max_vc"));
 
                         if (myStatus == 1) {
-                            JSONArray linkupsSuggestionsArray = jsonObject.getJSONArray("news_returned");
+                            JSONArray linkupsSuggestionsArray = new JSONObject(response).getJSONArray("data");
                             // LIST RESULTS SETTING COMES HERE
                             if(linkupsSuggestionsArray.length() > 0){
 
@@ -354,14 +355,14 @@ public class MySharesActivity extends AppCompatActivity implements View.OnClickL
                                     SharesModel mine1 = new SharesModel();
                                     if(i<linkupsSuggestionsArray.length()){
                                         final JSONObject k = linkupsSuggestionsArray.getJSONObject(i);
-                                        mine1.setSharesName(k.getString("0a"));
-                                        mine1.setSharesId(k.getString("1"));
-                                        mine1.setSharesParentId(k.getString("2"));
-                                        mine1.setSharesAvailableQuantity(k.getString("3"));
-                                        mine1.setSharesCostPricePerShare(k.getString("4"));
-                                        mine1.setSharesMaxPricePerShare(k.getString("9"));
-                                        mine1.setSharesDividendPerShare(k.getString("7"));
-                                        mine1.setProfitOrLoss(k.getString("8"));
+                                        mine1.setSharesName(k.getString("business_name"));
+                                        mine1.setSharesId(k.getString("business_id"));
+                                        mine1.setSharesParentId("");
+                                        mine1.setSharesAvailableQuantity(k.getString("quantity_of_stocks"));
+                                        mine1.setSharesCostPricePerShare(k.getString("cost_per_share_usd"));
+                                        mine1.setSharesMaxPricePerShare(k.getString("value_per_share_usd"));
+                                        mine1.setSharesDividendPerShare(k.getString("ai_info"));
+                                        mine1.setProfitOrLoss(k.getString("value_phrase"));
                                         MySharesViewingListDataGenerator.addOneData(mine1);
                                     }
                                     mRecyclerView.getAdapter().notifyItemInserted(MySharesViewingListDataGenerator.getAllData().size());

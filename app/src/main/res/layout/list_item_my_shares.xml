@@ -92,7 +92,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
-        android:text="@string/cost_per_share"
+        android:text="Avg. Cost Per Share"
         android:textColor="@color/colorAccentAsh"
         android:textSize="@dimen/list_item_suggestedlinkupsactivity_activity_linkupreason_textview_size"
         app:layout_constraintBottom_toBottomOf="parent"
