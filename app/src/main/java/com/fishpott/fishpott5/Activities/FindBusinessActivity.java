@@ -46,7 +46,7 @@ public class FindBusinessActivity extends AppCompatActivity implements View.OnCl
     private ImageView mSuggestionLoaderImageView;
     private Boolean networkRequestStarted = false;
     private Button mSuggestionBusinessBuySharesButton;
-    private String businessID = "", businessNameGlobal = "", businessLogoUrl = "", businessWebsiteUrl = "", businessFullReportUrl = "";
+    private String businessID = "", businessNameGlobal = "", businessLogoUrl = "", businessWebsiteUrl = "", businessFullReportUrl = "", canBuy = "";
 
 
     @Override
@@ -106,7 +106,7 @@ public class FindBusinessActivity extends AppCompatActivity implements View.OnCl
             Config.openActivity(FindBusinessActivity.this, WebViewActivity.class, 1, 0, 1, Config.WEBVIEW_KEY_URL, businessWebsiteUrl);
         } else if (v.getId() == mSuggestionBusinessFinanceFullReportTextView.getId() && !businessFullReportUrl.trim().equalsIgnoreCase("")) {
             Config.openActivity(FindBusinessActivity.this, WebViewActivity.class, 1, 0, 1, Config.WEBVIEW_KEY_URL, businessFullReportUrl);
-        } else if (v.getId() == mSuggestionBusinessBuySharesButton.getId() && !businessID.trim().equalsIgnoreCase("")) {
+        } else if (v.getId() == mSuggestionBusinessBuySharesButton.getId() && !businessID.trim().equalsIgnoreCase("") && canBuy.trim().equalsIgnoreCase("yes")) {
             String[] buyData = {
                     businessID,
                     businessLogoUrl,
@@ -145,6 +145,8 @@ public class FindBusinessActivity extends AppCompatActivity implements View.OnCl
                     final JSONObject o = new JSONObject(response);
                     int myStatus = o.getInt("status");
                     final String myStatusMessage = o.getString("message");
+                    final String investMessage = o.getString("invest_message");
+                    canBuy = o.getString("can_buy");
                     // BUSINESS
                     String businessName = "";
                     String businessLogo = "";
@@ -163,7 +165,7 @@ public class FindBusinessActivity extends AppCompatActivity implements View.OnCl
                     String businessFinanceBio = "";
                     String businessFinanceFullReport = "";
                     if(myStatusMessage.equalsIgnoreCase("business")){
-                        Config.showDialogType1(FindBusinessActivity.this, "1", myStatusMessage, "", null, false, "", "");
+                        Config.showDialogType1(FindBusinessActivity.this, "1", investMessage, "", null, false, "", "");
                         businessID = o.getJSONObject("data").getString("business_sys_id");
                         businessName = o.getJSONObject("data").getString("business_full_name");
                         businessNameGlobal = businessName;

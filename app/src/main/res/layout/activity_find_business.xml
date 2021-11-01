@@ -75,7 +75,7 @@
                 android:inputType="text"
                 android:labelFor="@id/amount_withdrawfunds_activity_edittext_textinputlayout"
                 android:maxLength="45"
-                android:textColor="@drawable/login_activity_input_text_color" />
+                android:textColor="@drawable/find_business_findcode_edittext_color" />
 
         </android.support.design.widget.TextInputLayout>
 
@@ -85,8 +85,7 @@
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_marginBottom="12dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
+            android:layout_marginEnd="25dp"
             android:layout_marginTop="12dp"
             android:contentDescription="@string/none"
             app:layout_constraintBottom_toBottomOf="parent"
