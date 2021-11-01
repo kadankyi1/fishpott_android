@@ -81,8 +81,8 @@
     <color name="colorUnreadNotificationPressed">#e9cccccc</color>
 
     <!-- TRANSACTIONS ACTIVITY -->
-    <color name="colorPending">#fffc00</color>
-    <color name="colorCompleted">#8be76a</color>
-    <color name="colorRejected">#ff2b2b</color>
+    <color name="colorPending">#A38800</color>
+    <color name="colorCompleted">#55AE36</color>
+    <color name="colorRejected">#BF0808</color>
     <color name="colorError">#978eed</color>
 </resources>

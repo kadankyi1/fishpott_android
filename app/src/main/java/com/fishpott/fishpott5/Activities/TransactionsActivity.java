@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -94,6 +95,7 @@ public class TransactionsActivity extends AppCompatActivity implements View.OnCl
 
         if(!REQUEST_HAS_STARTED) {
             if(Connectivity.isConnected(TransactionsActivity.this)){
+                Log.e("TransactAct", "makeRequest STARTED");
                 makeRequest();
             } else {
                 mMainSwipeRefreshLayout.setRefreshing(false);
@@ -248,12 +250,12 @@ public class TransactionsActivity extends AppCompatActivity implements View.OnCl
                 ((InfoViewHolder) holder).mInfoTextView.setText(getResources().getString(R.string.click_on_any_transaction_to_report_it));
             } else if (holder instanceof SharesSaleViewHolder) {
                 ((SharesSaleViewHolder) holder).mDateTextView.setText(TransactionsListDataGenerator.getAllData().get(position).getDate());
-                ((SharesSaleViewHolder) holder).mAmountTextView.setText(TransactionsListDataGenerator.getAllData().get(position).getQuantityOrAmount());
+                ((SharesSaleViewHolder) holder).mAmountTextView.setText(TransactionsListDataGenerator.getAllData().get(position).getAddedPottName());
                 ((SharesSaleViewHolder) holder).mQuantityTextView.setText(TransactionsListDataGenerator.getAllData().get(position).getTotalCharge());
                 ((SharesSaleViewHolder) holder).mStatusTextView.setText(TransactionsListDataGenerator.getAllData().get(position).getStatusOrBuyerName());
                 ((SharesSaleViewHolder) holder).mNameTextView.setText(TransactionsListDataGenerator.getAllData().get(position).getItemNameOrReceiveNumberOrCreditType());
                 ((SharesSaleViewHolder) holder).mAddedPottName.setText(TransactionsListDataGenerator.getAllData().get(position).getAddedPottName());
-                setTransactionStatusColor(TransactionsListDataGenerator.getAllData().get(position).getStatusNumber(), ((SharesSaleViewHolder) holder).mStatusTextView);
+                setTransactionStatusColor(TransactionsListDataGenerator.getAllData().get(position).getStatusOrBuyerName(), ((SharesSaleViewHolder) holder).mStatusTextView);
                 ((SharesSaleViewHolder) holder).mAddedPottName.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -279,7 +281,7 @@ public class TransactionsActivity extends AppCompatActivity implements View.OnCl
                         Config.showToastType1(TransactionsActivity.this, "Copied");
                     }
                 });
-                setTransactionStatusColor(TransactionsListDataGenerator.getAllData().get(position).getStatusNumber(), ((CreditViewHolder) holder).mStatusTextView);
+                setTransactionStatusColor(TransactionsListDataGenerator.getAllData().get(position).getStatusOrBuyerName(), ((CreditViewHolder) holder).mStatusTextView);
             } else if (holder instanceof WithdrawalViewHolder) {
                 ((WithdrawalViewHolder) holder).mDateTextView.setText(TransactionsListDataGenerator.getAllData().get(position).getDate());
                 //((WithdrawalViewHolder) holder).mQuantityTextView.setText(TransactionsListDataGenerator.getAllData().get(position).getQuantityOrAmount());
@@ -290,17 +292,19 @@ public class TransactionsActivity extends AppCompatActivity implements View.OnCl
                         Config.showToastType1(TransactionsActivity.this, "Copied");
                     }
                 });
+                //setAddedPottName
+                ((WithdrawalViewHolder) holder).mQuantityTextView.setText(TransactionsListDataGenerator.getAllData().get(position).getAddedPottName());
                 ((WithdrawalViewHolder) holder).mAmountTextView.setText(TransactionsListDataGenerator.getAllData().get(position).getTotalCharge());
                 ((WithdrawalViewHolder) holder).mStatusTextView.setText(TransactionsListDataGenerator.getAllData().get(position).getStatusOrBuyerName());
                 ((WithdrawalViewHolder) holder).mNameTextView.setText(TransactionsListDataGenerator.getAllData().get(position).getItemNameOrReceiveNumberOrCreditType());
-                setTransactionStatusColor(TransactionsListDataGenerator.getAllData().get(position).getStatusNumber(), ((WithdrawalViewHolder) holder).mStatusTextView);
+                setTransactionStatusColor(TransactionsListDataGenerator.getAllData().get(position).getStatusOrBuyerName(), ((WithdrawalViewHolder) holder).mStatusTextView);
             } else if (holder instanceof TransferViewHolder) {
                 ((TransferViewHolder) holder).mDateTextView.setText(TransactionsListDataGenerator.getAllData().get(position).getDate());
                 ((TransferViewHolder) holder).mAmountTextView.setText(TransactionsListDataGenerator.getAllData().get(position).getQuantityOrAmount());
                 ((TransferViewHolder) holder).mStatusTextView.setText(TransactionsListDataGenerator.getAllData().get(position).getStatusOrBuyerName());
                 ((TransferViewHolder) holder).mNameTextView.setText(TransactionsListDataGenerator.getAllData().get(position).getItemNameOrReceiveNumberOrCreditType());
                 ((TransferViewHolder) holder).mAddedPottName.setText(TransactionsListDataGenerator.getAllData().get(position).getAddedPottName());
-                setTransactionStatusColor(TransactionsListDataGenerator.getAllData().get(position).getStatusNumber(), ((TransferViewHolder) holder).mStatusTextView);
+                setTransactionStatusColor(TransactionsListDataGenerator.getAllData().get(position).getStatusOrBuyerName(), ((TransferViewHolder) holder).mStatusTextView);
                 ((TransferViewHolder) holder).mAddedPottName.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -383,12 +387,12 @@ public class TransactionsActivity extends AppCompatActivity implements View.OnCl
         Config.freeMemory();
     }
 
-    public void setTransactionStatusColor(int status, TextView mTransactionTextView){
-        if(status == 0){
+    public void setTransactionStatusColor(String status, TextView mTransactionTextView){
+        if(status.trim().equalsIgnoreCase("Pending")){
             mTransactionTextView.setTextColor(getResources().getColor(R.color.colorPending));
-        } else if(status == 1){
+        } else if(status.trim().equalsIgnoreCase("Paid")){
             mTransactionTextView.setTextColor(getResources().getColor(R.color.colorCompleted));
-        } else if(status == 2){
+        } else if(status.trim().equalsIgnoreCase("Cancelled")){
             mTransactionTextView.setTextColor(getResources().getColor(R.color.colorRejected));
         } else {
             mTransactionTextView.setTextColor(getResources().getColor(R.color.colorError));
@@ -400,6 +404,7 @@ public class TransactionsActivity extends AppCompatActivity implements View.OnCl
         new Handler(Looper.getMainLooper()).post(new Runnable() {
             @Override
             public void run() {
+                Log.e("TransactAct", "makeRequest P1");
                 REQUEST_HAS_STARTED =  true;
                 mReloadFreshImageView.setVisibility(View.INVISIBLE);
                 mLoadingProgressBar.setVisibility(View.VISIBLE);
@@ -407,24 +412,20 @@ public class TransactionsActivity extends AppCompatActivity implements View.OnCl
         }); //END OF HANDLER-1-TO-MAIN-THREAD
 
         AndroidNetworking.post(Config.LINK_GET_TRANSACTIONS)
-                .addBodyParameter("log_phone", Config.getSharedPreferenceString(getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_PHONE))
-                .addBodyParameter("log_pass_token", Config.getSharedPreferenceString(getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_PASSWORD_ACCESS_TOKEN))
-                .addBodyParameter("mypottname", Config.getSharedPreferenceString(getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_POTT_NAME))
-                .addBodyParameter("my_currency", Config.getSharedPreferenceString(getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_CURRENCY))
-                .addBodyParameter("language", LocaleHelper.getLanguage(TransactionsActivity.this))
-                .addBodyParameter("sales_lastsku", "0")
-                .addBodyParameter("credit_lastsku", "0")
-                .addBodyParameter("withdr_lastsku", "0")
-                .addBodyParameter("cre_coup_lastsku", "0")
-                .addBodyParameter("share_coup_lastsku", "0")
-                .addBodyParameter("poach_last_sku", "0")
-                .addBodyParameter("transfer_last_sku", "0")
-                .addBodyParameter("app_version_code", String.valueOf(Config.getSharedPreferenceInt(getApplicationContext(), Config.SHARED_PREF_KEY_UPDATE_ACTIVITY_UPDATE_VERSION_CODE)))
+                .addHeaders("Accept", "application/json")
+                .addHeaders("Authorization", "Bearer " + Config.getSharedPreferenceString(TransactionsActivity.this, Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_PASSWORD_ACCESS_TOKEN))
+                .addBodyParameter("user_phone_number", Config.getSharedPreferenceString(TransactionsActivity.this, Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_PHONE))
+                .addBodyParameter("user_pottname", Config.getSharedPreferenceString(TransactionsActivity.this, Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_POTT_NAME))
+                .addBodyParameter("investor_id", Config.getSharedPreferenceString(TransactionsActivity.this, Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_ID))
+                .addBodyParameter("user_language", LocaleHelper.getLanguage(TransactionsActivity.this))
+                .addBodyParameter("app_type", "ANDROID")
+                .addBodyParameter("app_version_code", String.valueOf(Config.getAppVersionCode(TransactionsActivity.this.getApplicationContext())))
                 .setTag("get_transactions")
                 .setPriority(Priority.HIGH)
                 .build().getAsString(new StringRequestListener() {
             @Override
             public void onResponse(String response) {
+                Log.e("get_transactions", response);
                 if (MyLifecycleHandler.isApplicationInForeground()) {
                     new Handler(Looper.getMainLooper()).post(new Runnable() {
                         @Override
@@ -440,12 +441,9 @@ public class TransactionsActivity extends AppCompatActivity implements View.OnCl
                     networkResponse = "1";
                 }
                     try {
-                        JSONObject jsonObject = new JSONObject(response);
-                        JSONArray array = jsonObject.getJSONArray("data_returned");
-
-                        final JSONObject o = array.getJSONObject(0);
-                        int myStatus = o.getInt("1");
-                        final String statusMsg = o.getString("2");
+                        final JSONObject o = new JSONObject(response);
+                        int myStatus = o.getInt("status");
+                        final String statusMsg = o.getString("message");
 
                         // IF USER'S APP IS OUTDATED AND NOT ALLOWED TO BE USED
                         if(myStatus == 2){
@@ -467,15 +465,15 @@ public class TransactionsActivity extends AppCompatActivity implements View.OnCl
                         }
 
                         //STORING THE USER DATA
-                        Config.setSharedPreferenceBoolean(getApplicationContext(), Config.SHARED_PREF_KEY_USER_VERIFY_PHONE_NUMBER_IS_ON, o.getBoolean("3"));
+                        Config.setSharedPreferenceBoolean(TransactionsActivity.this, Config.SHARED_PREF_KEY_USER_VERIFY_PHONE_NUMBER_IS_ON, o.getBoolean("phone_verification_is_on"));
 
                         // UPDATING THE VERSION CODE AND FORCE STATUS OF THE APP.
-                        Config.setSharedPreferenceString(getApplicationContext(), Config.SHARED_PREF_KEY_UPDATE_ACTIVITY_UPDATE_NOT_NOW_DATE, o.getString("6"));
-                        Config.setSharedPreferenceBoolean(getApplicationContext(), Config.SHARED_PREF_KEY_UPDATE_ACTIVITY_UPDATE_BY_FORCE, o.getBoolean("5"));
-                        Config.setSharedPreferenceInt(getApplicationContext(), Config.SHARED_PREF_KEY_UPDATE_ACTIVITY_UPDATE_VERSION_CODE, o.getInt("4"));
+                        Config.setSharedPreferenceBoolean(TransactionsActivity.this, Config.SHARED_PREF_KEY_UPDATE_ACTIVITY_UPDATE_BY_FORCE, o.getBoolean("user_android_app_force_update"));
+                        Config.setSharedPreferenceInt(TransactionsActivity.this, Config.SHARED_PREF_KEY_UPDATE_ACTIVITY_UPDATE_VERSION_CODE, o.getInt("user_android_app_max_vc"));
 
                         if (myStatus == 1) {
-                            JSONArray linkupsSuggestionsArray = jsonObject.getJSONArray("news_returned");
+
+                            JSONArray linkupsSuggestionsArray = new JSONObject(response).getJSONArray("data");
                             // LIST RESULTS SETTING COMES HERE
                             if(linkupsSuggestionsArray.length() > 0){
 
@@ -486,15 +484,15 @@ public class TransactionsActivity extends AppCompatActivity implements View.OnCl
                                     TransactionModel mine1 = new TransactionModel();
                                     if(i<linkupsSuggestionsArray.length()){
                                         final JSONObject k = linkupsSuggestionsArray.getJSONObject(i);
-                                        mine1.setType(k.getString("0a"));
-                                        mine1.setDate(k.getString("1"));
-                                        mine1.setQuantityOrAmount(k.getString("2"));
-                                        mine1.setItemNameOrReceiveNumberOrCreditType(k.getString("3"));
-                                        mine1.setStatusOrBuyerName(k.getString("4"));
-                                        mine1.setTotalCharge(k.getString("5"));
-                                        mine1.setAddedPottName(k.getString("7"));
-                                        mine1.setAddedInfo1(k.getString("8"));
-                                        mine1.setStatusNumber(k.getInt("9"));
+                                        mine1.setType(k.getString("type"));
+                                        mine1.setDate(k.getString("info_5"));
+                                        mine1.setQuantityOrAmount(k.getString("info_2"));
+                                        mine1.setItemNameOrReceiveNumberOrCreditType(k.getString("info_3"));
+                                        mine1.setStatusOrBuyerName(k.getString("info_1"));
+                                        mine1.setTotalCharge(k.getString("info_2"));
+                                        mine1.setAddedPottName(k.getString("info_4"));
+                                        mine1.setAddedInfo1(k.getString("info_6"));
+                                        mine1.setStatusNumber(1);
 
                                         TransactionsListDataGenerator.addOneData(mine1);
                                     }
