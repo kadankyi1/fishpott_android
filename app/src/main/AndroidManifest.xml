@@ -33,6 +33,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".Activities.FindBusinessActivity"
+            android:exported="true" />
+        <activity
             android:name=".Activities.SellQuestionActivity"
             android:exported="true" />
         <activity

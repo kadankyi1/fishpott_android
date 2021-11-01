@@ -1,0 +1,880 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root_transactions_activity"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorAccent"
+    tools:context="com.fishpott.fishpott5.Activities.WithdrawFundsActivity">
+
+    <android.support.constraint.Guideline
+        android:id="@+id/title_bar_guideline_h_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.08" />
+
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/title_bar_constraint_layout_2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/colorPrimaryTitleBar"
+        app:layout_constraintBottom_toTopOf="@+id/title_bar_guideline_h_1"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+
+        <android.support.constraint.Guideline
+            android:id="@+id/in_title_bar_guideline_v_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.15" />
+
+        <ImageView
+            android:id="@+id/title_bar_back_icon_imageview"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginBottom="12dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="12dp"
+            android:contentDescription="@string/none"
+            android:tint="@color/colorAccent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/in_title_bar_guideline_v_1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/forgot_password_arrow_back" />
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/search_edittext_textinputlayout"
+            android:layout_width="0dp"
+            android:layout_height="55dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="25dp"
+            android:gravity="center"
+            android:theme="@style/SearchBizActivityHintStyle"
+            app:layout_constraintBottom_toBottomOf="@+id/title_bar_constraint_layout_2"
+            app:layout_constraintEnd_toStartOf="@+id/title_bar_search_icon_imageview"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/in_title_bar_guideline_v_1"
+            app:layout_constraintTop_toTopOf="@+id/title_bar_constraint_layout_2">
+
+            <EditText
+                android:id="@+id/amount_edittext"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:digits="0123456789."
+                android:hint=" Business Code"
+                android:inputType="number"
+                android:labelFor="@id/amount_withdrawfunds_activity_edittext_textinputlayout"
+                android:maxLength="45"
+                android:textColor="@drawable/login_activity_input_text_color" />
+
+        </android.support.design.widget.TextInputLayout>
+
+
+        <ImageView
+            android:id="@+id/title_bar_search_icon_imageview"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginBottom="12dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="12dp"
+            android:contentDescription="@string/none"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/search_edittext_textinputlayout"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/search_new" />
+
+    </android.support.constraint.ConstraintLayout>
+
+        <ScrollView
+            android:id="@+id/fragment_suggestion_business_holder_constraintlayout"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/title_bar_guideline_h_1">
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <android.support.constraint.Guideline
+                    android:id="@+id/fragment_suggestion_business_h_guideline_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.3" />
+
+                <android.support.constraint.Guideline
+                    android:id="@+id/fragment_suggestion_business_h_guideline_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.17" />
+
+                <android.support.constraint.Guideline
+                    android:id="@+id/fragment_suggestion_business_h_guideline_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.5" />
+
+                <android.support.constraint.ConstraintLayout
+                    android:id="@+id/fragment_suggestion_section1_holder_constraintlayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="250dp"
+                    android:background="@drawable/trainer_background"
+                    android:elevation="10dp"
+                    app:layout_constraintBottom_toTopOf="@+id/fragment_suggestion_business_h_guideline_1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0">
+
+                    <android.support.constraint.Guideline
+                        android:id="@+id/fragment_suggestion_businesslogo_h_guideline_1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        app:layout_constraintGuide_percent="0.19634703" />
+
+                    <android.support.constraint.Guideline
+                        android:id="@+id/fragment_suggestion_businesslogo_h_guideline_2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        app:layout_constraintGuide_percent="0.56164384" />
+
+                    <android.support.constraint.Guideline
+                        android:id="@+id/fragment_suggestion_business_v_guideline_1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_percent="0.7080292" />
+
+                    <android.support.constraint.Guideline
+                        android:id="@+id/fragment_suggestion_business_v_guideline_2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_percent="0.9026764" />
+
+
+                    <com.fishpott.fishpott5.Views.CircleImageView
+                        android:id="@+id/fragment_suggestion_business_logo_textview"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/roundlogo"
+                        app:layout_constraintBottom_toTopOf="@+id/fragment_suggestion_businesslogo_h_guideline_2"
+                        app:layout_constraintEnd_toStartOf="@+id/fragment_suggestion_business_v_guideline_2"
+                        app:layout_constraintStart_toStartOf="@+id/fragment_suggestion_business_v_guideline_1"
+                        app:layout_constraintTop_toTopOf="@+id/fragment_suggestion_businesslogo_h_guideline_1" />
+
+                    <!--android:backgroundTint="@color/transparent"-->
+
+                    <TextView
+                        android:id="@+id/fragment_suggestion_investin_textview"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:fontFamily="@font/roboto"
+                        android:gravity="start|bottom"
+                        android:paddingStart="10dp"
+                        android:text="Invest In"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="14sp"
+                        android:textStyle="italic"
+                        app:layout_constraintBottom_toTopOf="@+id/fragment_suggestion_businesslogo_h_guideline_1"
+                        app:layout_constraintEnd_toStartOf="@+id/fragment_suggestion_business_v_guideline_1"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/fragment_suggestion_business_name_textview"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto"
+                        android:gravity="start"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="10dp"
+                        android:text="Access Bank Ghana Limited"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="22sp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toTopOf="@+id/fragment_suggestion_businesslogo_h_guideline_2"
+                        app:layout_constraintEnd_toStartOf="@+id/fragment_suggestion_business_v_guideline_1"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/fragment_suggestion_businesslogo_h_guideline_1"
+                        app:layout_constraintVertical_bias="0.0" />
+
+                    <TextView
+                        android:id="@+id/fragment_suggestion_business_country_textview"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto"
+                        android:gravity="start"
+                        android:paddingStart="10dp"
+                        android:text="Ghana"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/fragment_suggestion_business_v_guideline_1"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/fragment_suggestion_business_name_textview"
+                        app:layout_constraintVertical_bias="0.0" />
+
+                    <Button
+                        android:id="@+id/buyshares_button_pp_dialog"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginStart="10dp"
+                        android:background="@drawable/button_white_background_pressed_gray"
+                        android:fontFamily="@font/roboto"
+                        android:gravity="center_vertical|center_horizontal"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="10dp"
+                        android:text="Buy Shares"
+                        android:textColor="@color/colorPrimaryDark"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/fragment_suggestion_businesslogo_h_guideline_2" />
+                </android.support.constraint.ConstraintLayout>
+
+                <android.support.constraint.ConstraintLayout
+                    android:id="@+id/fragment_suggestion_businessinfo_holder1_textview"
+                    android:layout_width="match_parent"
+                    android:layout_height="90dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:background="@drawable/rounded_corner_shape_ash"
+                    android:elevation="15dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/fragment_suggestion_business_h_guideline_2">
+
+                    <android.support.constraint.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/rounded_corner_shape"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <ImageView
+                            android:id="@+id/fragment_suggestion_business_networth_imageview"
+                            android:layout_width="45dp"
+                            android:layout_height="45dp"
+                            android:paddingStart="10dp"
+                            android:src="@drawable/ic_networth"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@+id/fragment_suggestion_business_networthvalue_textview"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/fragment_suggestion_business_networthvalue_textview"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/roboto"
+                            android:gravity="start"
+                            android:paddingStart="10dp"
+                            android:text="$200K"
+                            android:textColor="@color/colorAccentAsh"
+                            android:textSize="15sp"
+                            app:layout_constraintBottom_toTopOf="@+id/fragment_suggestion_business_networthlabel_textview"
+                            app:layout_constraintStart_toEndOf="@+id/fragment_suggestion_business_networth_imageview"
+                            app:layout_constraintTop_toTopOf="@+id/fragment_suggestion_business_networth_imageview"
+                            app:layout_constraintVertical_bias="0.0" />
+
+                        <TextView
+                            android:id="@+id/fragment_suggestion_business_networthlabel_textview"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/roboto"
+                            android:gravity="start"
+                            android:paddingStart="10dp"
+                            android:text="Net Worth"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textSize="15sp"
+                            app:layout_constraintBottom_toBottomOf="@+id/fragment_suggestion_business_networth_imageview"
+                            app:layout_constraintEnd_toStartOf="@+id/fragment_suggestion_business_bioseparator_view"
+                            app:layout_constraintStart_toEndOf="@+id/fragment_suggestion_business_networth_imageview"
+                            app:layout_constraintTop_toBottomOf="@+id/fragment_suggestion_business_networthvalue_textview"
+                            app:layout_constraintVertical_bias="0.0" />
+
+                        <View
+                            android:id="@+id/fragment_suggestion_business_bioseparator_view"
+                            android:layout_width="1dp"
+                            android:layout_height="0dp"
+                            android:layout_margin="25dp"
+                            android:background="@color/colorAccentGray"
+                            android:orientation="vertical"
+                            android:paddingTop="10dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@+id/fragment_suggestion_business_investors_imageview"
+                            app:layout_constraintStart_toEndOf="@+id/fragment_suggestion_business_networthlabel_textview"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <ImageView
+                            android:id="@+id/fragment_suggestion_business_investors_imageview"
+                            android:layout_width="51dp"
+                            android:layout_height="51dp"
+                            android:paddingStart="10dp"
+                            android:src="@drawable/ic_investors"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@+id/fragment_suggestion_business_investorsvalue_textview"
+                            app:layout_constraintStart_toEndOf="@+id/fragment_suggestion_business_bioseparator_view"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/fragment_suggestion_business_investorsvalue_textview"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/roboto"
+                            android:gravity="start"
+                            android:paddingStart="10dp"
+                            android:text="$200K"
+                            android:textColor="@color/colorAccentAsh"
+                            android:textSize="15sp"
+                            app:layout_constraintBottom_toTopOf="@+id/fragment_suggestion_business_networthlabel_textview"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/fragment_suggestion_business_investors_imageview"
+                            app:layout_constraintTop_toTopOf="@+id/fragment_suggestion_business_investors_imageview"
+                            app:layout_constraintVertical_bias="0.0" />
+
+                        <TextView
+                            android:id="@+id/fragment_suggestion_business_investorslabel_textview"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/roboto"
+                            android:gravity="start"
+                            android:paddingStart="10dp"
+                            android:text="Investors"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textSize="15sp"
+                            app:layout_constraintBottom_toBottomOf="@+id/fragment_suggestion_business_investors_imageview"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/fragment_suggestion_business_investors_imageview"
+                            app:layout_constraintTop_toBottomOf="@+id/fragment_suggestion_business_networthvalue_textview"
+                            app:layout_constraintVertical_bias="0.0" />
+
+                    </android.support.constraint.ConstraintLayout>
+
+                </android.support.constraint.ConstraintLayout>
+
+                <android.support.constraint.ConstraintLayout
+                    android:id="@+id/fragment_suggestion_businessinfo_holder2_textview"
+                    android:layout_width="match_parent"
+                    android:layout_height="375dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:background="@drawable/rounded_corner_shape_ash"
+                    android:elevation="15dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/fragment_suggestion_businessinfo_holder1_textview">
+
+                    <android.support.constraint.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/rounded_corner_shape"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+
+                        <TextView
+                            android:id="@+id/fragment_suggestion_business_pitchlabel_textview"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/roboto"
+                            android:gravity="start"
+                            android:paddingStart="25dp"
+                            android:text="Pitch"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            app:layout_constraintBottom_toTopOf="@+id/fragment_suggestion_business_pitchseparator_view"
+                            app:layout_constraintEnd_toStartOf="@+id/fragment_suggestion_business_pitch_imageview"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.35000002" />
+
+                        <ImageView
+                            android:id="@+id/fragment_suggestion_business_pitch_imageview"
+                            android:layout_width="51dp"
+                            android:layout_height="51dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginEnd="20dp"
+                            android:src="@drawable/ic_pitch"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/fragment_suggestion_business_pitchlabel_textview"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.0" />
+
+                        <View
+                            android:id="@+id/fragment_suggestion_business_pitchseparator_view"
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginStart="25dp"
+                            android:layout_marginEnd="25dp"
+                            android:background="@color/colorAccentGray"
+                            android:orientation="horizontal"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/fragment_suggestion_business_pitch_imageview"
+                            app:layout_constraintVertical_bias="0.0" />
+
+
+                        <TextView
+                            android:id="@+id/fragment_suggestion_business_pitchtext_textview"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="25dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginEnd="25dp"
+                            android:fontFamily="@font/roboto"
+                            android:gravity="start"
+                            android:text="This business seem to have a good financial back. This business seem to have a good financial back. "
+                            android:textColor="@color/colorAccentAsh"
+                            android:textSize="15sp"
+                            app:layout_constraintBottom_toTopOf="@+id/mpw_video_player"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/fragment_suggestion_business_pitchseparator_view"
+                            app:layout_constraintVertical_bias="0.0" />
+
+                        <hb.xvideoplayer.MxVideoPlayerWidget
+                            android:id="@+id/mpw_video_player"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/colorPrimaryDark"
+                            android:elevation="3dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/fragment_suggestion_business_pitchtext_textview" />
+
+                    </android.support.constraint.ConstraintLayout>
+
+                </android.support.constraint.ConstraintLayout>
+
+
+                <android.support.constraint.ConstraintLayout
+                    android:id="@+id/fragment_suggestion_businessinfo_holder3_textview"
+                    android:layout_width="match_parent"
+                    android:layout_height="250dp"
+                    android:layout_margin="20dp"
+                    android:background="@drawable/rounded_corner_shape_ash"
+                    android:elevation="15dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/fragment_suggestion_businessinfo_holder2_textview">
+
+                    <android.support.constraint.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/rounded_corner_shape"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="1.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="1.0">
+
+
+                        <TextView
+                            android:id="@+id/fragment_suggestion_business_productserviceslabel_textview"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/roboto"
+                            android:gravity="start"
+                            android:paddingStart="25dp"
+                            android:text="Services &amp; Executives"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            app:layout_constraintBottom_toTopOf="@+id/fragment_suggestion_business_productservicesseparator_view"
+                            app:layout_constraintEnd_toStartOf="@+id/fragment_suggestion_business_productservices_imageview"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.35000002" />
+
+                        <ImageView
+                            android:id="@+id/fragment_suggestion_business_productservices_imageview"
+                            android:layout_width="51dp"
+                            android:layout_height="51dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginEnd="20dp"
+                            android:src="@drawable/ic_service"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/fragment_suggestion_business_productserviceslabel_textview"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.0" />
+
+                        <View
+                            android:id="@+id/fragment_suggestion_business_productservicesseparator_view"
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginStart="25dp"
+                            android:layout_marginEnd="25dp"
+                            android:background="@color/colorAccentGray"
+                            android:orientation="horizontal"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/fragment_suggestion_business_productservices_imageview"
+                            app:layout_constraintVertical_bias="0.0" />
+
+                        <TextView
+                            android:id="@+id/fragment_suggestion_business_servicetext_textview"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="25dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginEnd="25dp"
+                            android:fontFamily="@font/roboto"
+                            android:gravity="start"
+                            android:text="This business seem to have a good financial back. This business seem to have a good financial back. This business seem to have a good financial back. "
+                            android:textColor="@color/colorAccentAsh"
+                            android:textSize="15sp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/fragment_suggestion_business_productservicesseparator_view" />
+
+                        <TextView
+                            android:id="@+id/fragment_suggestion_business_servicewebsite_textview"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="25dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginEnd="25dp"
+                            android:fontFamily="@font/roboto"
+                            android:gravity="start"
+                            android:text="fishpott.com"
+                            android:textColor="@color/colorAccentAsh"
+                            android:textSize="15sp"
+                            android:textStyle="italic"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/fragment_suggestion_business_servicetext_textview" />
+
+                        <TextView
+                            android:id="@+id/fragment_suggestion_business_ceolabel_textview"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="25dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginEnd="25dp"
+                            android:fontFamily="@font/roboto"
+                            android:gravity="start"
+                            android:text="CEO"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textSize="15sp"
+                            app:layout_constraintEnd_toStartOf="@+id/fragment_suggestion_business_coolabel_textview"
+                            app:layout_constraintHorizontal_bias="0.0"
+                            app:layout_constraintHorizontal_chainStyle="spread_inside"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/fragment_suggestion_business_servicewebsite_textview" />
+
+
+                        <TextView
+                            android:id="@+id/fragment_suggestion_business_ceotext_textview"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="25dp"
+                            android:fontFamily="@font/roboto"
+                            android:gravity="start"
+                            android:text="Dankyi Anno K"
+                            android:textColor="@color/colorAccentAsh"
+                            android:textSize="15sp"
+                            app:layout_constraintHorizontal_bias="0.29"
+                            app:layout_constraintStart_toStartOf="@+id/fragment_suggestion_business_ceolabel_textview"
+                            app:layout_constraintTop_toBottomOf="@+id/fragment_suggestion_business_ceolabel_textview" />
+
+                        <TextView
+                            android:id="@+id/fragment_suggestion_business_coolabel_textview"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="25dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginEnd="25dp"
+                            android:fontFamily="@font/roboto"
+                            android:gravity="start"
+                            android:text="CFO"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textSize="15sp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/fragment_suggestion_business_ceotext_textview"
+                            app:layout_constraintTop_toBottomOf="@+id/fragment_suggestion_business_servicewebsite_textview" />
+
+                        <TextView
+                            android:id="@+id/fragment_suggestion_business_cootext_textview"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/roboto"
+                            android:gravity="start"
+                            android:text="Patrice Lumumba"
+                            android:textColor="@color/colorAccentAsh"
+                            android:textSize="15sp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.0"
+                            app:layout_constraintStart_toStartOf="@+id/fragment_suggestion_business_coolabel_textview"
+                            app:layout_constraintTop_toBottomOf="@+id/fragment_suggestion_business_coolabel_textview" />
+
+                    </android.support.constraint.ConstraintLayout>
+
+                </android.support.constraint.ConstraintLayout>
+
+                <android.support.constraint.ConstraintLayout
+                    android:id="@+id/fragment_suggestion_businessinfo_holder4_textview"
+                    android:layout_width="match_parent"
+                    android:layout_height="250dp"
+                    android:layout_margin="20dp"
+                    android:background="@drawable/rounded_corner_shape_ash"
+                    android:elevation="15dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/fragment_suggestion_businessinfo_holder3_textview">
+
+                    <android.support.constraint.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/rounded_corner_shape"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="1.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="1.0">
+
+
+                        <TextView
+                            android:id="@+id/fragment_suggestion_business_financeslabel_textview"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/roboto"
+                            android:gravity="start"
+                            android:paddingStart="25dp"
+                            android:text="Financial Overview - 2015"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            app:layout_constraintBottom_toTopOf="@+id/fragment_suggestion_business_financesseparator_view"
+                            app:layout_constraintEnd_toStartOf="@+id/fragment_suggestion_business_finances_imageview"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.35000002" />
+
+                        <ImageView
+                            android:id="@+id/fragment_suggestion_business_finances_imageview"
+                            android:layout_width="51dp"
+                            android:layout_height="51dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginEnd="20dp"
+                            android:src="@drawable/ic_report"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/fragment_suggestion_business_financeslabel_textview"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.0" />
+
+                        <View
+                            android:id="@+id/fragment_suggestion_business_financesseparator_view"
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginStart="25dp"
+                            android:layout_marginEnd="25dp"
+                            android:background="@color/colorAccentGray"
+                            android:orientation="horizontal"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/fragment_suggestion_business_finances_imageview"
+                            app:layout_constraintVertical_bias="0.0" />
+
+                        <TextView
+                            android:id="@+id/fragment_suggestion_business_lastyearrevenuelabel_textview"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="25dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginEnd="25dp"
+                            android:fontFamily="@font/roboto"
+                            android:gravity="start"
+                            android:text="Revenue"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textSize="15sp"
+                            app:layout_constraintEnd_toStartOf="@+id/fragment_suggestion_business_lastyeardebtlabel_textview"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/fragment_suggestion_business_financesseparator_view"
+                            app:layout_constraintVertical_bias="0.0" />
+
+                        <TextView
+                            android:id="@+id/fragment_suggestion_business_lastyearrevenuetext_textview"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="25dp"
+                            android:fontFamily="@font/roboto"
+                            android:gravity="start"
+                            android:text="$50K"
+                            android:textColor="@color/colorAccentAsh"
+                            android:textSize="15sp"
+                            app:layout_constraintEnd_toEndOf="@+id/fragment_suggestion_business_lastyearrevenuelabel_textview"
+                            app:layout_constraintStart_toStartOf="@+id/fragment_suggestion_business_lastyearrevenuelabel_textview"
+                            app:layout_constraintTop_toBottomOf="@+id/fragment_suggestion_business_lastyearrevenuelabel_textview"
+                            app:layout_constraintVertical_bias="0.0" />
+
+                        <TextView
+                            android:id="@+id/fragment_suggestion_business_lastyeardebtlabel_textview"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="25dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginEnd="25dp"
+                            android:fontFamily="@font/roboto"
+                            android:gravity="start"
+                            android:text="Balance"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textSize="15sp"
+                            app:layout_constraintEnd_toStartOf="@+id/fragment_suggestion_business_lastyearinvestslabel_textview"
+                            app:layout_constraintStart_toEndOf="@+id/fragment_suggestion_business_lastyearrevenuelabel_textview"
+                            app:layout_constraintTop_toBottomOf="@+id/fragment_suggestion_business_financesseparator_view"
+                            app:layout_constraintVertical_bias="0.0" />
+
+                        <TextView
+                            android:id="@+id/fragment_suggestion_business_lastyeardebttext_textview"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="25dp"
+                            android:fontFamily="@font/roboto"
+                            android:gravity="start"
+                            android:text="$10K"
+                            android:textColor="@color/colorAccentAsh"
+                            android:textSize="15sp"
+                            app:layout_constraintEnd_toEndOf="@+id/fragment_suggestion_business_lastyeardebtlabel_textview"
+                            app:layout_constraintStart_toStartOf="@+id/fragment_suggestion_business_lastyeardebtlabel_textview"
+                            app:layout_constraintTop_toBottomOf="@+id/fragment_suggestion_business_lastyeardebtlabel_textview"
+                            app:layout_constraintVertical_bias="0.0" />
+
+
+                        <TextView
+                            android:id="@+id/fragment_suggestion_business_lastyearinvestslabel_textview"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="25dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginEnd="25dp"
+                            android:fontFamily="@font/roboto"
+                            android:gravity="start"
+                            android:text="Raising"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textSize="15sp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/fragment_suggestion_business_lastyeardebtlabel_textview"
+                            app:layout_constraintTop_toBottomOf="@+id/fragment_suggestion_business_financesseparator_view" />
+
+                        <TextView
+                            android:id="@+id/fragment_suggestion_business_lastyearinveststext_textview"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/roboto"
+                            android:gravity="start"
+                            android:text="$150K"
+                            android:textColor="@color/colorAccentAsh"
+                            android:textSize="15sp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="@+id/fragment_suggestion_business_lastyearinvestslabel_textview"
+                            app:layout_constraintTop_toBottomOf="@+id/fragment_suggestion_business_lastyearinvestslabel_textview" />
+
+                        <TextView
+                            android:id="@+id/fragment_suggestion_business_finance_biotext_textview"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="25dp"
+                            android:fontFamily="@font/roboto"
+                            android:gravity="start"
+                            android:text="This business seems to have a good financial backbone. Click here to download a detailed financial report"
+                            android:textColor="@color/colorAccentAsh"
+                            android:textSize="15sp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/fragment_suggestion_business_lastyeardebttext_textview" />
+
+                        <TextView
+                            android:id="@+id/fragment_suggestion_business_finance_fullreporttext_textview"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="25dp"
+                            android:fontFamily="@font/roboto"
+                            android:gravity="start"
+                            android:text="Click here to download a detailed financial report"
+                            android:textColor="@color/colorAccentAsh"
+                            android:textSize="15sp"
+                            android:textStyle="italic"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/fragment_suggestion_business_finance_biotext_textview" />
+
+                    </android.support.constraint.ConstraintLayout>
+
+                </android.support.constraint.ConstraintLayout>
+            </android.support.constraint.ConstraintLayout>
+
+        </ScrollView>
+
+        <ImageView
+            android:id="@+id/fragment_suggestion_loader_imageview"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginBottom="8dp"
+            android:src="@drawable/roundlogo"
+            android:visibility="visible"
+            app:layout_constraintBottom_toTopOf="@+id/fragment_suggestion_loadertext_textview"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <TextView
+            android:id="@+id/fragment_suggestion_loadertext_textview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="25dp"
+            android:gravity="center"
+            android:text="Type in the business code to find the business. You can only buy shares in a business suggested to you by your FishPott."
+            android:textAlignment="center"
+            android:textColor="@color/colorPrimaryDark"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/fragment_suggestion_loader_imageview"
+            app:layout_constraintVertical_bias="0.0" />
+
+    </android.support.constraint.ConstraintLayout>
