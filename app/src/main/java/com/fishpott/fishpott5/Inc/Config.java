@@ -298,6 +298,10 @@ public class Config {
 	// SEND WITHDRAWAL REQUEST
 	public static final String LINK_WITHDRAW_FUNDS = CURRENT_HTTP_IN_USE + "144.202.111.61/api/v1/user/send-withdrawal-request";
 
+	// SERVER-SIDE API FOR TRANSACTIONS
+	public static final String LINK_GET_TRANSACTIONS = CURRENT_HTTP_IN_USE + "144.202.111.61/api/v1/user/get-my-transactions";
+
+
 	/********************************************************************************************************************************************
 
 	 OLD LINKS OLD LINKS OLD LINKS OLD LINKS OLD LINKS OLD LINKS OLD LINKS OLD LINKS OLD LINKS OLD LINKS OLD LINKS OLD LINKS OLD LINKS OLD LINKS
@@ -387,9 +391,6 @@ public class Config {
 
 	// SERVER-SIDE API FOR LINKUPS
 	public static final String LINK_GET_SELLERS_OF_SHARES = CURRENT_HTTP_IN_USE + "www.fishpott.com/inc/android/get_sellers.php";
-
-	// SERVER-SIDE API FOR TRANSACTIONS
-	public static final String LINK_GET_TRANSACTIONS = CURRENT_HTTP_IN_USE + "www.fishpott.com/inc/android/get_my_transactions.php";
 
 	// SERVER-SIDE API FOR ADDING-LINKUPS-AT-SIGNUP
 	public static final String LINK_ADD_LINKUPS = CURRENT_HTTP_IN_USE + "www.fishpott.com/inc/android/add_linkup.php";
