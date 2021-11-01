@@ -310,12 +310,10 @@ public class MySharesActivity extends AppCompatActivity implements View.OnClickL
                     networkResponse = "1";
                 }
                     try {
-                        JSONObject jsonObject = new JSONObject(response);
-                        JSONArray array = jsonObject.getJSONArray("data_returned");
 
-                        final JSONObject o = array.getJSONObject(0);
-                        int myStatus = o.getInt("1");
-                        final String statusMsg = o.getString("2");
+                        final JSONObject o = new JSONObject(response);
+                        int myStatus = o.getInt("status");
+                        final String statusMsg = o.getString("message");
 
                         // IF USER'S APP IS OUTDATED AND NOT ALLOWED TO BE USED
                         if(myStatus == 2){
