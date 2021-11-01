@@ -68,7 +68,7 @@
             app:layout_constraintTop_toTopOf="@+id/title_bar_constraint_layout_2">
 
             <EditText
-                android:id="@+id/amount_edittext"
+                android:id="@+id/search_edittext"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:digits="0123456789."
