@@ -301,6 +301,8 @@ public class Config {
 	// SERVER-SIDE API FOR TRANSACTIONS
 	public static final String LINK_GET_TRANSACTIONS = CURRENT_HTTP_IN_USE + "144.202.111.61/api/v1/user/get-my-transactions";
 
+	// SERVER-SIDE API FOR GETTING MY OWNED SHARES
+	public static final String LINK_GET_MY_SHARES = CURRENT_HTTP_IN_USE + "144.202.111.61/api/v1/user/get-my-investments";
 
 	/********************************************************************************************************************************************
 
@@ -331,9 +333,6 @@ public class Config {
 
 	// SERVER-SIDE API FOR HORIZONTAL SHARES FOR SALE
 	public static final String LINK_GET_HORIZONTAL_LINKUPS_NEWS = CURRENT_HTTP_IN_USE + "www.fishpott.com/inc/android/get_news_linkups_suggestions.php";
-
-	// SERVER-SIDE API FOR GETTING MY OWNED SHARES
-	public static final String LINK_GET_MY_SHARES = CURRENT_HTTP_IN_USE + "www.fishpott.com/inc/android/get_my_shares.php";
 
 	// SERVER-SIDE API FOR SENDING MESSAGE
 	public static final String LINK_SEND_MESSAGE = CURRENT_HTTP_IN_USE + "www.fishpott.com/inc/android/send_message.php";
