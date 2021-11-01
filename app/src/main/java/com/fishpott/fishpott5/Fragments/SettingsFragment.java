@@ -13,6 +13,7 @@ import android.widget.TextView;
 import com.fishpott.fishpott5.Activities.AboutActivity;
 import com.fishpott.fishpott5.Activities.ChangePasswordActivity;
 import com.fishpott.fishpott5.Activities.CreditWalletActivity;
+import com.fishpott.fishpott5.Activities.FindBusinessActivity;
 import com.fishpott.fishpott5.Activities.MessengerActivity;
 import com.fishpott.fishpott5.Activities.MtnMobileMoneyActivity;
 import com.fishpott.fishpott5.Activities.MySharesActivity;
@@ -30,7 +31,8 @@ public class SettingsFragment extends Fragment implements View.OnClickListener {
 
     private ConstraintLayout mCreditWalletHolderConstraintLayout, mViewMySharesHolderConstraintLayout, mRedeemWalletCreditCouponHolderConstraintLayout,
             mRedeemSharesCouponHolderConstraintLayout, mTransactionsHolderConstraintLayout, mWithdrawFundsHolderConstraintLayout, mPrivacyPolicyHolderConstraintLayout,
-            mChangePasswordHolderConstraintLayout, mContactFPHolderConstraintLayout, mAboutHolderConstraintLayout, mTermsOfServiceHolderConstraintLayout;
+            mChangePasswordHolderConstraintLayout, mContactFPHolderConstraintLayout, mAboutHolderConstraintLayout, mTermsOfServiceHolderConstraintLayout,
+            mFindBusinessHolderConstraintLayout;
     public static TextView mWithdrawalWalletBalanceTextView, mDebitWalletBalanceTextView, mPottPearlsBalanceTextView;
     private View view = null;
 
@@ -53,6 +55,7 @@ public class SettingsFragment extends Fragment implements View.OnClickListener {
         mDebitWalletBalanceTextView = view.findViewById(R.id.debit_wallet_textview);
         mPottPearlsBalanceTextView = view.findViewById(R.id.pott_pearls_wallet_textview);
         mAboutHolderConstraintLayout = view.findViewById(R.id.about_holder_contrainlayout);
+        mFindBusinessHolderConstraintLayout = view.findViewById(R.id.active_bness_suggest_holder_contrainlayout);
         mCreditWalletHolderConstraintLayout = view.findViewById(R.id.credit_wallet_holder_contrainlayout);
         mViewMySharesHolderConstraintLayout = view.findViewById(R.id.myshares_holder_contrainlayout);
         mRedeemWalletCreditCouponHolderConstraintLayout = view.findViewById(R.id.redeem_wallet_coupon_holder_contrainlayout);
@@ -84,6 +87,7 @@ public class SettingsFragment extends Fragment implements View.OnClickListener {
         mPottPearlsBalanceTextView.setText(pottPearls);
 
         mAboutHolderConstraintLayout.setOnClickListener(this);
+        mFindBusinessHolderConstraintLayout.setOnClickListener(this);
         mCreditWalletHolderConstraintLayout.setOnClickListener(this);
         mViewMySharesHolderConstraintLayout.setOnClickListener(this);
         mRedeemWalletCreditCouponHolderConstraintLayout.setOnClickListener(this);
@@ -126,7 +130,9 @@ public class SettingsFragment extends Fragment implements View.OnClickListener {
     public void onClick(View view) {
         if(view.getId() == R.id.about_holder_contrainlayout){
             Config.openActivity(getActivity(), AboutActivity.class, 1, 0, 0, "", "");
-        } else if(view.getId() == R.id.credit_wallet_holder_contrainlayout){
+        } else if(view.getId() ==  mFindBusinessHolderConstraintLayout.getId()){
+            Config.openActivity(getActivity(), FindBusinessActivity.class, 0, 0, 0, "", "");
+        }else if(view.getId() == R.id.credit_wallet_holder_contrainlayout){
             Config.openActivity(getActivity(), CreditWalletActivity.class, 1, 0, 0, "", "");
             //Config.openActivity(getActivity(), MtnMobileMoneyActivity.class, 1, 0, 0, "", "");
         } else if(view.getId() == R.id.myshares_holder_contrainlayout){

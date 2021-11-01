@@ -71,9 +71,8 @@
                 android:id="@+id/search_edittext"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:digits="0123456789."
                 android:hint=" Business Code"
-                android:inputType="number"
+                android:inputType="text"
                 android:labelFor="@id/amount_withdrawfunds_activity_edittext_textinputlayout"
                 android:maxLength="45"
                 android:textColor="@drawable/login_activity_input_text_color" />

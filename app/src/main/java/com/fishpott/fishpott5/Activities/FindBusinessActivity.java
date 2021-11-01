@@ -83,7 +83,7 @@ public class FindBusinessActivity extends AppCompatActivity implements View.OnCl
         mSuggestionBusinessFinanceFullReportTextView = findViewById(R.id.fragment_suggestion_business_finance_fullreporttext_textview);
 
         // SETTING CLICK LISTENERS
-        mSuggestionLoaderImageView.setOnClickListener(this);
+        //mSuggestionLoaderImageView.setOnClickListener(this);
         mSuggestionBusinessBuySharesButton.setOnClickListener(this);
         mBusinessWebsiteTextView.setOnClickListener(this);
         mSuggestionBusinessFinanceFullReportTextView.setOnClickListener(this);
