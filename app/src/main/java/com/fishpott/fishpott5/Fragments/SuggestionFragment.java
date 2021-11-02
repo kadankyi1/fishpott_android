@@ -25,6 +25,7 @@ import com.fishpott.fishpott5.Activities.BuyBusinessStockSuggestedActivity;
 import com.fishpott.fishpott5.Activities.BuySharesForSaleActivity;
 import com.fishpott.fishpott5.Activities.LoginActivity;
 import com.fishpott.fishpott5.Activities.ProfileOfDifferentPottActivity;
+import com.fishpott.fishpott5.Activities.StartActivity;
 import com.fishpott.fishpott5.Activities.UpdateActivity;
 import com.fishpott.fishpott5.Activities.WebViewActivity;
 import com.fishpott.fishpott5.Inc.Config;
@@ -340,12 +341,12 @@ public class SuggestionFragment extends Fragment implements View.OnClickListener
                                             mSuggestionBusinessCEOTextView.setText(finalBusinessCEO);
                                             mSuggestionBusinessCOOTextView.setText(finalBusinessCOO);
                                             mSuggestionBusinessServicesBioTextView.setText(finalBusinessServicesBio);
-                                            mBusinessWebsiteTextView.setText(finalBusinessServicesWebsite);
+                                            //mBusinessWebsiteTextView.setText(finalBusinessServicesWebsite);
                                             mBusinessRevenueLastYrTextView.setText(finalBusinessLastYrRevenue);
                                             mBusinessDebtTextView.setText(finalBusinessProfitOrLoss);
                                             mBusinessInvestmentsInTextView.setText(finalBusinessInvestments);
                                             mSuggestionBusinessFinanceBioTextView.setText(finalBusinessFinanceBio);
-                                            mSuggestionBusinessFinanceFullReportTextView.setText(finalBusinessFinanceFullReport);
+                                            //mSuggestionBusinessFinanceFullReportTextView.setText(finalBusinessFinanceFullReport);
                                             mSuggestionLoaderImageView.clearAnimation();
                                             mSuggestionLoaderImageView.setVisibility(View.INVISIBLE);
                                             mSuggestionLoaderTextTextView.setVisibility(View.INVISIBLE);
@@ -371,7 +372,7 @@ public class SuggestionFragment extends Fragment implements View.OnClickListener
                         } else if(myStatus == 4){
                             // IF USER'S ACCOUNT HAS BEEN SUSPENDED, WE SIGN USER OUT
                             Config.showToastType1(getActivity(), myStatusMessage);
-                            Config.signOutUser(getActivity().getApplicationContext(), false, null, null, 0, 2);
+                            Config.signOutUser(getActivity().getApplicationContext(), true, getActivity(), StartActivity.class, 0, 2);
                         } else if(myStatus == 5){
                             Config.setSharedPreferenceBoolean(getActivity().getApplicationContext(), Config.SHARED_PREF_KEY_UPDATE_ACTIVITY_UPDATE_BY_FORCE, true);
                             Config.openActivity3(getActivity().getApplicationContext(), UpdateActivity.class, 1, Config.KEY_ACTIVITY_FINISHED, "1");
@@ -482,7 +483,7 @@ public class SuggestionFragment extends Fragment implements View.OnClickListener
                     } else if(myStatus == 4){
                         // IF USER'S ACCOUNT HAS BEEN SUSPENDED, WE SIGN USER OUT
                         Config.showToastType1(getActivity(), myStatusMessage);
-                        Config.signOutUser(getActivity().getApplicationContext(), false, null, null, 0, 2);
+                        Config.signOutUser(getActivity().getApplicationContext(), true, getActivity(), StartActivity.class, 0, 2);
                     } else if(myStatus == 5){
                         Config.setSharedPreferenceBoolean(getActivity().getApplicationContext(), Config.SHARED_PREF_KEY_UPDATE_ACTIVITY_UPDATE_BY_FORCE, true);
                         Config.openActivity3(getActivity().getApplicationContext(), UpdateActivity.class, 1, Config.KEY_ACTIVITY_FINISHED, "1");

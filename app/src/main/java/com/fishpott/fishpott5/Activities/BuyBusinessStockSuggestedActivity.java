@@ -213,17 +213,6 @@ public class BuyBusinessStockSuggestedActivity extends AppCompatActivity impleme
                     final JSONObject o = new JSONObject(response);
                     int myStatus = o.getInt("status");
                     final String myStatusMessage = o.getString("message");
-                    final String itemName = o.getJSONObject("data").getString("item");
-                    final String pricePerItem = o.getJSONObject("data").getString("price_per_item");
-                    final String quantity = o.getJSONObject("data").getString("quantity");
-                    final String rate = o.getJSONObject("data").getString("rate");
-                    final String risk = o.getJSONObject("data").getString("risk");
-                    final String riskStatement = o.getJSONObject("data").getString("risk_statement");
-                    final String riskInsuranceFee = o.getJSONObject("data").getString("risk_insurance_fee");
-                    final String processingFee = o.getJSONObject("data").getString("processing_fee");
-                    final String overallTotalUsd = o.getJSONObject("data").getString("overall_total_usd");
-                    final String overallTotalLocalCurrency = o.getJSONObject("data").getString("overall_total_local_currency");
-                    final String financialYieldInfo = o.getJSONObject("data").getString("financial_yield_info");
 
                     //STORING THE USER DATA
                     Config.setSharedPreferenceBoolean(BuyBusinessStockSuggestedActivity.this, Config.SHARED_PREF_KEY_USER_VERIFY_PHONE_NUMBER_IS_ON, o.getBoolean("phone_verification_is_on"));
@@ -233,8 +222,19 @@ public class BuyBusinessStockSuggestedActivity extends AppCompatActivity impleme
                     Config.setSharedPreferenceInt(BuyBusinessStockSuggestedActivity.this, Config.SHARED_PREF_KEY_UPDATE_ACTIVITY_UPDATE_VERSION_CODE, o.getInt("user_android_app_max_vc"));
 
                     if(myStatus == 1){
+                        final String itemName = o.getJSONObject("data").getString("item");
+                        final String pricePerItem = o.getJSONObject("data").getString("price_per_item");
+                        final String quantity = o.getJSONObject("data").getString("quantity");
+                        final String rate = o.getJSONObject("data").getString("rate");
+                        final String risk = o.getJSONObject("data").getString("risk");
+                        final String riskStatement = o.getJSONObject("data").getString("risk_statement");
+                        final String riskInsuranceFee = o.getJSONObject("data").getString("risk_insurance_fee");
+                        final String processingFee = o.getJSONObject("data").getString("processing_fee");
+                        final String overallTotalUsd = o.getJSONObject("data").getString("overall_total_usd");
+                        final String overallTotalLocalCurrency = o.getJSONObject("data").getString("overall_total_local_currency");
+                        final String financialYieldInfo = o.getJSONObject("data").getString("financial_yield_info");
                         //Config.showToastType1(BuyBusinessStockSuggestedActivity.this, myStatusMessage);
-                        if(MyLifecycleHandler.isApplicationInForeground()){
+                        if(!BuyBusinessStockSuggestedActivity.this.isFinishing()){
                             new Handler(Looper.getMainLooper()).post(new Runnable() {
                                 @Override
                                 public void run() {
@@ -264,27 +264,30 @@ public class BuyBusinessStockSuggestedActivity extends AppCompatActivity impleme
                         return;
                     } else if(myStatus == 3){
                         // GENERAL ERROR
-                        //mSuggestionLoaderImageView.clearAnimation();
-                        //mSuggestionLoaderTextTextView.setText("Click the icon to get your next suggestion");
-                        //Config.showToastType1(getActivity(), myStatusMessage);
+                        Config.showToastType1(BuyBusinessStockSuggestedActivity.this, myStatusMessage);
+                        mLoaderImageView.setVisibility(View.INVISIBLE);
+                        mLoaderTextView.setVisibility(View.INVISIBLE);
+                        mFinalHolderScrollView.setVisibility(View.INVISIBLE);
+                        mItemHolderScrollView.setVisibility(View.VISIBLE);
                         return;
                     } else if(myStatus == 4){
                         // IF USER'S ACCOUNT HAS BEEN SUSPENDED, WE SIGN USER OUT
-                        //Config.showToastType1(getActivity(), myStatusMessage);
-                        //Config.signOutUser(getActivity().getApplicationContext(), false, null, null, 0, 2);
+                        Config.showToastType1(BuyBusinessStockSuggestedActivity.this, myStatusMessage);
+                        Config.signOutUser(BuyBusinessStockSuggestedActivity.this.getApplicationContext(), true, BuyBusinessStockSuggestedActivity.this, StartActivity.class, 0, 2);
                     } else if(myStatus == 5){
-                        //Config.setSharedPreferenceBoolean(getActivity().getApplicationContext(), Config.SHARED_PREF_KEY_UPDATE_ACTIVITY_UPDATE_BY_FORCE, true);
-                        //Config.openActivity3(getActivity().getApplicationContext(), UpdateActivity.class, 1, Config.KEY_ACTIVITY_FINISHED, "1");
+                        Config.setSharedPreferenceBoolean(getApplicationContext(), Config.SHARED_PREF_KEY_UPDATE_ACTIVITY_UPDATE_BY_FORCE, true);
+                        Config.openActivity3(getApplicationContext(), UpdateActivity.class, 1, Config.KEY_ACTIVITY_FINISHED, "1");
                         return;
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
-                    if(MyLifecycleHandler.isApplicationInForeground()){
-                            /*
-                            ADD XML TO FRONT SO USER CAN CLICK TO TRY AGAIN IF IT FAILS
-                             */
-                    } else {
-                        //networkResponse = getString(R.string.login_activity_an_unexpected_error_occured);
+                    Config.showToastType1(BuyBusinessStockSuggestedActivity.this, getString(R.string.failed_if_this_continues_please_update_your_app));
+                    if(!BuyBusinessStockSuggestedActivity.this.isFinishing()){
+                        mLoaderImageView.clearAnimation();
+                        mLoaderImageView.setVisibility(View.INVISIBLE);
+                        mLoaderTextView.setVisibility(View.INVISIBLE);
+                        mFinalHolderScrollView.setVisibility(View.INVISIBLE);
+                        mItemHolderScrollView.setVisibility(View.VISIBLE);
                     }
                 }
             }
@@ -292,12 +295,13 @@ public class BuyBusinessStockSuggestedActivity extends AppCompatActivity impleme
             @Override
             public void onError(ANError anError) {
                 networkRequestStarted = false;
-                if(MyLifecycleHandler.isApplicationInForeground()){
-                            /*
-                            ADD XML TO FRONT SO USER CAN CLICK TO TRY AGAIN IF IT FAILS
-                             */
-                } else {
-                    //networkResponse = getString(R.string.login_activity_check_your_internet_connection_and_try_again);
+                Config.showToastType1(BuyBusinessStockSuggestedActivity.this, getString(R.string.failed_check_your_internet_and_try_again));
+                if(!BuyBusinessStockSuggestedActivity.this.isFinishing()){
+                    mLoaderImageView.clearAnimation();
+                    mLoaderImageView.setVisibility(View.INVISIBLE);
+                    mLoaderTextView.setVisibility(View.INVISIBLE);
+                    mFinalHolderScrollView.setVisibility(View.INVISIBLE);
+                    mItemHolderScrollView.setVisibility(View.VISIBLE);
                 }
             }
         });
