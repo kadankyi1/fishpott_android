@@ -508,8 +508,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         int count = getSupportFragmentManager().getBackStackEntryCount();
         if(count == 0){
             if(mFragmentsHolderViewPager.getCurrentItem() == 1){
+                super.onBackPressed();
                 //Log.e("MainOnBackPressed", "findFirstVisibleItemPosition : " + String.valueOf(NewsFeedFragment.mMainNewsLayoutManager.findFirstVisibleItemPosition()));
-                if(
+                /*if(
                         NewsFeedFragment.mMainNewsLayoutManager.findFirstVisibleItemPosition() < 3
                 ){
                     super.onBackPressed();
@@ -520,7 +521,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         NewsFeedFragment.fetchVerticalNews(getApplicationContext(), true);
                         mNewsfeedMenuIconUpdateIconConstraintLayout.setVisibility(View.INVISIBLE);
                     }
-                }
+                }*/
             } else if(mFragmentsHolderViewPager.getCurrentItem() == 0){
                 super.onBackPressed();
             } else {
