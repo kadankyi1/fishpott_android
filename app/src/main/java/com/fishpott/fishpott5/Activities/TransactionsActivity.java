@@ -426,7 +426,7 @@ public class TransactionsActivity extends AppCompatActivity implements View.OnCl
             @Override
             public void onResponse(String response) {
                 Log.e("get_transactions", response);
-                if (MyLifecycleHandler.isApplicationInForeground()) {
+                if (!TransactionsActivity.this.isFinishing()) {
                     new Handler(Looper.getMainLooper()).post(new Runnable() {
                         @Override
                         public void run() {
@@ -504,7 +504,7 @@ public class TransactionsActivity extends AppCompatActivity implements View.OnCl
                         }
                     } catch (JSONException e) {
                         e.printStackTrace();
-                        if (MyLifecycleHandler.isApplicationInForeground()) {
+                        if (!TransactionsActivity.this.isFinishing()) {
                             new Handler(Looper.getMainLooper()).post(new Runnable() {
                                 @Override
                                 public void run() {
@@ -525,7 +525,7 @@ public class TransactionsActivity extends AppCompatActivity implements View.OnCl
 
             @Override
             public void onError(ANError anError) {
-                if (MyLifecycleHandler.isApplicationInForeground()) {
+                if (!TransactionsActivity.this.isFinishing()) {
                     new Handler(Looper.getMainLooper()).post(new Runnable() {
                         @Override
                         public void run() {

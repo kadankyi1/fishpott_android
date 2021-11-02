@@ -295,7 +295,7 @@ public class MySharesActivity extends AppCompatActivity implements View.OnClickL
             @Override
             public void onResponse(String response) {
                 Log.e("get_my_shares", response);
-                if (MyLifecycleHandler.isApplicationInForeground()) {
+                if (!MySharesActivity.this.isFinishing()) {
                     new Handler(Looper.getMainLooper()).post(new Runnable() {
                         @Override
                         public void run() {
@@ -371,7 +371,7 @@ public class MySharesActivity extends AppCompatActivity implements View.OnClickL
                         }
                     } catch (JSONException e) {
                         e.printStackTrace();
-                        if (MyLifecycleHandler.isApplicationInForeground()) {
+                        if (!MySharesActivity.this.isFinishing()) {
                             new Handler(Looper.getMainLooper()).post(new Runnable() {
                                 @Override
                                 public void run() {
@@ -392,7 +392,7 @@ public class MySharesActivity extends AppCompatActivity implements View.OnClickL
 
             @Override
             public void onError(ANError anError) {
-                if (MyLifecycleHandler.isApplicationInForeground()) {
+                if (!MySharesActivity.this.isFinishing()) {
                     new Handler(Looper.getMainLooper()).post(new Runnable() {
                         @Override
                         public void run() {
