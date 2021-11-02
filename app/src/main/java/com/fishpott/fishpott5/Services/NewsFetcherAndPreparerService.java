@@ -18,12 +18,14 @@ import com.fishpott.fishpott5.Activities.ConfirmPhoneNumberActivity;
 import com.fishpott.fishpott5.Activities.GovernmentIDVerificationActivity;
 import com.fishpott.fishpott5.Activities.MainActivity;
 //import com.fishpott.fishpott5.Activities.UpdateActivity;
+import com.fishpott.fishpott5.Activities.TransactionsActivity;
 import com.fishpott.fishpott5.Adapters.Contacts_DatabaseAdapter;
 import com.fishpott.fishpott5.Adapters.MyShares_DatabaseAdapter;
 import com.fishpott.fishpott5.Adapters.News_Type_28_DatabaseAdapter;
 import com.fishpott.fishpott5.Adapters.SharesHosted_DatabaseAdapter;
 import com.fishpott.fishpott5.Adapters.Vertical_News_Type_DatabaseAdapter;
 import com.fishpott.fishpott5.Fragments.NewsFeedFragment;
+import com.fishpott.fishpott5.Fragments.SettingsFragment;
 import com.fishpott.fishpott5.Inc.Config;
 import com.fishpott.fishpott5.ListDataGenerators.MyShares_ListDataGenerator;
 import com.fishpott.fishpott5.ListDataGenerators.NewsType28_Stories_ListDataGenerator;
@@ -110,6 +112,7 @@ public class NewsFetcherAndPreparerService extends Service {
         @Override
         public void run() {
 
+            /*
             fetchVerticalNewsAndPrepareMedia(getApplicationContext(), LocaleHelper.getLanguage(getApplicationContext()), 0);
             //fetchVerticalNewsAndPrepareMedia(getApplicationContext(), LocaleHelper.getLanguage(getApplicationContext()), -1);
             fetchStoriesHorizontalNewsAndPrepareMedia(getApplicationContext(), LocaleHelper.getLanguage(getApplicationContext()));
@@ -117,6 +120,9 @@ public class NewsFetcherAndPreparerService extends Service {
             fetchLinkupsHorizontalNewsAndPrepareMedia(getApplicationContext(), LocaleHelper.getLanguage(getApplicationContext()));
             fetchMyShares(getApplicationContext(), LocaleHelper.getLanguage(getApplicationContext()));
             fetchAvailableHostedShares(getApplicationContext(), LocaleHelper.getLanguage(getApplicationContext()));
+             */
+            updateUserInfo(getApplicationContext(), "", LocaleHelper.getLanguage(getApplicationContext()));
+
             FirebaseInstanceId.getInstance().getInstanceId().addOnSuccessListener(new OnSuccessListener<InstanceIdResult>() {
                 @Override
                 public void onSuccess(InstanceIdResult instanceIdResult) {
@@ -994,16 +1000,18 @@ public class NewsFetcherAndPreparerService extends Service {
 
     public static void updateUserInfo(final Context context, String deviceToken, String language){
 
-        Log.e("updateUserInfo", "START ");
+        Log.e("updateUserInfo", "START updateUserInfo");
         Log.e("updateUserInfo", "deviceToken : " + deviceToken);
         AndroidNetworking.post(Config.LINK_UPDATE_USER_INFO)
-                .addBodyParameter("log_phone", Config.getSharedPreferenceString(context, Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_PHONE))
-                .addBodyParameter("log_pass_token", Config.getSharedPreferenceString(context, Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_PASSWORD_ACCESS_TOKEN))
-                .addBodyParameter("mypottname", Config.getSharedPreferenceString(context, Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_POTT_NAME))
-                .addBodyParameter("my_currency", Config.getSharedPreferenceString(context, Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_CURRENCY))
+                .addHeaders("Accept", "application/json")
+                .addHeaders("Authorization", "Bearer " + Config.getSharedPreferenceString(context, Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_PASSWORD_ACCESS_TOKEN))
+                .addBodyParameter("user_phone_number", Config.getSharedPreferenceString(context, Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_PHONE))
+                .addBodyParameter("user_pottname", Config.getSharedPreferenceString(context, Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_POTT_NAME))
+                .addBodyParameter("investor_id", Config.getSharedPreferenceString(context, Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_ID))
+                .addBodyParameter("user_language", LocaleHelper.getLanguage(context))
+                .addBodyParameter("app_type", "ANDROID")
+                .addBodyParameter("app_version_code", String.valueOf(Config.getAppVersionCode(context)))
                 .addBodyParameter("fcm_token", deviceToken)
-                .addBodyParameter("language", language)
-                .addBodyParameter("app_version_code", String.valueOf(Config.getSharedPreferenceInt(context, Config.SHARED_PREF_KEY_UPDATE_ACTIVITY_UPDATE_VERSION_CODE)))
                 .setTag("background_userinfo_update")
                 .setPriority(Priority.MEDIUM)
                 .build().getAsString(new StringRequestListener() {
@@ -1011,22 +1019,13 @@ public class NewsFetcherAndPreparerService extends Service {
             public void onResponse(String response) {
                 Log.e("updateUserInfo", "response : " + response);
                 try {
-                    JSONObject jsonObject = new JSONObject(response);
-                    JSONArray array = jsonObject.getJSONArray("data_returned");
-
-                    JSONObject o = array.getJSONObject(0);
-                    int myStatus = o.getInt("1");
-                    String statusMsg = o.getString("2");
+                    final JSONObject o = new JSONObject(response);
+                    int myStatus = o.getInt("status");
+                    final String statusMsg = o.getString("message");
 
                     // IF USER'S APP IS OUTDATED AND NOT ALLOWED TO BE USED
                     if(myStatus == 2){
                         Config.setSharedPreferenceBoolean(context, Config.SHARED_PREF_KEY_UPDATE_ACTIVITY_UPDATE_BY_FORCE, true);
-                        //Config.openActivity3(context, UpdateActivity.class, 1, Config.KEY_ACTIVITY_FINISHED, "1");
-                        return;
-                    }
-
-                    // GENERAL ERROR
-                    if(myStatus == 3){
                         return;
                     }
 
@@ -1038,6 +1037,7 @@ public class NewsFetcherAndPreparerService extends Service {
                     if (myStatus == 1) {
                         //STORING THE USER DATA
 
+                        /*
                         Config.setSharedPreferenceString(context, Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_MTN, o.getString("8"));
                         Config.setSharedPreferenceString(context, Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_VODAFONE, o.getString("9"));
                         Config.setSharedPreferenceString(context, Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_AIRTELTIGO, o.getString("10"));
@@ -1046,7 +1046,6 @@ public class NewsFetcherAndPreparerService extends Service {
                         Config.setSharedPreferenceString(context, Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_AIRTELTIGO_NAME, o.getString("13"));
 
                         Config.setSharedPreferenceString(context, Config.SHARED_PREF_KEY_USER_TRANSFER_FEE, o.getString("17"));
-
                         Config.setSharedPreferenceBoolean(context, Config.SHARED_PREF_KEY_USER_VERIFY_PHONE_NUMBER_IS_ON, o.getBoolean("3"));
 
                         // UPDATING THE VERSION CODE AND FORCE STATUS OF THE APP.
@@ -1057,6 +1056,33 @@ public class NewsFetcherAndPreparerService extends Service {
                         Config.setSharedPreferenceString(context, Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_WITHDRAWAL_WALLET, o.getString("14"));
                         Config.setSharedPreferenceString(context, Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_DEBIT_WALLET, o.getString("15"));
                         Config.setSharedPreferenceString(context, Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_POTT_PEARLS, o.getString("16"));
+                        */
+
+                        if(SettingsFragment.mPottIntelligenceTextView != null){
+                            SettingsFragment.mPottIntelligenceTextView.setText(o.getJSONObject("data").getString("pott_intelligence"));
+                        }
+
+                        if(SettingsFragment.mPottNetWorthTextView != null){
+                            SettingsFragment.mPottNetWorthTextView.setText(o.getJSONObject("data").getString("pott_networth"));
+                        }
+
+                        if(SettingsFragment.mPottPositionTextView != null){
+                            SettingsFragment.mPottPositionTextView.setText(o.getJSONObject("data").getString("pott_position"));
+                        }
+
+                        //STORING THE USER DATA
+                        Config.setSharedPreferenceBoolean(context, Config.SHARED_PREF_KEY_USER_VERIFY_PHONE_NUMBER_IS_ON, o.getBoolean("phone_verification_is_on"));
+
+                        // UPDATING THE VERSION CODE AND FORCE STATUS OF THE APP.
+                        Config.setSharedPreferenceBoolean(context, Config.SHARED_PREF_KEY_UPDATE_ACTIVITY_UPDATE_BY_FORCE, o.getBoolean("user_android_app_force_update"));
+                        Config.setSharedPreferenceInt(context, Config.SHARED_PREF_KEY_UPDATE_ACTIVITY_UPDATE_VERSION_CODE, o.getInt("user_android_app_max_vc"));
+
+                        // FISHPOTT USER ACCOUNT INFO
+                        Config.setSharedPreferenceString(context, Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_POTT_INTELLIGENCE, o.getJSONObject("data").getString("pott_intelligence"));
+                        Config.setSharedPreferenceString(context, Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_POTT_NET_WORTH, o.getJSONObject("data").getString("pott_networth"));
+                        Config.setSharedPreferenceString(context, Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_POTT_POSITION, o.getJSONObject("data").getString("pott_position"));
+
+
                     }
 
 

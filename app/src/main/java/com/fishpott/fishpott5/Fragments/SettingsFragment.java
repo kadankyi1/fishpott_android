@@ -33,7 +33,8 @@ public class SettingsFragment extends Fragment implements View.OnClickListener {
             mRedeemSharesCouponHolderConstraintLayout, mTransactionsHolderConstraintLayout, mWithdrawFundsHolderConstraintLayout, mPrivacyPolicyHolderConstraintLayout,
             mChangePasswordHolderConstraintLayout, mContactFPHolderConstraintLayout, mAboutHolderConstraintLayout, mTermsOfServiceHolderConstraintLayout,
             mFindBusinessHolderConstraintLayout;
-    public static TextView mWithdrawalWalletBalanceTextView, mDebitWalletBalanceTextView, mPottPearlsBalanceTextView;
+    public static TextView mWithdrawalWalletBalanceTextView, mDebitWalletBalanceTextView, mPottPearlsBalanceTextView,
+            mPottIntelligenceTextView, mPottNetWorthTextView, mPottPositionTextView;
     private View view = null;
 
     public static SettingsFragment newInstance() {
@@ -54,6 +55,9 @@ public class SettingsFragment extends Fragment implements View.OnClickListener {
         mWithdrawalWalletBalanceTextView = view.findViewById(R.id.withdrawal_wallet_textview);
         mDebitWalletBalanceTextView = view.findViewById(R.id.debit_wallet_textview);
         mPottPearlsBalanceTextView = view.findViewById(R.id.pott_pearls_wallet_textview);
+        mPottIntelligenceTextView = view.findViewById(R.id.pott_intelligence_textview);
+        mPottNetWorthTextView = view.findViewById(R.id.pottworth_textview);
+        mPottPositionTextView = view.findViewById(R.id.pottworth_info_textview);
         mAboutHolderConstraintLayout = view.findViewById(R.id.about_holder_contrainlayout);
         mFindBusinessHolderConstraintLayout = view.findViewById(R.id.active_bness_suggest_holder_contrainlayout);
         mCreditWalletHolderConstraintLayout = view.findViewById(R.id.credit_wallet_holder_contrainlayout);

@@ -307,6 +307,9 @@ public class Config {
 	// SERVER-SIDE API FOR FINDING A BUSINESS
 	public static final String LINK_GET_FIND_BUSINESS = CURRENT_HTTP_IN_USE + "144.202.111.61/api/v1/user/find-business";
 
+	// SERVER-SIDE API FOR GETTING HOSTED SHARES
+	public static final String LINK_UPDATE_USER_INFO = CURRENT_HTTP_IN_USE + "144.202.111.61/api/v1/user/get-user-info";
+
 	/********************************************************************************************************************************************
 
 	 OLD LINKS OLD LINKS OLD LINKS OLD LINKS OLD LINKS OLD LINKS OLD LINKS OLD LINKS OLD LINKS OLD LINKS OLD LINKS OLD LINKS OLD LINKS OLD LINKS
@@ -385,9 +388,6 @@ public class Config {
 	// SERVER-SIDE API FOR GETTING HOSTED SHARES
 	public static final String LINK_GET_HOSTED_SHARES = CURRENT_HTTP_IN_USE + "www.fishpott.com/inc/android/get_hosted_shares.php";
 
-	// SERVER-SIDE API FOR GETTING HOSTED SHARES
-	public static final String LINK_UPDATE_USER_INFO = CURRENT_HTTP_IN_USE + "www.fishpott.com/inc/android/update_user_info_from_background.php";
-
 	// SERVER-SIDE API FOR GETTING CONTACTS
 	public static final String LINK_GET_MY_CONTACTS = CURRENT_HTTP_IN_USE + "www.fishpott.com/inc/android/get_my_contacts.php";
 
@@ -462,6 +462,9 @@ public class Config {
 	public static final String SHARED_PREF_KEY_USER_CREDENTIALS_USER_MTN_NAME = "MTN_NAME";
 	public static final String SHARED_PREF_KEY_USER_CREDENTIALS_USER_VODAFONE_NAME = "VODAFONE_NAME";
 	public static final String SHARED_PREF_KEY_USER_CREDENTIALS_USER_AIRTELTIGO_NAME = "AIRTELTIGO_NAME";
+	public static final String SHARED_PREF_KEY_USER_CREDENTIALS_USER_POTT_INTELLIGENCE = "POTT_INTELLIGENCE";
+	public static final String SHARED_PREF_KEY_USER_CREDENTIALS_USER_POTT_NET_WORTH = "POTT_NET_WORTH";
+	public static final String SHARED_PREF_KEY_USER_CREDENTIALS_USER_POTT_POSITION = "POTT_POSITION";
 
 	//LINKUPS
 	public static final String SHARED_PREF_KEY_LINKUPS = "LINKUPS";
