@@ -53,7 +53,7 @@ public class StartActivity extends AppCompatActivity implements Animation.Animat
     private Boolean sharedPrefUpdateForceStatus = false, SHOW_DIALOG_AND_STOP_PROCESSES = false;
     private long updateDateDaysDifference = 0;
     private int viewStartActivityCount = 0;
-    private int SPLASH_TIME_OUT = 5000;
+    private int SPLASH_TIME_OUT = 1000;
     private String pottName = "", newsID = "";
     private Uri uriData;
     
