@@ -178,6 +178,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         };
 
+        /*
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (!Config.permissionsHaveBeenGranted(getApplicationContext(), permissions)) {
                 if(!shouldShowRequestPermissionRationale(permissions[0])){
@@ -189,6 +190,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 cancelListenerActive1 = Config.showDialogType3(MainActivity.this, cancelListenerActive1, true);
             }
         }
+        */
 
         if(!Config.getSharedPreferenceBoolean(getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_HAS_LEARNED)){
             mSearchIconImageView.setVisibility(View.VISIBLE);

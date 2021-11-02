@@ -250,39 +250,6 @@ public class SuggestionFragment extends Fragment implements View.OnClickListener
                         String businessFinanceBio = "";
                         String businessFinanceFullReport = "";
 
-                        if(myStatusMessage.equalsIgnoreCase("drill")){
-                            drillID = o.getJSONObject("data").getString("drill_sys_id");
-                            drillQuestion = o.getJSONObject("data").getString("drill_question");
-                            drillAnswer1 = o.getJSONObject("data").getString("drill_answer_1");
-                            drillAnswer2 = o.getJSONObject("data").getString("drill_answer_2");
-                            drillAnswer3 = o.getJSONObject("data").getString("drill_answer_3");
-                            drillAnswer4 = o.getJSONObject("data").getString("drill_answer_4");
-                        } else if(myStatusMessage.equalsIgnoreCase("business")){
-                            Config.showDialogType1(getActivity(), "1", "You have a business suggestion. Carefully look at the business profile and if you want to be a part-owner of the business, simply click 'Buy Shares' and buy share ownership", "", null, false, "", "");
-                            businessID = o.getJSONObject("data").getString("business_sys_id");
-                            businessName = o.getJSONObject("data").getString("business_full_name");
-                            businessNameGlobal = businessName;
-                            businessLogo = o.getJSONObject("data").getString("business_logo");
-                            businessLogoUrl = businessLogo;
-                            businessCountry = o.getJSONObject("data").getString("business_country");
-                            businessNetworth = o.getJSONObject("data").getString("business_net_worth_usd");
-                            businessCountInvestors = o.getJSONObject("data").getString("business_current_shareholders");
-                            businessPitch = o.getJSONObject("data").getString("business_pitch_text");
-                            businessPitchVideo = o.getJSONObject("data").getString("business_pitch_video");
-                            businessCEO = o.getJSONObject("data").getString("business_executive1_firstname") + " " + o.getJSONObject("data").getString("business_executive1_lastname");
-                            businessCOO = o.getJSONObject("data").getString("business_executive2_firstname") + " " + o.getJSONObject("data").getString("business_executive2_lastname");
-                            businessServicesBio = o.getJSONObject("data").getString("business_descriptive_bio");
-                            businessServicesWebsite = o.getJSONObject("data").getString("business_website");
-                            businessWebsiteUrl = businessServicesWebsite;
-                            businessLastYrRevenue = o.getJSONObject("data").getString("business_lastyr_revenue_usd");
-                            businessProfitOrLoss = o.getJSONObject("data").getString("business_lastyr_profit_or_loss_usd");
-                            businessInvestments = o.getJSONObject("data").getString("business_investments_amount_needed_usd");
-                            businessFinanceBio = o.getJSONObject("data").getString("business_descriptive_financial_bio");
-                            //businessFinanceFullReport = "https://docs.google.com/gview?embedded=true&url=https://github.github.com/training-kit/downloads/github-git-cheat-sheet.pdf"; //o.getJSONObject("data").getString("business_full_financial_report_pdf_url");
-                            businessFinanceFullReport = o.getJSONObject("data").getString("business_full_financial_report_pdf_url");
-                            businessFullReportUrl = "https://docs.google.com/gview?embedded=true&url=" + businessFinanceFullReport;
-                        }
-
 
                         //STORING THE USER DATA
                         Config.setSharedPreferenceBoolean(getActivity().getApplicationContext(), Config.SHARED_PREF_KEY_USER_VERIFY_PHONE_NUMBER_IS_ON, o.getBoolean("phone_verification_is_on"));
@@ -292,6 +259,38 @@ public class SuggestionFragment extends Fragment implements View.OnClickListener
                         Config.setSharedPreferenceInt(getActivity().getApplicationContext(), Config.SHARED_PREF_KEY_UPDATE_ACTIVITY_UPDATE_VERSION_CODE, o.getInt("user_android_app_max_vc"));
 
                         if(myStatus == 1){
+                            if(myStatusMessage.equalsIgnoreCase("drill")){
+                                drillID = o.getJSONObject("data").getString("drill_sys_id");
+                                drillQuestion = o.getJSONObject("data").getString("drill_question");
+                                drillAnswer1 = o.getJSONObject("data").getString("drill_answer_1");
+                                drillAnswer2 = o.getJSONObject("data").getString("drill_answer_2");
+                                drillAnswer3 = o.getJSONObject("data").getString("drill_answer_3");
+                                drillAnswer4 = o.getJSONObject("data").getString("drill_answer_4");
+                            } else if(myStatusMessage.equalsIgnoreCase("business")){
+                                Config.showDialogType1(getActivity(), "1", "You have a business suggestion. Carefully look at the business profile and if you want to be a part-owner of the business, simply click 'Buy Shares' and buy share ownership", "", null, false, "", "");
+                                businessID = o.getJSONObject("data").getString("business_sys_id");
+                                businessName = o.getJSONObject("data").getString("business_full_name");
+                                businessNameGlobal = businessName;
+                                businessLogo = o.getJSONObject("data").getString("business_logo");
+                                businessLogoUrl = businessLogo;
+                                businessCountry = o.getJSONObject("data").getString("business_country");
+                                businessNetworth = o.getJSONObject("data").getString("business_net_worth_usd");
+                                businessCountInvestors = o.getJSONObject("data").getString("business_current_shareholders");
+                                businessPitch = o.getJSONObject("data").getString("business_pitch_text");
+                                businessPitchVideo = o.getJSONObject("data").getString("business_pitch_video");
+                                businessCEO = o.getJSONObject("data").getString("business_executive1_firstname") + " " + o.getJSONObject("data").getString("business_executive1_lastname");
+                                businessCOO = o.getJSONObject("data").getString("business_executive2_firstname") + " " + o.getJSONObject("data").getString("business_executive2_lastname");
+                                businessServicesBio = o.getJSONObject("data").getString("business_descriptive_bio");
+                                businessServicesWebsite = o.getJSONObject("data").getString("business_website");
+                                businessWebsiteUrl = businessServicesWebsite;
+                                businessLastYrRevenue = o.getJSONObject("data").getString("business_lastyr_revenue_usd");
+                                businessProfitOrLoss = o.getJSONObject("data").getString("business_lastyr_profit_or_loss_usd");
+                                businessInvestments = o.getJSONObject("data").getString("business_investments_amount_needed_usd");
+                                businessFinanceBio = o.getJSONObject("data").getString("business_descriptive_financial_bio");
+                                //businessFinanceFullReport = "https://docs.google.com/gview?embedded=true&url=https://github.github.com/training-kit/downloads/github-git-cheat-sheet.pdf"; //o.getJSONObject("data").getString("business_full_financial_report_pdf_url");
+                                businessFinanceFullReport = o.getJSONObject("data").getString("business_full_financial_report_pdf_url");
+                                businessFullReportUrl = "https://docs.google.com/gview?embedded=true&url=" + businessFinanceFullReport;
+                            }
 
                             if(MyLifecycleHandler.isApplicationInForeground()){
                                 final String finalDrillAnswer = drillAnswer1;
@@ -380,6 +379,7 @@ public class SuggestionFragment extends Fragment implements View.OnClickListener
                         }
                     } catch (JSONException e) {
                         e.printStackTrace();
+                        Config.showToastType1(getActivity(), "Failed. If this continues, update your app.");
                         if(MyLifecycleHandler.isApplicationInForeground()){
                             /*
                             ADD XML TO FRONT SO USER CAN CLICK TO TRY AGAIN IF IT FAILS
@@ -393,6 +393,7 @@ public class SuggestionFragment extends Fragment implements View.OnClickListener
                 @Override
                 public void onError(ANError anError) {
                     networkRequestStarted = false;
+                    Config.showToastType1(getActivity(), "Failed. Check your internet and try again ");
                     if(MyLifecycleHandler.isApplicationInForeground()){
                             /*
                             ADD XML TO FRONT SO USER CAN CLICK TO TRY AGAIN IF IT FAILS
