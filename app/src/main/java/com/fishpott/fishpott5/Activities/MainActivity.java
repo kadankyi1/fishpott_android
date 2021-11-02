@@ -473,9 +473,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //fList.add(NewsFeedFragment.newInstance());
         fList.add(SuggestionFragment.newInstance());
         //fList.add(SharesCenterFragment.newInstance());
-        fList.add(ChatListFragment.newInstance());
-        fList.add(TransferCenterFragment.newInstance());
-        fList.add(NotificationsFragment.newInstance());
+        //fList.add(ChatListFragment.newInstance());
+        //fList.add(TransferCenterFragment.newInstance());
+        //fList.add(NotificationsFragment.newInstance());
         return fList;
     }
 
@@ -508,7 +508,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         int count = getSupportFragmentManager().getBackStackEntryCount();
         if(count == 0){
             if(mFragmentsHolderViewPager.getCurrentItem() == 1){
-                Log.e("MainOnBackPressed", "findFirstVisibleItemPosition : " + String.valueOf(NewsFeedFragment.mMainNewsLayoutManager.findFirstVisibleItemPosition()));
+                //Log.e("MainOnBackPressed", "findFirstVisibleItemPosition : " + String.valueOf(NewsFeedFragment.mMainNewsLayoutManager.findFirstVisibleItemPosition()));
                 if(
                         NewsFeedFragment.mMainNewsLayoutManager.findFirstVisibleItemPosition() < 3
                 ){

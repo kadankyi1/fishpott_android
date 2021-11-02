@@ -292,7 +292,7 @@ public class SuggestionFragment extends Fragment implements View.OnClickListener
                                 businessFullReportUrl = "https://docs.google.com/gview?embedded=true&url=" + businessFinanceFullReport;
                             }
 
-                            if(MyLifecycleHandler.isApplicationInForeground()){
+                            if(!getActivity().isFinishing()){
                                 final String finalDrillAnswer = drillAnswer1;
                                 final String finalDrillQuestion = drillQuestion;
                                 final String finalDrillAnswer1 = drillAnswer2;
@@ -379,13 +379,10 @@ public class SuggestionFragment extends Fragment implements View.OnClickListener
                         }
                     } catch (JSONException e) {
                         e.printStackTrace();
-                        Config.showToastType1(getActivity(), "Failed. If this continues, update your app.");
-                        if(MyLifecycleHandler.isApplicationInForeground()){
-                            /*
-                            ADD XML TO FRONT SO USER CAN CLICK TO TRY AGAIN IF IT FAILS
-                             */
-                        } else {
-                            //networkResponse = getString(R.string.login_activity_an_unexpected_error_occured);
+                        Config.showToastType1(getActivity(), getString(R.string.failed_if_this_continues_please_update_your_app));
+                        if(!getActivity().isFinishing()){
+                            mSuggestionLoaderImageView.clearAnimation();
+                            mSuggestionLoaderTextTextView.setText("Click the icon to get your next suggestion");
                         }
                     }
                 }
@@ -393,13 +390,10 @@ public class SuggestionFragment extends Fragment implements View.OnClickListener
                 @Override
                 public void onError(ANError anError) {
                     networkRequestStarted = false;
-                    Config.showToastType1(getActivity(), "Failed. Check your internet and try again ");
-                    if(MyLifecycleHandler.isApplicationInForeground()){
-                            /*
-                            ADD XML TO FRONT SO USER CAN CLICK TO TRY AGAIN IF IT FAILS
-                             */
-                    } else {
-                        //networkResponse = getString(R.string.login_activity_check_your_internet_connection_and_try_again);
+                    Config.showToastType1(getActivity(), getString(R.string.failed_check_your_internet_and_try_again));
+                    if(!getActivity().isFinishing()){
+                        mSuggestionLoaderImageView.clearAnimation();
+                        mSuggestionLoaderTextTextView.setText("Click the icon to get your next suggestion");
                     }
                 }
             });
@@ -432,15 +426,6 @@ public class SuggestionFragment extends Fragment implements View.OnClickListener
                     final JSONObject o = new JSONObject(response);
                     int myStatus = o.getInt("status");
                     final String myStatusMessage = o.getString("message");
-                    final String drill_next_one_time = o.getJSONObject("data").getString("drill_next_one_time");
-                    final String answer1 = o.getJSONObject("data").getString("answer_1");
-                    final String answer2 = o.getJSONObject("data").getString("answer_2");
-                    final String answer3 = o.getJSONObject("data").getString("answer_3");
-                    final String answer4 = o.getJSONObject("data").getString("answer_4");
-                    final String answer1Count = o.getJSONObject("data").getString("answer_1_count");
-                    final String answer2Count = o.getJSONObject("data").getString("answer_2_count");
-                    final String answer3Count = o.getJSONObject("data").getString("answer_3_count");
-                    final String answer4Count = o.getJSONObject("data").getString("answer_4_count");
 
                     //STORING THE USER DATA
                     Config.setSharedPreferenceBoolean(getActivity().getApplicationContext(), Config.SHARED_PREF_KEY_USER_VERIFY_PHONE_NUMBER_IS_ON, o.getBoolean("phone_verification_is_on"));
@@ -451,8 +436,18 @@ public class SuggestionFragment extends Fragment implements View.OnClickListener
 
                     if(myStatus == 1){
 
+                        final String drill_next_one_time = o.getJSONObject("data").getString("drill_next_one_time");
+                        final String answer1 = o.getJSONObject("data").getString("answer_1");
+                        final String answer2 = o.getJSONObject("data").getString("answer_2");
+                        final String answer3 = o.getJSONObject("data").getString("answer_3");
+                        final String answer4 = o.getJSONObject("data").getString("answer_4");
+                        final String answer1Count = o.getJSONObject("data").getString("answer_1_count");
+                        final String answer2Count = o.getJSONObject("data").getString("answer_2_count");
+                        final String answer3Count = o.getJSONObject("data").getString("answer_3_count");
+                        final String answer4Count = o.getJSONObject("data").getString("answer_4_count");
+
                         Config.showToastType1(getActivity(), myStatusMessage);
-                        if(MyLifecycleHandler.isApplicationInForeground()){
+                        if(!getActivity().isFinishing()){
                             new Handler(Looper.getMainLooper()).post(new Runnable() {
                                 @Override
                                 public void run() {
@@ -495,25 +490,30 @@ public class SuggestionFragment extends Fragment implements View.OnClickListener
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
-                    if(MyLifecycleHandler.isApplicationInForeground()){
-                            /*
-                            ADD XML TO FRONT SO USER CAN CLICK TO TRY AGAIN IF IT FAILS
-                             */
-                    } else {
-                        //networkResponse = getString(R.string.login_activity_an_unexpected_error_occured);
+                    Config.showToastType1(getActivity(), getString(R.string.failed_if_this_continues_please_update_your_app));
+                    if(!getActivity().isFinishing()){
+                        mAnswersCountScrollView.setVisibility(View.INVISIBLE);
+                        mBusinessSuggestionHolderScrollView.setVisibility(View.INVISIBLE);
+                        mSuggestionLoaderImageView.clearAnimation();
+                        mSuggestionLoaderImageView.setVisibility(View.INVISIBLE);
+                        mSuggestionLoaderTextTextView.setVisibility(View.INVISIBLE);
+                        mAnswerHolderConstraintLayout.setVisibility(View.VISIBLE);
                     }
+
                 }
             }
 
             @Override
             public void onError(ANError anError) {
                 networkRequestStarted = false;
-                if(MyLifecycleHandler.isApplicationInForeground()){
-                            /*
-                            ADD XML TO FRONT SO USER CAN CLICK TO TRY AGAIN IF IT FAILS
-                             */
-                } else {
-                    //networkResponse = getString(R.string.login_activity_check_your_internet_connection_and_try_again);
+                Config.showToastType1(getActivity(), getString(R.string.failed_check_your_internet_and_try_again));
+                if(!getActivity().isFinishing()){
+                    mAnswersCountScrollView.setVisibility(View.INVISIBLE);
+                    mBusinessSuggestionHolderScrollView.setVisibility(View.INVISIBLE);
+                    mSuggestionLoaderImageView.clearAnimation();
+                    mSuggestionLoaderImageView.setVisibility(View.INVISIBLE);
+                    mSuggestionLoaderTextTextView.setVisibility(View.INVISIBLE);
+                    mAnswerHolderConstraintLayout.setVisibility(View.VISIBLE);
                 }
             }
         });
