@@ -309,7 +309,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             //Config.showDialogType1(MainActivity.this, "1", getResources().getString(R.string.this_feature_is_not_yet_completed_we_are_sorry_if_this_causes_any_inconvenience_we_will_notify_you_when_it_s_completed), "", null, false, getResources().getString(R.string.setprofilepicture_activity_okay), "");
         }*/ else if(v.getId() == mSearchIconImageView.getId()){
             mSearchIconImageView.startAnimation(AnimationUtils.loadAnimation(MainActivity.this, R.anim.main_activity_onclick_icon_anim));
-            Config.openActivity(MainActivity.this, AboutActivity.class, 1, 0, 0, "", "");
+            Config.openActivity(MainActivity.this, AboutActivity.class, 0, 0, 0, "", "");
         } else if (v.getId() == mNewsfeedMenuIconImageView.getId()){
             v.startAnimation(AnimationUtils.loadAnimation(MainActivity.this, R.anim.main_activity_onclick_icon_anim));
             animateMenuBarIcons(currentMenuItemSelected, Config.NEWSFEED_ITEM);

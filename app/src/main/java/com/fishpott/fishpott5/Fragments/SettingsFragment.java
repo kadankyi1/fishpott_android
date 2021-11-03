@@ -133,7 +133,7 @@ public class SettingsFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View view) {
         if(view.getId() == R.id.about_holder_contrainlayout){
-            Config.openActivity(getActivity(), AboutActivity.class, 1, 0, 0, "", "");
+            Config.openActivity(getActivity(), AboutActivity.class, 0, 0, 0, "", "");
         } else if(view.getId() ==  mFindBusinessHolderConstraintLayout.getId()){
             Config.openActivity(getActivity(), FindBusinessActivity.class, 0, 0, 0, "", "");
         }else if(view.getId() == R.id.credit_wallet_holder_contrainlayout){
