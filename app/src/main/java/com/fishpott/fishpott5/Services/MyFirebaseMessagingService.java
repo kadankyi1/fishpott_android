@@ -46,24 +46,23 @@ public class MyFirebaseMessagingService extends com.google.firebase.messaging.Fi
             if (!remoteMessage.getData().isEmpty()) {
 
                 Map<String, String> data = remoteMessage.getData();
-                String notification_type = data.get("notification_type");
+                String not_type = data.get("not_type");
                 String not_title = data.get("not_title");
                 String not_message = data.get("not_message");
                 String not_message_text = data.get("not_message_text");
                 String not_message_info1 = data.get("not_message_info1");
                 String not_message_info2 = data.get("not_message_info2");
+                String not_pott_name = data.get("not_message_info2");
+                String not_id_3 = data.get("not_message_info2");
+                String not_pott_or_newsid = data.get("not_message_info2");
                 String not_message_image = data.get("not_message_image");
+                String not_pic = data.get("not_message_image");
                 String not_message_video = data.get("not_message_video");
                 String not_time = data.get("not_time");
-                int notType = Config.getNotificationType(not_type_real);
+                int notType = Config.getNotificationType(not_type);
 
 
-                String not_pic = data.get("not_pic");
-                String not_pott_or_newsid = data.get("not_pott_or_newsid");
-                String not_pott_name = data.get("pott_name");
-                String not_id_3 = data.get("alert_type");
-
-                Log.e("NotChatFCM", "not_type : " + notification_type
+                Log.e("NotChatFCM", "not_type : " + not_type
                         +  " -- not_title : " + not_title
                         +  " -- not_message : " + not_message
                         +  " -- not_message_text : " + not_message_text
@@ -77,95 +76,10 @@ public class MyFirebaseMessagingService extends com.google.firebase.messaging.Fi
                 int countForNotifications = Config.getSharedPreferenceInt(getApplicationContext(), Config.NOTIFICATION_UNREAD_COUNT);
                 int countForChats = Config.getSharedPreferenceInt(getApplicationContext(), Config.CHAT_NOTIFICATION_UNREAD_COUNT);
 
-                String not_type_real = data.get("not_type_real");
-                String not_pic = data.get("not_pic");
-                String not_title = data.get("not_title");
-                String not_message = data.get("not_message");
-                String not_pott_or_newsid = data.get("not_pott_or_newsid");
-                String not_pott_name = data.get("pott_name");
-                String not_time = data.get("not_time");
-                String not_id_3 = data.get("alert_type");
-
-                Log.e("NotChatFCM", "notification_type : " + notification_type
-                        +  " -- not_type_real : " + not_type_real
-                        +  " -- not_pic : " + not_pic
-                        +  " -- not_title : " + not_title
-                        +  " -- not_message : " + not_message
-                        +  " -- not_pott_or_newsid : " + not_pott_or_newsid
-                        +  " -- not_pott_name : " + not_pott_name
-                        +  " -- not_time : " + not_time
-                        +  " -- not_id_3 : " + not_id_3);
 
                 Log.e("NotChatFCM", "HERE 3");
 
-                if (notification_type.trim().equalsIgnoreCase("general_notification")){
-                    countForNotifications++;
-                    int badgeCountForNotifications = countForNotifications + countForChats;
-                    Config.setSharedPreferenceInt(getApplicationContext(), Config.NOTIFICATION_UNREAD_COUNT, countForNotifications);
-
-
-                    Notifications_DatabaseAdapter notifications_databaseAdapter = new Notifications_DatabaseAdapter(getApplicationContext());
-                    // OPENING THE STORIES DATABASE
-                    notifications_databaseAdapter.openDatabase();
-                    long rowId = notifications_databaseAdapter.insertRow(notType, not_pott_or_newsid, not_pott_name, 0, not_pic, not_message, not_time, not_id_3);
-                    notifications_databaseAdapter.closeDatabase();
-
-                    Notification_Model notification_model = new Notification_Model();
-                    notification_model.setRowId(rowId);
-                    notification_model.setNotificationType(notType);
-                    notification_model.setRelevantId_1(not_pott_or_newsid);
-                    notification_model.setRelevantId_2(not_pott_name);
-                    notification_model.setRelevantId_3(not_id_3);
-                    notification_model.setReadStatus(0);
-                    notification_model.setPottPic(not_pic);
-                    notification_model.setNotificationMessage(not_message);
-                    notification_model.setNotificationDate(not_time);
-
-                    //ADDING STORY OBJECT TO LIST
-                    Notifications_ListDataGenerator.addOneDataToDesiredPosition(0, notification_model);
-
-                    Log.e("NotChatFCM", "HERE 4");
-                    if(MyLifecycleHandler.isApplicationVisible()){
-                        Log.e("NotChatFCM", "HERE 5");
-                        //update notification bar
-                        if(MyLifecycleHandler.getCurrentActivity() != null){
-                            Log.e("NotChatFCM", "HERE 6");
-                            if(MyLifecycleHandler.getCurrentActivity().getClass().getSimpleName().equalsIgnoreCase(MainActivity.class.getSimpleName())){
-                                new Handler(Looper.getMainLooper()).post(new Runnable() {
-                                    @Override
-                                    public void run() {
-                                        mNotificationMenuIconUpdateIconConstraintLayout.setVisibility(View.VISIBLE);
-                                        mNotificationMenuIconUpdateIconConstraintLayout.startAnimation(AnimationUtils.loadAnimation(getApplicationContext(), R.anim.main_activity_onclick_icon_anim));
-                                        if(mNotificationsRecyclerView != null){
-                                            mNotificationsRecyclerView.getAdapter().notifyDataSetChanged();
-                                            Log.e("NotChatFCM", "HERE 7==1");
-                                        }
-                                    }
-                                });
-                                Log.e("NotChatFCM", "HERE 7");
-                            } else {
-                                Log.e("NotChatFCM", "HERE 8");
-                                if(notType != Config.NOTICATION_RELATING_SHARESFORSALE){
-                                    notType = Config.NOTICATION_RELATING_JUST_INFO;
-                                    Log.e("NotChatFCM", "HERE 9");
-                                }
-                                Config.setUserNotification(getApplicationContext(), String.valueOf(notType), not_title, not_message, countForNotifications, R.drawable.notification_icon);
-                                Log.e("NotChatFCM", "HERE 10");
-                            }
-                        }
-                    } else {
-                        //update app icon badge
-                        Log.e("NotChatFCM", "ACTIVITY NOT  VISIBLE");
-                        if(notType != Config.NOTICATION_RELATING_SHARESFORSALE){
-                            notType = Config.NOTICATION_RELATING_JUST_INFO;
-                            Log.e("NotChatFCM", "HERE 11");
-                        }
-                        Config.setUserNotification(getApplicationContext(), String.valueOf(notType), not_title, not_message, countForNotifications, R.drawable.notification_icon);
-                        ShortcutBadger.applyCount(getApplicationContext(), badgeCountForNotifications);
-                        Log.e("NotChatFCM", "HERE 12");
-                    }
-
-                } else if(notification_type.trim().equalsIgnoreCase("chat")){
+                if(not_type.trim().equalsIgnoreCase("chat")){
 
                     Log.e("NotChatFCM", "CHAT NOTIFICATION DETECTED");
                     long onlineSku = 0;
@@ -247,6 +161,84 @@ public class MyFirebaseMessagingService extends com.google.firebase.messaging.Fi
                     }
                     //sendChatNotification(title, message, chat_table, receiver_fullname, receiver_pottname, receiver_verified_tag, receiver_profile_picture, chat_date);
 
+                } else {
+                    countForNotifications++;
+                    int badgeCountForNotifications = countForNotifications + countForChats;
+                    Config.setSharedPreferenceInt(getApplicationContext(), Config.NOTIFICATION_UNREAD_COUNT, countForNotifications);
+
+
+                    Notifications_DatabaseAdapter notifications_databaseAdapter = new Notifications_DatabaseAdapter(getApplicationContext());
+                    // OPENING THE STORIES DATABASE
+                    notifications_databaseAdapter.openDatabase();
+                    long rowId = notifications_databaseAdapter.insertRow(notType, not_pott_or_newsid, not_pott_name, 0, not_pic, not_message, not_time, not_id_3);
+                    notifications_databaseAdapter.closeDatabase();
+
+                    Notification_Model notification_model = new Notification_Model();
+                    notification_model.setRowId(rowId);
+                    notification_model.setNotificationType(notType);
+                    notification_model.setRelevantId_1(not_pott_or_newsid);
+                    notification_model.setRelevantId_2(not_pott_name);
+                    notification_model.setRelevantId_3(not_id_3);
+                    notification_model.setReadStatus(0);
+                    notification_model.setPottPic(not_pic);
+                    notification_model.setNotificationMessage(not_message);
+                    notification_model.setNotificationDate(not_time);
+
+                    //ADDING STORY OBJECT TO LIST
+                    Notifications_ListDataGenerator.addOneDataToDesiredPosition(0, notification_model);
+
+                    Log.e("NotChatFCM", "HERE 4");
+                    /*
+                    if(MyLifecycleHandler.isApplicationVisible()){
+                        Log.e("NotChatFCM", "HERE 5");
+                        //update notification bar
+                        if(MyLifecycleHandler.getCurrentActivity() != null){
+                            Log.e("NotChatFCM", "HERE 6");
+                            if(MyLifecycleHandler.getCurrentActivity().getClass().getSimpleName().equalsIgnoreCase(MainActivity.class.getSimpleName())){
+                                new Handler(Looper.getMainLooper()).post(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        mNotificationMenuIconUpdateIconConstraintLayout.setVisibility(View.VISIBLE);
+                                        mNotificationMenuIconUpdateIconConstraintLayout.startAnimation(AnimationUtils.loadAnimation(getApplicationContext(), R.anim.main_activity_onclick_icon_anim));
+                                        if(mNotificationsRecyclerView != null){
+                                            mNotificationsRecyclerView.getAdapter().notifyDataSetChanged();
+                                            Log.e("NotChatFCM", "HERE 7==1");
+                                        }
+                                    }
+                                });
+                                Log.e("NotChatFCM", "HERE 7");
+                            } else {
+                                Log.e("NotChatFCM", "HERE 8");
+                                if(notType != Config.NOTICATION_RELATING_SHARESFORSALE){
+                                    notType = Config.NOTICATION_RELATING_JUST_INFO;
+                                    Log.e("NotChatFCM", "HERE 9");
+                                }
+                                Config.setUserNotification(getApplicationContext(), String.valueOf(notType), not_title, not_message, countForNotifications, R.drawable.notification_icon);
+                                Log.e("NotChatFCM", "HERE 10");
+                            }
+                        }
+                    } else {
+                        //update app icon badge
+                        Log.e("NotChatFCM", "ACTIVITY NOT  VISIBLE");
+                        if(notType != Config.NOTICATION_RELATING_SHARESFORSALE){
+                            notType = Config.NOTICATION_RELATING_JUST_INFO;
+                            Log.e("NotChatFCM", "HERE 11");
+                        }
+                        Config.setUserNotification(getApplicationContext(), String.valueOf(notType), not_title, not_message, countForNotifications, R.drawable.notification_icon);
+                        ShortcutBadger.applyCount(getApplicationContext(), badgeCountForNotifications);
+                        Log.e("NotChatFCM", "HERE 12");
+                    }
+                    */
+
+                    //update app icon badge
+                    Log.e("NotChatFCM", "ACTIVITY NOT  VISIBLE");
+                    if(notType != Config.NOTICATION_RELATING_SHARESFORSALE){
+                        notType = Config.NOTICATION_RELATING_JUST_INFO;
+                        Log.e("NotChatFCM", "HERE 11");
+                    }
+                    Config.setUserNotification(getApplicationContext(), String.valueOf(notType), not_title, not_message, countForNotifications, R.drawable.notification_icon);
+                    ShortcutBadger.applyCount(getApplicationContext(), badgeCountForNotifications);
+                    Log.e("NotChatFCM", "HERE 12");
                 }
             }
         }
@@ -257,5 +249,7 @@ public class MyFirebaseMessagingService extends com.google.firebase.messaging.Fi
     public void onDeletedMessages() {
 
     }
+
+
 
 }

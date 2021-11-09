@@ -6,6 +6,7 @@ import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.IntentService;
 import android.app.Notification;
+import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.ClipData;
@@ -86,6 +87,7 @@ import com.fishpott.fishpott5.Activities.FlaggedAccountActivity;
 import com.fishpott.fishpott5.Activities.FullNewsActivity;
 import com.fishpott.fishpott5.Activities.GovernmentIDVerificationActivity;
 import com.fishpott.fishpott5.Activities.LoginActivity;
+import com.fishpott.fishpott5.Activities.MainActivity;
 import com.fishpott.fishpott5.Activities.MessengerActivity;
 import com.fishpott.fishpott5.Activities.SetProfilePictureActivity;
 import com.fishpott.fishpott5.Activities.StartActivity;
@@ -2492,7 +2494,7 @@ public class Config {
 	public static int getNotificationType(String notificationType){
 		int not_type = NOTICATION_RELATING_JUST_INFO;
 
-		if(notificationType.trim().equalsIgnoreCase("like")){
+		/*if(notificationType.trim().equalsIgnoreCase("like")){
 			not_type = NOTICATION_RELATING_LIKE;
 		} else if(notificationType.trim().equalsIgnoreCase("dislike")){
 			not_type = NOTICATION_RELATING_DISLIKE;
@@ -2521,12 +2523,67 @@ public class Config {
 		} else {
 			not_type = NOTICATION_RELATING_TO_GENERAL_INFO;
 		}
+		 */
 
+		not_type = NOTICATION_RELATING_TO_GENERAL_INFO;
 		return not_type;
 	}
 
+
+	public static void setUserNotification(Context context, String CHANNEL_ID, String title, String body, int notCount, int notIconDrawable){
+		int notification_id = (int) System.currentTimeMillis();
+		NotificationManager notificationManager = null;
+		NotificationCompat.Builder mBuilder;
+
+		//Set pending intent to builder
+		Intent intent = new Intent(context, MainActivity.class);
+		PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_ONE_SHOT);
+
+		//Notification builder
+		if (notificationManager == null){
+			notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+		}
+
+
+		if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+			int importance = NotificationManager.IMPORTANCE_HIGH;
+			NotificationChannel mChannel = notificationManager.getNotificationChannel(CHANNEL_ID);
+			if (mChannel == null){
+				mChannel = new NotificationChannel(CHANNEL_ID, "Notification", importance);
+				mChannel.setDescription("Notification");
+				mChannel.enableVibration(true);
+				mChannel.setLightColor(Color.GREEN);
+				mChannel.setVibrationPattern(new long[]{100, 200, 300, 400, 500, 400, 300, 200, 400});
+				notificationManager.createNotificationChannel(mChannel);
+			}
+
+			mBuilder = new NotificationCompat.Builder(context, CHANNEL_ID);
+			mBuilder.setContentTitle(title)
+					.setSmallIcon(notIconDrawable)
+					.setContentText(body) //show icon on status bar
+					.setContentIntent(pendingIntent)
+					.setAutoCancel(true)
+					.setVibrate(new long[]{100, 200, 300, 400, 500, 400, 300, 200, 400})
+					.setDefaults(Notification.DEFAULT_ALL);
+		}else {
+			mBuilder = new NotificationCompat.Builder(context);
+			mBuilder.setContentTitle(title)
+					.setSmallIcon(notIconDrawable)
+					.setContentText(body)
+					.setPriority(Notification.PRIORITY_HIGH)
+					.setContentIntent(pendingIntent)
+					.setAutoCancel(true)
+					.setVibrate(new long[]{100, 200, 300, 400, 500, 400, 300, 200, 400})
+					.setDefaults(Notification.DEFAULT_VIBRATE);
+		}
+
+		notificationManager.notify(1002, mBuilder.build());
+	}
+	/*
 	public static void setUserNotification(Context context, String CHANNEL_ID, String title, String body, int notCount, int notIconDrawable){
 		///////////////////////////
+
+		Log.e("NotChatFCM", "setUserNotification STARTED");
 		Intent action1Intent = new Intent(context, StartActivity.class).setAction(CHANNEL_ID);
 		PendingIntent action1PendingIntent = PendingIntent.getActivity(context, 0, action1Intent, PendingIntent.FLAG_ONE_SHOT);
 		Notification notification = null;
@@ -2542,6 +2599,7 @@ public class Config {
 					.setAutoCancel(true)
                     .setContentIntent(action1PendingIntent)
                     .build();
+			Log.e("NotChatFCM", "setUserNotification 1");
 		} else {
 			notification = new NotificationCompat.Builder(context, CHANNEL_ID)
 					.setContentTitle(title)
@@ -2553,13 +2611,17 @@ public class Config {
 					.setAutoCancel(true)
 					.setContentIntent(action1PendingIntent)
 					.build();
+			Log.e("NotChatFCM", "setUserNotification 2");
 		}
 
 
+		Log.e("NotChatFCM", "setUserNotification 3");
 		NotificationManager mNotificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
 		mNotificationManager.notify(0, notification);
+		Log.e("NotChatFCM", "setUserNotification 4");
 
 	}
+	*/
 
 	public static class NotificationActionService extends IntentService {
 		public NotificationActionService() {
