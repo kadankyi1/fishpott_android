@@ -82,6 +82,7 @@ import com.bumptech.glide.load.DataSource;
 import com.bumptech.glide.load.engine.GlideException;
 import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.Target;
+import com.fishpott.fishpott5.Activities.AboutActivity;
 import com.fishpott.fishpott5.Activities.ConfirmPhoneNumberActivity;
 import com.fishpott.fishpott5.Activities.FlaggedAccountActivity;
 import com.fishpott.fishpott5.Activities.FullNewsActivity;
@@ -2530,14 +2531,20 @@ public class Config {
 	}
 
 
-	public static void setUserNotification(Context context, String CHANNEL_ID, String title, String body, int notCount, int notIconDrawable){
+	public static void setUserNotification(Context context, String CHANNEL_ID, String title, String body, int notCount, int notIconDrawable, String not_type){
 		int notification_id = (int) System.currentTimeMillis();
 		NotificationManager notificationManager = null;
 		NotificationCompat.Builder mBuilder;
 
-		//Set pending intent to builder
 		Intent intent = new Intent(context, MainActivity.class);
 		PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_ONE_SHOT);
+
+		//Set pending intent to builder
+		if(not_type == "important_message"){
+			//intent = new Intent(context, AboutActivity.class);
+			//pendingIntent = PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_ONE_SHOT);
+		}
+
 
 		//Notification builder
 		if (notificationManager == null){
