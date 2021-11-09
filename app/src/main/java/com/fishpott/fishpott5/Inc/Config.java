@@ -258,6 +258,7 @@ public class Config {
 	public static final int NOTICATION_RELATING_SHARESFORSALE_TRANSFER = 211;
 	public static final int NOTICATION_RELATING_TO_NEW_MESSAGE = 212;
 	public static final int NOTICATION_RELATING_SHARES_SUGGESTION = 213;
+	public static final int NOTICATION_RELATING_TO_GENERAL_INFO = 214;
 
 	//FULL NEWS ACTIVITY INTENT INDEXES
 	public static final String FULL_NEWS_ACTIVITY_INTENT_INDEXES_NEWSID = "newsid";
@@ -2515,6 +2516,10 @@ public class Config {
 			not_type = NOTICATION_RELATING_REFERRAL;
 		} else if(notificationType.trim().equalsIgnoreCase("new_message")){
 			not_type = NOTICATION_RELATING_TO_NEW_MESSAGE;
+		} else if(notificationType.trim().equalsIgnoreCase("new_message")){
+			not_type = NOTICATION_RELATING_TO_NEW_MESSAGE;
+		} else {
+			not_type = NOTICATION_RELATING_TO_GENERAL_INFO;
 		}
 
 		return not_type;

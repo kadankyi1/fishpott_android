@@ -47,6 +47,32 @@ public class MyFirebaseMessagingService extends com.google.firebase.messaging.Fi
 
                 Map<String, String> data = remoteMessage.getData();
                 String notification_type = data.get("notification_type");
+                String not_title = data.get("not_title");
+                String not_message = data.get("not_message");
+                String not_message_text = data.get("not_message_text");
+                String not_message_info1 = data.get("not_message_info1");
+                String not_message_info2 = data.get("not_message_info2");
+                String not_message_image = data.get("not_message_image");
+                String not_message_video = data.get("not_message_video");
+                String not_time = data.get("not_time");
+                int notType = Config.getNotificationType(not_type_real);
+
+
+                String not_pic = data.get("not_pic");
+                String not_pott_or_newsid = data.get("not_pott_or_newsid");
+                String not_pott_name = data.get("pott_name");
+                String not_id_3 = data.get("alert_type");
+
+                Log.e("NotChatFCM", "not_type : " + notification_type
+                        +  " -- not_title : " + not_title
+                        +  " -- not_message : " + not_message
+                        +  " -- not_message_text : " + not_message_text
+                        +  " -- not_message_info1 : " + not_message_info1
+                        +  " -- not_message_info2 : " + not_message_info2
+                        +  " -- not_message_image : " + not_message_image
+                        +  " -- not_message_video : " + not_message_video
+                        +  " -- not_time : " + not_time
+                );
 
                 int countForNotifications = Config.getSharedPreferenceInt(getApplicationContext(), Config.NOTIFICATION_UNREAD_COUNT);
                 int countForChats = Config.getSharedPreferenceInt(getApplicationContext(), Config.CHAT_NOTIFICATION_UNREAD_COUNT);
@@ -59,7 +85,6 @@ public class MyFirebaseMessagingService extends com.google.firebase.messaging.Fi
                 String not_pott_name = data.get("pott_name");
                 String not_time = data.get("not_time");
                 String not_id_3 = data.get("alert_type");
-                int notType = Config.getNotificationType(not_type_real);
 
                 Log.e("NotChatFCM", "notification_type : " + notification_type
                         +  " -- not_type_real : " + not_type_real
