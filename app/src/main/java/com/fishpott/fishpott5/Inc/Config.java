@@ -2531,7 +2531,7 @@ public class Config {
 	}
 
 
-	public static void setUserNotification(Context context, String CHANNEL_ID, String title, String body, int notCount, int notIconDrawable, String not_type){
+	public static void setUserNotification(Context context, String CHANNEL_ID, String title, String body, int notCount, int notIconDrawable){
 		int notification_id = (int) System.currentTimeMillis();
 		NotificationManager notificationManager = null;
 		NotificationCompat.Builder mBuilder;
@@ -2540,10 +2540,10 @@ public class Config {
 		PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_ONE_SHOT);
 
 		//Set pending intent to builder
-		if(not_type == "important_message"){
+		//if(not_type == "important_message"){
 			//intent = new Intent(context, AboutActivity.class);
 			//pendingIntent = PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_ONE_SHOT);
-		}
+		//}
 
 
 		//Notification builder
