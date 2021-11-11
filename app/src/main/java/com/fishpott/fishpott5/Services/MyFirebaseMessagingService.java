@@ -162,8 +162,11 @@ public class MyFirebaseMessagingService extends com.google.firebase.messaging.Fi
                     //sendChatNotification(title, message, chat_table, receiver_fullname, receiver_pottname, receiver_verified_tag, receiver_profile_picture, chat_date);
 
                 } else {
-                    countForNotifications++;
+
                     int badgeCountForNotifications = countForNotifications + countForChats;
+                    if(not_type.trim().equalsIgnoreCase("drill-suggestion") || not_type.trim().equalsIgnoreCase("business-suggestion")){
+                        countForNotifications++;
+                    }
                     Config.setSharedPreferenceInt(getApplicationContext(), Config.NOTIFICATION_UNREAD_COUNT, countForNotifications);
 
 
