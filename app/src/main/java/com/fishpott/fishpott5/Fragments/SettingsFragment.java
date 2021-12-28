@@ -19,8 +19,10 @@ import com.fishpott.fishpott5.Activities.MtnMobileMoneyActivity;
 import com.fishpott.fishpott5.Activities.MySharesActivity;
 import com.fishpott.fishpott5.Activities.RedeemSharesCouponActivity;
 import com.fishpott.fishpott5.Activities.RedeemWalletCreditCouponActivity;
+import com.fishpott.fishpott5.Activities.SellbackActivity;
 import com.fishpott.fishpott5.Activities.TheTellerActivity;
 import com.fishpott.fishpott5.Activities.TransactionsActivity;
+import com.fishpott.fishpott5.Activities.TransferActivity;
 import com.fishpott.fishpott5.Activities.WebViewActivity;
 import com.fishpott.fishpott5.Activities.WithdrawFundsActivity;
 import com.fishpott.fishpott5.Inc.Config;
@@ -32,7 +34,7 @@ public class SettingsFragment extends Fragment implements View.OnClickListener {
     private ConstraintLayout mCreditWalletHolderConstraintLayout, mViewMySharesHolderConstraintLayout, mRedeemWalletCreditCouponHolderConstraintLayout,
             mRedeemSharesCouponHolderConstraintLayout, mTransactionsHolderConstraintLayout, mWithdrawFundsHolderConstraintLayout, mPrivacyPolicyHolderConstraintLayout,
             mChangePasswordHolderConstraintLayout, mContactFPHolderConstraintLayout, mAboutHolderConstraintLayout, mTermsOfServiceHolderConstraintLayout,
-            mFindBusinessHolderConstraintLayout;
+            mFindBusinessHolderConstraintLayout, mSellBackConstraintLayout, mTransferConstraintLayout;
     public static TextView mWithdrawalWalletBalanceTextView, mDebitWalletBalanceTextView, mPottPearlsBalanceTextView,
             mPottIntelligenceTextView, mPottNetWorthTextView, mPottPositionTextView;
     private View view = null;
@@ -70,6 +72,8 @@ public class SettingsFragment extends Fragment implements View.OnClickListener {
         mContactFPHolderConstraintLayout = view.findViewById(R.id.contact_fishpott_holder_contrainlayout);
         mPrivacyPolicyHolderConstraintLayout = view.findViewById(R.id.privacy_policy_holder_contrainlayout);
         mTermsOfServiceHolderConstraintLayout = view.findViewById(R.id.tos_holder_contrainlayout);
+        mTransferConstraintLayout = view.findViewById(R.id.transfersharesholder_contrainlayout);
+        mSellBackConstraintLayout = view.findViewById(R.id.sellbackholder_contrainlayout);
 
 
         String withdrawalBalance = Config.getSharedPreferenceString(getActivity().getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_WITHDRAWAL_WALLET);
@@ -102,6 +106,8 @@ public class SettingsFragment extends Fragment implements View.OnClickListener {
         mContactFPHolderConstraintLayout.setOnClickListener(this);
         mPrivacyPolicyHolderConstraintLayout.setOnClickListener(this);
         mTermsOfServiceHolderConstraintLayout.setOnClickListener(this);
+        mTransferConstraintLayout.setOnClickListener(this);
+        mSellBackConstraintLayout.setOnClickListener(this);
 
         return view;
     }
@@ -148,7 +154,11 @@ public class SettingsFragment extends Fragment implements View.OnClickListener {
         } else if(view.getId() == R.id.withdraw_funds_holder_contrainlayout){
             Config.openActivity(getActivity(), WithdrawFundsActivity.class, 1, 0, 0, "", "");
         } else if(view.getId() == R.id.transactions_holder_contrainlayout){
+            Config.openActivity(getActivity(), TransferActivity.class, 1, 0, 0, "", "");
+        } else if(view.getId() == R.id.sellbackholder_contrainlayout){
             Config.openActivity(getActivity(), TransactionsActivity.class, 1, 0, 0, "", "");
+        } else if(view.getId() == R.id.transfersharesholder_contrainlayout){
+            Config.openActivity(getActivity(), SellbackActivity.class, 1, 0, 0, "", "");
         }  else if(view.getId() == R.id.change_password_holder_contrainlayout){
             Config.openActivity(getActivity(), ChangePasswordActivity.class, 1, 0, 0, "", "");
         } else if(view.getId() == R.id.contact_fishpott_holder_contrainlayout){

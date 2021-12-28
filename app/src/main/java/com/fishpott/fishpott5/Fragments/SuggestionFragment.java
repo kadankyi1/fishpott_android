@@ -208,13 +208,15 @@ public class SuggestionFragment extends Fragment implements View.OnClickListener
                 }
             });
 
-            String final_url = Config.LINK_GET_MY_SUGGESTION + "?user_phone_number=" + Uri.encode(Config.getSharedPreferenceString(context, Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_PHONE)) + "&user_pottname=" + Config.getSharedPreferenceString(context, Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_POTT_NAME) + "&investor_id=" + Config.getSharedPreferenceString(context, Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_ID) + "&app_type=ANDROID&app_version_code=" + String.valueOf(Config.getAppVersionCode(getActivity().getApplicationContext())) + "&user_language=" + LocaleHelper.getLanguage(getActivity());
-
-
-        Log.e("GetSuggestion", final_url);
-            AndroidNetworking.get(final_url)
+            AndroidNetworking.post(Config.LINK_GET_MY_SUGGESTION)
                     .addHeaders("Accept", "application/json")
                     .addHeaders("Authorization", "Bearer " + Config.getSharedPreferenceString(getActivity().getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_PASSWORD_ACCESS_TOKEN))
+                    .addBodyParameter("user_phone_number", Config.getSharedPreferenceString(getActivity().getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_PHONE))
+                    .addBodyParameter("user_pottname", Config.getSharedPreferenceString(getActivity().getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_POTT_NAME))
+                    .addBodyParameter("investor_id", Config.getSharedPreferenceString(getActivity().getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_ID))
+                    .addBodyParameter("app_type", "ANDROID")
+                    .addBodyParameter("app_version_code", String.valueOf(Config.getAppVersionCode(getActivity().getApplicationContext())))
+                    .addBodyParameter("user_language", LocaleHelper.getLanguage(getActivity()))
                     .setTag("get_suggestion")
                     .setPriority(Priority.HIGH)
                     .build().getAsString(new StringRequestListener() {

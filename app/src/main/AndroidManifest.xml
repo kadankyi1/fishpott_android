@@ -33,6 +33,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".Activities.TransferActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Activities.SellbackActivity"
+            android:exported="true" />
+        <activity
             android:name=".Activities.FindBusinessActivity"
             android:exported="true" />
         <activity
