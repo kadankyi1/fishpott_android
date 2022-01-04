@@ -146,7 +146,7 @@ public class SettingsFragment extends Fragment implements View.OnClickListener {
             Config.openActivity(getActivity(), CreditWalletActivity.class, 1, 0, 0, "", "");
             //Config.openActivity(getActivity(), MtnMobileMoneyActivity.class, 1, 0, 0, "", "");
         } else if(view.getId() == R.id.myshares_holder_contrainlayout){
-            Config.openActivity(getActivity(), MySharesActivity.class, 1, 0, 0, "", "");
+            Config.openActivity(getActivity(), MySharesActivity.class, 0, 0, 0, "", "");
         } else if(view.getId() == R.id.redeem_wallet_coupon_holder_contrainlayout){
             Config.openActivity(getActivity(), RedeemWalletCreditCouponActivity.class, 1, 0, 0, "", "");
         } else if(view.getId() == R.id.redeem_shares_coupon_holder_contrainlayout){
@@ -154,13 +154,13 @@ public class SettingsFragment extends Fragment implements View.OnClickListener {
         } else if(view.getId() == R.id.withdraw_funds_holder_contrainlayout){
             Config.openActivity(getActivity(), WithdrawFundsActivity.class, 1, 0, 0, "", "");
         } else if(view.getId() == R.id.transactions_holder_contrainlayout){
-            Config.openActivity(getActivity(), TransferActivity.class, 1, 0, 0, "", "");
+            Config.openActivity(getActivity(), TransactionsActivity.class, 0, 0, 0, "", "");
         } else if(view.getId() == R.id.sellbackholder_contrainlayout){
-            Config.openActivity(getActivity(), TransactionsActivity.class, 1, 0, 0, "", "");
+            Config.openActivity(getActivity(), SellbackActivity.class, 0, 0, 0, "", "");
         } else if(view.getId() == R.id.transfersharesholder_contrainlayout){
-            Config.openActivity(getActivity(), SellbackActivity.class, 1, 0, 0, "", "");
+            Config.openActivity(getActivity(), TransferActivity.class, 0, 0, 0, "", "");
         }  else if(view.getId() == R.id.change_password_holder_contrainlayout){
-            Config.openActivity(getActivity(), ChangePasswordActivity.class, 1, 0, 0, "", "");
+            Config.openActivity(getActivity(), ChangePasswordActivity.class, 0, 0, 0, "", "");
         } else if(view.getId() == R.id.contact_fishpott_holder_contrainlayout){
             /*
             String[] chatData = {
