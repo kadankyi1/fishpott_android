@@ -13,6 +13,7 @@ import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.view.animation.AnimationUtils;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.NumberPicker;
@@ -35,6 +36,8 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
+import gh.com.payswitch.thetellerandroid.thetellerManager;
+
 public class TransferActivity extends AppCompatActivity implements View.OnClickListener{
 
     private SwipeRefreshLayout mReloadSharesSwipeRefreshLayout;
@@ -44,6 +47,7 @@ public class TransferActivity extends AppCompatActivity implements View.OnClickL
     private Boolean networkRequestStarted = false;
     private Thread transferThread = null;
     private EditText mQuantityEditText, mReceiverPottNameEditText, mPasswordEditText;
+    private Button mTransferButton;
     private TextInputLayout mQuantityEditTextTextInputLayout;
     private int selectedSharesIndex = 0, transferfeeInt = 0;
     private String transferFee = "", selectedSharesName = "", selectedSharesId = "", selectedSharesAvailableQuantity = "", selectedSharesCostPrice = "", selectedSharesMaxPrice = "", networkResponse = "";
@@ -73,10 +77,11 @@ public class TransferActivity extends AppCompatActivity implements View.OnClickL
         mSharesListTextView = findViewById(R.id.fragment_loadsharesforposting_chosen_textview);
         mQuantityEditTextTextInputLayout = findViewById(R.id.fragment_loadsharesforposting_sharesquantity_edit_text_layout_holder);
         mQuantityEditText = findViewById(R.id.fragment_loadsharesforposting_sharesquantity_edit_text);
-        mReceiverPottNameEditText = findViewById(R.id.fragment_loadsharesforposting_sharesprice_edit_text);
+        mReceiverPottNameEditText = findViewById(R.id.fragment_loadsharesforposting_receiverpottname_edit_text);
         mPasswordEditText = findViewById(R.id.fragment_loadsharesforposting_password_edittext);
         mFeeInfoTextView = findViewById(R.id.fragment_loadsharesforposting_sharesinfo_textview);
         mTransferInfoTextView = findViewById(R.id.fragment_loadsharesforposting_feeinfo_textview);
+        mTransferButton = findViewById(R.id.fragment_loadsharesforposting_addsharestopost_button);
 
 
         mReloadSharesSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
@@ -85,7 +90,7 @@ public class TransferActivity extends AppCompatActivity implements View.OnClickL
                 transferThread = new Thread(new Runnable() {
                     @Override
                     public void run() {
-                        getLatestSuggestion(getApplicationContext());
+                        getMyShares(getApplicationContext());
                     }
                 });
                 transferThread.start();
@@ -132,16 +137,19 @@ public class TransferActivity extends AppCompatActivity implements View.OnClickL
         mSharesListTextView.setOnClickListener(this);
         mLoaderTextView.setOnClickListener(this);
         mLoaderImageView.setOnClickListener(this);
+        mTransferButton.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
         if(v.getId() == mLoaderTextView.getId() || v.getId() == mLoaderImageView.getId()){
-            getLatestSuggestion(getApplicationContext());
+            getMyShares(getApplicationContext());
         } else if(v.getId() == mSharesListTextView.getId()){
             mSharesSetListener = Config.openNumberPickerForCountries(TransferActivity.this, mSharesSetListener, 0, sharesNamesStringArrayList.size()-1, true, sharesNamesStringArraySet, selectedSharesIndex);
         } else if(v.getId() == mBackImageView.getId()){
             onBackPressed();
+        } else if(v.getId() == mTransferButton.getId()){
+            transferShares(getApplicationContext(), mPasswordEditText.getText().toString().trim(), mReceiverPottNameEditText.getText().toString().trim());
         }
     }
 
@@ -186,7 +194,7 @@ public class TransferActivity extends AppCompatActivity implements View.OnClickL
         return false;
     }
 
-    private void getLatestSuggestion(Context context){
+    private void getMyShares(Context context){
         networkRequestStarted = true;
         new Handler(Looper.getMainLooper()).post(new Runnable() {
             @Override
@@ -271,6 +279,138 @@ public class TransferActivity extends AppCompatActivity implements View.OnClickL
                                     mLoaderTextView.setText("...");
                                     mLoaderHolderConstraintLayout.setVisibility(View.INVISIBLE);
                                     mTransferFormHolderConstraintLayout.setVisibility(View.VISIBLE);
+                                }
+                            });
+                        }
+                    } else if(myStatus == 2){
+                        // IF USER'S APP IS OUTDATED AND NOT ALLOWED TO BE USED
+                        Config.setSharedPreferenceBoolean(getApplicationContext(), Config.SHARED_PREF_KEY_UPDATE_ACTIVITY_UPDATE_BY_FORCE, true);
+                        Config.openActivity3(getApplicationContext(), UpdateActivity.class, 1, Config.KEY_ACTIVITY_FINISHED, "1");
+                        return;
+                    } else if(myStatus == 3){
+                        // GENERAL ERROR
+                        mLoaderImageView.clearAnimation();
+                        mLoaderTextView.setText("Failed. Click to try again");
+                        Config.showToastType1(TransferActivity.this, myStatusMessage);
+                        return;
+                    } else if(myStatus == 4){
+                        // IF USER'S ACCOUNT HAS BEEN SUSPENDED, WE SIGN USER OUT
+                        Config.showToastType1(TransferActivity.this, myStatusMessage);
+                        Config.signOutUser(getApplicationContext(), true, TransferActivity.this, StartActivity.class, 0, 2);
+                    } else if(myStatus == 5){
+                        Config.setSharedPreferenceBoolean(getApplicationContext(), Config.SHARED_PREF_KEY_UPDATE_ACTIVITY_UPDATE_BY_FORCE, true);
+                        Config.openActivity3(getApplicationContext(), UpdateActivity.class, 1, Config.KEY_ACTIVITY_FINISHED, "1");
+                        return;
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    Config.showToastType1(TransferActivity.this, getString(R.string.failed_if_this_continues_please_update_your_app));
+                    if(!isFinishing()){
+                        mLoaderImageView.clearAnimation();
+                        mLoaderTextView.setText("Failed. Click to try again");
+                    }
+                }
+            }
+
+            @Override
+            public void onError(ANError anError) {
+                networkRequestStarted = false;
+                Config.showToastType1(TransferActivity.this, getString(R.string.failed_check_your_internet_and_try_again));
+                if(!isFinishing()){
+                    mTransferFormHolderConstraintLayout.setVisibility(View.INVISIBLE);
+                    mLoaderHolderConstraintLayout.setVisibility(View.VISIBLE);
+                    mLoaderImageView.clearAnimation();
+                    mLoaderTextView.setText("Failed. Click the icon to load your shares");
+                }
+            }
+        });
+    }
+
+
+    private void transferShares(Context context, String receiverPottName, String userPassword){
+
+        if(     chosenSharesInfo[0].equalsIgnoreCase("sId")
+                || chosenSharesInfo[1].equalsIgnoreCase("sName")
+                || chosenSharesInfo[2].equalsIgnoreCase("sSellQuantity")
+                || chosenSharesInfo[3].equalsIgnoreCase("sSellPrice")
+                || chosenSharesInfo[4].equalsIgnoreCase("")
+                || receiverPottName.length() < 4) {
+            Config.showToastType1(TransferActivity.this, "The form is incomplete.");
+        }
+
+        networkRequestStarted = true;
+        new Handler(Looper.getMainLooper()).post(new Runnable() {
+            @Override
+            public void run() {
+                mTransferFormHolderConstraintLayout.setVisibility(View.INVISIBLE);
+                mLoaderHolderConstraintLayout.setVisibility(View.VISIBLE);
+                mLoaderImageView.startAnimation(AnimationUtils.loadAnimation(TransferActivity.this, R.anim.suggestion_loading_anim));
+                mLoaderTextView.setText("Setting payment portal...");
+            }
+        });
+
+        AndroidNetworking.post(Config.LINK_TRANSFER_STOCKS)
+                .addHeaders("Accept", "application/json")
+                .addHeaders("Authorization", "Bearer " + Config.getSharedPreferenceString(TransferActivity.this, Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_PASSWORD_ACCESS_TOKEN))
+                .addBodyParameter("user_phone_number", Config.getSharedPreferenceString(TransferActivity.this, Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_PHONE))
+                .addBodyParameter("user_pottname", Config.getSharedPreferenceString(TransferActivity.this, Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_POTT_NAME))
+                .addBodyParameter("investor_id", Config.getSharedPreferenceString(TransferActivity.this, Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_ID))
+                .addBodyParameter("user_language", LocaleHelper.getLanguage(TransferActivity.this))
+                .addBodyParameter("app_type", "ANDROID")
+                .addBodyParameter("app_version_code", String.valueOf(Config.getAppVersionCode(TransferActivity.this.getApplicationContext())))
+                .addBodyParameter("user_password", userPassword)
+                .addBodyParameter("stockownership_id", chosenSharesInfo[0])
+                .addBodyParameter("transfer_quantity", chosenSharesInfo[2])
+                .addBodyParameter("receiver_pottname", receiverPottName)
+                .setTag("get_my_shares")
+                .setPriority(Priority.HIGH)
+                .build().getAsString(new StringRequestListener() {
+            @Override
+            public void onResponse(String response) {
+                Log.e("GetSuggestion", response);
+                networkRequestStarted = false;
+
+                try {
+                    final JSONObject o = new JSONObject(response);
+                    int myStatus = o.getInt("status");
+                    final String myStatusMessage = o.getString("message");
+
+                    //STORING THE USER DATA
+                    Config.setSharedPreferenceBoolean(getApplicationContext(), Config.SHARED_PREF_KEY_USER_VERIFY_PHONE_NUMBER_IS_ON, o.getBoolean("phone_verification_is_on"));
+
+                    // UPDATING THE VERSION CODE AND FORCE STATUS OF THE APP.
+                    Config.setSharedPreferenceBoolean(getApplicationContext(), Config.SHARED_PREF_KEY_UPDATE_ACTIVITY_UPDATE_BY_FORCE, o.getBoolean("user_android_app_force_update"));
+                    Config.setSharedPreferenceInt(getApplicationContext(), Config.SHARED_PREF_KEY_UPDATE_ACTIVITY_UPDATE_VERSION_CODE, o.getInt("user_android_app_max_vc"));
+
+                    if(myStatus == 1){
+
+                        final int paymentGatewayAmtInt = new JSONObject(response).getJSONObject("data").getInt("transfer_fee_cedis_no_sign");
+                        //String paymentGatewayAmtString = new JSONObject(response).getJSONObject("data").getString("transfer_fee_cedis_with_sign");
+                        String transanctionId = new JSONObject(response).getJSONObject("data").getString("transanction_id");
+                        // LIST RESULTS SETTING COMES HERE
+
+                        if(!isFinishing()){
+                            new Handler(Looper.getMainLooper()).post(new Runnable() {
+                                @Override
+                                public void run() {
+                                    //mLoaderImageView.clearAnimation();
+                                    //mLoaderTextView.setText("...");
+                                    //mLoaderHolderConstraintLayout.setVisibility(View.INVISIBLE);
+                                    //mTransferFormHolderConstraintLayout.setVisibility(View.VISIBLE);
+                                    new thetellerManager(TransferActivity.this).setAmount(Long.parseLong(String.valueOf(paymentGatewayAmtInt)))
+                                            .setEmail("annodankyikwaku@gmail.com")
+                                            .setfName("fName")
+                                            .setlName("lName")
+                                            .setMerchant_id("merchantId")
+                                            .setNarration("narration")
+                                            .setApiUser("apiUser")
+                                            .setApiKey("apiKey")
+                                            .setTxRef("txRef")
+                                            .set3dUrl("dUrl")
+                                            .acceptCardPayments(true)
+                                            .acceptGHMobileMoneyPayments(true)
+                                            .onStagingEnv(false)
+                                            .initialize();
                                 }
                             });
                         }
