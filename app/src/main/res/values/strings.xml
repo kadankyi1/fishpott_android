@@ -1042,6 +1042,6 @@
     <string name="how_does_fishpott_use_the_data">How It\'s Used</string>
     <string name="checking_for_new_messages_n_suggesting_other_investors_to_you_to_connect_with_n_suggesting_good_stocks_your_friends_are_buying_to_you"><![CDATA[Checking for new messages and suggesting good stocks your friends are buying to you]]></string>
     <string name="failed_if_this_continues_please_update_your_app">Failed. If this continues, please update your app</string>
-    <string name="failed_check_your_internet_and_try_again">\"Failed. Check your internet and try again \"</string>
+    <string name="failed_check_your_internet_and_try_again">Failed. Check your internet and try again</string>
 
 </resources>
