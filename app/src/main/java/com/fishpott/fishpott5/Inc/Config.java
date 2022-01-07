@@ -317,6 +317,9 @@ public class Config {
 	// SERVER-SIDE API FOR GETTING MY OWNED SHARES
 	public static final String LINK_TRANSFER_STOCKS = CURRENT_HTTP_IN_USE + "144.202.111.61/api/v1/user/send-stock-transfer";
 
+	// SERVER-SIDE API FOR SELLING BACK SHARES
+	public static final String LINK_SELLBACK_STOCKS = CURRENT_HTTP_IN_USE + "144.202.111.61/api/v1/user/sellback-stock";
+
 	/********************************************************************************************************************************************
 
 	 OLD LINKS OLD LINKS OLD LINKS OLD LINKS OLD LINKS OLD LINKS OLD LINKS OLD LINKS OLD LINKS OLD LINKS OLD LINKS OLD LINKS OLD LINKS OLD LINKS

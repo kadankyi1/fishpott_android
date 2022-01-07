@@ -1,15 +1,420 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/colorAccent"
+    android:clickable="true"
+    android:focusable="true"
     tools:context=".Activities.SellbackActivity">
 
-    <TextView
+    <android.support.constraint.Guideline
+        android:id="@+id/title_bar_guideline_h_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.08" />
+
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/title_bar_constraint_layout_2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/colorPrimaryTitleBar"
+        app:layout_constraintBottom_toTopOf="@+id/title_bar_guideline_h_1"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+
+        <android.support.constraint.Guideline
+            android:id="@+id/in_title_bar_guideline_v_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.15" />
+
+        <TextView
+            android:id="@+id/title_bar_title_textview"
+            style="@style/ContactsActivityHintStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:gravity="center"
+            android:text="Sell Back Shares"
+            android:textAlignment="center"
+            android:textColor="@color/colorAccent"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/title_bar_constraint_layout_2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/in_title_bar_guideline_v_1"
+            app:layout_constraintTop_toTopOf="@+id/title_bar_constraint_layout_2" />
+
+
+        <ImageView
+            android:id="@+id/title_bar_back_icon_imageview"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginBottom="12dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="12dp"
+            android:contentDescription="@string/none"
+            android:tint="@color/colorAccent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/in_title_bar_guideline_v_1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/forgot_password_arrow_back" />
+
+    </android.support.constraint.ConstraintLayout>
+
+
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_reloadshares_swiperefreshrelayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="SellbackActivity"
-        />
+        android:layout_height="0dp"
+        android:visibility="visible"
+        android:padding="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title_bar_guideline_h_1">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/stage_2_constraintlayout"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:visibility="visible"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent">
+
+                <ImageView
+                    android:id="@+id/fragment_suggestion_loader_imageview"
+                    android:layout_width="65dp"
+                    android:layout_height="65dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:src="@drawable/roundlogo"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toTopOf="@+id/fragment_suggestion_loadertext_textview"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_chainStyle="packed" />
+
+                <TextView
+                    android:id="@+id/fragment_suggestion_loadertext_textview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginEnd="25dp"
+                    android:gravity="center"
+                    android:visibility="visible"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:text="Click here to load your shares"
+                    android:textAlignment="center"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/fragment_suggestion_loader_imageview"
+                    app:layout_constraintVertical_bias="0.0" />
+            </android.support.constraint.ConstraintLayout>
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/stage_1_constraintlayout"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:padding="5dp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/loadsharesforpostingfragment_choose_shares_label_textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/choose_shares"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toTopOf="@+id/fragment_loadsharesforposting_chosen_textview"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0"
+                    app:layout_constraintVertical_chainStyle="packed" />
+
+                <TextView
+                    android:id="@+id/fragment_loadsharesforposting_chosen_textview"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="25dp"
+                    android:background="@drawable/fragment_signup_personalstage1_textview_background_with_borders"
+                    android:gravity="center"
+                    android:text="@string/no_shares_selected"
+                    android:textAlignment="center"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@+id/fragment_loadsharesforposting_sharesquantity_edit_text_layout_holder"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/loadsharesforpostingfragment_choose_shares_label_textview" />
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/fragment_loadsharesforposting_sharesquantity_edit_text_layout_holder"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="25dp"
+                    android:theme="@style/loginActivityHintStyle"
+                    app:layout_constraintBottom_toTopOf="@+id/activity_withdrawfunds_activity_bankinfo_textview"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/fragment_loadsharesforposting_chosen_textview">
+
+                    <EditText
+                        android:id="@+id/fragment_loadsharesforposting_sharesquantity_edit_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:digits="1234567890"
+                        android:hint="Quantity To Sell"
+                        android:inputType="number"
+                        android:labelFor="@id/fragment_loadsharesforposting_sharesquantity_edit_text"
+                        android:textColor="@drawable/login_activity_input_text_color" />
+
+                </android.support.design.widget.TextInputLayout>
+
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/account_name_withdrawfunds_activity_edittext_textinputlayout"
+                    android:layout_width="0dp"
+                    android:layout_height="55dp"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="25dp"
+                    android:gravity="center"
+                    android:theme="@style/loginActivityHintStyle"
+                    app:layout_constraintBottom_toTopOf="@+id/account_mobile_number_withdrawfunds_activity_edittext_textinputlayout"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/activity_withdrawfunds_activity_bankinfo_textview"
+                    app:layout_constraintVertical_bias="0.35000002"
+                    app:layout_constraintVertical_chainStyle="packed">
+
+                    <EditText
+                        android:id="@+id/account_name_edittext"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:hint="Bank/MobileMoney Account Name"
+                        android:inputType="text"
+                        android:labelFor="@id/account_name_withdrawfunds_activity_edittext_textinputlayout"
+                        android:maxLength="45"
+                        android:textColor="@drawable/login_activity_input_text_color" />
+
+                </android.support.design.widget.TextInputLayout>
+
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/account_mobile_number_withdrawfunds_activity_edittext_textinputlayout"
+                    android:layout_width="0dp"
+                    android:layout_height="55dp"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginEnd="25dp"
+                    android:gravity="center"
+                    android:theme="@style/loginActivityHintStyle"
+                    app:layout_constraintBottom_toTopOf="@+id/bank_momo_networkk_withdrawfunds_activity_edittext_textinputlayout"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/account_name_withdrawfunds_activity_edittext_textinputlayout"
+                    app:layout_constraintVertical_bias="0.35000002"
+                    app:layout_constraintVertical_chainStyle="packed">
+
+                    <EditText
+                        android:id="@+id/account_number_edittext"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:digits="0123456789"
+                        android:hint="Bank /MobileMoney Account Number"
+                        android:inputType="number"
+                        android:labelFor="@id/account_mobile_number_withdrawfunds_activity_edittext_textinputlayout"
+                        android:maxLength="45"
+                        android:textColor="@drawable/login_activity_input_text_color" />
+
+                </android.support.design.widget.TextInputLayout>
+
+
+                <TextView
+                    android:id="@+id/activity_withdrawfunds_activity_bankinfo_textview"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="27dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="27dp"
+                    android:text="Where would you like us to send your funds to? Include bank routing number if using a bank account"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toTopOf="@+id/account_name_withdrawfunds_activity_edittext_textinputlayout"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/fragment_loadsharesforposting_sharesquantity_edit_text_layout_holder" />
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/bank_momo_networkk_withdrawfunds_activity_edittext_textinputlayout"
+                    android:layout_width="0dp"
+                    android:layout_height="55dp"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginEnd="25dp"
+                    android:gravity="center"
+                    android:theme="@style/loginActivityHintStyle"
+                    app:layout_constraintBottom_toTopOf="@+id/routing_number_withdrawfunds_activity_edittext_textinputlayout"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/account_mobile_number_withdrawfunds_activity_edittext_textinputlayout"
+                    app:layout_constraintVertical_bias="0.35000002"
+                    app:layout_constraintVertical_chainStyle="packed">
+
+                    <EditText
+                        android:id="@+id/network_name_edittext"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:hint="Bank/Mobile Network Name"
+                        android:inputType="text"
+                        android:labelFor="@id/bank_momo_networkk_withdrawfunds_activity_edittext_textinputlayout"
+                        android:maxLength="45"
+                        android:textColor="@drawable/login_activity_input_text_color" />
+
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/routing_number_withdrawfunds_activity_edittext_textinputlayout"
+                    android:layout_width="0dp"
+                    android:layout_height="55dp"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginEnd="25dp"
+                    android:gravity="center"
+                    android:theme="@style/loginActivityHintStyle"
+                    app:layout_constraintBottom_toTopOf="@+id/fragment_loadsharesforposting_password_layout_holder"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/bank_momo_networkk_withdrawfunds_activity_edittext_textinputlayout"
+                    app:layout_constraintVertical_bias="0.35000002"
+                    app:layout_constraintVertical_chainStyle="packed">
+
+                    <EditText
+                        android:id="@+id/routing_number_edittext"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:digits="0123456789"
+                        android:hint="@string/bank_routing_number_bank_accounts_only"
+                        android:inputType="number"
+                        android:labelFor="@id/routing_number_withdrawfunds_activity_edittext_textinputlayout"
+                        android:maxLength="45"
+                        android:textColor="@drawable/login_activity_input_text_color" />
+
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/fragment_loadsharesforposting_password_layout_holder"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="25dp"
+                    android:theme="@style/loginActivityHintStyle"
+                    app:layout_constraintBottom_toTopOf="@+id/fragment_loadsharesforposting_sharesinfo_textview"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/routing_number_withdrawfunds_activity_edittext_textinputlayout">
+
+                    <EditText
+                        android:id="@+id/fragment_loadsharesforposting_password_edittext"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:hint="@string/login_activity_password_input_hint"
+                        android:inputType="textPassword"
+                        android:labelFor="@id/fragment_loadsharesforposting_password_edittext"
+                        android:maxLength="20"
+                        android:textColor="@drawable/login_activity_input_text_color" />
+
+                </android.support.design.widget.TextInputLayout>
+
+
+                <TextView
+                    android:id="@+id/fragment_loadsharesforposting_sharesinfo_textview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toTopOf="@+id/fragment_loadsharesforposting_feeinfo_textview"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/fragment_loadsharesforposting_password_layout_holder" />
+
+
+                <TextView
+                    android:id="@+id/fragment_loadsharesforposting_feeinfo_textview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="15dp"
+                    android:textColor="@color/colorYardsaleDark"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@+id/fragment_loadsharesforposting_addsharestopost_button"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/fragment_loadsharesforposting_sharesinfo_textview" />
+
+
+                <Button
+                    android:id="@+id/fragment_loadsharesforposting_addsharestopost_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/button_height"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="25dp"
+                    android:background="@drawable/start_a_fishpott_acc_button_background"
+                    android:text="SellBack"
+                    android:textColor="@drawable/black_button_pressed_white_color"
+                    android:textSize="@dimen/button_text_size"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/fragment_loadsharesforposting_feeinfo_textview" />
+            </android.support.constraint.ConstraintLayout>
+
+        </android.support.constraint.ConstraintLayout>
+
+
+    </android.support.v4.widget.SwipeRefreshLayout>
 </android.support.constraint.ConstraintLayout>
