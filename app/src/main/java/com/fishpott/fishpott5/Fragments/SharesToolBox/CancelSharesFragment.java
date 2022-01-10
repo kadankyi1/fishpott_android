@@ -433,7 +433,7 @@ public class CancelSharesFragment extends Fragment implements View.OnClickListen
                                             selectedSharesId = "";
                                             selectedSharesCostPrice = "";
 
-                                            Config.setUserNotification(getActivity().getApplicationContext(), String.valueOf(Config.NOTICATION_RELATING_SHARESFORSALE_TRANSFER), getString(R.string.shares_ownership_cancelled), getString(R.string.shares_ownership_cancelled_and_withdrawal_wallet_credited_successfully), 1, R.drawable.notification_icon);
+                                            Config.setUserNotification(getActivity().getApplicationContext(), String.valueOf(Config.NOTICATION_RELATING_SHARESFORSALE_TRANSFER), "", getString(R.string.shares_ownership_cancelled), getString(R.string.shares_ownership_cancelled_and_withdrawal_wallet_credited_successfully), "", 1, R.drawable.notification_icon);
                                             Notifications_DatabaseAdapter notifications_databaseAdapter = new Notifications_DatabaseAdapter(getActivity().getApplicationContext());
                                             // OPENING THE STORIES DATABASE
                                             notifications_databaseAdapter.openDatabase();

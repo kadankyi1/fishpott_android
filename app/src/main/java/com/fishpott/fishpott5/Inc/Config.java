@@ -90,6 +90,7 @@ import com.fishpott.fishpott5.Activities.GovernmentIDVerificationActivity;
 import com.fishpott.fishpott5.Activities.LoginActivity;
 import com.fishpott.fishpott5.Activities.MainActivity;
 import com.fishpott.fishpott5.Activities.MessengerActivity;
+import com.fishpott.fishpott5.Activities.NotificationViewerActivity;
 import com.fishpott.fishpott5.Activities.SetProfilePictureActivity;
 import com.fishpott.fishpott5.Activities.StartActivity;
 import com.fishpott.fishpott5.Activities.UpdateActivity;
@@ -2537,7 +2538,7 @@ public class Config {
 	}
 
 
-	public static void setUserNotification(Context context, String CHANNEL_ID, String title, String body, String longtext, int notCount, int notIconDrawable){
+	public static void setUserNotification(Context context, String CHANNEL_ID, String nottype, String title, String body, String longtext, int notCount, int notIconDrawable){
 		int notification_id = (int) System.currentTimeMillis();
 		NotificationManager notificationManager = null;
 		NotificationCompat.Builder mBuilder;
@@ -2551,7 +2552,10 @@ public class Config {
 		}
 
 		Intent intent = new Intent(context, MainActivity.class);
-		intent.putExtra("NOTIFICATION_DATA", theData);
+		if(nottype.trim().equalsIgnoreCase("information")){
+			intent = new Intent(context, NotificationViewerActivity.class);
+			intent.putExtra("NOTIFICATION_DATA", theData);
+		}
 		PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_ONE_SHOT);
 
 		//Set pending intent to builder
