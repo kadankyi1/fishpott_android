@@ -2537,12 +2537,21 @@ public class Config {
 	}
 
 
-	public static void setUserNotification(Context context, String CHANNEL_ID, String title, String body, int notCount, int notIconDrawable){
+	public static void setUserNotification(Context context, String CHANNEL_ID, String title, String body, String longtext, int notCount, int notIconDrawable){
 		int notification_id = (int) System.currentTimeMillis();
 		NotificationManager notificationManager = null;
 		NotificationCompat.Builder mBuilder;
+		String[] theData = {
+				title,
+				body
+		};
+
+		if(!longtext.trim().equalsIgnoreCase("")){
+			theData[1] = longtext;
+		}
 
 		Intent intent = new Intent(context, MainActivity.class);
+		intent.putExtra("NOTIFICATION_DATA", theData);
 		PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_ONE_SHOT);
 
 		//Set pending intent to builder
@@ -2578,7 +2587,7 @@ public class Config {
 					.setAutoCancel(true)
 					.setVibrate(new long[]{100, 200, 300, 400, 500, 400, 300, 200, 400})
 					.setDefaults(Notification.DEFAULT_ALL);
-		}else {
+		} else {
 			mBuilder = new NotificationCompat.Builder(context);
 			mBuilder.setContentTitle(title)
 					.setSmallIcon(notIconDrawable)

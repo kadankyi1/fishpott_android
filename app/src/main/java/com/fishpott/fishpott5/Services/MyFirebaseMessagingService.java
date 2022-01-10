@@ -13,6 +13,7 @@ import com.fishpott.fishpott5.Activities.MessengerActivity;
 import com.fishpott.fishpott5.Adapters.ChatMessages_DatabaseAdapter;
 import com.fishpott.fishpott5.Adapters.Notifications_DatabaseAdapter;
 import com.fishpott.fishpott5.Inc.Config;
+import com.fishpott.fishpott5.ListDataGenerators.Chats_ListDataGenerator;
 import com.fishpott.fishpott5.ListDataGenerators.Notifications_ListDataGenerator;
 import com.fishpott.fishpott5.Miscellaneous.LocaleHelper;
 import com.fishpott.fishpott5.Models.Notification_Model;
@@ -48,6 +49,7 @@ public class MyFirebaseMessagingService extends com.google.firebase.messaging.Fi
                 Map<String, String> data = remoteMessage.getData();
                 String not_type = data.get("not_type");
                 String not_title = data.get("not_title");
+                String not_text = data.get("not_message_text");
                 String not_message = data.get("not_message");
                 String not_message_text = data.get("not_message_text");
                 String not_message_info1 = data.get("not_message_info1");
@@ -130,7 +132,7 @@ public class MyFirebaseMessagingService extends com.google.firebase.messaging.Fi
                                 final int finalCountForChats = countForChats;
 
                                 Config.setSharedPreferenceInt(getApplicationContext(), Config.CHAT_NOTIFICATION_UNREAD_COUNT, countForChats);
-                                Config.setUserNotification(getApplicationContext(), String.valueOf(notType), not_title, not_message, countForChats, R.drawable.notification_icon);
+                                Config.setUserNotification(getApplicationContext(), String.valueOf(notType), not_title, not_message, "", countForChats, R.drawable.notification_icon);
                                 Log.e("NotChatFCM", "HERE 5");
                                 new Handler(Looper.getMainLooper()).post(new Runnable() {
                                     @Override
@@ -154,7 +156,7 @@ public class MyFirebaseMessagingService extends com.google.firebase.messaging.Fi
                         //update app icon badge
                         Config.setSharedPreferenceInt(getApplicationContext(), Config.CHAT_NOTIFICATION_UNREAD_COUNT, countForChats);
 
-                        Config.setUserNotification(getApplicationContext(), String.valueOf(notType), not_title, not_message, countForChats, R.drawable.notification_icon);
+                        Config.setUserNotification(getApplicationContext(), String.valueOf(notType), not_title, not_message, "", countForChats, R.drawable.notification_icon);
                         ShortcutBadger.applyCount(getApplicationContext(), badgeCountForNotifications);
                         Config.getNewMessages(getApplicationContext(), Config.UNREAD, not_pott_or_newsid, not_pic,  not_pott_name, String.valueOf(onlineSku), LocaleHelper.getLanguage(getApplicationContext()));
                         Log.e("NotChatFCM", "HERE 6");
@@ -164,7 +166,9 @@ public class MyFirebaseMessagingService extends com.google.firebase.messaging.Fi
                 } else {
 
                     int badgeCountForNotifications = countForNotifications + countForChats;
-                    if(not_type.trim().equalsIgnoreCase("drill-suggestion") || not_type.trim().equalsIgnoreCase("business-suggestion")){
+                    //not_type.trim().equalsIgnoreCase("information") ||
+                    //not_type.trim().equalsIgnoreCase("drill-suggestion") ||
+                    if(not_type.trim().equalsIgnoreCase("business-suggestion")){
                         countForNotifications++;
                     }
                     Config.setSharedPreferenceInt(getApplicationContext(), Config.NOTIFICATION_UNREAD_COUNT, countForNotifications);
@@ -191,6 +195,7 @@ public class MyFirebaseMessagingService extends com.google.firebase.messaging.Fi
                     Notifications_ListDataGenerator.addOneDataToDesiredPosition(0, notification_model);
 
                     Log.e("NotChatFCM", "HERE 4");
+
                     /*
                     if(MyLifecycleHandler.isApplicationVisible()){
                         Log.e("NotChatFCM", "HERE 5");
@@ -201,6 +206,7 @@ public class MyFirebaseMessagingService extends com.google.firebase.messaging.Fi
                                 new Handler(Looper.getMainLooper()).post(new Runnable() {
                                     @Override
                                     public void run() {
+                                        // MAIN ACTIVITY IS VISIBLE
                                         mNotificationMenuIconUpdateIconConstraintLayout.setVisibility(View.VISIBLE);
                                         mNotificationMenuIconUpdateIconConstraintLayout.startAnimation(AnimationUtils.loadAnimation(getApplicationContext(), R.anim.main_activity_onclick_icon_anim));
                                         if(mNotificationsRecyclerView != null){
@@ -211,13 +217,8 @@ public class MyFirebaseMessagingService extends com.google.firebase.messaging.Fi
                                 });
                                 Log.e("NotChatFCM", "HERE 7");
                             } else {
-                                Log.e("NotChatFCM", "HERE 8");
-                                if(notType != Config.NOTICATION_RELATING_SHARESFORSALE){
-                                    notType = Config.NOTICATION_RELATING_JUST_INFO;
-                                    Log.e("NotChatFCM", "HERE 9");
-                                }
-                                Config.setUserNotification(getApplicationContext(), String.valueOf(notType), not_title, not_message, countForNotifications, R.drawable.notification_icon);
-                                Log.e("NotChatFCM", "HERE 10");
+                                // OPEN INFO ACTIVITY
+
                             }
                         }
                     } else {
@@ -227,7 +228,7 @@ public class MyFirebaseMessagingService extends com.google.firebase.messaging.Fi
                             notType = Config.NOTICATION_RELATING_JUST_INFO;
                             Log.e("NotChatFCM", "HERE 11");
                         }
-                        Config.setUserNotification(getApplicationContext(), String.valueOf(notType), not_title, not_message, countForNotifications, R.drawable.notification_icon);
+                        Config.setUserNotification(getApplicationContext(), String.valueOf(notType), not_title, not_message, not_text, countForNotifications, R.drawable.notification_icon);
                         ShortcutBadger.applyCount(getApplicationContext(), badgeCountForNotifications);
                         Log.e("NotChatFCM", "HERE 12");
                     }
@@ -239,7 +240,7 @@ public class MyFirebaseMessagingService extends com.google.firebase.messaging.Fi
                         notType = Config.NOTICATION_RELATING_JUST_INFO;
                         Log.e("NotChatFCM", "HERE 11");
                     }
-                    Config.setUserNotification(getApplicationContext(), String.valueOf(notType), not_title, not_message, countForNotifications, R.drawable.notification_icon);
+                    Config.setUserNotification(getApplicationContext(), String.valueOf(notType), not_title, not_message, not_text, countForNotifications, R.drawable.notification_icon);
                     ShortcutBadger.applyCount(getApplicationContext(), badgeCountForNotifications);
                     Log.e("NotChatFCM", "HERE 12");
                 }
