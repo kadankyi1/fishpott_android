@@ -90,14 +90,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         generalBackgroundThread.start();
 
 
-        // GETTING VALUES FROM OLD-TO-NEW ACTIVITY TRANSITION
-        Bundle intentBundle = getIntent().getExtras();
-        if(intentBundle !=null) {
-            backLinkActivityClosedStatus =(String) intentBundle.get(Config.KEY_ACTIVITY_FINISHED);
-            if(backLinkActivityClosedStatus == null){
-                backLinkActivityClosedStatus = "0";
-            }
-        }
 
         //BINDING VIEWS
         mFragmentsHolderViewPager = findViewById(R.id.activity_mainactivity_fragments_holder_viewpager);
@@ -201,6 +193,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             //Config.openToolTip("right", false, MainActivity.this, mHelloWorldText, "Right ToolTip");
             //Config.openToolTip("left", true, MainActivity.this, mHelloWorldText, "Left ToolTip");
 
+        }
+
+        // GETTING VALUES FROM OLD-TO-NEW ACTIVITY TRANSITION
+        Bundle intentBundle = getIntent().getExtras();
+        if(intentBundle !=null) {
+            Log.e("NotiMain", "Here 1");
+            if(intentBundle.get(Config.KEY_ACTIVITY_FINISHED) != null){
+                backLinkActivityClosedStatus = (String) intentBundle.get(Config.KEY_ACTIVITY_FINISHED);
+                if(backLinkActivityClosedStatus == null){
+                    backLinkActivityClosedStatus = "0";
+                }
+            } else if(intentBundle.get("NOTIFICATION_DATA") != null) {
+                Log.e("NotiMain", "Here 2");
+                String[] chatInfo =(String[]) getIntent().getExtras().get("NOTIFICATION_DATA");
+                Config.openActivity4(MainActivity.this, NotificationViewerActivity.class, 1, 0, 1, "NOTIFICATION_DATA", chatInfo);
+
+            }
         }
     }
 

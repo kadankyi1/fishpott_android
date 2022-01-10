@@ -2543,18 +2543,13 @@ public class Config {
 		NotificationManager notificationManager = null;
 		NotificationCompat.Builder mBuilder;
 		String[] theData = {
-				title,
-				body
+				body,
+				longtext
 		};
-
-		if(!longtext.trim().equalsIgnoreCase("")){
-			theData[1] = longtext;
-		}
 
 		Log.e("NotChatFCMMER", "nottype: " + nottype);
 		Intent intent = new Intent(context, MainActivity.class);
 		if(nottype.trim().equalsIgnoreCase("information")){
-			intent = new Intent(context, NotificationViewerActivity.class);
 			intent.putExtra("NOTIFICATION_DATA", theData);
 		}
 		PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_ONE_SHOT);
