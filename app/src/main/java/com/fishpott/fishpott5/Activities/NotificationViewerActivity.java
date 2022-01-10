@@ -6,7 +6,6 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.fishpott.fishpott5.Inc.Config;
 import com.fishpott.fishpott5.R;
 
 public class NotificationViewerActivity extends AppCompatActivity {

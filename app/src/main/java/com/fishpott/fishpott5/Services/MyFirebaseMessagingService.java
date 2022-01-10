@@ -132,7 +132,7 @@ public class MyFirebaseMessagingService extends com.google.firebase.messaging.Fi
                                 final int finalCountForChats = countForChats;
 
                                 Config.setSharedPreferenceInt(getApplicationContext(), Config.CHAT_NOTIFICATION_UNREAD_COUNT, countForChats);
-                                Config.setUserNotification(getApplicationContext(), "", String.valueOf(notType), not_title, not_message, "", countForChats, R.drawable.notification_icon);
+                                Config.setUserNotification(getApplicationContext(), String.valueOf(notType), "", not_title, not_message, "", countForChats, R.drawable.notification_icon);
                                 Log.e("NotChatFCM", "HERE 5");
                                 new Handler(Looper.getMainLooper()).post(new Runnable() {
                                     @Override
@@ -156,7 +156,7 @@ public class MyFirebaseMessagingService extends com.google.firebase.messaging.Fi
                         //update app icon badge
                         Config.setSharedPreferenceInt(getApplicationContext(), Config.CHAT_NOTIFICATION_UNREAD_COUNT, countForChats);
 
-                        Config.setUserNotification(getApplicationContext(),"", String.valueOf(notType), not_title, not_message, "", countForChats, R.drawable.notification_icon);
+                        Config.setUserNotification(getApplicationContext(),String.valueOf(notType), "", not_title, not_message, "", countForChats, R.drawable.notification_icon);
                         ShortcutBadger.applyCount(getApplicationContext(), badgeCountForNotifications);
                         Config.getNewMessages(getApplicationContext(), Config.UNREAD, not_pott_or_newsid, not_pic,  not_pott_name, String.valueOf(onlineSku), LocaleHelper.getLanguage(getApplicationContext()));
                         Log.e("NotChatFCM", "HERE 6");
@@ -240,7 +240,7 @@ public class MyFirebaseMessagingService extends com.google.firebase.messaging.Fi
                         notType = Config.NOTICATION_RELATING_JUST_INFO;
                         Log.e("NotChatFCM", "HERE 11");
                     }
-                    Config.setUserNotification(getApplicationContext(), "", String.valueOf(notType), not_title, not_message, not_text, countForNotifications, R.drawable.notification_icon);
+                    Config.setUserNotification(getApplicationContext(), String.valueOf(notType), not_type, not_title, not_message, not_text, countForNotifications, R.drawable.notification_icon);
                     ShortcutBadger.applyCount(getApplicationContext(), badgeCountForNotifications);
                     Log.e("NotChatFCM", "HERE 12");
                 }

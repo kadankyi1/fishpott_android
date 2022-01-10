@@ -498,7 +498,7 @@ public class TransferCenterFragment extends Fragment implements View.OnClickList
                                     } else {
                                         networkResponse = getString(R.string.transfer_successful);
                                     }
-                                            Config.setUserNotification(getActivity().getApplicationContext(), String.valueOf(Config.NOTICATION_RELATING_SHARESFORSALE_TRANSFER), getString(R.string.transfer_successful), getString(R.string.your_transfer_has_completed_successfully), 1, R.drawable.notification_icon);
+                                            Config.setUserNotification(getActivity().getApplicationContext(), String.valueOf(Config.NOTICATION_RELATING_SHARESFORSALE_TRANSFER), "", getString(R.string.transfer_successful), getString(R.string.your_transfer_has_completed_successfully), "", 1, R.drawable.notification_icon);
                                             Notifications_DatabaseAdapter notifications_databaseAdapter = new Notifications_DatabaseAdapter(getActivity().getApplicationContext());
                                             // OPENING THE STORIES DATABASE
                                             notifications_databaseAdapter.openDatabase();

@@ -2551,6 +2551,7 @@ public class Config {
 			theData[1] = longtext;
 		}
 
+		Log.e("NotChatFCMMER", "nottype: " + nottype);
 		Intent intent = new Intent(context, MainActivity.class);
 		if(nottype.trim().equalsIgnoreCase("information")){
 			intent = new Intent(context, NotificationViewerActivity.class);
