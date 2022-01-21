@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+ <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/root_transactions_activity"
@@ -8,7 +8,7 @@
     android:background="@color/colorAccent"
     tools:context="com.fishpott.fishpott5.Activities.WithdrawFundsActivity">
 
-    <android.support.constraint.Guideline
+     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/title_bar_guideline_h_1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -16,7 +16,7 @@
         app:layout_constraintGuide_percent="0.08" />
 
 
-    <android.support.constraint.ConstraintLayout
+     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/title_bar_constraint_layout_2"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -29,7 +29,7 @@
         app:layout_constraintVertical_bias="0.0">
 
 
-        <android.support.constraint.Guideline
+         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/in_title_bar_guideline_v_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -52,7 +52,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/forgot_password_arrow_back" />
 
-        <android.support.design.widget.TextInputLayout
+         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/search_edittext_textinputlayout"
             android:layout_width="0dp"
             android:layout_height="55dp"
@@ -77,7 +77,7 @@
                 android:maxLength="45"
                 android:textColor="@drawable/find_business_findcode_edittext_color" />
 
-        </android.support.design.widget.TextInputLayout>
+         </com.google.android.material.textfield.TextInputLayout>
 
 
         <ImageView
@@ -94,7 +94,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/search_new" />
 
-    </android.support.constraint.ConstraintLayout>
+     </androidx.constraintlayout.widget.ConstraintLayout>
 
         <ScrollView
             android:id="@+id/fragment_suggestion_business_holder_constraintlayout"
@@ -106,32 +106,32 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/title_bar_guideline_h_1">
 
-            <android.support.constraint.ConstraintLayout
+             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <android.support.constraint.Guideline
+                 <androidx.constraintlayout.widget.Guideline
                     android:id="@+id/fragment_suggestion_business_h_guideline_1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     app:layout_constraintGuide_percent="0.3" />
 
-                <android.support.constraint.Guideline
+                 <androidx.constraintlayout.widget.Guideline
                     android:id="@+id/fragment_suggestion_business_h_guideline_2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     app:layout_constraintGuide_percent="0.17" />
 
-                <android.support.constraint.Guideline
+                 <androidx.constraintlayout.widget.Guideline
                     android:id="@+id/fragment_suggestion_business_h_guideline_3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     app:layout_constraintGuide_percent="0.5" />
 
-                <android.support.constraint.ConstraintLayout
+                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/fragment_suggestion_section1_holder_constraintlayout"
                     android:layout_width="match_parent"
                     android:layout_height="250dp"
@@ -144,28 +144,28 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.0">
 
-                    <android.support.constraint.Guideline
+                     <androidx.constraintlayout.widget.Guideline
                         android:id="@+id/fragment_suggestion_businesslogo_h_guideline_1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
                         app:layout_constraintGuide_percent="0.19634703" />
 
-                    <android.support.constraint.Guideline
+                     <androidx.constraintlayout.widget.Guideline
                         android:id="@+id/fragment_suggestion_businesslogo_h_guideline_2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
                         app:layout_constraintGuide_percent="0.56164384" />
 
-                    <android.support.constraint.Guideline
+                     <androidx.constraintlayout.widget.Guideline
                         android:id="@+id/fragment_suggestion_business_v_guideline_1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
                         app:layout_constraintGuide_percent="0.7080292" />
 
-                    <android.support.constraint.Guideline
+                     <androidx.constraintlayout.widget.Guideline
                         android:id="@+id/fragment_suggestion_business_v_guideline_2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -254,9 +254,9 @@
                         app:layout_constraintHorizontal_bias="0.0"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="@+id/fragment_suggestion_businesslogo_h_guideline_2" />
-                </android.support.constraint.ConstraintLayout>
+                 </androidx.constraintlayout.widget.ConstraintLayout>
 
-                <android.support.constraint.ConstraintLayout
+                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/fragment_suggestion_businessinfo_holder1_textview"
                     android:layout_width="match_parent"
                     android:layout_height="90dp"
@@ -268,7 +268,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/fragment_suggestion_business_h_guideline_2">
 
-                    <android.support.constraint.ConstraintLayout
+                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="@drawable/rounded_corner_shape"
@@ -375,11 +375,11 @@
                             app:layout_constraintTop_toBottomOf="@+id/fragment_suggestion_business_networthvalue_textview"
                             app:layout_constraintVertical_bias="0.0" />
 
-                    </android.support.constraint.ConstraintLayout>
+                     </androidx.constraintlayout.widget.ConstraintLayout>
 
-                </android.support.constraint.ConstraintLayout>
+                 </androidx.constraintlayout.widget.ConstraintLayout>
 
-                <android.support.constraint.ConstraintLayout
+                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/fragment_suggestion_businessinfo_holder2_textview"
                     android:layout_width="match_parent"
                     android:layout_height="375dp"
@@ -392,7 +392,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/fragment_suggestion_businessinfo_holder1_textview">
 
-                    <android.support.constraint.ConstraintLayout
+                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="@drawable/rounded_corner_shape"
@@ -474,12 +474,12 @@
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toBottomOf="@+id/fragment_suggestion_business_pitchtext_textview" />
 
-                    </android.support.constraint.ConstraintLayout>
+                     </androidx.constraintlayout.widget.ConstraintLayout>
 
-                </android.support.constraint.ConstraintLayout>
+                 </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-                <android.support.constraint.ConstraintLayout
+                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/fragment_suggestion_businessinfo_holder3_textview"
                     android:layout_width="match_parent"
                     android:layout_height="250dp"
@@ -490,7 +490,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/fragment_suggestion_businessinfo_holder2_textview">
 
-                    <android.support.constraint.ConstraintLayout
+                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="@drawable/rounded_corner_shape"
@@ -641,11 +641,11 @@
                             app:layout_constraintStart_toStartOf="@+id/fragment_suggestion_business_coolabel_textview"
                             app:layout_constraintTop_toBottomOf="@+id/fragment_suggestion_business_coolabel_textview" />
 
-                    </android.support.constraint.ConstraintLayout>
+                     </androidx.constraintlayout.widget.ConstraintLayout>
 
-                </android.support.constraint.ConstraintLayout>
+                 </androidx.constraintlayout.widget.ConstraintLayout>
 
-                <android.support.constraint.ConstraintLayout
+                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/fragment_suggestion_businessinfo_holder4_textview"
                     android:layout_width="match_parent"
                     android:layout_height="250dp"
@@ -657,7 +657,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/fragment_suggestion_businessinfo_holder3_textview">
 
-                    <android.support.constraint.ConstraintLayout
+                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="@drawable/rounded_corner_shape"
@@ -836,10 +836,10 @@
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toBottomOf="@+id/fragment_suggestion_business_finance_biotext_textview" />
 
-                    </android.support.constraint.ConstraintLayout>
+                     </androidx.constraintlayout.widget.ConstraintLayout>
 
-                </android.support.constraint.ConstraintLayout>
-            </android.support.constraint.ConstraintLayout>
+                 </androidx.constraintlayout.widget.ConstraintLayout>
+             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </ScrollView>
 
@@ -875,4 +875,4 @@
             app:layout_constraintTop_toBottomOf="@+id/fragment_suggestion_loader_imageview"
             app:layout_constraintVertical_bias="0.0" />
 
-    </android.support.constraint.ConstraintLayout>
+     </androidx.constraintlayout.widget.ConstraintLayout>

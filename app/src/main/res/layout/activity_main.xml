@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+ <androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/root_main_activity"
@@ -8,7 +9,7 @@
     tools:context="com.fishpott.fishpott5.Activities.MainActivity">
 
 
-    <android.support.constraint.Guideline
+     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/activity_mainactivity_guideline_h_1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -16,14 +17,14 @@
         app:layout_constraintGuide_percent="0.07" />
 
 
-    <android.support.constraint.Guideline
+     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/activity_mainactivity_guideline_h_3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.6" />
 
-    <android.support.constraint.ConstraintLayout
+     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/activity_mainactivity_constraint_layout_2"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -35,28 +36,28 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0">
 
-        <android.support.constraint.Guideline
+         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/activity_mainactivity_constraintlayout2_guideline_v_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             app:layout_constraintGuide_percent="0.02" />
 
-        <android.support.constraint.Guideline
+         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/activity_mainactivity_constraintlayout2_guideline_v_4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             app:layout_constraintGuide_percent="0.12" />
 
-        <android.support.constraint.Guideline
+         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/activity_mainactivity_constraintlayout2_guideline_v_2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             app:layout_constraintGuide_percent="0.98" />
 
-        <android.support.constraint.Guideline
+         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/activity_mainactivity_constraintlayout2_guideline_v_3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -78,7 +79,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/main_activity_topbar_menu_inactive_icon" />
 
-        <android.support.constraint.ConstraintLayout
+         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/activity_mainactivity_constraintlayout2_profileicon_holder_constraintlayout"
             android:layout_width="0dp"
             android:layout_height="0dp"
@@ -117,7 +118,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/search_new" />
 
-            <android.support.constraint.ConstraintLayout
+             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/activity_mainactivity_constraintlayout2_profile_icon_update_indicator_constraintlayout"
                 android:layout_width="10dp"
                 android:layout_height="10dp"
@@ -127,7 +128,7 @@
                 app:layout_constraintStart_toEndOf="@+id/activity_mainactivity_constraintlayout2_profileicon_imageview"
                 app:layout_constraintTop_toTopOf="@+id/activity_mainactivity_constraintlayout2_profileicon_imageview" />
 
-        </android.support.constraint.ConstraintLayout>
+         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <View
             android:id="@+id/activity_mainactivity_constraintlayout2_searchbar_view"
@@ -179,16 +180,16 @@
             app:layout_constraintEnd_toEndOf="@+id/activity_mainactivity_constraintlayout2_searchbar_view"
             app:layout_constraintStart_toEndOf="@+id/activity_mainactivity_constraintlayout2_guideline_v_4"
             app:layout_constraintTop_toTopOf="parent" />
-    </android.support.constraint.ConstraintLayout>
+     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <android.support.constraint.Guideline
+     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/activity_mainactivity_guideline_h_2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.15" />
 
-    <android.support.v7.widget.CardView
+     <androidx.cardview.widget.CardView
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:elevation="15dp"
@@ -202,7 +203,7 @@
         >
 
     <!--
-    <android.support.constraint.ConstraintLayout
+     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/activity_mainactivity_constraint_layout_menu_bar_constraintlayout"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -214,41 +215,41 @@
         app:layout_constraintTop_toBottomOf="@+id/activity_mainactivity_constraint_layout_2">
     -->
 
-    <android.support.constraint.ConstraintLayout
+     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/activity_mainactivity_constraint_layout_menu_bar_constraintlayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:visibility="gone">
 
-        <android.support.constraint.Guideline
+         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/activity_mainactivity_constraint_layout_menu_bar_guideline_v_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             app:layout_constraintGuide_percent="0.25" />
 
-        <android.support.constraint.Guideline
+         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/activity_mainactivity_constraint_layout_menu_bar_guideline_v_2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             app:layout_constraintGuide_percent="0.25" />
 
-        <android.support.constraint.Guideline
+         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/activity_mainactivity_constraint_layout_menu_bar_guideline_v_3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             app:layout_constraintGuide_percent="0.5" />
 
-        <android.support.constraint.Guideline
+         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/activity_mainactivity_constraint_layout_menu_bar_guideline_v_4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             app:layout_constraintGuide_percent="0.75" />
 
-        <android.support.constraint.ConstraintLayout
+         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/activity_mainactivity_constraint_layout_menubar_holder_newsfeed_constraintlayout"
             android:layout_width="0dp"
             android:layout_height="0dp"
@@ -274,7 +275,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/main_activity_newsfeed_icon_active_imageview" />
 
-            <android.support.constraint.ConstraintLayout
+             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/activity_mainactivity_constraint_layout_menubar_newsfeed_icon_update_indicator_constraintlayout"
                 android:layout_width="10dp"
                 android:layout_height="10dp"
@@ -284,10 +285,10 @@
                 app:layout_constraintStart_toEndOf="@+id/activity_mainactivity_constraint_layout_menubar_newsfeed_imageview"
                 app:layout_constraintTop_toTopOf="@+id/activity_mainactivity_constraint_layout_menubar_newsfeed_imageview" />
 
-        </android.support.constraint.ConstraintLayout>
+         </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-        <android.support.constraint.ConstraintLayout
+         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/activity_mainactivity_constraint_layout_menubar_holder_messenger_constraintlayout"
             android:layout_width="0dp"
             android:layout_height="0dp"
@@ -313,7 +314,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/main_activity_messenger_icon_inactive_imageview" />
 
-            <android.support.constraint.ConstraintLayout
+             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/activity_mainactivity_constraint_layout_menubar_messenger_icon_update_indicator_constraintlayout"
                 android:layout_width="10dp"
                 android:layout_height="10dp"
@@ -323,10 +324,10 @@
                 app:layout_constraintStart_toEndOf="@+id/activity_mainactivity_constraint_layout_menubar_messenger_icon_imageview"
                 app:layout_constraintTop_toTopOf="@+id/activity_mainactivity_constraint_layout_menubar_messenger_icon_imageview" />
 
-        </android.support.constraint.ConstraintLayout>
+         </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-        <android.support.constraint.ConstraintLayout
+         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/activity_mainactivity_constraint_layout_menubar_holder_notification_constraintlayout"
             android:layout_width="0dp"
             android:layout_height="0dp"
@@ -352,7 +353,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/main_activity_notification_icon_inactive_imageview" />
 
-            <android.support.constraint.ConstraintLayout
+             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/activity_mainactivity_constraint_layout_menubar_notification_icon_update_indicator_constraintlayout"
                 android:layout_width="10dp"
                 android:layout_height="10dp"
@@ -363,9 +364,9 @@
                 app:layout_constraintStart_toEndOf="@+id/activity_mainactivity_constraint_layout_menubar_notification_imageview"
                 app:layout_constraintTop_toTopOf="@+id/activity_mainactivity_constraint_layout_menubar_notification_imageview" />
 
-        </android.support.constraint.ConstraintLayout>
+         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <android.support.constraint.ConstraintLayout
+         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/activity_mainactivity_constraint_layout_menubar_holder_transfercenter_constraintlayout"
             android:layout_width="0dp"
             android:layout_height="0dp"
@@ -391,7 +392,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/main_activity_transfercenter_icon_inactive_imageview" />
 
-            <android.support.constraint.ConstraintLayout
+             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/activity_mainactivity_constraint_layout_menubar_transfercenter_icon_update_indicator_constraintlayout"
                 android:layout_width="10dp"
                 android:layout_height="10dp"
@@ -400,9 +401,9 @@
                 app:layout_constraintEnd_toEndOf="@+id/activity_mainactivity_constraint_layout_menubar_transfercenter_imageview"
                 app:layout_constraintStart_toEndOf="@+id/activity_mainactivity_constraint_layout_menubar_transfercenter_imageview"
                 app:layout_constraintTop_toTopOf="@+id/activity_mainactivity_constraint_layout_menubar_transfercenter_imageview" />
-        </android.support.constraint.ConstraintLayout>
+         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <android.support.constraint.ConstraintLayout
+         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/activity_mainactivity_constraint_layout_menubar_holder_sharescenter_constraintlayout"
             android:layout_width="0dp"
             android:layout_height="0dp"
@@ -429,7 +430,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/main_activity_sharescenter_icon_inactive_imageview" />
 
-            <android.support.constraint.ConstraintLayout
+             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/activity_mainactivity_constraint_layout_menubar_sharescenter_icon_update_indicator_constraintlayout"
                 android:layout_width="10dp"
                 android:layout_height="10dp"
@@ -439,15 +440,15 @@
                 app:layout_constraintStart_toEndOf="@+id/activity_mainactivity_constraint_layout_menubar_sharescenter_imageview"
                 app:layout_constraintTop_toTopOf="@+id/activity_mainactivity_constraint_layout_menubar_sharescenter_imageview" />
 
-        </android.support.constraint.ConstraintLayout>
+         </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-    </android.support.constraint.ConstraintLayout>
+     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </android.support.v7.widget.CardView>
+     </androidx.cardview.widget.CardView>
 
 
-    <android.support.v4.view.ViewPager
+     <androidx.viewpager.widget.ViewPager
         android:id="@+id/activity_mainactivity_fragments_holder_viewpager"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -457,14 +458,14 @@
         app:layout_constraintTop_toTopOf="@+id/activity_mainactivity_guideline_h_1" />
 
 
-    <android.support.constraint.Guideline
+     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/activity_mainactivity_guideline_v_1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.05" />
 
-    <android.support.constraint.Guideline
+     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/activity_mainactivity_guideline_v_2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -480,4 +481,4 @@
         app:layout_constraintStart_toEndOf="@+id/activity_mainactivity_guideline_v_1"
         app:layout_constraintTop_toBottomOf="@+id/activity_mainactivity_guideline_h_3" />
 
-</android.support.constraint.ConstraintLayout>
+ </androidx.constraintlayout.widget.ConstraintLayout>

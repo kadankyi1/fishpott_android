@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+ <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/root_buysharesforsale_activity"
@@ -8,7 +8,7 @@
     android:background="@color/colorAccent"
     tools:context="com.fishpott.fishpott5.Activities.BuyBusinessStockSuggestedActivity">
 
-    <android.support.constraint.Guideline
+     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/title_bar_guideline_h_1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -16,7 +16,7 @@
         app:layout_constraintGuide_percent="0.08" />
 
 
-    <android.support.constraint.ConstraintLayout
+     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/title_bar_constraint_layout_2"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -30,7 +30,7 @@
         app:layout_constraintVertical_bias="0.0">
 
 
-        <android.support.constraint.Guideline
+         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/in_title_bar_guideline_v_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -72,7 +72,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/forgot_password_arrow_back" />
 
-    </android.support.constraint.ConstraintLayout>
+     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ImageView
         android:id="@+id/loader_imageview"
@@ -117,11 +117,11 @@
         app:layout_constraintTop_toBottomOf="@+id/title_bar_guideline_h_1"
         app:layout_constraintVertical_bias="0.110000014">
 
-        <android.support.constraint.ConstraintLayout
+         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <android.support.constraint.ConstraintLayout
+             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/country_withdrawfunds_activity_textview"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
@@ -178,7 +178,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-            </android.support.constraint.ConstraintLayout>
+             </androidx.constraintlayout.widget.ConstraintLayout>
 
 
             <TextView
@@ -198,7 +198,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/country_withdrawfunds_activity_textview" />
 
 
-            <android.support.design.widget.TextInputLayout
+             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/amount_sent_textinputlayout"
                 android:layout_width="0dp"
                 android:layout_height="55dp"
@@ -226,7 +226,7 @@
                     android:textColor="@drawable/login_activity_input_text_color"
                     android:textSize="17sp" />
 
-            </android.support.design.widget.TextInputLayout>
+             </com.google.android.material.textfield.TextInputLayout>
 
 
             <TextView
@@ -264,7 +264,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/risk_input_textview" />
 
-        </android.support.constraint.ConstraintLayout>
+         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 
 
@@ -280,7 +280,7 @@
         app:layout_constraintTop_toBottomOf="@+id/title_bar_guideline_h_1"
         app:layout_constraintVertical_bias="0.0">
 
-        <android.support.constraint.ConstraintLayout
+         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingTop="10dp">
@@ -512,7 +512,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/request_button" />
 
-        </android.support.constraint.ConstraintLayout>
+         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 
-</android.support.constraint.ConstraintLayout>
+ </androidx.constraintlayout.widget.ConstraintLayout>

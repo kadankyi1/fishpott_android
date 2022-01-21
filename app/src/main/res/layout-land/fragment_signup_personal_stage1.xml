@@ -1,4 +1,4 @@
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+ <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,119 +8,119 @@
     tools:context="com.fishpott.fishpott5.Fragments.Signup.SignupPersonalStage1Fragment">
 
 
-    <android.support.constraint.Guideline
+     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/fragment_signup_personalstage1_guideline_v_1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.15" />
 
-    <android.support.constraint.Guideline
+     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/fragment_signup_personalstage1_guideline_v_2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.25" />
 
-    <android.support.constraint.Guideline
+     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/fragment_signup_personalstage1_guideline_v_3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.43" />
 
-    <android.support.constraint.Guideline
+     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/fragment_signup_personalstage1_guideline_v_4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.5" />
 
-    <android.support.constraint.Guideline
+     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/fragment_signup_personalstage1_guideline_v_5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.60" />
 
-    <android.support.constraint.Guideline
+     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/fragment_signup_personalstage1_guideline_v_6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.85" />
 
-    <android.support.constraint.Guideline
+     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/fragment_signup_personalstage1_guideline_v_7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.75" />
 
-    <android.support.constraint.Guideline
+     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/fragment_signup_personalstage1_guideline_v_8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.35" />
 
-    <android.support.constraint.Guideline
+     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/fragment_signup_personalstage1_guideline_v_9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.65" />
 
-    <android.support.constraint.Guideline
+     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/fragment_signup_personalstage1_guideline_v_10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.85" />
 
-    <android.support.constraint.Guideline
+     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/fragment_signup_personalstage1_guideline_h_1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.13" />
 
-    <android.support.constraint.Guideline
+     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/fragment_signup_personalstage1_guideline_h_2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.25" />
 
-    <android.support.constraint.Guideline
+     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/fragment_signup_personalstage1_guideline_h_3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.44" />
 
-    <android.support.constraint.Guideline
+     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/fragment_signup_personalstage1_guideline_h_4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.63" />
 
-    <android.support.constraint.Guideline
+     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/fragment_signup_personalstage1_guideline_h_9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.7" />
 
-    <android.support.constraint.Guideline
+     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/fragment_signup_personalstage1_guideline_h_7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.9" />
 
-    <android.support.constraint.ConstraintLayout
+     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/fragment_signup_personalstage1_constraint_layout_2"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -131,14 +131,14 @@
         app:layout_constraintTop_toTopOf="parent">
 
 
-        <android.support.constraint.Guideline
+         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/fragment_signup_personalstage1_constraint2_guideline_v_3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             app:layout_constraintGuide_percent="0.15" />
 
-        <android.support.constraint.Guideline
+         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/fragment_signup_personalstage1_constraint2_guideline_v_4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -175,10 +175,10 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/forgot_password_arrow_back" />
-    </android.support.constraint.ConstraintLayout>
+     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-    <android.support.design.widget.TextInputLayout
+     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/fragment_signup_personalstage1_firstname_edit_text_layout_holder"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -202,9 +202,9 @@
             android:maxLength="15"
             android:textColor="@drawable/login_activity_input_text_color" />
 
-    </android.support.design.widget.TextInputLayout>
+     </com.google.android.material.textfield.TextInputLayout>
 
-    <android.support.design.widget.TextInputLayout
+     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/fragment_signup_personalstage1_lastname_edit_text_layout_holder"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -228,7 +228,7 @@
             android:maxLength="15"
             android:textColor="@drawable/login_activity_input_text_color" />
 
-    </android.support.design.widget.TextInputLayout>
+     </com.google.android.material.textfield.TextInputLayout>
 
     <ImageView
         android:id="@+id/fragment_signup_personalstage1_firstname_cleartext_imageview"
@@ -363,4 +363,4 @@
         app:layout_constraintStart_toStartOf="@+id/fragment_signup_personalstage1_guideline_v_2"
         app:layout_constraintTop_toTopOf="@+id/fragment_signup_personalstage1_guideline_h_9" />
 
-</android.support.constraint.ConstraintLayout>
+ </androidx.constraintlayout.widget.ConstraintLayout>

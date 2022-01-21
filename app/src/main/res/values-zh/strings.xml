@@ -1169,7 +1169,7 @@
     <string name="please_fill_out_the_form_correctly">請正確填寫表格</string>
     <string name="phone_number_should_be_10_number_with_no_country_code_eg_0241234567">電話號碼應為10個數字，沒有國家/地區代碼。例如。 0241234567</string>
     <string name="the_amount_be_less_than_zero">數量小於零</string>
-    <string name="the_mtn_momo_logo_name_and_the_mtn_momo_logo_brand_are_property_of_mobilemoney_limited">\'MTN MoMo \'名稱和\'MTN MoMo徽標\\'品牌是MobileMoney Limited的財產</string>
+    <string name="the_mtn_momo_logo_name_and_the_mtn_momo_logo_brand_are_property_of_mobilemoney_limited">\'MTN MoMo \'名稱和\'MTN MoMo徽標\'品牌是MobileMoney Limited的財產</string>
     <string name="if_you_are_requesting_a_payout_to_a_bank_account_include_the_bank_name_and_routing_number_below">如果您要向銀行帳戶付款，請在下面添加銀行名稱和銀行帳號</string>
     <string name="mtn_mobile_money_automated">MTN Momo（自動）</string>
     <string name="credit_wallet_with_an_automated_collection_request_on_your_momo_number">信用卡錢包，您的Momo號碼上有自動收款請求</string>
@@ -1178,6 +1178,7 @@
     <string name="destination">目的地</string>
     <string name="transfer_in">匯入</string>
     <string name="transfer_out">轉出</string>
+    <string name="email_address">Email Address</string>
     <string name="sender_pott_name">發件人Pott名稱</string>
     <string name="seller_pott_name">賣方波特名稱</string>
     <string name="net_worth">淨值</string>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+ <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -10,7 +10,7 @@
     android:focusable="true"
     tools:context=".Activities.TransferActivity">
 
-        <android.support.constraint.Guideline
+         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/title_bar_guideline_h_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -18,7 +18,7 @@
             app:layout_constraintGuide_percent="0.08" />
 
 
-        <android.support.constraint.ConstraintLayout
+         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/title_bar_constraint_layout_2"
             android:layout_width="0dp"
             android:layout_height="0dp"
@@ -31,7 +31,7 @@
             app:layout_constraintVertical_bias="0.0">
 
 
-            <android.support.constraint.Guideline
+             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/in_title_bar_guideline_v_1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -74,11 +74,11 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/forgot_password_arrow_back" />
 
-        </android.support.constraint.ConstraintLayout>
+         </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 
-        <android.support.v4.widget.SwipeRefreshLayout
+         <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
             android:id="@+id/swipe_reloadshares_swiperefreshrelayout"
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -89,11 +89,11 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/title_bar_guideline_h_1">
 
-            <android.support.constraint.ConstraintLayout
+             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <android.support.constraint.ConstraintLayout
+                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/stage_2_constraintlayout"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
@@ -134,9 +134,9 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/fragment_suggestion_loader_imageview"
                         app:layout_constraintVertical_bias="0.0" />
-                </android.support.constraint.ConstraintLayout>
+                 </androidx.constraintlayout.widget.ConstraintLayout>
 
-                <android.support.constraint.ConstraintLayout
+                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/stage_1_constraintlayout"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
@@ -183,7 +183,7 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/loadsharesforpostingfragment_choose_shares_label_textview" />
 
-                    <android.support.design.widget.TextInputLayout
+                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/fragment_loadsharesforposting_sharesquantity_edit_text_layout_holder"
                         android:layout_width="match_parent"
                         android:layout_height="55dp"
@@ -207,10 +207,10 @@
                             android:labelFor="@id/fragment_loadsharesforposting_sharesquantity_edit_text"
                             android:textColor="@drawable/login_activity_input_text_color" />
 
-                    </android.support.design.widget.TextInputLayout>
+                     </com.google.android.material.textfield.TextInputLayout>
 
 
-                    <android.support.design.widget.TextInputLayout
+                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/fragment_loadsharesforposting_receiverpottname_edit_text_layout_holder"
                         android:layout_width="match_parent"
                         android:layout_height="55dp"
@@ -235,9 +235,9 @@
                             android:maxLength="15"
                             android:textColor="@drawable/login_activity_input_text_color" />
 
-                    </android.support.design.widget.TextInputLayout>
+                     </com.google.android.material.textfield.TextInputLayout>
 
-                    <android.support.design.widget.TextInputLayout
+                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/fragment_loadsharesforposting_password_layout_holder"
                         android:layout_width="match_parent"
                         android:layout_height="55dp"
@@ -261,7 +261,7 @@
                             android:maxLength="20"
                             android:textColor="@drawable/login_activity_input_text_color" />
 
-                    </android.support.design.widget.TextInputLayout>
+                     </com.google.android.material.textfield.TextInputLayout>
 
 
                     <TextView
@@ -309,10 +309,10 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/fragment_loadsharesforposting_feeinfo_textview" />
-                </android.support.constraint.ConstraintLayout>
+                 </androidx.constraintlayout.widget.ConstraintLayout>
 
-            </android.support.constraint.ConstraintLayout>
+             </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-        </android.support.v4.widget.SwipeRefreshLayout>
-</android.support.constraint.ConstraintLayout>
+         </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+ </androidx.constraintlayout.widget.ConstraintLayout>

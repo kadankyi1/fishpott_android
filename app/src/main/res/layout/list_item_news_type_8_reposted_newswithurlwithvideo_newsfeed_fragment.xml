@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+ <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
@@ -55,7 +55,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/list_item_news_type_1_newsfeed_fragment_menu_icon" />
 
-    <android.support.constraint.ConstraintLayout
+     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/news_added_item_price_background_constraintlayout"
         android:layout_width="55dp"
         android:layout_height="55dp"
@@ -80,10 +80,10 @@
             app:layout_constraintStart_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-    </android.support.constraint.ConstraintLayout>
+     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-    <android.support.constraint.ConstraintLayout
+     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/news_added_item_icon_background_constraintlayout"
         android:layout_width="55dp"
         android:layout_height="55dp"
@@ -139,9 +139,9 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-    </android.support.constraint.ConstraintLayout>
+     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <android.support.constraint.ConstraintLayout
+     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/news_added_item_quantity_background_constraintlayout"
         android:layout_width="55dp"
         android:layout_height="55dp"
@@ -166,7 +166,7 @@
             app:layout_constraintStart_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-    </android.support.constraint.ConstraintLayout>
+     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <FrameLayout
         android:id="@+id/video_background"
@@ -208,7 +208,7 @@
 
     </FrameLayout>
 
-    <android.support.constraint.ConstraintLayout
+     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/list_item_news_type_8_newsfeed_fragment_news_website_info_holder_constraintlayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -248,7 +248,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/news_website_address" />
 
-    </android.support.constraint.ConstraintLayout>
+     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <TextView
         android:id="@+id/news_text_textview"
@@ -504,7 +504,7 @@
         app:layout_constraintTop_toBottomOf="@+id/news_repostmaker_pottname_textview" />
 
 
-    <android.support.constraint.ConstraintLayout
+     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/news_reposted_added_item_background"
         android:layout_width="80dp"
         android:layout_height="80dp"
@@ -514,13 +514,13 @@
         app:layout_constraintStart_toEndOf="@+id/news_reposted_comment_textview"
         app:layout_constraintTop_toBottomOf="@+id/news_reposted_like_icon_imageview">
 
-        <android.support.constraint.ConstraintLayout
+         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout"
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:background="@drawable/list_item_news_type_28_shares4sale_circle_background">
 
-            <android.support.constraint.ConstraintLayout
+             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/list_item_news_type_28_newsfeed_fragment_relativelayout_3"
                 android:layout_width="65dp"
                 android:layout_height="65dp"
@@ -544,11 +544,11 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-            </android.support.constraint.ConstraintLayout>
-        </android.support.constraint.ConstraintLayout>
+             </androidx.constraintlayout.widget.ConstraintLayout>
+         </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-        <android.support.constraint.ConstraintLayout
+         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/news_reposted_additem_price_background_constraintlayout"
             android:layout_width="@dimen/list_item_news_added_item_price_fragment_relativelayout_1_size"
             android:layout_height="@dimen/list_item_news_added_item_price_fragment_relativelayout_1_size"
@@ -571,8 +571,8 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-        </android.support.constraint.ConstraintLayout>
+         </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </android.support.constraint.ConstraintLayout>
+     </androidx.constraintlayout.widget.ConstraintLayout>
     <!-- REPOST END -->
-</android.support.constraint.ConstraintLayout>
+ </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,12 +1,12 @@
 package com.fishpott.fishpott5.Activities;
 
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.fishpott.fishpott5.Inc.Config;
 import com.fishpott.fishpott5.R;
 
-import gh.com.payswitch.thetellerandroid.thetellerManager;
+//
 
 public class TheTellerActivity extends AppCompatActivity {
 
@@ -15,7 +15,7 @@ public class TheTellerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_the_teller);
 
-        new thetellerManager(this).setAmount(Long.parseLong("12"))
+        /*new thetellerManager(this).setAmount(Long.parseLong("12"))
                 .setEmail("annodankyikwaku@gmail.com")
                 .setfName("Kwaku")
                 .setlName("Dankyi")
@@ -28,6 +28,6 @@ public class TheTellerActivity extends AppCompatActivity {
                 .acceptCardPayments(true)
                 .acceptGHMobileMoneyPayments(true)
                 .onStagingEnv(true)
-                .initialize();
+                .initialize();*/
     }
 }

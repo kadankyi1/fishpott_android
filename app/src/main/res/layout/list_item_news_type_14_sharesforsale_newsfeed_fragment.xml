@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+ <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
@@ -56,7 +56,7 @@
         app:srcCompat="@drawable/list_item_news_type_1_newsfeed_fragment_menu_icon" />
 
 
-    <android.support.constraint.ConstraintLayout
+     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/list_item_news_type_14_newsfeed_fragment_news_background"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -67,7 +67,7 @@
         app:layout_constraintTop_toBottomOf="@+id/news_maker_fullname_textview">
 
 
-        <android.support.constraint.ConstraintLayout
+         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/sharesforsale_icon_background"
             android:layout_width="39dp"
             android:layout_height="39dp"
@@ -91,9 +91,9 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-        </android.support.constraint.ConstraintLayout>
+         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <android.support.v4.view.ViewPager
+         <androidx.viewpager.widget.ViewPager
             android:id="@+id/news_images_view_pager"
             android:layout_width="match_parent"
             android:layout_height="350dp"
@@ -122,7 +122,7 @@
         </LinearLayout>
 
 
-        <android.support.constraint.ConstraintLayout
+         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/shares_for_sale_logo_background"
             android:layout_width="60dp"
             android:layout_height="60dp"
@@ -177,9 +177,9 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-        </android.support.constraint.ConstraintLayout>
+         </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </android.support.constraint.ConstraintLayout>
+     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <TextView
         android:id="@+id/item_for_sale_price_textview"
@@ -463,4 +463,4 @@
         app:layout_constraintTop_toBottomOf="@+id/news_maker_pottname_textview"
         app:srcCompat="@drawable/list_item_suggestedlinkupsactivity_activity_businessicon_imageview" />
 
-</android.support.constraint.ConstraintLayout>
+ </androidx.constraintlayout.widget.ConstraintLayout>

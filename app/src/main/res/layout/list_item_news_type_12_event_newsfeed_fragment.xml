@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+ <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
@@ -69,7 +69,7 @@
         app:srcCompat="@drawable/list_item_news_type_1_newsfeed_fragment_menu_icon" />
 
 
-    <android.support.constraint.ConstraintLayout
+     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/list_item_news_type_12_newsfeed_fragment_news_background"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -79,7 +79,7 @@
         app:layout_constraintTop_toBottomOf="@+id/list_item_news_type_12_newsfeed_fragment_fullname_textview">
 
 
-        <android.support.constraint.ConstraintLayout
+         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/list_item_news_type_12_newsfeed_fragment__icon_holder_background_shadow_item_icon"
             android:layout_width="39dp"
             android:layout_height="39dp"
@@ -105,7 +105,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-        </android.support.constraint.ConstraintLayout>
+         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <ImageView
             android:id="@+id/list_item_news_type_12_newsfeed_fragment_news_image_imageview"
@@ -119,7 +119,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
 
-        <android.support.constraint.ConstraintLayout
+         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/list_item_news_type_12_newsfeed_fragment__icon_holder_background_shadow_item_info_icon"
             android:layout_width="30dp"
             android:layout_height="30dp"
@@ -130,7 +130,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent">
 
-            <android.support.constraint.ConstraintLayout
+             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/list_item_news_type_12_newsfeed_fragment__icon_info_holder_background_white_item_icon"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -150,11 +150,11 @@
                     app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-            </android.support.constraint.ConstraintLayout>
+             </androidx.constraintlayout.widget.ConstraintLayout>
 
-        </android.support.constraint.ConstraintLayout>
+         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <android.support.constraint.ConstraintLayout
+         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/list_item_news_type_12_newsfeed_fragment_icon_holder_background_shadow_more_images_icon_holder"
             android:layout_width="35dp"
             android:layout_height="35dp"
@@ -179,9 +179,9 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
-        </android.support.constraint.ConstraintLayout>
+         </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </android.support.constraint.ConstraintLayout>
+     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <TextView
         android:id="@+id/list_item_news_type_12_newsfeed_fragment_price_textview"
@@ -480,4 +480,4 @@
         app:layout_constraintTop_toBottomOf="@+id/list_item_news_type_12_newsfeed_fragment_pottname_textview"
         app:srcCompat="@drawable/list_item_suggestedlinkupsactivity_activity_businessicon_imageview" />
 
-</android.support.constraint.ConstraintLayout>
+ </androidx.constraintlayout.widget.ConstraintLayout>

@@ -10,8 +10,10 @@ import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Handler;
 import android.os.Looper;
-import android.support.constraint.ConstraintLayout;
-import android.support.v7.app.AppCompatActivity;
+
+import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -28,10 +30,13 @@ import com.fishpott.fishpott5.Miscellaneous.LocaleHelper;
 import com.fishpott.fishpott5.R;
 import com.fishpott.fishpott5.Services.NewsFetcherAndPreparerService;
 import com.fishpott.fishpott5.Util.NonUnderlinedClickableSpan;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.iid.FirebaseInstanceId;
-import com.google.firebase.iid.InstanceIdResult;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.messaging.FirebaseMessaging;
+
+
 
 public class StartActivity extends AppCompatActivity implements Animation.AnimationListener, View.OnClickListener {
 
@@ -43,6 +48,7 @@ public class StartActivity extends AppCompatActivity implements Animation.Animat
     private Button mStartButton;
     private ImageView mFpLogoStaticImageView;
     private ConstraintLayout mPrivacyPolicyHolderConstraintLayout;
+    private FirebaseAnalytics mFirebaseAnalytics;
     private ProgressBar mProgressBar;
     private Thread appInitThread2 = null;
     private Dialog.OnCancelListener cancelListenerActive1;
@@ -61,6 +67,8 @@ public class StartActivity extends AppCompatActivity implements Animation.Animat
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
+// Obtain the FirebaseAnalytics instance.
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
 
         cancelListenerActive1 = new DialogInterface.OnCancelListener() {
             @Override
@@ -314,6 +322,22 @@ public class StartActivity extends AppCompatActivity implements Animation.Animat
 
     private void initializeApp(){
         FirebaseMessaging.getInstance().subscribeToTopic("FISHPOT_TIPS");
+        FirebaseMessaging.getInstance().getToken()
+                .addOnCompleteListener(new OnCompleteListener<String>() {
+                    @Override
+                    public void onComplete(@NonNull Task<String> task) {
+                        if (!task.isSuccessful()) {
+                            Log.w("FBToken", "Fetching FCM registration token failed", task.getException());
+                            return;
+                        } else {
+                            Log.e("FBToken", "task.getResult(): " + task.getResult());
+                            Config.setSharedPreferenceString(getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_DEVICE_TOKEN, task.getResult());
+                            NewsFetcherAndPreparerService.updateUserInfo(getApplicationContext(), task.getResult(), LocaleHelper.getLanguage(getApplicationContext()));
+                        }
+                    }
+                });
+
+        /*
         FirebaseInstanceId.getInstance().getInstanceId().addOnSuccessListener( new OnSuccessListener<InstanceIdResult>() {
             @Override
             public void onSuccess(InstanceIdResult instanceIdResult) {
@@ -322,6 +346,7 @@ public class StartActivity extends AppCompatActivity implements Animation.Animat
 
             }
         });
+         */
         // BACKGROUND ACTIONS COME HERE
         AndroidNetworking.initialize(getApplicationContext());
 

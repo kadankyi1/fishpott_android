@@ -16,7 +16,7 @@
         android:id="@+id/theteller_title_textView"
         />
 
-    <androidx.recyclerview.widget.RecyclerView
+     <androidx.constraintlayout.widget.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:id="@+id/theteller_recycler2"
         android:layout_height="wrap_content"/>

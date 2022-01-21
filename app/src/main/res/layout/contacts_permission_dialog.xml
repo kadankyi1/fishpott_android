@@ -11,7 +11,7 @@
         android:fadeScrollbars="false"
         android:scrollbars="vertical">
 
-        <android.support.constraint.ConstraintLayout
+         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="20dp">
@@ -157,14 +157,14 @@
                 />
 
 
-            <android.support.constraint.Guideline
+             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/login_activity_dialog_guideline_h_1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 app:layout_constraintGuide_percent="0.61" />
 
-            <android.support.constraint.Guideline
+             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/login_activity_dialog_guideline_h_2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -172,6 +172,6 @@
                 app:layout_constraintGuide_percent="0.6" />
 
 
-        </android.support.constraint.ConstraintLayout>
+         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 </RelativeLayout>

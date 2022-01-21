@@ -41,25 +41,13 @@ import android.os.Looper;
 import android.preference.PreferenceManager;
 import android.provider.ContactsContract;
 import android.provider.MediaStore;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.design.widget.TextInputLayout;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v4.app.NotificationCompat;
-import android.support.v4.app.NotificationManagerCompat;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
-import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
-import android.support.v4.util.LruCache;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.method.LinkMovementMethod;
 import android.text.style.URLSpan;
 import android.util.Log;
+import android.util.LruCache;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
@@ -72,6 +60,18 @@ import android.widget.NumberPicker;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.app.ActivityCompat;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
+import androidx.core.content.ContextCompat;
+import androidx.core.graphics.drawable.RoundedBitmapDrawable;
+import androidx.core.graphics.drawable.RoundedBitmapDrawableFactory;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.common.Priority;
@@ -105,6 +105,8 @@ import com.fishpott.fishpott5.R;
 import com.fishpott.fishpott5.Util.NonUnderlinedClickableSpan;
 import com.fishpott.fishpott5.Util.RealPathUtil;
 import com.fishpott.fishpott5.Util.TooltipWindow;
+import com.google.android.material.textfield.TextInputLayout;
+
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -137,7 +139,7 @@ public class Config {
 	public static final String[] mimeTypes = {"image/jpeg", "image/png"};
 
 	// CURRENT HTTP
-	public static final String CURRENT_HTTP_IN_USE = "http://";
+	public static final String CURRENT_HTTP_IN_USE = "https://";
 	public static final String FP_ID = "_r_030250308659e9029382af83.46926837";
 
 	// DIRECTORIES-NAMES
@@ -276,50 +278,50 @@ public class Config {
 	public static final String CHAT_NOTIFICATION_UNREAD_COUNT = "CHAT_NOTIFICATION_UNREAD_COUNT";
 
 	// SERVER-SIDE API FOR SIGNUP
-    public static final String LINK_SIGNUP_PERSONAL = CURRENT_HTTP_IN_USE + "144.202.111.61/api/v1/user/register-personal";
-    public static final String LINK_SIGNUP_BUSINESS = CURRENT_HTTP_IN_USE + "144.202.111.61/api/v1/user/register-business";
+	public static final String LINK_SIGNUP_PERSONAL = CURRENT_HTTP_IN_USE + "app.fishpott.com/api/v1/user/register-personal";
+	public static final String LINK_SIGNUP_BUSINESS = CURRENT_HTTP_IN_USE + "app.fishpott.com/api/v1/user/register-business";
 
 	// SERVER-SIDE API FOR LOGIN
-	public static final String LINK_LOGIN = CURRENT_HTTP_IN_USE + "144.202.111.61/api/v1/user/login";
+	public static final String LINK_LOGIN = CURRENT_HTTP_IN_USE + "app.fishpott.com/api/v1/user/login";
 
-    // SERVER-SIDE API FOR POTT-PIC-UPLOAD-AT-SIGNUP-OR-FORCED
-    public static final String LINK_UPLOAD_POTT_PICTURE = CURRENT_HTTP_IN_USE + "144.202.111.61/api/v1/user/upload-pott-pic";
+	// SERVER-SIDE API FOR POTT-PIC-UPLOAD-AT-SIGNUP-OR-FORCED
+	public static final String LINK_UPLOAD_POTT_PICTURE = CURRENT_HTTP_IN_USE + "app.fishpott.com/api/v1/user/upload-pott-pic";
 
 	// SERVER-SIDE API FOR GETTING RESET CODE
-	public static final String LINK_GET_RESET_CODE = CURRENT_HTTP_IN_USE + "144.202.111.61/api/v1/user/send-password-reset-code";
+	public static final String LINK_GET_RESET_CODE = CURRENT_HTTP_IN_USE + "app.fishpott.com/api/v1/user/send-password-reset-code";
 
 	// RESET PASSWORD WITH RESET PASSWORD WITH RESET CODE
-	public static final String LINK_RESET_PASSWORD_WITH_CODE = CURRENT_HTTP_IN_USE + "144.202.111.61/api/v1/user/change-password-with-reset-code";
+	public static final String LINK_RESET_PASSWORD_WITH_CODE = CURRENT_HTTP_IN_USE + "app.fishpott.com/api/v1/user/change-password-with-reset-code";
 
 	// GET MY SUGGESTION
-	public static final String LINK_GET_MY_SUGGESTION = CURRENT_HTTP_IN_USE + "144.202.111.61/api/v1/user/get-my-suggestion";
+	public static final String LINK_GET_MY_SUGGESTION = CURRENT_HTTP_IN_USE + "app.fishpott.com/api/v1/user/get-my-suggestion";
 
 	// GET MY SUGGESTION
-	public static final String LINK_SAVE_DRILL_AND_GET_ANSWERS_COUNT = CURRENT_HTTP_IN_USE + "144.202.111.61/api/v1/user/save-drill-answer";
+	public static final String LINK_SAVE_DRILL_AND_GET_ANSWERS_COUNT = CURRENT_HTTP_IN_USE + "app.fishpott.com/api/v1/user/save-drill-answer";
 
 	// GET FINAL PRICE SUMMARY
-	public static final String LINK_GET_FINAL_PRICE_SUMMARY = CURRENT_HTTP_IN_USE + "144.202.111.61/api/v1/user/get-final-price";
+	public static final String LINK_GET_FINAL_PRICE_SUMMARY = CURRENT_HTTP_IN_USE + "app.fishpott.com/api/v1/user/get-final-price";
 
 	// SEND WITHDRAWAL REQUEST
-	public static final String LINK_WITHDRAW_FUNDS = CURRENT_HTTP_IN_USE + "144.202.111.61/api/v1/user/send-withdrawal-request";
+	public static final String LINK_WITHDRAW_FUNDS = CURRENT_HTTP_IN_USE + "app.fishpott.com/api/v1/user/send-withdrawal-request";
 
 	// SERVER-SIDE API FOR TRANSACTIONS
-	public static final String LINK_GET_TRANSACTIONS = CURRENT_HTTP_IN_USE + "144.202.111.61/api/v1/user/get-my-transactions";
+	public static final String LINK_GET_TRANSACTIONS = CURRENT_HTTP_IN_USE + "app.fishpott.com/api/v1/user/get-my-transactions";
 
 	// SERVER-SIDE API FOR GETTING MY OWNED SHARES
-	public static final String LINK_GET_MY_SHARES = CURRENT_HTTP_IN_USE + "144.202.111.61/api/v1/user/get-my-investments";
+	public static final String LINK_GET_MY_SHARES = CURRENT_HTTP_IN_USE + "app.fishpott.com/api/v1/user/get-my-investments";
 
 	// SERVER-SIDE API FOR FINDING A BUSINESS
-	public static final String LINK_GET_FIND_BUSINESS = CURRENT_HTTP_IN_USE + "144.202.111.61/api/v1/user/find-business";
+	public static final String LINK_GET_FIND_BUSINESS = CURRENT_HTTP_IN_USE + "app.fishpott.com/api/v1/user/find-business";
 
 	// SERVER-SIDE API FOR GETTING HOSTED SHARES
-	public static final String LINK_UPDATE_USER_INFO = CURRENT_HTTP_IN_USE + "144.202.111.61/api/v1/user/get-user-info";
+	public static final String LINK_UPDATE_USER_INFO = CURRENT_HTTP_IN_USE + "app.fishpott.com/api/v1/user/get-user-info";
 
 	// SERVER-SIDE API FOR GETTING MY OWNED SHARES
-	public static final String LINK_TRANSFER_STOCKS = CURRENT_HTTP_IN_USE + "144.202.111.61/api/v1/user/send-stock-transfer";
+	public static final String LINK_TRANSFER_STOCKS = CURRENT_HTTP_IN_USE + "app.fishpott.com/api/v1/user/send-stock-transfer";
 
 	// SERVER-SIDE API FOR SELLING BACK SHARES
-	public static final String LINK_SELLBACK_STOCKS = CURRENT_HTTP_IN_USE + "144.202.111.61/api/v1/user/sellback-stock";
+	public static final String LINK_SELLBACK_STOCKS = CURRENT_HTTP_IN_USE + "app.fishpott.com/api/v1/user/sellback-stock";
 
 	/********************************************************************************************************************************************
 
@@ -327,8 +329,8 @@ public class Config {
 
 	 ********************************************************************************************************************************************/
 
-    // SERVER-SIDE API FOR POTT-PIC-UPLOAD-AT-SIGNUP-OR-FORCED
-    public static final String LINK_POST_NEWS = CURRENT_HTTP_IN_USE + "www.fishpott.com/inc/android/post_news.php";
+	// SERVER-SIDE API FOR POTT-PIC-UPLOAD-AT-SIGNUP-OR-FORCED
+	public static final String LINK_POST_NEWS = CURRENT_HTTP_IN_USE + "www.fishpott.com/inc/android/post_news.php";
 
 	// SERVER-SIDE API FOR LINKUPS
 	public static final String LINK_GET_SUGGESTED_LINKUPS = CURRENT_HTTP_IN_USE + "www.fishpott.com/inc/android/get_suggested_linkups.php";
@@ -646,7 +648,7 @@ public class Config {
 	 *
 	 * 										MEMORY MANAGEMENT FUNCTIONS START
 	 *
-	**********************************************************************************************************/
+	 **********************************************************************************************************/
 
 	// FREE MEMORY WHEN CLOSING AN ACTIVITY AND OPENING A NEW ONE
 	public static void freeMemory(){
@@ -922,21 +924,21 @@ public class Config {
 		}
 	}
 
-    public static Dialog.OnCancelListener showDialogType2(final Activity thisActivity, Dialog.OnCancelListener cancelListener, Boolean canNotBeClosedFromOutSideClick){
+	public static Dialog.OnCancelListener showDialogType2(final Activity thisActivity, Dialog.OnCancelListener cancelListener, Boolean canNotBeClosedFromOutSideClick){
 
-        if(thisActivity != null) {
-            final Dialog dialog = new Dialog(thisActivity);
-            dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-            if (canNotBeClosedFromOutSideClick) {
-                dialog.setCancelable(false);
-                dialog.setCanceledOnTouchOutside(false);
-            }
-            dialog.setContentView(R.layout.privacy_policy_dialog);
+		if(thisActivity != null) {
+			final Dialog dialog = new Dialog(thisActivity);
+			dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+			if (canNotBeClosedFromOutSideClick) {
+				dialog.setCancelable(false);
+				dialog.setCanceledOnTouchOutside(false);
+			}
+			dialog.setContentView(R.layout.privacy_policy_dialog);
 
-            //TextView mPrivacyPolicyTextView = dialog.findViewById(R.id.url_pp_dialog);
-            TextView mTermsOfServiceTextView = dialog.findViewById(R.id.url_tc_dialog);
-            Button positiveDialogButton = dialog.findViewById(R.id.agree_button_pp_dialog);
-            Button negativeDialogButton = dialog.findViewById(R.id.deny_button_pp_dialog);
+			//TextView mPrivacyPolicyTextView = dialog.findViewById(R.id.url_pp_dialog);
+			TextView mTermsOfServiceTextView = dialog.findViewById(R.id.url_tc_dialog);
+			Button positiveDialogButton = dialog.findViewById(R.id.agree_button_pp_dialog);
+			Button negativeDialogButton = dialog.findViewById(R.id.deny_button_pp_dialog);
             /*
             mPrivacyPolicyTextView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -947,86 +949,86 @@ public class Config {
 
              */
 
-            mTermsOfServiceTextView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    openActivity(thisActivity, WebViewActivity.class, 1, 0, 1, WEBVIEW_KEY_URL, FISHPOTT_TERMS_OF_SERVICE);
-                }
-            });
+			mTermsOfServiceTextView.setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					openActivity(thisActivity, WebViewActivity.class, 1, 0, 1, WEBVIEW_KEY_URL, FISHPOTT_TERMS_OF_SERVICE);
+				}
+			});
 
-            positiveDialogButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    dialog.cancel();
-                }
-            });
-            negativeDialogButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    dialog.dismiss();
-                }
-            });
-            dialog.show();
-            dialog.setOnCancelListener(cancelListener);
-            return cancelListener;
-        } else {
-            return null;
-        }
-    }
+			positiveDialogButton.setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					dialog.cancel();
+				}
+			});
+			negativeDialogButton.setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					dialog.dismiss();
+				}
+			});
+			dialog.show();
+			dialog.setOnCancelListener(cancelListener);
+			return cancelListener;
+		} else {
+			return null;
+		}
+	}
 
-    public static Dialog.OnCancelListener showDialogType3(final Activity thisActivity, Dialog.OnCancelListener cancelListener, Boolean canNotBeClosedFromOutSideClick){
+	public static Dialog.OnCancelListener showDialogType3(final Activity thisActivity, Dialog.OnCancelListener cancelListener, Boolean canNotBeClosedFromOutSideClick){
 
-        if(thisActivity != null) {
-            final Dialog dialog = new Dialog(thisActivity);
-            dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-            if (canNotBeClosedFromOutSideClick) {
-                dialog.setCancelable(false);
-                dialog.setCanceledOnTouchOutside(false);
-            }
+		if(thisActivity != null) {
+			final Dialog dialog = new Dialog(thisActivity);
+			dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+			if (canNotBeClosedFromOutSideClick) {
+				dialog.setCancelable(false);
+				dialog.setCanceledOnTouchOutside(false);
+			}
 
-            dialog.setContentView(R.layout.contacts_permission_dialog);
+			dialog.setContentView(R.layout.contacts_permission_dialog);
 
-            TextView mPrivacyPolicyTextView = dialog.findViewById(R.id.url_pp_dialog);
-            TextView mTermsOfServiceTextView = dialog.findViewById(R.id.url_tc_dialog);
-            Button positiveDialogButton = dialog.findViewById(R.id.agree_button_pp_dialog);
-            Button negativeDialogButton = dialog.findViewById(R.id.cancel_button_pp_dialog);
+			TextView mPrivacyPolicyTextView = dialog.findViewById(R.id.url_pp_dialog);
+			TextView mTermsOfServiceTextView = dialog.findViewById(R.id.url_tc_dialog);
+			Button positiveDialogButton = dialog.findViewById(R.id.agree_button_pp_dialog);
+			Button negativeDialogButton = dialog.findViewById(R.id.cancel_button_pp_dialog);
 
-            mPrivacyPolicyTextView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    openActivity(thisActivity, WebViewActivity.class, 1, 0, 1, WEBVIEW_KEY_URL, FISHPOTT_PRIVACY_POLICY);
-                }
-            });
+			mPrivacyPolicyTextView.setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					openActivity(thisActivity, WebViewActivity.class, 1, 0, 1, WEBVIEW_KEY_URL, FISHPOTT_PRIVACY_POLICY);
+				}
+			});
 
-            mTermsOfServiceTextView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    openActivity(thisActivity, WebViewActivity.class, 1, 0, 1, WEBVIEW_KEY_URL, FISHPOTT_TERMS_OF_SERVICE);
-                }
-            });
+			mTermsOfServiceTextView.setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					openActivity(thisActivity, WebViewActivity.class, 1, 0, 1, WEBVIEW_KEY_URL, FISHPOTT_TERMS_OF_SERVICE);
+				}
+			});
 
-            positiveDialogButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    dialog.cancel();
-                }
-            });
-            negativeDialogButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    dialog.dismiss();
-                }
-            });
-            dialog.show();
-            dialog.setOnCancelListener(cancelListener);
-            return cancelListener;
-        } else {
-            return null;
-        }
-    }
+			positiveDialogButton.setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					dialog.cancel();
+				}
+			});
+			negativeDialogButton.setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					dialog.dismiss();
+				}
+			});
+			dialog.show();
+			dialog.setOnCancelListener(cancelListener);
+			return cancelListener;
+		} else {
+			return null;
+		}
+	}
 
 
-    //TOAST TYPE 1 SHOWS JUST A TEXT
+	//TOAST TYPE 1 SHOWS JUST A TEXT
 	public static void showToastType1(Activity thisActivity, String toastInfo){
 		View toastView = thisActivity.getLayoutInflater().inflate(R.layout.login_activity_toast, (ViewGroup) thisActivity.findViewById(R.id.activity_login_toast_root));
 		TextView toastTextView = toastView.findViewById(R.id.activity_login_toast_text);
@@ -2328,12 +2330,12 @@ public class Config {
 	}
 
 	public static void pickMultipleImages(Activity activity, int requestcode) {
-				//Intent intent = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-				Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
-				intent.setType("image/*");
-				intent.putExtra(Intent.EXTRA_MIME_TYPES, mimeTypes);
-				intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
-				activity.startActivityForResult(Intent.createChooser(intent,"Select Picture"), requestcode);
+		//Intent intent = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+		Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+		intent.setType("image/*");
+		intent.putExtra(Intent.EXTRA_MIME_TYPES, mimeTypes);
+		intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
+		activity.startActivityForResult(Intent.createChooser(intent,"Select Picture"), requestcode);
 	}
 
 	public static Bitmap getBitmapFromUri(Activity mActivity, Uri selectedImgFileUri) {
@@ -2556,8 +2558,8 @@ public class Config {
 
 		//Set pending intent to builder
 		//if(not_type == "important_message"){
-			//intent = new Intent(context, AboutActivity.class);
-			//pendingIntent = PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_ONE_SHOT);
+		//intent = new Intent(context, AboutActivity.class);
+		//pendingIntent = PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_ONE_SHOT);
 		//}
 
 
@@ -2813,149 +2815,149 @@ public class Config {
 
 	public static void getNewMessages(final Context context, final int readStatus, String chatID, final String receiverPottPic, final String receiverPottName, String lastSku, String language){
 
-			AndroidNetworking.post(Config.LINK_GET_NEW_CHAT_MESSAGES)
-					.addBodyParameter("log_phone", Config.getSharedPreferenceString(context, Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_PHONE))
-					.addBodyParameter("log_pass_token", Config.getSharedPreferenceString(context, Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_PASSWORD_ACCESS_TOKEN))
-					.addBodyParameter("mypottname", Config.getSharedPreferenceString(context, Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_POTT_NAME))
-					.addBodyParameter("my_currency", Config.getSharedPreferenceString(context, Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_CURRENCY))
-					.addBodyParameter("chat_id", chatID)
-					.addBodyParameter("last_sku", lastSku)
-					.addBodyParameter("receiver_pottname", receiverPottName)
-					.addBodyParameter("language", language)
-					.addBodyParameter("app_version_code", String.valueOf(Config.getSharedPreferenceInt(context, Config.SHARED_PREF_KEY_UPDATE_ACTIVITY_UPDATE_VERSION_CODE)))
-					.setTag("get_chat_messages")
-					.setPriority(Priority.HIGH)
-					.build().getAsString(new StringRequestListener() {
-				@Override
-				public void onResponse(String response) {
-					Log.e("checkForNewMessages", "response : " + response);
-					try {
-						JSONObject jsonObject = new JSONObject(response);
-						JSONArray array = jsonObject.getJSONArray("data_returned");
+		AndroidNetworking.post(Config.LINK_GET_NEW_CHAT_MESSAGES)
+				.addBodyParameter("log_phone", Config.getSharedPreferenceString(context, Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_PHONE))
+				.addBodyParameter("log_pass_token", Config.getSharedPreferenceString(context, Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_PASSWORD_ACCESS_TOKEN))
+				.addBodyParameter("mypottname", Config.getSharedPreferenceString(context, Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_POTT_NAME))
+				.addBodyParameter("my_currency", Config.getSharedPreferenceString(context, Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_CURRENCY))
+				.addBodyParameter("chat_id", chatID)
+				.addBodyParameter("last_sku", lastSku)
+				.addBodyParameter("receiver_pottname", receiverPottName)
+				.addBodyParameter("language", language)
+				.addBodyParameter("app_version_code", String.valueOf(Config.getSharedPreferenceInt(context, Config.SHARED_PREF_KEY_UPDATE_ACTIVITY_UPDATE_VERSION_CODE)))
+				.setTag("get_chat_messages")
+				.setPriority(Priority.HIGH)
+				.build().getAsString(new StringRequestListener() {
+			@Override
+			public void onResponse(String response) {
+				Log.e("checkForNewMessages", "response : " + response);
+				try {
+					JSONObject jsonObject = new JSONObject(response);
+					JSONArray array = jsonObject.getJSONArray("data_returned");
 
-						JSONObject o = array.getJSONObject(0);
-						int myStatus = o.getInt("1");
-						String statusMsg = o.getString("2");
+					JSONObject o = array.getJSONObject(0);
+					int myStatus = o.getInt("1");
+					String statusMsg = o.getString("2");
 
-						// IF USER'S APP IS OUTDATED AND NOT ALLOWED TO BE USED
-						if(myStatus == 2){
-							Config.setSharedPreferenceBoolean(context, Config.SHARED_PREF_KEY_UPDATE_ACTIVITY_UPDATE_BY_FORCE, true);
-							Config.openActivity3(context, UpdateActivity.class, 1, Config.KEY_ACTIVITY_FINISHED, "1");
-							return;
-						}
-
-						// GENERAL ERROR
-						if(myStatus == 3){
-							Toast.makeText(context, statusMsg, Toast.LENGTH_LONG).show();
-							return;
-						}
-
-						// IF USER'S ACCOUNT HAS BEEN SUSPENDED, WE SIGN USER OUT
-						if(myStatus == 4){
-							Toast.makeText(context, statusMsg, Toast.LENGTH_LONG).show();
-							Config.signOutUser(context, false, null, null, 0, 2);
-						}
-
-						//STORING THE USER DATA
-						Config.setSharedPreferenceBoolean(context, Config.SHARED_PREF_KEY_USER_VERIFY_PHONE_NUMBER_IS_ON, o.getBoolean("3"));
-
-						// UPDATING THE VERSION CODE AND FORCE STATUS OF THE APP.
-						Config.setSharedPreferenceString(context, Config.SHARED_PREF_KEY_UPDATE_ACTIVITY_UPDATE_NOT_NOW_DATE, o.getString("6"));
-						Config.setSharedPreferenceBoolean(context, Config.SHARED_PREF_KEY_UPDATE_ACTIVITY_UPDATE_BY_FORCE, o.getBoolean("5"));
-						Config.setSharedPreferenceInt(context, Config.SHARED_PREF_KEY_UPDATE_ACTIVITY_UPDATE_VERSION_CODE, o.getInt("4"));
-
-						if (myStatus == 1) {
-							JSONArray newsArray = jsonObject.getJSONArray("news_returned");
-
-							if(newsArray.length() > 0){
-
-								if(MessengerActivity.allLocallyShownMessagesListPositions != null){
-									for (int x = 0; x < MessengerActivity.allLocallyShownMessagesListPositions.size(); x++){
-										if(ConversationMessages_ListDataGenerator.getAllData().get(MessengerActivity.allLocallyShownMessagesListPositions.get(x)).getMessageStatus() == Config.SENT){
-											ConversationMessages_ListDataGenerator.getAllData().remove(MessengerActivity.allLocallyShownMessagesListPositions.get(x).intValue());
-											MessengerActivity.mConversationRecyclerView.getAdapter().notifyItemRemoved(MessengerActivity.allLocallyShownMessagesListPositions.get(x));
-											MessengerActivity.mConversationRecyclerView.getAdapter().notifyItemRangeChanged(MessengerActivity.allLocallyShownMessagesListPositions.get(x), ConversationMessages_ListDataGenerator.getAllData().size());
-											MessengerActivity.allLocallyShownMessagesListPositions.remove(x);
-										}
-									}
-								}
-
-								ChatMessages_DatabaseAdapter chatMessagesDatabaseAdapter = new ChatMessages_DatabaseAdapter(context);
-								// OPENING THE STORIES DATABASE
-								chatMessagesDatabaseAdapter.openDatabase();
-								for (int i = 0; i < newsArray.length(); i++){
-									final JSONObject k = newsArray.getJSONObject(i);
-
-									Cursor cursor = chatMessagesDatabaseAdapter.getSpecificRowsUsingWhereValueAsString(ChatMessages_DatabaseAdapter.KEY_MESSAGE_ID + " = '" + k.getString("0a") + "'", null, false);
-									if(cursor != null && cursor.getCount() > 0){
-										String msgID = cursor.getString(chatMessagesDatabaseAdapter.COL_MESSAGE_ID);
-										Log.e("checkForNewMessages", "msgID : " + msgID);
-									} else {
-										Log.e("checkForNewMessages", "msgID NOT FOUND ");
-
-										chatMessagesDatabaseAdapter.insertRow(
-												k.getString("0a"), //message id
-												k.getString("1"), //chat id
-												k.getString("2"), //sender_pottname
-												k.getString("3"), //receiver_pottname
-												k.getString("4"), // message_text
-												"", // message_image
-												k.getString("5"), // message_time
-												Config.SENT, // pottname name
-												k.getInt("6") // message_sku
-										);
-
-
-										if(k.getString("1").trim().equalsIgnoreCase(MessengerActivity.chatID)){
-											MessageModel messageModel = new MessageModel();
-											messageModel.setRowId(0);
-											messageModel.setMessageId(k.getString("0a"));
-											messageModel.setChatId(k.getString("1"));
-											messageModel.setSenderPottName(k.getString("2"));
-											messageModel.setReceiverPottName(k.getString("3"));
-											messageModel.setMessageText(k.getString("4"));
-											messageModel.setMessageImage("");
-											messageModel.setMessageTime(k.getString("5"));
-											messageModel.setMessageStatus(Config.SENT);
-											messageModel.setOnlineSku(k.getInt("6"));
-
-											ConversationMessages_ListDataGenerator.addOneData(messageModel);
-
-											new Handler(Looper.getMainLooper()).post(new Runnable() {
-												@Override
-												public void run() {
-													//mConversationRecyclerView.getAdapter().notifyDataSetChanged();
-													MessengerActivity.mConversationRecyclerView.getAdapter().notifyItemInserted(ConversationMessages_ListDataGenerator.getAllData().size());
-													MessengerActivity.mConversationRecyclerView.getLayoutManager().scrollToPosition(ConversationMessages_ListDataGenerator.getAllData().size()-1);
-
-												}
-											});
-
-										}
-
-										MessengerActivity.updateListInMyRecentChats(context, readStatus, k.getString("1"), receiverPottPic, receiverPottName,  k.getString("4"), k.getString("5"));
-
-									}
-
-									cursor.close();
-								}
-
-								chatMessagesDatabaseAdapter.closeDatabase();
-
-							}
-
-						}
-
-
-					} catch (JSONException e) {
-						e.printStackTrace();
+					// IF USER'S APP IS OUTDATED AND NOT ALLOWED TO BE USED
+					if(myStatus == 2){
+						Config.setSharedPreferenceBoolean(context, Config.SHARED_PREF_KEY_UPDATE_ACTIVITY_UPDATE_BY_FORCE, true);
+						Config.openActivity3(context, UpdateActivity.class, 1, Config.KEY_ACTIVITY_FINISHED, "1");
+						return;
 					}
 
+					// GENERAL ERROR
+					if(myStatus == 3){
+						Toast.makeText(context, statusMsg, Toast.LENGTH_LONG).show();
+						return;
+					}
+
+					// IF USER'S ACCOUNT HAS BEEN SUSPENDED, WE SIGN USER OUT
+					if(myStatus == 4){
+						Toast.makeText(context, statusMsg, Toast.LENGTH_LONG).show();
+						Config.signOutUser(context, false, null, null, 0, 2);
+					}
+
+					//STORING THE USER DATA
+					Config.setSharedPreferenceBoolean(context, Config.SHARED_PREF_KEY_USER_VERIFY_PHONE_NUMBER_IS_ON, o.getBoolean("3"));
+
+					// UPDATING THE VERSION CODE AND FORCE STATUS OF THE APP.
+					Config.setSharedPreferenceString(context, Config.SHARED_PREF_KEY_UPDATE_ACTIVITY_UPDATE_NOT_NOW_DATE, o.getString("6"));
+					Config.setSharedPreferenceBoolean(context, Config.SHARED_PREF_KEY_UPDATE_ACTIVITY_UPDATE_BY_FORCE, o.getBoolean("5"));
+					Config.setSharedPreferenceInt(context, Config.SHARED_PREF_KEY_UPDATE_ACTIVITY_UPDATE_VERSION_CODE, o.getInt("4"));
+
+					if (myStatus == 1) {
+						JSONArray newsArray = jsonObject.getJSONArray("news_returned");
+
+						if(newsArray.length() > 0){
+
+							if(MessengerActivity.allLocallyShownMessagesListPositions != null){
+								for (int x = 0; x < MessengerActivity.allLocallyShownMessagesListPositions.size(); x++){
+									if(ConversationMessages_ListDataGenerator.getAllData().get(MessengerActivity.allLocallyShownMessagesListPositions.get(x)).getMessageStatus() == Config.SENT){
+										ConversationMessages_ListDataGenerator.getAllData().remove(MessengerActivity.allLocallyShownMessagesListPositions.get(x).intValue());
+										MessengerActivity.mConversationRecyclerView.getAdapter().notifyItemRemoved(MessengerActivity.allLocallyShownMessagesListPositions.get(x));
+										MessengerActivity.mConversationRecyclerView.getAdapter().notifyItemRangeChanged(MessengerActivity.allLocallyShownMessagesListPositions.get(x), ConversationMessages_ListDataGenerator.getAllData().size());
+										MessengerActivity.allLocallyShownMessagesListPositions.remove(x);
+									}
+								}
+							}
+
+							ChatMessages_DatabaseAdapter chatMessagesDatabaseAdapter = new ChatMessages_DatabaseAdapter(context);
+							// OPENING THE STORIES DATABASE
+							chatMessagesDatabaseAdapter.openDatabase();
+							for (int i = 0; i < newsArray.length(); i++){
+								final JSONObject k = newsArray.getJSONObject(i);
+
+								Cursor cursor = chatMessagesDatabaseAdapter.getSpecificRowsUsingWhereValueAsString(ChatMessages_DatabaseAdapter.KEY_MESSAGE_ID + " = '" + k.getString("0a") + "'", null, false);
+								if(cursor != null && cursor.getCount() > 0){
+									String msgID = cursor.getString(chatMessagesDatabaseAdapter.COL_MESSAGE_ID);
+									Log.e("checkForNewMessages", "msgID : " + msgID);
+								} else {
+									Log.e("checkForNewMessages", "msgID NOT FOUND ");
+
+									chatMessagesDatabaseAdapter.insertRow(
+											k.getString("0a"), //message id
+											k.getString("1"), //chat id
+											k.getString("2"), //sender_pottname
+											k.getString("3"), //receiver_pottname
+											k.getString("4"), // message_text
+											"", // message_image
+											k.getString("5"), // message_time
+											Config.SENT, // pottname name
+											k.getInt("6") // message_sku
+									);
+
+
+									if(k.getString("1").trim().equalsIgnoreCase(MessengerActivity.chatID)){
+										MessageModel messageModel = new MessageModel();
+										messageModel.setRowId(0);
+										messageModel.setMessageId(k.getString("0a"));
+										messageModel.setChatId(k.getString("1"));
+										messageModel.setSenderPottName(k.getString("2"));
+										messageModel.setReceiverPottName(k.getString("3"));
+										messageModel.setMessageText(k.getString("4"));
+										messageModel.setMessageImage("");
+										messageModel.setMessageTime(k.getString("5"));
+										messageModel.setMessageStatus(Config.SENT);
+										messageModel.setOnlineSku(k.getInt("6"));
+
+										ConversationMessages_ListDataGenerator.addOneData(messageModel);
+
+										new Handler(Looper.getMainLooper()).post(new Runnable() {
+											@Override
+											public void run() {
+												//mConversationRecyclerView.getAdapter().notifyDataSetChanged();
+												MessengerActivity.mConversationRecyclerView.getAdapter().notifyItemInserted(ConversationMessages_ListDataGenerator.getAllData().size());
+												MessengerActivity.mConversationRecyclerView.getLayoutManager().scrollToPosition(ConversationMessages_ListDataGenerator.getAllData().size()-1);
+
+											}
+										});
+
+									}
+
+									MessengerActivity.updateListInMyRecentChats(context, readStatus, k.getString("1"), receiverPottPic, receiverPottName,  k.getString("4"), k.getString("5"));
+
+								}
+
+								cursor.close();
+							}
+
+							chatMessagesDatabaseAdapter.closeDatabase();
+
+						}
+
+					}
+
+
+				} catch (JSONException e) {
+					e.printStackTrace();
 				}
 
-				@Override
-				public void onError(ANError anError) {}
-			});
+			}
+
+			@Override
+			public void onError(ANError anError) {}
+		});
 	}
 
 
@@ -3112,37 +3114,37 @@ public class Config {
 		clipboard.setPrimaryClip(clip);
 	}
 
-    public static void sePersistentNotification(Context context, String CHANNEL_ID, String title, String body, int notIconDrawable){
-        ///////////////////////////
-        Intent action1Intent = new Intent(context, StartActivity.class).setAction(CHANNEL_ID);
-        PendingIntent action1PendingIntent = PendingIntent.getActivity(context, 0, action1Intent, PendingIntent.FLAG_ONE_SHOT);
-        Notification notification = null;
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
-            notification = new NotificationCompat.Builder(context, CHANNEL_ID)
-                    .setContentTitle(title)
-                    .setContentText(body)
-                    .setColor(context.getResources().getColor(R.color.colorSharesForSaleDark, null))
+	public static void sePersistentNotification(Context context, String CHANNEL_ID, String title, String body, int notIconDrawable){
+		///////////////////////////
+		Intent action1Intent = new Intent(context, StartActivity.class).setAction(CHANNEL_ID);
+		PendingIntent action1PendingIntent = PendingIntent.getActivity(context, 0, action1Intent, PendingIntent.FLAG_ONE_SHOT);
+		Notification notification = null;
+		if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
+			notification = new NotificationCompat.Builder(context, CHANNEL_ID)
+					.setContentTitle(title)
+					.setContentText(body)
+					.setColor(context.getResources().getColor(R.color.colorSharesForSaleDark, null))
 					.setSmallIcon(notIconDrawable)
-                    .setBadgeIconType(NotificationCompat.BADGE_ICON_SMALL)
-                    .setOngoing(true)
-                    .setContentIntent(action1PendingIntent)
-                    .build();
-        } else {
-            notification = new NotificationCompat.Builder(context, CHANNEL_ID)
-                    .setContentTitle(title)
-                    .setContentText(body)
+					.setBadgeIconType(NotificationCompat.BADGE_ICON_SMALL)
+					.setOngoing(true)
+					.setContentIntent(action1PendingIntent)
+					.build();
+		} else {
+			notification = new NotificationCompat.Builder(context, CHANNEL_ID)
+					.setContentTitle(title)
+					.setContentText(body)
 					.setSmallIcon(notIconDrawable)
-                    .setBadgeIconType(NotificationCompat.BADGE_ICON_SMALL)
-                    .setOngoing(true)
-                    .setContentIntent(action1PendingIntent)
-                    .build();
-        }
+					.setBadgeIconType(NotificationCompat.BADGE_ICON_SMALL)
+					.setOngoing(true)
+					.setContentIntent(action1PendingIntent)
+					.build();
+		}
 
 
-        NotificationManager mNotificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
-        mNotificationManager.notify(149, notification);
+		NotificationManager mNotificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+		mNotificationManager.notify(149, notification);
 
-    }
+	}
 
 
 }

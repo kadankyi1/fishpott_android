@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+ <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="80dp"
@@ -7,7 +7,7 @@
     android:focusable="true"
     android:id="@+id/notification_list_root_view_constraintlayout">
 
-    <android.support.constraint.ConstraintLayout
+     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/profile_picture_holder_constraintlayout"
         android:layout_width="60dp"
         android:layout_height="60dp"
@@ -37,7 +37,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
-    </android.support.constraint.ConstraintLayout>
+     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <TextView
         android:id="@+id/notification_infotext_textview"
@@ -74,4 +74,4 @@
         app:layout_constraintTop_toBottomOf="@id/notification_infotext_textview"
         app:layout_constraintVertical_bias="0.79" />
 
-</android.support.constraint.ConstraintLayout>
+ </androidx.constraintlayout.widget.ConstraintLayout>

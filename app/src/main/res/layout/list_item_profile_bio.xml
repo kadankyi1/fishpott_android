@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+ <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:paddingBottom="7dp">
 
-    <android.support.constraint.ConstraintLayout
+     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/pott_pic_holder_constraintLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -45,7 +45,7 @@
             app:layout_constraintTop_toTopOf="@+id/pott_pic_circle_imageview"
             app:layout_constraintVertical_bias="1.0" />
 
-    </android.support.constraint.ConstraintLayout>
+     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
     <TextView
@@ -193,7 +193,7 @@
         app:layout_constraintStart_toEndOf="@+id/followers_label_textview"
         app:layout_constraintTop_toBottomOf="@+id/pearls_count_textview" />
 
-    <android.support.constraint.ConstraintLayout
+     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/rank_info_constraintLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -235,10 +235,10 @@
             app:layout_constraintStart_toEndOf="@+id/rank_info_icon_circleimageview"
             app:layout_constraintTop_toTopOf="@+id/rank_info_icon_circleimageview" />
 
-    </android.support.constraint.ConstraintLayout>
+     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-    <android.support.constraint.ConstraintLayout
+     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/ruler_info_constraintLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -279,9 +279,9 @@
             app:layout_constraintStart_toEndOf="@+id/ruler_info_icon_circleimageview"
             app:layout_constraintTop_toTopOf="@+id/ruler_info_icon_circleimageview" />
 
-    </android.support.constraint.ConstraintLayout>
+     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <android.support.constraint.ConstraintLayout
+     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/income_statement_constraintLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -322,10 +322,10 @@
             app:layout_constraintStart_toEndOf="@+id/income_statement_icon_circleimageview"
             app:layout_constraintTop_toTopOf="@+id/income_statement_icon_circleimageview" />
 
-    </android.support.constraint.ConstraintLayout>
+     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-    <android.support.constraint.ConstraintLayout
+     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/country_info_constraintLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -367,7 +367,7 @@
             app:layout_constraintStart_toEndOf="@+id/country_info_icon_imageview"
             app:layout_constraintTop_toTopOf="@+id/country_info_icon_imageview" />
 
-    </android.support.constraint.ConstraintLayout>
+     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
     <Button
@@ -450,4 +450,4 @@
         app:layout_constraintTop_toBottomOf="@+id/country_info_constraintLayout" />
 
 
-</android.support.constraint.ConstraintLayout>
+ </androidx.constraintlayout.widget.ConstraintLayout>

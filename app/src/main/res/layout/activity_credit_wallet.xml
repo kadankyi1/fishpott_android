@@ -1,4 +1,4 @@
-<android.support.constraint.ConstraintLayout
+ <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -9,7 +9,7 @@
     android:clickable="true"
     tools:context="com.fishpott.fishpott5.Activities.CreditWalletActivity" android:focusable="true">
 
-        <android.support.constraint.Guideline
+         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/title_bar_guideline_h_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -17,7 +17,7 @@
             app:layout_constraintGuide_percent="0.08" />
 
 
-        <android.support.constraint.ConstraintLayout
+         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/title_bar_constraint_layout_2"
             android:layout_width="0dp"
             android:layout_height="0dp"
@@ -30,7 +30,7 @@
             app:layout_constraintVertical_bias="0.0">
 
 
-            <android.support.constraint.Guideline
+             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/in_title_bar_guideline_v_1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -73,9 +73,9 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/forgot_password_arrow_back" />
 
-        </android.support.constraint.ConstraintLayout>
+         </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <android.support.constraint.ConstraintLayout
+     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/visa_mastercard_option_contrainlayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -136,10 +136,10 @@
             app:layout_constraintStart_toEndOf="@+id/visa_mastercard_option_imageview"
             app:layout_constraintTop_toBottomOf="@+id/visa_mastercard_option_textview" />
 
-    </android.support.constraint.ConstraintLayout>
+     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-    <android.support.constraint.ConstraintLayout
+     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/automated_mtn_mobile_money_option_holder_contrainlayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -200,9 +200,9 @@
             app:layout_constraintStart_toEndOf="@+id/automated_mtn_mobile_money_option_icon_imageview"
             app:layout_constraintTop_toBottomOf="@+id/automated_mtn_mobile_money_option_textview" />
 
-    </android.support.constraint.ConstraintLayout>
+     </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <android.support.constraint.ConstraintLayout
+             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/mtn_mobile_money_option_holder_contrainlayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -260,10 +260,10 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/mtn_mobile_money_option_textview"/>
 
-            </android.support.constraint.ConstraintLayout>
+             </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-            <android.support.constraint.ConstraintLayout
+             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/vodafone_cash_holder_contrainlayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -320,9 +320,9 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/vodafone_cash_textview"/>
 
-            </android.support.constraint.ConstraintLayout>
+             </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <android.support.constraint.ConstraintLayout
+             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/airteltigo_money_holder_contrainlayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -379,7 +379,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/airteltigo_money_textview"
                     app:layout_constraintBottom_toBottomOf="parent"/>
 
-            </android.support.constraint.ConstraintLayout>
+             </androidx.constraintlayout.widget.ConstraintLayout>
 
-</android.support.constraint.ConstraintLayout>
+ </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+ <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/root_contacts_activity"
@@ -8,7 +8,7 @@
     android:background="@color/colorAccent"
     tools:context="com.fishpott.fishpott5.Activities.ContactsActivity">
 
-    <android.support.constraint.Guideline
+     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/activity_suggestedlinkupsactivity_guideline_h_1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -16,7 +16,7 @@
         app:layout_constraintGuide_percent="0.08" />
 
 
-    <android.support.constraint.ConstraintLayout
+     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/activity_suggestedlinkupsactivity_constraint_layout_2"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -29,14 +29,14 @@
         app:layout_constraintVertical_bias="0.0">
 
 
-        <android.support.constraint.Guideline
+         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/activity_suggestedlinkupsactivity_constraintlayout2_guideline_v_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             app:layout_constraintGuide_percent="0.15" />
 
-        <android.support.constraint.Guideline
+         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/activity_suggestedlinkupsactivity_constraintlayout2_guideline_v_3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -80,7 +80,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/forgot_password_arrow_back" />
 
-    </android.support.constraint.ConstraintLayout>
+     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ProgressBar
         android:id="@+id/activity_suggestedlinkupsactivity_loader"
@@ -97,7 +97,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/activity_suggestedlinkupsactivity_guideline_h_1" />
 
-    <android.support.design.widget.TextInputLayout
+     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/pottname_contacts_activity_edittext_textinputlayout"
         android:layout_width="0dp"
         android:layout_height="55dp"
@@ -122,7 +122,7 @@
             android:maxLength="15"
             android:textColor="@drawable/login_activity_input_text_color" />
 
-    </android.support.design.widget.TextInputLayout>
+     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/search_contacts_activity_button"
@@ -145,7 +145,7 @@
         app:layout_constraintTop_toBottomOf="@+id/activity_suggestedlinkupsactivity_guideline_h_1"
         app:layout_constraintVertical_bias="1.0" />
 
-    <android.support.v4.widget.SwipeRefreshLayout
+     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/activity_suggestedlinkupsactivity_swiperefreshayout"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -154,12 +154,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/pottname_contacts_activity_edittext_textinputlayout">
 
-        <android.support.v7.widget.RecyclerView
+         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/activity_suggestedlinkupsactivity_recyclerview"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
-    </android.support.v4.widget.SwipeRefreshLayout>
+     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
     <ImageView
         android:id="@+id/activity_suggestedlinkupsactivity_reload_imageview"
         android:layout_width="55dp"
@@ -176,4 +176,4 @@
         app:layout_constraintTop_toBottomOf="@+id/activity_suggestedlinkupsactivity_guideline_h_1"
         android:src="@drawable/activity_suggestedlinkupsactivity_reload_imageview"
         />
-</android.support.constraint.ConstraintLayout>
+ </androidx.constraintlayout.widget.ConstraintLayout>

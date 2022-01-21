@@ -47,4 +47,4 @@ tools:context="gh.com.payswitch.thetellerandroid.thetellerActivity">
 
 </RelativeLayout>
 
-</android.support.design.widget.CoordinatorLayout>
+ </androidx.constraintlayout.widget.design.widget.CoordinatorLayout>

@@ -10,6 +10,8 @@ import android.os.IBinder;
 import android.util.Log;
 import android.view.View;
 
+import androidx.annotation.NonNull;
+
 import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.common.Priority;
 import com.androidnetworking.error.ANError;
@@ -36,9 +38,10 @@ import com.fishpott.fishpott5.Models.NewsType_15_Sharesforsale_Horizontal_Model;
 import com.fishpott.fishpott5.Models.NewsType_26_Linkups_Horizontal_Model;
 import com.fishpott.fishpott5.R;
 import com.fishpott.fishpott5.Util.MyLifecycleHandler;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.iid.FirebaseInstanceId;
-import com.google.firebase.iid.InstanceIdResult;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -123,13 +126,19 @@ public class NewsFetcherAndPreparerService extends Service {
              */
             updateUserInfo(getApplicationContext(), "", LocaleHelper.getLanguage(getApplicationContext()));
 
-            FirebaseInstanceId.getInstance().getInstanceId().addOnSuccessListener(new OnSuccessListener<InstanceIdResult>() {
-                @Override
-                public void onSuccess(InstanceIdResult instanceIdResult) {
-                    updateUserInfo(getApplicationContext(), instanceIdResult.getToken(), LocaleHelper.getLanguage(getApplicationContext()));
-                }
-            });
-
+            FirebaseMessaging.getInstance().getToken()
+                    .addOnCompleteListener(new OnCompleteListener<String>() {
+                        @Override
+                        public void onComplete(@NonNull Task<String> task) {
+                            if (!task.isSuccessful()) {
+                                Log.w("FBToken", "Fetching FCM registration token failed", task.getException());
+                                return;
+                            } else {
+                                Log.e("FBToken", "task.getResult(): " + task.getResult());
+                                updateUserInfo(getApplicationContext(), task.getResult(), LocaleHelper.getLanguage(getApplicationContext()));
+                            }
+                        }
+                    });
         }
 
     }

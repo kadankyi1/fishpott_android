@@ -1,4 +1,4 @@
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+ <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/root_signupbusinessstage3_fragment"
@@ -8,70 +8,70 @@
     android:clickable="true"
     tools:context="com.fishpott.fishpott5.Fragments.Signup.SignupBusinessStage3Fragment">
 
-    <android.support.constraint.Guideline
+     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/fragment_signup_businessstage3_guideline_h_1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.08" />
 
-    <android.support.constraint.Guideline
+     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/fragment_signup_businessstage3_guideline_h_2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.2" />
 
-    <android.support.constraint.Guideline
+     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/fragment_signup_businessstage3_guideline_h_3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.3" />
 
-    <android.support.constraint.Guideline
+     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/fragment_signup_businessstage3_guideline_h_4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.4" />
 
-    <android.support.constraint.Guideline
+     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/fragment_signup_businessstage3_guideline_h_5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.5" />
 
-    <android.support.constraint.Guideline
+     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/fragment_signup_businessstage3_guideline_h_6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.6" />
 
-    <android.support.constraint.Guideline
+     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/fragment_signup_businessstage3_guideline_h_7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.7" />
 
-    <android.support.constraint.Guideline
+     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/fragment_signup_businessstage3_guideline_h_8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.8" />
 
-    <android.support.constraint.Guideline
+     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/fragment_signup_businessstage3_guideline_v_1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.05" />
 
-    <android.support.constraint.Guideline
+     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/fragment_signup_businessstage3_guideline_v_2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -79,20 +79,20 @@
         app:layout_constraintGuide_percent="0.95" />
 
 
-    <android.support.constraint.Guideline
+     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/fragment_signup_businessstage1_guideline_v_3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.2" />
 
-    <android.support.constraint.Guideline
+     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/fragment_signup_businessstage1_guideline_v_4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.8" />
-    <android.support.constraint.ConstraintLayout
+     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/fragment_signup_businessstage3_constraint_layout_2"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -103,14 +103,14 @@
         app:layout_constraintTop_toTopOf="parent">
 
 
-        <android.support.constraint.Guideline
+         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/fragment_signup_businessstage3_constraint2_guideline_v_3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             app:layout_constraintGuide_percent="0.15" />
 
-        <android.support.constraint.Guideline
+         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/fragment_signup_businessstage3_constraint2_guideline_v_4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -147,9 +147,9 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/forgot_password_arrow_back" />
-    </android.support.constraint.ConstraintLayout>
+     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <android.support.design.widget.TextInputLayout
+     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/fragment_signup_businessstage3_pottname_edit_text_layout_holder"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -172,7 +172,7 @@
             android:maxLength="15"
             android:textColor="@drawable/login_activity_input_text_color" />
 
-    </android.support.design.widget.TextInputLayout>
+     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
         android:id="@+id/fragment_signup_businessstage3_at_textView"
@@ -190,7 +190,7 @@
         app:layout_constraintTop_toTopOf="@+id/fragment_signup_businessstage3_guideline_h_2" />
 
 
-    <android.support.design.widget.TextInputLayout
+     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/fragment_signup_businessstage3_phonenumber_edit_text_layout_holder"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -214,10 +214,10 @@
             android:maxLength="15"
             android:textColor="@drawable/login_activity_input_text_color" />
 
-    </android.support.design.widget.TextInputLayout>
+     </com.google.android.material.textfield.TextInputLayout>
 
 
-    <android.support.design.widget.TextInputLayout
+     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/fragment_signup_businessstage3_password_edit_text_layout_holder"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -241,10 +241,10 @@
             android:maxLength="20"
             android:textColor="@drawable/login_activity_input_text_color" />
 
-    </android.support.design.widget.TextInputLayout>
+     </com.google.android.material.textfield.TextInputLayout>
 
 
-    <android.support.design.widget.TextInputLayout
+     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/fragment_signup_businessstage3_retypepassword_edit_text_layout_holder"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -268,10 +268,10 @@
             android:maxLength="20"
             android:textColor="@drawable/login_activity_input_text_color" />
 
-    </android.support.design.widget.TextInputLayout>
+     </com.google.android.material.textfield.TextInputLayout>
 
 
-    <android.support.design.widget.TextInputLayout
+     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/fragment_signup_businessstage3_referrerpottname_edit_text_layout_holder"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -296,7 +296,7 @@
             android:maxLength="15"
             android:textColor="@drawable/login_activity_input_text_color" />
 
-    </android.support.design.widget.TextInputLayout>
+     </com.google.android.material.textfield.TextInputLayout>
 
 
     <Button
@@ -347,4 +347,4 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-</android.support.constraint.ConstraintLayout>
+ </androidx.constraintlayout.widget.ConstraintLayout>
