@@ -2495,10 +2495,12 @@ public class Config {
 			return;
 		}
 
+		/*
 		if(!Config.userProfilePictureIsSet(currentActivity)){
 			Config.openActivity(currentActivity, SetProfilePictureActivity.class, 1, 2, 1,Config.KEY_ACTIVITY_FINISHED, "yes");
 			return;
 		}
+		 */
 	}
 
 	public static int getNotificationType(String notificationType){

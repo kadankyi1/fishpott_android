@@ -5,6 +5,8 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+
+import com.fishpott.fishpott5.Activities.MainActivity;
 import com.google.android.material.textfield.TextInputLayout;
 import androidx.fragment.app.Fragment;
 import android.util.Log;
@@ -417,7 +419,8 @@ public class SignupPersonalStage3Fragment extends Fragment implements View.OnCli
                             return;
                         }
 
-                        Config.openActivity(getActivity(), SetProfilePictureActivity.class, 1, 2, 1, Config.KEY_ACTIVITY_FINISHED, "yes");
+                        Config.openActivity(getActivity(), MainActivity.class, 1, 2, 1, Config.KEY_ACTIVITY_FINISHED, "yes");
+                        //Config.openActivity(getActivity(), SetProfilePictureActivity.class, 1, 2, 1, Config.KEY_ACTIVITY_FINISHED, "yes");
                         return;
 
                     } else {

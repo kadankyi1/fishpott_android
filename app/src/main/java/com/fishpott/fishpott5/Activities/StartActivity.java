@@ -30,6 +30,7 @@ import com.fishpott.fishpott5.Miscellaneous.LocaleHelper;
 import com.fishpott.fishpott5.R;
 import com.fishpott.fishpott5.Services.NewsFetcherAndPreparerService;
 import com.fishpott.fishpott5.Util.NonUnderlinedClickableSpan;
+import com.fishpott.fishpott5.Views.CircleImageView;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -40,13 +41,12 @@ import com.google.firebase.messaging.FirebaseMessaging;
 
 public class StartActivity extends AppCompatActivity implements Animation.AnimationListener, View.OnClickListener {
 
-    private ImageView mFpLogoImageView;
-    private ImageView mFpCoverImageView;
+    private CircleImageView mFpLogoImageView, mFpLogoStaticImageView;
     private TextView mLangEnglishTextView;
     private TextView mLangFrenchTextView;
     private TextView mLangChineseTextView;
     private Button mStartButton;
-    private ImageView mFpLogoStaticImageView;
+    private ImageView mFpCoverImageView;
     private ConstraintLayout mPrivacyPolicyHolderConstraintLayout;
     private FirebaseAnalytics mFirebaseAnalytics;
     private ProgressBar mProgressBar;
@@ -202,8 +202,8 @@ public class StartActivity extends AppCompatActivity implements Animation.Animat
         mLangChineseTextView.setVisibility(View.VISIBLE);
          */
         if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
-            mFpCoverImageView.setAlpha(0f);
-            mFpCoverImageView.setVisibility(View.VISIBLE);
+            //mFpCoverImageView.setAlpha(0f);
+            //mFpCoverImageView.setVisibility(View.VISIBLE);
         }
         int mediumAnimationTime = getResources().getInteger(android.R.integer.config_mediumAnimTime);
         /*
@@ -216,7 +216,7 @@ public class StartActivity extends AppCompatActivity implements Animation.Animat
         mProgressBar.animate().alpha(1f).setDuration(mediumAnimationTime).setListener(null);
 
         if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
-            mFpCoverImageView.animate().alpha(1f).setDuration(mediumAnimationTime).setListener(null);
+            //mFpCoverImageView.animate().alpha(1f).setDuration(mediumAnimationTime).setListener(null);
         }
         if(Config.userIsLoggedIn(StartActivity.this))
         {
@@ -239,6 +239,10 @@ public class StartActivity extends AppCompatActivity implements Animation.Animat
                         Config.openActivity(StartActivity.this, GovernmentIDVerificationActivity.class, 1, 2, 0, "", "");
                         return;
                     }
+
+                    Config.openActivity(StartActivity.this, MainActivity.class, 1, 2, 0, "", "");
+                    return;
+                    /*
                     if(!Config.userProfilePictureIsSet(StartActivity.this)){
                         Config.openActivity(StartActivity.this, SetProfilePictureActivity.class, 1, 1, 1, Config.KEY_ACTIVITY_FINISHED, "yes");
                         return;
@@ -263,6 +267,7 @@ public class StartActivity extends AppCompatActivity implements Animation.Animat
                             }
                         });
                     }
+                     */
 
 
                 }
@@ -396,6 +401,9 @@ public class StartActivity extends AppCompatActivity implements Animation.Animat
                 }
 
                 //REDIRECTING IF USER HAS SET PROFILE PICTURE OR NOT
+                Config.openActivity(StartActivity.this, MainActivity.class, 1, 2, 0, "", "");
+                return;
+                /*
                 if(!Config.userProfilePictureIsSet(StartActivity.this)){
                     Config.openActivity(StartActivity.this, SetProfilePictureActivity.class, 1, 2, 1,Config.KEY_ACTIVITY_FINISHED, "yes");
                     return;
@@ -413,14 +421,14 @@ public class StartActivity extends AppCompatActivity implements Animation.Animat
                                     Config.showDialogType1(StartActivity.this, "", getString(R.string.Oops_what_you_are_looking_for_was_not_found), "", cancelListenerActive1, true, getString(R.string.setprofilepicture_activity_okay), "");
                                     finish();
                                 } else {
-                                    Config.openActivity(StartActivity.this, MainActivity.class, 1, 2, 0, "", "");
-                                    //Config.openActivity(StartActivity.this, SetProfilePictureActivity.class, 1, 2, 0, "", "");
+                                    Config.openActivity(StartActivity.this, SetProfilePictureActivity.class, 1, 2, 0, "", "");
                                     return;
                                 }
                             }
                         }
                     });
                 }
+                */
             }
 
         } else {

@@ -301,12 +301,16 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
                                     Config.checkUpdateAndForwardToUpdateActivity(LoginActivity.this, o.getInt("user_android_app_max_vc"), o.getBoolean("user_android_app_force_update"));
 
+                                    Config.openActivity(LoginActivity.this, MainActivity.class, 1, 2, 0, "", "");
+                                    return;
 
+                                    /*
                                     if (Config.userProfilePictureIsSet(LoginActivity.this)) {
                                         Config.openActivity(LoginActivity.this, MainActivity.class, 1, 2, 0, "", "");
                                     } else {
                                         Config.openActivity(LoginActivity.this, SetProfilePictureActivity.class, 1, 2, 1, Config.KEY_ACTIVITY_FINISHED, "yes");
                                     }
+                                    */
 
                                 } else if(myStatus.equalsIgnoreCase("0")){
                                     Config.openActivity(LoginActivity.this, FlaggedAccountActivity.class, 1, 2, 0, "", "");

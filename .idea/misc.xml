@@ -42,6 +42,8 @@
         <entry key="app/src/main/res/layout/fragment_signup_business_stage1.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/layout/fragment_signup_personal_stage1.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/layout/fragment_signup_personal_stage2.xml" value="0.3098958333333333" />
+        <entry key="app/src/main/res/layout/fragment_signup_personal_stage3.xml" value="0.3098958333333333" />
+        <entry key="app/src/main/res/layout/fragment_signup_start.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/layout/fragment_suggestion.xml" value="0.335" />
         <entry key="app/src/main/res/layout/fragment_suggesto.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/layout/fragment_transfer_center.xml" value="0.3098958333333333" />
@@ -51,8 +53,8 @@
         <entry key="app/src/main/res/layout/login_activity_dialog.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/layout/positive_icon_dialog.xml" value="0.2318840579710145" />
         <entry key="app/src/main/res/layout/privacy_policy_dialog.xml" value="0.3098958333333333" />
-        <entry key="app/src/main/res/layout/slider_layout_news.xml" value="0.335" />
-        <entry key="app/src/main/res/layout/slider_layout_shares.xml" value="0.3098958333333333" />
+        <entry key="app/src/main/res/layout/slider_layout_news.xml" value="0.2852986196837542" />
+        <entry key="app/src/main/res/layout/slider_layout_shares.xml" value="0.25" />
         <entry key="app/src/main/res/xml/network_security_config.xml" value="0.2318840579710145" />
       </map>
     </option>

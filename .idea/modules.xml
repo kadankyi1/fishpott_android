@@ -4,7 +4,6 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/fishpott_android.iml" filepath="$PROJECT_DIR$/.idea/fishpott_android.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/fishpott_android.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/fishpott_android.app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/thetellerandroid/fishpott_android.thetellerandroid.iml" filepath="$PROJECT_DIR$/.idea/modules/thetellerandroid/fishpott_android.thetellerandroid.iml" />
     </modules>
   </component>
 </project>

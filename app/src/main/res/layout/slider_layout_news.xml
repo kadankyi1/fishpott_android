@@ -19,7 +19,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.7" />
+        app:layout_constraintGuide_percent="0.67" />
 
      <androidx.constraintlayout.widget.Guideline
         android:id="@+id/slider_activity_slider_layout_h_guideline3"
@@ -37,16 +37,16 @@
         app:layout_constraintStart_toStartOf="parent"
         android:background="@color/colorAccent">
 
-        <ImageView
-            android:id="@+id/slider_activity_slider_layout_slider_image"
-            android:layout_width="298dp"
-            android:layout_height="303dp"
-            android:contentDescription="@string/none"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/slider_activity_news_cover_image" />
+         <ImageView
+             android:id="@+id/slider_activity_slider_layout_slider_image"
+             android:layout_width="226dp"
+             android:layout_height="210dp"
+             android:contentDescription="@string/none"
+             app:layout_constraintBottom_toBottomOf="parent"
+             app:layout_constraintEnd_toEndOf="parent"
+             app:layout_constraintStart_toStartOf="parent"
+             app:layout_constraintTop_toTopOf="parent"
+             app:srcCompat="@drawable/maths" />
 
      </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -58,10 +58,10 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:text="Answer-To-Discover"
+        android:text="FishPott - Drills"
         android:textAlignment="center"
         android:textColor="@color/colorAccent"
-        android:textSize="25sp"
+        android:textSize="22sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/slider_activity_slider_layout_h_guideline2"
         app:layout_constraintEnd_toEndOf="parent"
@@ -78,7 +78,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="Discover your trading nature. Train your FishPott to receive stocks that you like. Build your nature to match with stocks and have your FishPott suggest them to you. Let your FishPott think like you."
+        android:text="Use questions and answers to train your FishPott. Build an intelligent FishPott to find and suggest businesses to you to invest in."
         android:textAlignment="center"
         android:textColor="@color/colorAccent"
         app:layout_constraintBottom_toTopOf="@+id/slider_activity_slider_layout_h_guideline3"

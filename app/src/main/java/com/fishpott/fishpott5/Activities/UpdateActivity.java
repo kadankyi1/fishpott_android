@@ -96,7 +96,8 @@ public class UpdateActivity extends AppCompatActivity implements View.OnClickLis
                     && !Config.getSharedPreferenceString(getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_PASSWORD_ACCESS_TOKEN).equalsIgnoreCase("")
                     ){
                 if(Config.getSharedPreferenceString(getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_PROFILE_PICTURE).equalsIgnoreCase("")){
-                    Config.openActivity(UpdateActivity.this, SetProfilePictureActivity.class, 1, 1, 0,"","");
+                    Config.openActivity(UpdateActivity.this, MainActivity.class, 1, 1, 0, "", "");
+                    //Config.openActivity(UpdateActivity.this, SetProfilePictureActivity.class, 1, 1, 0,"","");
                 } else {
                     Config.openActivity(UpdateActivity.this, MainActivity.class, 1, 1, 0, "", "");
                 }

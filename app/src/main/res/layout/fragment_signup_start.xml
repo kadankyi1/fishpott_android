@@ -132,6 +132,7 @@
         android:layout_height="0dp"
         android:contentDescription="@string/none"
         android:scaleType="fitCenter"
+        android:visibility="gone"
         app:layout_constraintBottom_toTopOf="@+id/fragment_of_signupactivity_signupstart_h_guideline2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -146,7 +147,7 @@
         android:layout_marginEnd="16dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
-        android:text="@string/signup_fragment_start_having_a_fishpott_connects_you_to_the_world_and_empowers_you_to_do_more_with_the_connections_you_make"
+        android:text="Take advantage of artificial intelligence driven by you."
         android:textAlignment="center"
         android:textColor="@color/colorSignupFragmentIntroText"
         android:textStyle="bold"
@@ -175,6 +176,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:textSize="@dimen/button_text_size"
+        android:visibility="gone"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
@@ -186,7 +188,7 @@
         app:layout_constraintStart_toStartOf="@+id/fragment_of_signupactivity_signupstart_v_guideline3" />
 
 
-    <ImageView
+    <com.fishpott.fishpott5.Views.CircleImageView
         android:id="@+id/fragment_of_signupactivity_signupstart_fpStaticimageView"
         android:layout_width="70dp"
         android:layout_height="70dp"

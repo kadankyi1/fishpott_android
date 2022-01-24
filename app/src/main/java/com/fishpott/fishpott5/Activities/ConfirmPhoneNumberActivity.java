@@ -225,6 +225,9 @@ public class ConfirmPhoneNumberActivity extends AppCompatActivity {
                                             Config.setSharedPreferenceBoolean(ConfirmPhoneNumberActivity.this, Config.SHARED_PREF_KEY_USER_VERIFY_PHONE_NUMBER_IS_ON, false);
 
                                             //REDIRECTING IF USER HAS SET PROFILE PICTURE OR NOT
+                                            Config.openActivity(ConfirmPhoneNumberActivity.this, MainActivity.class, 1, 2, 0, "", "");
+                                            return;
+                                            /*
                                             if(!Config.userProfilePictureIsSet(ConfirmPhoneNumberActivity.this)){
                                                 Config.openActivity(ConfirmPhoneNumberActivity.this, SetProfilePictureActivity.class, 1, 2, 1, Config.KEY_ACTIVITY_FINISHED, "yes");
                                                 return;
@@ -232,6 +235,7 @@ public class ConfirmPhoneNumberActivity extends AppCompatActivity {
                                                 Config.openActivity(ConfirmPhoneNumberActivity.this, MainActivity.class, 1, 2, 0, "", "");
                                                 return;
                                             }
+                                            */
 
                                         } else if(myStatus.equalsIgnoreCase("0")){
                                             // ACCOUNT HAS BEEN FLAGGED
