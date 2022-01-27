@@ -327,6 +327,7 @@ public class StartActivity extends AppCompatActivity implements Animation.Animat
 
     private void initializeApp(){
         FirebaseMessaging.getInstance().subscribeToTopic("FISHPOT_TIPS");
+        FirebaseMessaging.getInstance().subscribeToTopic("FISHPOT_ANDROID");
         FirebaseMessaging.getInstance().getToken()
                 .addOnCompleteListener(new OnCompleteListener<String>() {
                     @Override

@@ -17,7 +17,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:textAlignment="center"
-        android:text="Give It A chance"
+        android:text=""
         android:textColor="@color/colorSignupFragmentIntroText"
         android:textSize="14sp"
         android:textStyle="bold"

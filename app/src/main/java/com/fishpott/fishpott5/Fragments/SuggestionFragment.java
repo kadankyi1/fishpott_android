@@ -54,7 +54,7 @@ public class SuggestionFragment extends Fragment implements View.OnClickListener
             mBusinessCountInvestorsTextView, mSuggestionBusinessPitchTextView, mSuggestionBusinessCEOTextView, mSuggestionBusinessCOOTextView, mSuggestionBusinessServicesBioTextView,
             mBusinessWebsiteTextView, mBusinessRevenueLastYrTextView, mBusinessDebtTextView, mBusinessInvestmentsInTextView, mSuggestionBusinessFinanceBioTextView,
             mSuggestionBusinessFinanceFullReportTextView, mAnswer1CountTextView, mAnswer2CountTextView, mAnswer3CountTextView, mAnswer4CountTextView,
-            mAnswer1TextView, mAnswer2TextView, mAnswer3TextView, mAnswer4TextView, mNextDrillTextView;
+            mAnswer1TextView, mAnswer2TextView, mAnswer3TextView, mAnswer4TextView, mNextDrillTextView, mFindcodeTextView;
     private CircleImageView mBusinessLogoCircleImageView;
     private MxVideoPlayerWidget mBusinessPitchVideoMxVideoPlayerWidget;
     private Button mAnswer1Button, mAnswer2Button, mAnswer3Button, mAnswer4Button;
@@ -126,6 +126,7 @@ public class SuggestionFragment extends Fragment implements View.OnClickListener
         mBusinessInvestmentsInTextView = view.findViewById(R.id.fragment_suggestion_business_lastyearinveststext_textview);
         mSuggestionBusinessFinanceBioTextView = view.findViewById(R.id.fragment_suggestion_business_finance_biotext_textview);
         mSuggestionBusinessFinanceFullReportTextView = view.findViewById(R.id.fragment_suggestion_business_finance_fullreporttext_textview);
+        mFindcodeTextView = view.findViewById(R.id.findcode_textview);
 
         // SETTING CLICK LISTENERS
         mSuggestionLoaderImageView.setOnClickListener(this);
@@ -252,6 +253,7 @@ public class SuggestionFragment extends Fragment implements View.OnClickListener
                         String businessInvestments = "";
                         String businessFinanceBio = "";
                         String businessFinanceFullReport = "";
+                        String businessFindCode = "";
 
 
                         //STORING THE USER DATA
@@ -293,6 +295,7 @@ public class SuggestionFragment extends Fragment implements View.OnClickListener
                                 //businessFinanceFullReport = "https://docs.google.com/gview?embedded=true&url=https://github.github.com/training-kit/downloads/github-git-cheat-sheet.pdf"; //o.getJSONObject("data").getString("business_full_financial_report_pdf_url");
                                 businessFinanceFullReport = o.getJSONObject("data").getString("business_full_financial_report_pdf_url");
                                 businessFullReportUrl = "https://docs.google.com/gview?embedded=true&url=" + businessFinanceFullReport;
+                                businessFindCode = o.getJSONObject("data").getString("business_find_code");
                             }
 
                             if(!getActivity().isFinishing()){
@@ -318,6 +321,7 @@ public class SuggestionFragment extends Fragment implements View.OnClickListener
                                 final String finalBusinessInvestments = businessInvestments;
                                 final String finalBusinessFinanceBio = businessFinanceBio;
                                 final String finalBusinessFinanceFullReport = businessFinanceFullReport;
+                                String finalBusinessFindCode = businessFindCode;
                                 new Handler(Looper.getMainLooper()).post(new Runnable() {
                                     @Override
                                     public void run() {
@@ -354,6 +358,7 @@ public class SuggestionFragment extends Fragment implements View.OnClickListener
                                             mSuggestionLoaderTextTextView.setVisibility(View.INVISIBLE);
                                             mDrillSuggestionHolderConstraintLayout.setVisibility(View.INVISIBLE);
                                             mBusinessSuggestionHolderScrollView.setVisibility(View.VISIBLE);
+                                            mFindcodeTextView.setText("Business Find Code | " + finalBusinessFindCode);
                                         } else {
 
                                         }

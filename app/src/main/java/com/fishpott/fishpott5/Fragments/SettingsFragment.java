@@ -36,7 +36,7 @@ public class SettingsFragment extends Fragment implements View.OnClickListener {
             mChangePasswordHolderConstraintLayout, mContactFPHolderConstraintLayout, mAboutHolderConstraintLayout, mTermsOfServiceHolderConstraintLayout,
             mFindBusinessHolderConstraintLayout, mSellBackConstraintLayout, mTransferConstraintLayout;
     public static TextView mWithdrawalWalletBalanceTextView, mDebitWalletBalanceTextView, mPottPearlsBalanceTextView,
-            mPottIntelligenceTextView, mPottNetWorthTextView, mPottPositionTextView;
+            mPottIntelligenceTextView, mPottNetWorthTextView, mPottPositionTextView, mPottnameAndPhone;
     private View view = null;
 
     public static SettingsFragment newInstance() {
@@ -74,11 +74,13 @@ public class SettingsFragment extends Fragment implements View.OnClickListener {
         mTermsOfServiceHolderConstraintLayout = view.findViewById(R.id.tos_holder_contrainlayout);
         mTransferConstraintLayout = view.findViewById(R.id.transfersharesholder_contrainlayout);
         mSellBackConstraintLayout = view.findViewById(R.id.sellbackholder_contrainlayout);
-
+        mPottnameAndPhone = view.findViewById(R.id.vimtext_info_textview);
 
         String withdrawalBalance = Config.getSharedPreferenceString(getActivity().getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_WITHDRAWAL_WALLET);
         String debitBalance = Config.getSharedPreferenceString(getActivity().getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_DEBIT_WALLET);
         String pottPearls = Config.getSharedPreferenceString(getActivity().getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_POTT_PEARLS);
+        String userPottName = Config.getSharedPreferenceString(getActivity().getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_POTT_NAME);
+        String userPhone = Config.getSharedPreferenceString(getActivity().getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_PHONE);
 
         if(withdrawalBalance.trim().equalsIgnoreCase("")){
             withdrawalBalance = "0";
@@ -93,6 +95,7 @@ public class SettingsFragment extends Fragment implements View.OnClickListener {
         mWithdrawalWalletBalanceTextView.setText(Config.getSharedPreferenceString(getActivity().getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_CURRENCY) + withdrawalBalance);
         mDebitWalletBalanceTextView.setText(Config.getSharedPreferenceString(getActivity().getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_CURRENCY) + debitBalance);
         mPottPearlsBalanceTextView.setText(pottPearls);
+        mPottnameAndPhone.setText("@"+userPottName + " | " + userPhone);
 
         mAboutHolderConstraintLayout.setOnClickListener(this);
         mFindBusinessHolderConstraintLayout.setOnClickListener(this);
