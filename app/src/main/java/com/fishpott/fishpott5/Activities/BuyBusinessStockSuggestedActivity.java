@@ -38,7 +38,7 @@ import java.util.List;
 public class BuyBusinessStockSuggestedActivity extends AppCompatActivity implements View.OnClickListener {
 
     private String suggestionBusinessID = "", shareLogo = "", shareParentID = "", shareName = "", shareQuantity = "",
-            receiverPottName = "", finalRiskType = "", finalQuantity = "", finalPassword = "", networkResponse = "";
+            receiverPottName = "", finalRiskType = "", finalQuantity = "", finalPassword = "", networkResponse = "", orderID = "";
     private int shareQuantityInt = 0, selectedRiskIndex = 0, finalPurchaseStatus = 0;
     private ImageView mBackImageView, mLoaderImageView;
     private ScrollView mItemHolderScrollView, mFinalHolderScrollView;
@@ -177,7 +177,12 @@ public class BuyBusinessStockSuggestedActivity extends AppCompatActivity impleme
             mFinalHolderScrollView.setVisibility(View.INVISIBLE);
             mItemHolderScrollView.setVisibility(View.VISIBLE);
         } else if(view.getId() == mBuyButton.getId()){
-            Config.openActivity(BuyBusinessStockSuggestedActivity.this, TheTellerActivity.class, 1, 0, 0, "", "");
+            if(orderID.trim().equalsIgnoreCase("")){
+                Config.showToastType1(BuyBusinessStockSuggestedActivity.this, "Order error. Please go back and restart the process");
+            } else {
+                Config.openActivity(BuyBusinessStockSuggestedActivity.this, CreditWalletActivity.class, 1, 0, 0, "ORDERID", orderID);
+            }
+            //Config.openActivity(BuyBusinessStockSuggestedActivity.this, TheTellerActivity.class, 1, 0, 0, "", "");
         }
     }
 
@@ -233,6 +238,7 @@ public class BuyBusinessStockSuggestedActivity extends AppCompatActivity impleme
                         final String overallTotalUsd = o.getJSONObject("data").getString("overall_total_usd");
                         final String overallTotalLocalCurrency = o.getJSONObject("data").getString("overall_total_local_currency");
                         final String financialYieldInfo = o.getJSONObject("data").getString("financial_yield_info");
+                        orderID = o.getJSONObject("data").getString("order_id");
                         //Config.showToastType1(BuyBusinessStockSuggestedActivity.this, myStatusMessage);
                         if(!BuyBusinessStockSuggestedActivity.this.isFinishing()){
                             new Handler(Looper.getMainLooper()).post(new Runnable() {

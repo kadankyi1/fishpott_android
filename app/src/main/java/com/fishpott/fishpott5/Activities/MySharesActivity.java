@@ -366,7 +366,7 @@ public class MySharesActivity extends AppCompatActivity implements View.OnClickL
                                     mRecyclerView.getAdapter().notifyItemInserted(MySharesViewingListDataGenerator.getAllData().size());
                                 }
                             } else {
-                                Config.showDialogType1(MySharesActivity.this, "", getString(R.string.no_transactions_found), "", null, true, getString(R.string.setprofilepicture_activity_okay), "");
+                                Config.showDialogType1(MySharesActivity.this, "", "You have no investments", "", null, true, getString(R.string.setprofilepicture_activity_okay), "");
                             }
                         }
                     } catch (JSONException e) {
