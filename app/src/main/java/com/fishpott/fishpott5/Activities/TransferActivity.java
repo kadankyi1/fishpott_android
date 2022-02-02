@@ -401,7 +401,9 @@ public class TransferActivity extends AppCompatActivity implements View.OnClickL
                                     //mLoaderTextView.setText("...");
                                     //mLoaderHolderConstraintLayout.setVisibility(View.INVISIBLE);
                                     //mTransferFormHolderConstraintLayout.setVisibility(View.VISIBLE);
-                                    Config.showToastType1(TransferActivity.this, "Go to payment gateway");
+                                    //Config.showToastType1(TransferActivity.this, "Go to payment gateway");
+                                    Config.openActivity(TransferActivity.this, ProcessPaymentActvity.class, 1, 0, 0, "ORDERID", transanctionId);
+
                                     /*
                                     new thetellerManager(TransferActivity.this).setAmount(Long.parseLong(String.valueOf(paymentGatewayAmtInt)))
                                             .setEmail("annodankyikwaku@gmail.com")

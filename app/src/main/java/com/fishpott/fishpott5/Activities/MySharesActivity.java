@@ -252,8 +252,8 @@ public class MySharesActivity extends AppCompatActivity implements View.OnClickL
                 }
             }
 
-            ((ViewHolder) holder).mTotalCostTextView.setText(Config.getSharedPreferenceString(getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_CURRENCY) +  MySharesViewingListDataGenerator.getAllData().get(position).getSharesCostPricePerShare());
-            ((ViewHolder) holder).mValuePerShareTextView.setText(Config.getSharedPreferenceString(getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_CURRENCY) + MySharesViewingListDataGenerator.getAllData().get(position).getSharesMaxPricePerShare());
+            ((ViewHolder) holder).mTotalCostTextView.setText(MySharesViewingListDataGenerator.getAllData().get(position).getSharesCostPricePerShare());
+            ((ViewHolder) holder).mValuePerShareTextView.setText(MySharesViewingListDataGenerator.getAllData().get(position).getSharesMaxPricePerShare());
             ((ViewHolder) holder).mQuantityTextView.setText(MySharesViewingListDataGenerator.getAllData().get(position).getSharesAvailableQuantity());
             ((ViewHolder) holder).mShareNameTextView.setText(MySharesViewingListDataGenerator.getAllData().get(position).getSharesName());
             ((ViewHolder) holder).mInfoTextView.setText(MySharesViewingListDataGenerator.getAllData().get(position).getSharesDividendPerShare());
@@ -343,11 +343,13 @@ public class MySharesActivity extends AppCompatActivity implements View.OnClickL
 
                         if (myStatus == 1) {
                             JSONArray linkupsSuggestionsArray = new JSONObject(response).getJSONArray("data");
+                            MySharesViewingListDataGenerator.getAllData().clear();
+                            mRecyclerView.getAdapter().notifyDataSetChanged();
                             // LIST RESULTS SETTING COMES HERE
                             if(linkupsSuggestionsArray.length() > 0){
 
-                                MySharesViewingListDataGenerator.getAllData().clear();
-                                mRecyclerView.getAdapter().notifyDataSetChanged();
+                                //MySharesViewingListDataGenerator.getAllData().clear();
+                                //mRecyclerView.getAdapter().notifyDataSetChanged();
 
                                 for (int i = 0; i<=linkupsSuggestionsArray.length(); i++){
                                     SharesModel mine1 = new SharesModel();

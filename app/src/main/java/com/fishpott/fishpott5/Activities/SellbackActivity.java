@@ -197,11 +197,11 @@ public class SellbackActivity extends AppCompatActivity implements View.OnClickL
                 //float myTotalCostPriceFloat = mySellQuantityInt * Float.valueOf(selectedSharesCostPrice);
 
                 if(mySellQuantityInt > 0 && mySellQuantityInt <= Integer.valueOf(selectedSharesAvailableQuantity)){
-                    if(rateToMultiplyBy > 0){
-                        Double payOut = rateToMultiplyBy * selectedSharesMaxPrice;
+                    if(selectedSharesMaxPrice > 0){
+                        Double payOut = mySellQuantityInt * selectedSharesMaxPrice;
                         String payOutString = localCurrencySign + String.valueOf(payOut);
 
-                        mTransferInfoTextView.setText("You are selling back " + mySellQuantityString + " " + selectedSharesName + ". You will be paid back " + payOutString + ". If you agree with the trade, simply type in your pass and click sell.");
+                        mTransferInfoTextView.setText("You are selling back " + mySellQuantityString + " " + selectedSharesName + ". You will be paid back " + payOutString + ". Please note that this amount is subject to change and you will be notified before processing if that happens. If you agree with the trade, simply type in your password and click sellback.");
                     } else {
                         mTransferInfoTextView.setText("");
                         Config.showToastType1(SellbackActivity.this, "This business is currently not buying back shares. You will be notified when they are ready");
@@ -302,21 +302,25 @@ public class SellbackActivity extends AppCompatActivity implements View.OnClickL
                                 }
                             }
 
+                            if(!isFinishing()){
+                                new Handler(Looper.getMainLooper()).post(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        mLoaderImageView.clearAnimation();
+                                        mLoaderTextView.setText("...");
+                                        mLoaderHolderConstraintLayout.setVisibility(View.INVISIBLE);
+                                        mTransferFormHolderConstraintLayout.setVisibility(View.VISIBLE);
+                                    }
+                                });
+                            }
                         } else {
-                            Config.showDialogType1(SellbackActivity.this, "", "You have no shares to transfer", "", null, true, getString(R.string.setprofilepicture_activity_okay), "");
+                            mLoaderImageView.clearAnimation();
+                            mLoaderTextView.setText("...");
+                            mLoaderHolderConstraintLayout.setVisibility(View.INVISIBLE);
+                            mTransferFormHolderConstraintLayout.setVisibility(View.INVISIBLE);
+                            Config.showDialogType1(SellbackActivity.this, "", "You have no shares to sell-back", "", null, true, getString(R.string.setprofilepicture_activity_okay), "");
                         }
 
-                        if(!isFinishing()){
-                            new Handler(Looper.getMainLooper()).post(new Runnable() {
-                                @Override
-                                public void run() {
-                                    mLoaderImageView.clearAnimation();
-                                    mLoaderTextView.setText("...");
-                                    mLoaderHolderConstraintLayout.setVisibility(View.INVISIBLE);
-                                    mTransferFormHolderConstraintLayout.setVisibility(View.VISIBLE);
-                                }
-                            });
-                        }
                     } else if(myStatus == 2){
                         // IF USER'S APP IS OUTDATED AND NOT ALLOWED TO BE USED
                         Config.setSharedPreferenceBoolean(getApplicationContext(), Config.SHARED_PREF_KEY_UPDATE_ACTIVITY_UPDATE_BY_FORCE, true);
@@ -368,12 +372,22 @@ public class SellbackActivity extends AppCompatActivity implements View.OnClickL
 
         if(     selectedSharesId.equalsIgnoreCase("")
                 || transferQuantity.trim().equalsIgnoreCase("")) {
-            Config.showToastType1(SellbackActivity.this, "The form is incomplete");
+            new Handler(Looper.getMainLooper()).post(new Runnable() {
+                @Override
+                public void run() {
+                    Config.showToastType1(SellbackActivity.this, "The form is incomplete.");
+                }
+            });
             return;
         }
 
         if(Integer.valueOf(transferQuantity) < 1) {
-            Config.showToastType1(SellbackActivity.this, "The form is incomplete.");
+            new Handler(Looper.getMainLooper()).post(new Runnable() {
+                @Override
+                public void run() {
+                    Config.showToastType1(SellbackActivity.this, "The form is incomplete.");
+                }
+            });
             return;
         }
 
@@ -431,7 +445,18 @@ public class SellbackActivity extends AppCompatActivity implements View.OnClickL
                         final String transactionId = o.getString("transaction_id");
 
                         if(!isFinishing()){
-                            Config.showDialogType1(SellbackActivity.this, "", "Sellback under review. Please record this transaction ID : " + transactionId, "", null, true, getString(R.string.setprofilepicture_activity_okay), "");
+
+                            new Handler(Looper.getMainLooper()).post(new Runnable() {
+                                @Override
+                                public void run() {
+                                    Config.showDialogType1(SellbackActivity.this, "", "Sellback under review. Please record this transaction ID : " + transactionId, "show-positive-image", null, true, getString(R.string.setprofilepicture_activity_okay), "");
+
+                                    mTransferFormHolderConstraintLayout.setVisibility(View.INVISIBLE);
+                                    mLoaderHolderConstraintLayout.setVisibility(View.INVISIBLE);
+                                    mLoaderImageView.clearAnimation();
+                                    mLoaderTextView.setText("");
+                                }
+                            });
                         }
                     } else if(myStatus == 2){
                         // IF USER'S APP IS OUTDATED AND NOT ALLOWED TO BE USED

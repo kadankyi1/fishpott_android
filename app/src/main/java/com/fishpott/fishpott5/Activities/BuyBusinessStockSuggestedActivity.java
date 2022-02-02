@@ -38,7 +38,7 @@ import java.util.List;
 public class BuyBusinessStockSuggestedActivity extends AppCompatActivity implements View.OnClickListener {
 
     private String suggestionBusinessID = "", shareLogo = "", shareParentID = "", shareName = "", shareQuantity = "",
-            receiverPottName = "", finalRiskType = "", finalQuantity = "", finalPassword = "", networkResponse = "", orderID = "";
+            receiverPottName = "", finalRiskType = "", finalQuantity = "", finalPassword = "", networkResponse = "", orderID = "", amountCedis = "", amountDollars = "";
     private int shareQuantityInt = 0, selectedRiskIndex = 0, finalPurchaseStatus = 0;
     private ImageView mBackImageView, mLoaderImageView;
     private ScrollView mItemHolderScrollView, mFinalHolderScrollView;
@@ -177,12 +177,26 @@ public class BuyBusinessStockSuggestedActivity extends AppCompatActivity impleme
             mFinalHolderScrollView.setVisibility(View.INVISIBLE);
             mItemHolderScrollView.setVisibility(View.VISIBLE);
         } else if(view.getId() == mBuyButton.getId()){
-            if(orderID.trim().equalsIgnoreCase("")){
-                Config.showToastType1(BuyBusinessStockSuggestedActivity.this, "Order error. Please go back and restart the process");
+
+
+            if(
+                    !orderID.trim().equalsIgnoreCase("")
+                            && !shareName.trim().equalsIgnoreCase("")
+                            && !shareQuantity.trim().equalsIgnoreCase("")
+                            && !amountCedis.trim().equalsIgnoreCase("")
+                            && !amountDollars.trim().equalsIgnoreCase("")
+            ){
+                Log.e("mBuyButton", "orderID: " + orderID);
+                Log.e("mBuyButton", "shareName: " + shareName);
+                Log.e("mBuyButton", "shareQuantity: " + shareQuantity);
+                Log.e("mBuyButton", "amountCedis: " + amountCedis);
+                Log.e("mBuyButton", "amountDollars: " + amountDollars);
+                String[] orderDetails = {orderID, shareName, shareQuantity, "Buying", amountCedis, amountDollars};
+                Config.openActivity4(BuyBusinessStockSuggestedActivity.this, ProcessPaymentActvity.class, 1, 0, 1, "ORDER_DETAILS", orderDetails);
             } else {
-                Config.openActivity(BuyBusinessStockSuggestedActivity.this, CreditWalletActivity.class, 1, 0, 0, "ORDERID", orderID);
+                Config.showToastType1(BuyBusinessStockSuggestedActivity.this, "Order error. Please go back and restart the process");
             }
-            //Config.openActivity(BuyBusinessStockSuggestedActivity.this, TheTellerActivity.class, 1, 0, 0, "", "");
+            //Config.openActivity(BuyBusinessStockSuggestedActivity.this, ProcessPaymentActvity.class, 1, 0, 0, "", "");
         }
     }
 
@@ -230,13 +244,16 @@ public class BuyBusinessStockSuggestedActivity extends AppCompatActivity impleme
                         final String itemName = o.getJSONObject("data").getString("item");
                         final String pricePerItem = o.getJSONObject("data").getString("price_per_item");
                         final String quantity = o.getJSONObject("data").getString("quantity");
+                        shareQuantity =  quantity;
                         final String rate = o.getJSONObject("data").getString("rate");
                         final String risk = o.getJSONObject("data").getString("risk");
                         final String riskStatement = o.getJSONObject("data").getString("risk_statement");
                         final String riskInsuranceFee = o.getJSONObject("data").getString("risk_insurance_fee");
                         final String processingFee = o.getJSONObject("data").getString("processing_fee");
                         final String overallTotalUsd = o.getJSONObject("data").getString("overall_total_usd");
+                        amountDollars = overallTotalUsd;
                         final String overallTotalLocalCurrency = o.getJSONObject("data").getString("overall_total_local_currency");
+                        amountCedis = overallTotalLocalCurrency;
                         final String financialYieldInfo = o.getJSONObject("data").getString("financial_yield_info");
                         orderID = o.getJSONObject("data").getString("order_id");
                         //Config.showToastType1(BuyBusinessStockSuggestedActivity.this, myStatusMessage);
@@ -270,11 +287,12 @@ public class BuyBusinessStockSuggestedActivity extends AppCompatActivity impleme
                         return;
                     } else if(myStatus == 3){
                         // GENERAL ERROR
-                        Config.showToastType1(BuyBusinessStockSuggestedActivity.this, myStatusMessage);
+                        mLoaderImageView.clearAnimation();
                         mLoaderImageView.setVisibility(View.INVISIBLE);
                         mLoaderTextView.setVisibility(View.INVISIBLE);
                         mFinalHolderScrollView.setVisibility(View.INVISIBLE);
                         mItemHolderScrollView.setVisibility(View.VISIBLE);
+                        Config.showToastType1(BuyBusinessStockSuggestedActivity.this, myStatusMessage);
                         return;
                     } else if(myStatus == 4){
                         // IF USER'S ACCOUNT HAS BEEN SUSPENDED, WE SIGN USER OUT

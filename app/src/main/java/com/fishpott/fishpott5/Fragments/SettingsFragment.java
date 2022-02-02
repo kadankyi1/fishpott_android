@@ -14,19 +14,15 @@ import com.fishpott.fishpott5.Activities.AboutActivity;
 import com.fishpott.fishpott5.Activities.ChangePasswordActivity;
 import com.fishpott.fishpott5.Activities.CreditWalletActivity;
 import com.fishpott.fishpott5.Activities.FindBusinessActivity;
-import com.fishpott.fishpott5.Activities.MessengerActivity;
-import com.fishpott.fishpott5.Activities.MtnMobileMoneyActivity;
 import com.fishpott.fishpott5.Activities.MySharesActivity;
 import com.fishpott.fishpott5.Activities.RedeemSharesCouponActivity;
 import com.fishpott.fishpott5.Activities.RedeemWalletCreditCouponActivity;
 import com.fishpott.fishpott5.Activities.SellbackActivity;
-import com.fishpott.fishpott5.Activities.TheTellerActivity;
 import com.fishpott.fishpott5.Activities.TransactionsActivity;
 import com.fishpott.fishpott5.Activities.TransferActivity;
 import com.fishpott.fishpott5.Activities.WebViewActivity;
 import com.fishpott.fishpott5.Activities.WithdrawFundsActivity;
 import com.fishpott.fishpott5.Inc.Config;
-import com.fishpott.fishpott5.Miscellaneous.Home;
 import com.fishpott.fishpott5.R;
 
 public class SettingsFragment extends Fragment implements View.OnClickListener {

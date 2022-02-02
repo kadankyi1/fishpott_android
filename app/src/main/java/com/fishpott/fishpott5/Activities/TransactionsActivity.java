@@ -131,13 +131,15 @@ public class TransactionsActivity extends AppCompatActivity implements View.OnCl
         public int getItemViewType(int position) {
             if(TransactionsListDataGenerator.getAllData().get(position).getType().equalsIgnoreCase("SHARES PURCHASE")){
                 return 1;
+            } else if(TransactionsListDataGenerator.getAllData().get(position).getType().equalsIgnoreCase("SHARES SELLBACK")){
+                return 1;
             } else if(TransactionsListDataGenerator.getAllData().get(position).getType().equalsIgnoreCase("SHARES SALE")){
                 return 2;
             } else if(TransactionsListDataGenerator.getAllData().get(position).getType().equalsIgnoreCase("WALLET CREDIT")){
                 return 3;
             } else if(TransactionsListDataGenerator.getAllData().get(position).getType().equalsIgnoreCase("WITHDRAWAL")){
                 return 4;
-            } else if(TransactionsListDataGenerator.getAllData().get(position).getType().equalsIgnoreCase("SHARES TRANSFER OUT")){
+            } else if(TransactionsListDataGenerator.getAllData().get(position).getType().equalsIgnoreCase("SHARES TRANSFER")){
                 return 5;
             } else if(TransactionsListDataGenerator.getAllData().get(position).getType().equalsIgnoreCase("SHARES TRANSFER IN")){
                 return 6;
@@ -390,7 +392,7 @@ public class TransactionsActivity extends AppCompatActivity implements View.OnCl
     public void setTransactionStatusColor(String status, TextView mTransactionTextView){
         if(status.trim().equalsIgnoreCase("Pending")){
             mTransactionTextView.setTextColor(getResources().getColor(R.color.colorPending));
-        } else if(status.trim().equalsIgnoreCase("Paid")){
+        } else if(status.trim().equalsIgnoreCase("Completed") || status.trim().equalsIgnoreCase("Paid")){
             mTransactionTextView.setTextColor(getResources().getColor(R.color.colorCompleted));
         } else if(status.trim().equalsIgnoreCase("Cancelled")){
             mTransactionTextView.setTextColor(getResources().getColor(R.color.colorRejected));

@@ -40,7 +40,7 @@ public class CreditWalletActivity extends AppCompatActivity implements View.OnCl
         if(view.getId() == R.id.title_bar_back_icon_imageview){
             onBackPressed();
         } else if(view.getId() == R.id.visa_mastercard_option_contrainlayout){
-            //Config.openActivity(CreditWalletActivity.this, TheTellerActivity.class, 1, 0, 0, "", "");
+            //Config.openActivity(CreditWalletActivity.this, ProcessPaymentActvity.class, 1, 0, 0, "", "");
         } else if(view.getId() == R.id.automated_mtn_mobile_money_option_holder_contrainlayout){
             //Config.openActivity(CreditWalletActivity.this, MtnMobileMoneyActivity.class, 1, 0, 0, "", "");
         } else if(view.getId() == R.id.mtn_mobile_money_option_holder_contrainlayout){

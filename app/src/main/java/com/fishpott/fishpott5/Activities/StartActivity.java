@@ -37,6 +37,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.messaging.FirebaseMessaging;
 
+import co.paystack.android.PaystackSdk;
 
 
 public class StartActivity extends AppCompatActivity implements Animation.AnimationListener, View.OnClickListener {
@@ -66,8 +67,11 @@ public class StartActivity extends AppCompatActivity implements Animation.Animat
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        // INITIALIZING PAYSTACK
+        PaystackSdk.initialize(getApplicationContext());
+
         setContentView(R.layout.activity_start);
-// Obtain the FirebaseAnalytics instance.
+        // Obtain the FirebaseAnalytics instance.
         mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
 
         cancelListenerActive1 = new DialogInterface.OnCancelListener() {
