@@ -192,7 +192,7 @@ public class BuyBusinessStockSuggestedActivity extends AppCompatActivity impleme
                 Log.e("mBuyButton", "amountCedis: " + amountCedis);
                 Log.e("mBuyButton", "amountDollars: " + amountDollars);
                 String[] orderDetails = {orderID, shareName, shareQuantity, "Buying", amountCedis, amountDollars};
-                Config.openActivity4(BuyBusinessStockSuggestedActivity.this, ProcessPaymentActvity.class, 1, 0, 1, "ORDER_DETAILS", orderDetails);
+                Config.openActivity4(BuyBusinessStockSuggestedActivity.this, ProcessPaymentActvity.class, 1, 1, 1, "ORDER_DETAILS", orderDetails);
             } else {
                 Config.showToastType1(BuyBusinessStockSuggestedActivity.this, "Order error. Please go back and restart the process");
             }

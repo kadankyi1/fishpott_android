@@ -103,38 +103,45 @@
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toBottomOf="@+id/item_name_textview" >
 
-   <!--
-   <com.fevziomurtekin.payview.Payview
-       android:id="@+id/payview"
-       android:layout_width="match_parent"
-       android:layout_height="match_parent"
-       android:theme="@style/paymentActivityHintStyle"
-       app:cardAnimationType="vertical"
-       app:cardBgColor="@color/colorAccent"
-       app:cardCvErrorText="You must enter 3-digit characters"
-       app:cardCvTextSize="14"
-       app:cardExpiredErrorText="Your card has expired. Please enter the usage date correctly."
-       app:cardFgColor="@color/colorPrimary"
-       app:cardMonthErrorText="You must enter 2-digit characters and you'll enter to number the most digit-value is '12'"
-       app:cardMonthTextSize="13"
-       app:cardNameHelperText="Enter to card name. Max 25 characters."
-       app:cardNameTextSize="15"
-       app:cardNoTextSize="14"
-       app:cardNumberHelperText="You must enter your 16-digit card number."
-       app:cardTextColor="@color/colorAccent"
-       app:cardYearErrorText="You must enter 2-digit characters and you'll enter to number the most digit-value is '99'"
-       app:cardYearTextSize="13"
-       app:layout_constraintBottom_toBottomOf="parent"
-       app:layout_constraintEnd_toEndOf="parent"
-       app:layout_constraintStart_toStartOf="parent"
-       app:layout_constraintTop_toTopOf="parent" />
-       -->
+
+  <ImageView
+      android:id="@+id/loader_imageview"
+      android:layout_width="65dp"
+      android:layout_height="65dp"
+      android:layout_marginStart="8dp"
+      android:layout_marginBottom="8dp"
+      android:src="@drawable/roundlogo"
+      android:visibility="invisible"
+      app:layout_constraintBottom_toTopOf="@+id/loadertext_textview"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintVertical_bias="0.35000002"
+      app:layout_constraintVertical_chainStyle="packed" />
+
+  <TextView
+      android:id="@+id/loadertext_textview"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="15dp"
+      android:gravity="center"
+      android:text="Checking transaction"
+      android:textAlignment="center"
+      android:textColor="@color/colorPrimaryDark"
+      android:visibility="invisible"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/loader_imageview"
+      app:layout_constraintVertical_bias="0.0" />
 
   <LinearLayout
       android:id="@+id/ll_editviews"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:layout_margin="10dp"
+      android:visibility="visible"
+      style="@style/paymentActivityHintStyle"
       android:orientation="vertical"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="parent"

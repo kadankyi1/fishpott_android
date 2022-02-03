@@ -302,6 +302,9 @@ public class Config {
 	// GET FINAL PRICE SUMMARY
 	public static final String LINK_GET_FINAL_PRICE_SUMMARY = CURRENT_HTTP_IN_USE + "app.fishpott.com/api/v1/user/get-final-price";
 
+	// UPDATE ORDER STATUS
+	public static final String LINK_UPDATE_ORDER_STATUS = CURRENT_HTTP_IN_USE + "app.fishpott.com/api/v1/user/update-order-payment-status";
+
 	// SEND WITHDRAWAL REQUEST
 	public static final String LINK_WITHDRAW_FUNDS = CURRENT_HTTP_IN_USE + "app.fishpott.com/api/v1/user/send-withdrawal-request";
 
