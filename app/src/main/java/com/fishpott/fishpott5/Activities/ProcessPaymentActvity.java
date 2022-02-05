@@ -39,7 +39,7 @@ import co.paystack.android.model.Charge;
 
 public class ProcessPaymentActvity extends AppCompatActivity {
 
-    private String orderId = "", itemName = "", itemQuantity = "", preText = "", amountCedis = "", amountDollars = "", paymentGatewayCurrency = "";
+    private String orderId = "", itemName = "", itemQuantity = "", preText = "", amountCedis = "", amountDollars = "", paymentGatewayCurrency = "", paymentType = "";
     private int paymentGatewayPriceInCentsOrPesewas = 0;
     private TextView mTitleTextView, mItemDescriptioTextView, mLoaderTextView;
     private TextInputEditText mCardOwnerNameTextView, mCardNumberTextView, mCardMonthTextView, mCardYearTextView, mCardCVVTextView;
@@ -65,6 +65,7 @@ public class ProcessPaymentActvity extends AppCompatActivity {
             amountDollars = info[5];
             paymentGatewayCurrency = info[6];
             paymentGatewayPriceInCentsOrPesewas = Integer.parseInt(info[7]);
+            paymentType = info[8];
 
             if(
                     orderId.trim().equalsIgnoreCase("")
@@ -74,6 +75,7 @@ public class ProcessPaymentActvity extends AppCompatActivity {
                             || amountCedis.trim().equalsIgnoreCase("")
                             || amountDollars.trim().equalsIgnoreCase("")
                             || paymentGatewayCurrency.trim().equalsIgnoreCase("")
+                            || paymentType.trim().equalsIgnoreCase("")
                             || paymentGatewayPriceInCentsOrPesewas < 1
             ){
                 finish();
@@ -116,7 +118,7 @@ public class ProcessPaymentActvity extends AppCompatActivity {
                     mLoaderImageView.setVisibility(View.VISIBLE);
                     mLoaderTextView.setVisibility(View.VISIBLE);
                     mLoaderImageView.startAnimation(AnimationUtils.loadAnimation(ProcessPaymentActvity.this, R.anim.suggestion_loading_anim));
-                    updateOrderStatus(orderId);
+                    updateOrderStatus(orderId, paymentType);
                 }
             }
         });
@@ -129,7 +131,7 @@ public class ProcessPaymentActvity extends AppCompatActivity {
                     mLoaderImageView.setVisibility(View.VISIBLE);
                     mLoaderTextView.setVisibility(View.VISIBLE);
                     mLoaderImageView.startAnimation(AnimationUtils.loadAnimation(ProcessPaymentActvity.this, R.anim.suggestion_loading_anim));
-                    updateOrderStatus(orderId);
+                    updateOrderStatus(orderId, paymentType);
                 }
             }
         });
@@ -182,7 +184,7 @@ public class ProcessPaymentActvity extends AppCompatActivity {
                                         paymentSuccessful = true;
                                         if(!networkRequestStarted){
                                             mLoaderTextView.setText("Recording success payment...");
-                                            updateOrderStatus(orderId);
+                                            updateOrderStatus(orderId, paymentType);
                                         }
                                     }
                                 }, 5000);
@@ -227,7 +229,7 @@ public class ProcessPaymentActvity extends AppCompatActivity {
 
 
 
-    private void updateOrderStatus(String thisOrderID){
+    private void updateOrderStatus(String thisOrderID, String thisPaymentType){
         networkRequestStarted = true;
         Log.e("getFinalPriceSummary", "thisOrderID: " + thisOrderID);
 
@@ -240,7 +242,7 @@ public class ProcessPaymentActvity extends AppCompatActivity {
                 .addBodyParameter("user_language", LocaleHelper.getLanguage(ProcessPaymentActvity.this))
                 .addBodyParameter("app_type", "ANDROID")
                 .addBodyParameter("app_version_code", String.valueOf(Config.getAppVersionCode(ProcessPaymentActvity.this.getApplicationContext())))
-                .addBodyParameter("item_type", "stockpurchase")
+                .addBodyParameter("item_type", thisPaymentType)
                 .addBodyParameter("item_id", thisOrderID)
                 .addBodyParameter("payment_gateway_status", "1")
                 .addBodyParameter("payment_gateway_info", "paid")

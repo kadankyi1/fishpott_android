@@ -429,7 +429,7 @@ public class TransferActivity extends AppCompatActivity implements View.OnClickL
                                                     && !paymentGatewayCurrency.trim().equalsIgnoreCase("")
                                                     && paymentGatewayAmount > 0
                                     ){
-                                        String[] orderDetails = {orderID, shareName, shareQuantity, "Transferring", amountCedis, amountDollars, paymentGatewayCurrency, String.valueOf(paymentGatewayAmount)};
+                                        String[] orderDetails = {orderID, shareName, shareQuantity, "Transferring", amountCedis, amountDollars, paymentGatewayCurrency, String.valueOf(paymentGatewayAmount), "stocktransfer"};
                                         Config.openActivity4(TransferActivity.this, ProcessPaymentActvity.class, 1, 1, 1, "ORDER_DETAILS", orderDetails);
                                     } else {
                                         Config.showToastType1(TransferActivity.this, "Order error. Please go back and restart the process");

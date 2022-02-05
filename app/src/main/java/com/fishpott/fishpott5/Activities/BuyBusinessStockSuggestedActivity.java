@@ -196,7 +196,7 @@ public class BuyBusinessStockSuggestedActivity extends AppCompatActivity impleme
                             && !paymentGatewayCurrency.trim().equalsIgnoreCase("")
                             && paymentGatewayAmount > 0
             ){
-                String[] orderDetails = {orderID, shareName, shareQuantity, "Buying", amountCedis, amountDollars, paymentGatewayCurrency, String.valueOf(paymentGatewayAmount)};
+                String[] orderDetails = {orderID, shareName, shareQuantity, "Buying", amountCedis, amountDollars, paymentGatewayCurrency, String.valueOf(paymentGatewayAmount), "stockpurchase"};
                 Config.openActivity4(BuyBusinessStockSuggestedActivity.this, ProcessPaymentActvity.class, 1, 1, 1, "ORDER_DETAILS", orderDetails);
             } else {
                 Config.showToastType1(BuyBusinessStockSuggestedActivity.this, "Order error. Please go back and restart the process");
