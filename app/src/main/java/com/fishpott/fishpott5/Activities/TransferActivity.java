@@ -49,8 +49,9 @@ public class TransferActivity extends AppCompatActivity implements View.OnClickL
     private EditText mQuantityEditText, mReceiverPottNameEditText, mPasswordEditText;
     private Button mTransferButton;
     private TextInputLayout mQuantityEditTextTextInputLayout;
-    private int selectedSharesIndex = 0, transferfeeInt = 0;
-    private String transferFee = "", selectedSharesName = "", selectedSharesId = "", selectedSharesAvailableQuantity = "", selectedSharesCostPrice = "", selectedSharesMaxPrice = "", networkResponse = "";
+    private int selectedSharesIndex = 0,  paymentGatewayAmount = 0, transferfeeInt = 0, paymentGatewayPriceInCentsOrPesewas = 0;
+    private String paymentGatewayCurrency = "", orderID = "", transferFee = "", selectedSharesName = "", shareName = "", shareQuantity = "", amountCedis = "", amountDollars = "",
+            selectedSharesId = "", selectedSharesAvailableQuantity = "", selectedSharesCostPrice = "", selectedSharesMaxPrice = "", networkResponse = "";
     private String[] chosenSharesInfo = {"sId", "sName", "sSellQuantity", "sSellPrice", ""};
     private String[] sharesNamesStringArraySet;
     private List<String> sharesNamesStringArrayList = new ArrayList<>();
@@ -391,6 +392,13 @@ public class TransferActivity extends AppCompatActivity implements View.OnClickL
                         final int paymentGatewayAmtInt = new JSONObject(response).getJSONObject("data").getInt("transfer_fee_cedis_no_sign");
                         //String paymentGatewayAmtString = new JSONObject(response).getJSONObject("data").getString("transfer_fee_cedis_with_sign");
                         final String transanctionId = new JSONObject(response).getJSONObject("data").getString("transanction_id");
+                        orderID = transanctionId;
+                        paymentGatewayCurrency = new JSONObject(response).getJSONObject("data").getString("payment_gateway_currency");
+                        paymentGatewayAmount = new JSONObject(response).getJSONObject("data").getInt("payment_gateway_amount_in_pesewas_or_cents_intval");
+                        shareName = new JSONObject(response).getJSONObject("data").getString("share_name");
+                        shareQuantity = new JSONObject(response).getJSONObject("data").getString("share_quantity");
+                        amountCedis = new JSONObject(response).getJSONObject("data").getString("overall_total_local_currency");
+                        amountDollars = new JSONObject(response).getJSONObject("data").getString("overall_total_usd");
                         // LIST RESULTS SETTING COMES HERE
 
                         if(!isFinishing()){
@@ -404,22 +412,28 @@ public class TransferActivity extends AppCompatActivity implements View.OnClickL
                                     //Config.showToastType1(TransferActivity.this, "Go to payment gateway");
                                     Config.openActivity(TransferActivity.this, ProcessPaymentActvity.class, 1, 0, 0, "ORDERID", transanctionId);
 
-                                    /*
-                                    new thetellerManager(TransferActivity.this).setAmount(Long.parseLong(String.valueOf(paymentGatewayAmtInt)))
-                                            .setEmail("annodankyikwaku@gmail.com")
-                                            .setfName("fName")
-                                            .setlName("lName")
-                                            .setMerchant_id("merchantId")
-                                            .setNarration("narration")
-                                            .setApiUser("apiUser")
-                                            .setApiKey("apiKey")
-                                            .setTxRef(transanctionId)
-                                            .set3dUrl("dUrl")
-                                            .acceptCardPayments(true)
-                                            .acceptGHMobileMoneyPayments(true)
-                                            .onStagingEnv(false)
-                                            .initialize();
-                                     */
+                                    Log.e("mBuyButton", "orderID: " + orderID);
+                                    Log.e("mBuyButton", "shareName: " + shareName);
+                                    Log.e("mBuyButton", "shareQuantity: " + shareQuantity);
+                                    Log.e("mBuyButton", "amountCedis: " + amountCedis);
+                                    Log.e("mBuyButton", "amountDollars: " + amountDollars);
+                                    Log.e("mBuyButton", "paymentGatewayCurrency: " + paymentGatewayCurrency);
+                                    Log.e("mBuyButton", "paymentGatewayAmount: " + paymentGatewayAmount);
+
+                                    if(
+                                            !orderID.trim().equalsIgnoreCase("")
+                                                    && !shareName.trim().equalsIgnoreCase("")
+                                                    && !shareQuantity.trim().equalsIgnoreCase("")
+                                                    && !amountCedis.trim().equalsIgnoreCase("")
+                                                    && !amountDollars.trim().equalsIgnoreCase("")
+                                                    && !paymentGatewayCurrency.trim().equalsIgnoreCase("")
+                                                    && paymentGatewayAmount > 0
+                                    ){
+                                        String[] orderDetails = {orderID, shareName, shareQuantity, "Transferring", amountCedis, amountDollars, paymentGatewayCurrency, String.valueOf(paymentGatewayAmount)};
+                                        Config.openActivity4(TransferActivity.this, ProcessPaymentActvity.class, 1, 1, 1, "ORDER_DETAILS", orderDetails);
+                                    } else {
+                                        Config.showToastType1(TransferActivity.this, "Order error. Please go back and restart the process");
+                                    }
                                 }
                             });
                         }

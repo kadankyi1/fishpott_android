@@ -198,6 +198,11 @@ public class ProcessPaymentActvity extends AppCompatActivity {
                             @Override
                             public void onError(Throwable error, Transaction transaction) {
                                 Config.showToastType1(ProcessPaymentActvity.this, "Payment failed. Please use a different card");
+                                mLoaderImageView.clearAnimation();
+                                mLoaderImageView.setVisibility(View.INVISIBLE);
+                                mLoaderTextView.setVisibility(View.INVISIBLE);
+                                mLoaderTextView.setText("...");
+                                mCardHolderLinearLayout.setVisibility(View.VISIBLE);
                                 /*
                                 paymentSuccessful = true;
                                 if(!networkRequestStarted){
@@ -238,7 +243,7 @@ public class ProcessPaymentActvity extends AppCompatActivity {
                 .addBodyParameter("item_type", "stockpurchase")
                 .addBodyParameter("item_id", thisOrderID)
                 .addBodyParameter("payment_gateway_status", "1")
-                .addBodyParameter("payment_gateway_info", "pai")
+                .addBodyParameter("payment_gateway_info", "paid")
                 .setTag("update_order_status")
                 .setPriority(Priority.HIGH)
                 .build().getAsString(new StringRequestListener() {

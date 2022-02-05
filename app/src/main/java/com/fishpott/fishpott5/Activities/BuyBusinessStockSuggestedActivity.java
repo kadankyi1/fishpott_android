@@ -40,7 +40,7 @@ public class BuyBusinessStockSuggestedActivity extends AppCompatActivity impleme
     private String suggestionBusinessID = "", shareLogo = "", shareParentID = "", shareName = "", shareQuantity = "",
             receiverPottName = "", finalRiskType = "", finalQuantity = "", finalPassword = "", networkResponse = "",
             orderID = "", amountCedis = "", amountDollars = "", paymentGatewayCurrency = "";
-    private int shareQuantityInt = 0, selectedRiskIndex = 0, finalPurchaseStatus = 0, paymentGatewayAmount;
+    private int shareQuantityInt = 0, selectedRiskIndex = 0, finalPurchaseStatus = 0, paymentGatewayAmount = 0;
     private ImageView mBackImageView, mLoaderImageView;
     private ScrollView mItemHolderScrollView, mFinalHolderScrollView;
     private Button mBuyButton, mGetPriceButton, mResetButton;
