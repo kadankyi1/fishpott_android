@@ -38,8 +38,9 @@ import java.util.List;
 public class BuyBusinessStockSuggestedActivity extends AppCompatActivity implements View.OnClickListener {
 
     private String suggestionBusinessID = "", shareLogo = "", shareParentID = "", shareName = "", shareQuantity = "",
-            receiverPottName = "", finalRiskType = "", finalQuantity = "", finalPassword = "", networkResponse = "", orderID = "", amountCedis = "", amountDollars = "";
-    private int shareQuantityInt = 0, selectedRiskIndex = 0, finalPurchaseStatus = 0;
+            receiverPottName = "", finalRiskType = "", finalQuantity = "", finalPassword = "", networkResponse = "",
+            orderID = "", amountCedis = "", amountDollars = "", paymentGatewayCurrency = "";
+    private int shareQuantityInt = 0, selectedRiskIndex = 0, finalPurchaseStatus = 0, paymentGatewayAmount;
     private ImageView mBackImageView, mLoaderImageView;
     private ScrollView mItemHolderScrollView, mFinalHolderScrollView;
     private Button mBuyButton, mGetPriceButton, mResetButton;
@@ -178,6 +179,13 @@ public class BuyBusinessStockSuggestedActivity extends AppCompatActivity impleme
             mItemHolderScrollView.setVisibility(View.VISIBLE);
         } else if(view.getId() == mBuyButton.getId()){
 
+            Log.e("mBuyButton", "orderID: " + orderID);
+            Log.e("mBuyButton", "shareName: " + shareName);
+            Log.e("mBuyButton", "shareQuantity: " + shareQuantity);
+            Log.e("mBuyButton", "amountCedis: " + amountCedis);
+            Log.e("mBuyButton", "amountDollars: " + amountDollars);
+            Log.e("mBuyButton", "paymentGatewayCurrency: " + paymentGatewayCurrency);
+            Log.e("mBuyButton", "paymentGatewayAmount: " + paymentGatewayAmount);
 
             if(
                     !orderID.trim().equalsIgnoreCase("")
@@ -185,13 +193,10 @@ public class BuyBusinessStockSuggestedActivity extends AppCompatActivity impleme
                             && !shareQuantity.trim().equalsIgnoreCase("")
                             && !amountCedis.trim().equalsIgnoreCase("")
                             && !amountDollars.trim().equalsIgnoreCase("")
+                            && !paymentGatewayCurrency.trim().equalsIgnoreCase("")
+                            && paymentGatewayAmount > 0
             ){
-                Log.e("mBuyButton", "orderID: " + orderID);
-                Log.e("mBuyButton", "shareName: " + shareName);
-                Log.e("mBuyButton", "shareQuantity: " + shareQuantity);
-                Log.e("mBuyButton", "amountCedis: " + amountCedis);
-                Log.e("mBuyButton", "amountDollars: " + amountDollars);
-                String[] orderDetails = {orderID, shareName, shareQuantity, "Buying", amountCedis, amountDollars};
+                String[] orderDetails = {orderID, shareName, shareQuantity, "Buying", amountCedis, amountDollars, paymentGatewayCurrency, String.valueOf(paymentGatewayAmount)};
                 Config.openActivity4(BuyBusinessStockSuggestedActivity.this, ProcessPaymentActvity.class, 1, 1, 1, "ORDER_DETAILS", orderDetails);
             } else {
                 Config.showToastType1(BuyBusinessStockSuggestedActivity.this, "Order error. Please go back and restart the process");
@@ -256,6 +261,8 @@ public class BuyBusinessStockSuggestedActivity extends AppCompatActivity impleme
                         amountCedis = overallTotalLocalCurrency;
                         final String financialYieldInfo = o.getJSONObject("data").getString("financial_yield_info");
                         orderID = o.getJSONObject("data").getString("order_id");
+                        paymentGatewayCurrency = o.getJSONObject("data").getString("payment_gateway_currency");
+                        paymentGatewayAmount = o.getJSONObject("data").getInt("payment_gateway_amount_in_pesewas_or_cents_intval");
                         //Config.showToastType1(BuyBusinessStockSuggestedActivity.this, myStatusMessage);
                         if(!BuyBusinessStockSuggestedActivity.this.isFinishing()){
                             new Handler(Looper.getMainLooper()).post(new Runnable() {

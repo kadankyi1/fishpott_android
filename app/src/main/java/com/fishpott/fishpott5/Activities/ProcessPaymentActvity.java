@@ -39,7 +39,8 @@ import co.paystack.android.model.Charge;
 
 public class ProcessPaymentActvity extends AppCompatActivity {
 
-    private String orderId = "", itemName = "", itemQuantity = "", preText = "", amountCedis = "", amountDollars = "";
+    private String orderId = "", itemName = "", itemQuantity = "", preText = "", amountCedis = "", amountDollars = "", paymentGatewayCurrency = "";
+    private int paymentGatewayPriceInCentsOrPesewas = 0;
     private TextView mTitleTextView, mItemDescriptioTextView, mLoaderTextView;
     private TextInputEditText mCardOwnerNameTextView, mCardNumberTextView, mCardMonthTextView, mCardYearTextView, mCardCVVTextView;
     private LinearLayout mCardHolderLinearLayout;
@@ -62,6 +63,8 @@ public class ProcessPaymentActvity extends AppCompatActivity {
             preText = info[3];
             amountCedis = info[4];
             amountDollars = info[5];
+            paymentGatewayCurrency = info[6];
+            paymentGatewayPriceInCentsOrPesewas = Integer.parseInt(info[7]);
 
             if(
                     orderId.trim().equalsIgnoreCase("")
@@ -70,6 +73,8 @@ public class ProcessPaymentActvity extends AppCompatActivity {
                             || preText.trim().equalsIgnoreCase("")
                             || amountCedis.trim().equalsIgnoreCase("")
                             || amountDollars.trim().equalsIgnoreCase("")
+                            || paymentGatewayCurrency.trim().equalsIgnoreCase("")
+                            || paymentGatewayPriceInCentsOrPesewas < 1
             ){
                 finish();
             }
@@ -156,13 +161,13 @@ public class ProcessPaymentActvity extends AppCompatActivity {
 
                         //PaystackSdk.chargeCard chargeCard = new PaystackSdk.chargeCard();
                         Charge charge = new Charge();
-                        charge.setCurrency("GHS");
+                        charge.setCurrency(paymentGatewayCurrency);
                         //charge.setPlan();
                         //charge.setSubaccount();
                         //charge.setTransactionCharge();
-                        charge.setAmount(10);
-                        charge.setEmail("annodankyikwaku@gmail.com");
-                        charge.setReference("001");
+                        charge.setAmount(paymentGatewayPriceInCentsOrPesewas);
+                        charge.setEmail(Config.getSharedPreferenceString(getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_EMAIL));
+                        charge.setReference(orderId);
                         charge.setCard(card);
                         //charge.setBearer();
                         //charge.putMetadata();
@@ -193,11 +198,13 @@ public class ProcessPaymentActvity extends AppCompatActivity {
                             @Override
                             public void onError(Throwable error, Transaction transaction) {
                                 Config.showToastType1(ProcessPaymentActvity.this, "Payment failed. Please use a different card");
+                                /*
                                 paymentSuccessful = true;
                                 if(!networkRequestStarted){
                                     mLoaderTextView.setText("Recording failed payment...");
                                     updateOrderStatus(orderId);
                                 }
+                                */
                             }
                         });
 

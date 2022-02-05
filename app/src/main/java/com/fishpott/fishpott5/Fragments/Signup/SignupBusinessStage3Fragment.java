@@ -264,6 +264,7 @@ public class SignupBusinessStage3Fragment extends Fragment implements View.OnCli
         //Home.getRefWatcher(getActivity()).watch(this);
     }
 
+
     public void signUpAndGetUserCredentials(final String businessName, final String branchLocation, final String businessEmail, final String gender, final String dob, final String country, final String pottname, final String phoneNumber, final String password, final String referrerPottName, final String language){
                 networkResponse = "";
         new Handler(Looper.getMainLooper()).post(new Runnable() {
@@ -326,6 +327,7 @@ public class SignupBusinessStage3Fragment extends Fragment implements View.OnCli
 
                                             /*
                                             Config.setSharedPreferenceString(getActivity().getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_PHONE, o.getString("user_phone"));
+                                            Config.setSharedPreferenceString(getActivity().getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_EMAIL, o.getString("user_email"));
                                             Config.setSharedPreferenceString(getActivity().getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_ID, o.getString("user_id"));
                                             Config.setSharedPreferenceString(getActivity().getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_PASSWORD_ACCESS_TOKEN, o.getString("access_token"));
                                             Config.setSharedPreferenceString(getActivity().getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_POTT_NAME, o.getString("user_pott_name"));

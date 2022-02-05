@@ -35,9 +35,13 @@
         android:roundIcon="@drawable/fishpott_splash_icon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <meta-data
+        <!-- <meta-data
             android:name="co.paystack.android.PublicKey"
             android:value="pk_test_2355905dfd65a74eab7e894386be50450972ed1f"/>
+            -->
+        <meta-data
+            android:name="co.paystack.android.PublicKey"
+            android:value="pk_live_d93022487706c680ab03c7a8d3a285898736527c"/>
         <activity
             android:name=".Activities.NotificationViewerActivity"
             android:exported="true" />
