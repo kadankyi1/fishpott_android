@@ -132,7 +132,7 @@ public class TransactionsActivity extends AppCompatActivity implements View.OnCl
             if(TransactionsListDataGenerator.getAllData().get(position).getType().equalsIgnoreCase("SHARES PURCHASE")){
                 return 1;
             } else if(TransactionsListDataGenerator.getAllData().get(position).getType().equalsIgnoreCase("SHARES SELLBACK")){
-                return 1;
+                return 7;
             } else if(TransactionsListDataGenerator.getAllData().get(position).getType().equalsIgnoreCase("SHARES SALE")){
                 return 2;
             } else if(TransactionsListDataGenerator.getAllData().get(position).getType().equalsIgnoreCase("WALLET CREDIT")){
@@ -175,6 +175,10 @@ public class TransactionsActivity extends AppCompatActivity implements View.OnCl
             } else if(viewType == 6){
                 v = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_item_transaction_transfer_in, parent, false);
                 vh = new TransferViewHolder(v);
+                return vh;
+            } else if(viewType == 7){
+                v = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_item_transaction_shares_sellback, parent, false);
+                vh = new SharesSaleViewHolder(v);
                 return vh;
             }
 
