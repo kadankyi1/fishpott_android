@@ -195,7 +195,7 @@ public class ProcessPaymentActvity extends AppCompatActivity {
 
                             @Override
                             public void beforeValidate(Transaction transaction) {
-                                Config.showToastType1(ProcessPaymentActvity.this, "beforeValidate PAYMENT");
+                                //Config.showToastType1(ProcessPaymentActvity.this, "beforeValidate PAYMENT");
                             }
 
                             @Override

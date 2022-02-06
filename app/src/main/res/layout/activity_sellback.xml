@@ -67,12 +67,12 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="12dp"
             android:contentDescription="@string/none"
-            android:tint="@color/colorAccent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/in_title_bar_guideline_v_1"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/forgot_password_arrow_back" />
+            app:srcCompat="@drawable/forgot_password_arrow_back"
+            app:tint="@color/colorAccent" />
 
      </androidx.constraintlayout.widget.ConstraintLayout>
 

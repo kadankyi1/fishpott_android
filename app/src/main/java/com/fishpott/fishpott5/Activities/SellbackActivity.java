@@ -1,6 +1,8 @@
 package com.fishpott.fishpott5.Activities;
 
+import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Handler;
 import android.os.Looper;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -45,6 +47,7 @@ public class SellbackActivity extends AppCompatActivity implements View.OnClickL
     private ImageView mLoaderImageView, mBackImageView;
     private Boolean networkRequestStarted = false;
     private Thread transferThread = null;
+    private Dialog.OnCancelListener cancelListenerActive1;
     private EditText mQuantityEditText, mReceiverPottNameEditText, mPasswordEditText, mBankMomoNetworkNameEditText, mAccNameEditText,
             mAccNumberEditText, mRoutingNumberEditText;
     private Button mTransferButton;
@@ -131,6 +134,12 @@ public class SellbackActivity extends AppCompatActivity implements View.OnClickL
             }
         };
 
+        cancelListenerActive1 = new DialogInterface.OnCancelListener() {
+            @Override
+            public void onCancel(DialogInterface dialog) {
+                Config.openActivity(SellbackActivity.this, TransactionsActivity.class, 1, 1, 0, "", "");
+            }
+        };
 
         mQuantityEditText.addTextChangedListener(new TextWatcher() {
             @Override public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
@@ -398,7 +407,7 @@ public class SellbackActivity extends AppCompatActivity implements View.OnClickL
                 mTransferFormHolderConstraintLayout.setVisibility(View.INVISIBLE);
                 mLoaderHolderConstraintLayout.setVisibility(View.VISIBLE);
                 mLoaderImageView.startAnimation(AnimationUtils.loadAnimation(SellbackActivity.this, R.anim.suggestion_loading_anim));
-                mLoaderTextView.setText("Setting payment portal...");
+                mLoaderTextView.setText("Sending Sellback Order...");
             }
         });
 
@@ -449,7 +458,7 @@ public class SellbackActivity extends AppCompatActivity implements View.OnClickL
                             new Handler(Looper.getMainLooper()).post(new Runnable() {
                                 @Override
                                 public void run() {
-                                    Config.showDialogType1(SellbackActivity.this, "", "Sellback under review. Please record this transaction ID : " + transactionId, "show-positive-image", null, true, getString(R.string.setprofilepicture_activity_okay), "");
+                                    cancelListenerActive1 = Config.showDialogType1(SellbackActivity.this, "", "Sellback under review. Please record this transaction ID : " + transactionId, "show-positive-image", cancelListenerActive1, true, getString(R.string.setprofilepicture_activity_okay), "");
 
                                     mTransferFormHolderConstraintLayout.setVisibility(View.INVISIBLE);
                                     mLoaderHolderConstraintLayout.setVisibility(View.INVISIBLE);
