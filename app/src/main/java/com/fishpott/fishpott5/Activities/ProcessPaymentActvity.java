@@ -113,6 +113,7 @@ public class ProcessPaymentActvity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(!networkRequestStarted && paymentSuccessful){
+                //if(!networkRequestStarted){
                     mLoaderTextView.setText("Recording success payment...");
                     mCardHolderLinearLayout.setVisibility(View.INVISIBLE);
                     mLoaderImageView.setVisibility(View.VISIBLE);
@@ -232,6 +233,7 @@ public class ProcessPaymentActvity extends AppCompatActivity {
     private void updateOrderStatus(String thisOrderID, String thisPaymentType){
         networkRequestStarted = true;
         Log.e("getFinalPriceSummary", "thisOrderID: " + thisOrderID);
+        Log.e("getFinalPriceSummary", "thisPaymentType: " + thisPaymentType);
 
         AndroidNetworking.post(Config.LINK_UPDATE_ORDER_STATUS)
                 .addHeaders("Accept", "application/json")
