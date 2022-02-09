@@ -73,26 +73,43 @@
 
      </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <ProgressBar
-        android:id="@+id/loader"
-        style="@style/ProgressBarBlack"
-        android:layout_width="26dp"
-        android:layout_height="32dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
+    <ImageView
+        android:id="@+id/loader_imageview"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:visibility="gone"
+        android:layout_marginBottom="8dp"
+        android:src="@drawable/roundlogo"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/loadertext_textview"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.35000002"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <TextView
+        android:id="@+id/loadertext_textview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:gravity="center"
+        android:text="Checking transaction"
+        android:textAlignment="center"
+        android:textColor="@color/colorPrimaryDark"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title_bar_guideline_h_1"
-        app:layout_constraintVertical_bias="0.35000002" />
+        app:layout_constraintTop_toBottomOf="@+id/loader_imageview"
+        app:layout_constraintVertical_bias="0.0" />
+
 
      <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/contents_holder"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+         android:visibility="visible"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -104,7 +121,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
-            android:text="@string/send_the_amount_you_want_credited_to_your_account_to_the_number_below"
+            android:text=""
             android:textAlignment="textStart"
             android:textSize="14sp"
             android:textStyle="bold"
@@ -115,32 +132,33 @@
             app:layout_constraintVertical_bias="0.13"
             app:layout_constraintVertical_chainStyle="packed" />
 
-        <TextView
-            android:id="@+id/receiving_phone_number_textview"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:textColor="@color/colorYardsale"
-            android:text="@string/phone_number_0553663643"
-            android:textAlignment="textStart"
-            android:textSize="14sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/receiving_phone_number_acc_name_textview"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/country_withdrawfunds_activity_textview"
-            app:layout_constraintVertical_bias="0.13"
-            app:layout_constraintVertical_chainStyle="packed" />
+         <TextView
+             android:id="@+id/receiving_phone_number_textview"
+             android:layout_width="0dp"
+             android:layout_height="wrap_content"
+             android:layout_marginStart="8dp"
+             android:layout_marginEnd="8dp"
+             android:text="Phone Number"
+             android:textAlignment="textStart"
+             android:textColor="@color/colorYardsale"
+             android:textSize="14sp"
+             android:textStyle="bold"
+             app:layout_constraintBottom_toTopOf="@+id/receiving_phone_number_acc_name_textview"
+             app:layout_constraintEnd_toEndOf="parent"
+             app:layout_constraintHorizontal_bias="0.0"
+             app:layout_constraintStart_toStartOf="parent"
+             app:layout_constraintTop_toBottomOf="@+id/country_withdrawfunds_activity_textview"
+             app:layout_constraintVertical_bias="0.13"
+             app:layout_constraintVertical_chainStyle="packed" />
 
-        <TextView
+         <TextView
             android:id="@+id/receiving_phone_number_acc_name_textview"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
             android:textColor="@color/colorYardsale"
-            android:text="@string/account_name_dankyi_anno_kwaku"
+            android:text="Account Name"
             android:textAlignment="textStart"
             android:textSize="14sp"
             android:textStyle="bold"
@@ -158,7 +176,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
-            android:text="@string/after_the_money_is_sent_you_will_receive_a_confirmation_message_from_the_network_operator_that_contains_a_transaction_id_please_use_the_transaction_id_to_fill_the_form_below_do_not_submit_the_form_twice_for_the_same_transaction_id"
+            android:text="After the payment is sent, you will receive a confirmation message from the network operator that contains a transaction ID. Please use the transaction ID to fill the form below. DO NOT SUBMIT THE FORM TWICE FOR THE SAME TRANSACTION ID"
             android:textAlignment="textStart"
             android:textSize="14sp"
             android:textStyle="bold"
@@ -205,6 +223,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="4dp"
             android:gravity="center"
+             android:visibility="gone"
             android:theme="@style/loginActivityHintStyle"
             app:layout_constraintBottom_toTopOf="@+id/sender_name_textinputlayout"
             app:layout_constraintEnd_toEndOf="parent"
@@ -233,6 +252,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="4dp"
             android:gravity="center"
+             android:visibility="gone"
             android:theme="@style/loginActivityHintStyle"
             app:layout_constraintBottom_toTopOf="@+id/date_label_textview"
             app:layout_constraintEnd_toEndOf="parent"

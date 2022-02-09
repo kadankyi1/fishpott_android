@@ -1,13 +1,17 @@
 package com.fishpott.fishpott5.Activities;
 
 import android.app.DatePickerDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.os.Handler;
 import android.os.Looper;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import com.google.android.material.textfield.TextInputLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -35,15 +39,20 @@ public class MobileMoneyActivity extends AppCompatActivity implements View.OnCli
     private ProgressBar mLoadingProgressBar;
     private ConstraintLayout mContentHolderConstraintLayout;
     private EditText mTransactionIdEditText, mAmountSentEditText, mSenderNameEditText;
-    private TextView mReceivingPhoneNumberTextView, mReceivingAccNameTextView;
+    private TextView mReceivingPhoneNumberTextView, mReceivingAccNameTextView, mTitleTextView;
     private TextView mDateMonthTextView, mDateDayTextView, mDateYearTextView;
     private DatePickerDialog.OnDateSetListener mDateSetListener;
     private TextInputLayout mAmountSentTextInputLayout;
+    private Dialog.OnCancelListener cancelListenerActive1;
+    private ImageView mLoaderImageView;
+    private TextView mLoaderTextView;
     private Button mSendButton;
     private Thread networkRequestThread = null;
-    private Boolean REQUEST_HAS_STARTED = false;
+    private Boolean REQUEST_HAS_STARTED = false, networkRequestStarted = false;
     private int presetDateDay = 19, presetDateMonth = 6, presetDateYear = 2019;
     private String momoType = "", momoNumber = "", momoName = "", dob = "", pay_type = "", networkResponse = "";
+    private String orderId = "", itemName = "", itemQuantity = "", preText = "", amountCedis = "", amountDollars = "", paymentGatewayCurrency = "", paymentType = "";
+    private int paymentGatewayPriceInCentsOrPesewas = 0;
 
 
     @Override
@@ -51,9 +60,42 @@ public class MobileMoneyActivity extends AppCompatActivity implements View.OnCli
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mobile_money);
 
+        if(getIntent().getExtras() != null) {
+            String[] info = (String[]) getIntent().getExtras().get("ORDER_DETAILS");
+            orderId = info[0];
+            itemName = info[1];
+            itemQuantity = info[2];
+            preText = info[3];
+            amountCedis = info[4];
+            amountDollars = info[5];
+            paymentGatewayCurrency = info[6];
+            paymentGatewayPriceInCentsOrPesewas = Integer.parseInt(info[7]);
+            paymentType = info[8];
+            momoType = "MTN";
+            momoNumber = info[9];
+            momoName = info[10];
+
+            if(
+                    orderId.trim().equalsIgnoreCase("")
+                            || itemName.trim().equalsIgnoreCase("")
+                            || itemQuantity.trim().equalsIgnoreCase("")
+                            || preText.trim().equalsIgnoreCase("")
+                            || amountCedis.trim().equalsIgnoreCase("")
+                            || amountDollars.trim().equalsIgnoreCase("")
+                            || paymentGatewayCurrency.trim().equalsIgnoreCase("")
+                            || paymentType.trim().equalsIgnoreCase("")
+                            || paymentGatewayPriceInCentsOrPesewas < 1
+            ){
+                finish();
+            }
+        } else {
+            finish();
+        }
+
         mBackImageView = findViewById(R.id.title_bar_back_icon_imageview);
         mLoadingProgressBar = findViewById(R.id.loader);
         mContentHolderConstraintLayout = findViewById(R.id.contents_holder);
+        mTitleTextView = findViewById(R.id.country_withdrawfunds_activity_textview);
         mReceivingPhoneNumberTextView = findViewById(R.id.receiving_phone_number_textview);
         mReceivingAccNameTextView = findViewById(R.id.receiving_phone_number_acc_name_textview);
         mTransactionIdEditText = findViewById(R.id.transaction_id_edittext);
@@ -65,12 +107,9 @@ public class MobileMoneyActivity extends AppCompatActivity implements View.OnCli
         mDateDayTextView = findViewById(R.id.date_day_textview);
         mSendButton = findViewById(R.id.request_button);
 
-        Bundle intentBundle = getIntent().getExtras();
-        if(intentBundle !=null) {
-            momoType = (String) intentBundle.get("MOMO_TYPE");
-        } else {
-            finish();
-        }
+        // LOADER
+        mLoaderImageView = findViewById(R.id.loader_imageview);
+        mLoaderTextView = findViewById(R.id.loadertext_textview);
 
         mAmountSentTextInputLayout.setHint(getResources().getString(R.string.amount) + "(" + Config.getSharedPreferenceString(getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_CURRENCY) + ")");
 
@@ -80,23 +119,30 @@ public class MobileMoneyActivity extends AppCompatActivity implements View.OnCli
 
         if(momoType.equalsIgnoreCase("MTN")){
             pay_type = "MTN MOBILE MONEY";
-            momoNumber = Config.getSharedPreferenceString(getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_MTN);
-            momoName = Config.getSharedPreferenceString(getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_MTN_NAME);
+            //momoNumber = Config.getSharedPreferenceString(getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_MTN);
+            //momoName = Config.getSharedPreferenceString(getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_MTN_NAME);
         } else if(momoType.equalsIgnoreCase("VODAFONE")){
             pay_type = "VODAFONE CASH";
-            momoNumber = Config.getSharedPreferenceString(getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_VODAFONE);
-            momoName = Config.getSharedPreferenceString(getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_VODAFONE_NAME);
+            //momoNumber = Config.getSharedPreferenceString(getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_VODAFONE);
+            //momoName = Config.getSharedPreferenceString(getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_VODAFONE_NAME);
         } else if(momoType.equalsIgnoreCase("AIRTELTIGO")){
             pay_type = "AIRTELTIGO MONEY";
-            momoNumber = Config.getSharedPreferenceString(getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_AIRTELTIGO);
-            momoName = Config.getSharedPreferenceString(getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_AIRTELTIGO_NAME);
+            //momoNumber = Config.getSharedPreferenceString(getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_AIRTELTIGO);
+            //momoName = Config.getSharedPreferenceString(getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_AIRTELTIGO_NAME);
         } else {
             finish();
         }
 
+        mTitleTextView.setText("Send the full payment of " + amountCedis + " to the Mobile Money account below");
         mReceivingPhoneNumberTextView.setText(getResources().getString(R.string.phone_number) + " " + momoNumber);
         mReceivingAccNameTextView.setText(getResources().getString(R.string.phone_name) + " " + momoName);
 
+        cancelListenerActive1 = new DialogInterface.OnCancelListener() {
+            @Override
+            public void onCancel(DialogInterface dialog) {
+                Config.openActivity(MobileMoneyActivity.this, TransactionsActivity.class, 1, 1, 0, "", "");
+            }
+        };
 
         // LISTENING FOR WHEN THE DATE IS SET AND SETTING THE DATE TEXT
         mDateSetListener = new DatePickerDialog.OnDateSetListener() {
@@ -129,16 +175,15 @@ public class MobileMoneyActivity extends AppCompatActivity implements View.OnCli
             mDateSetListener = Config.openDatePickerDialog(MobileMoneyActivity.this, mDateSetListener, true, presetDateDay, presetDateMonth, presetDateYear);
         } else if(view.getId() == R.id.request_button){
             if(!dob.trim().equalsIgnoreCase("")
-                    && !mTransactionIdEditText.getText().toString().trim().equalsIgnoreCase("")
-                    && !mSenderNameEditText.getText().toString().trim().equalsIgnoreCase("")
-                    && !mAmountSentEditText.getText().toString().trim().equalsIgnoreCase("")){
+                    && !mTransactionIdEditText.getText().toString().trim().equalsIgnoreCase("")){
                 final String transID = mTransactionIdEditText.getText().toString().trim();
                 final String amount = mAmountSentEditText.getText().toString().trim();
                 final String senderName = mSenderNameEditText.getText().toString().trim();
                 networkRequestThread = new Thread(new Runnable() {
                     @Override
                     public void run() {
-                        makeRequest(transID, amount, senderName, dob, pay_type);
+                        updateOrderStatus(orderId, paymentType, transID, dob);
+                        //makeRequest(transID, amount, senderName, dob, pay_type);
                     }
                 });
                 networkRequestThread.start();
@@ -225,6 +270,126 @@ public class MobileMoneyActivity extends AppCompatActivity implements View.OnCli
         Config.freeMemory();
     }
 
+
+    private void updateOrderStatus(String thisOrderID, String thisPaymentType, String transactionID, String dateSent){
+        networkRequestStarted = true;
+        new Handler(Looper.getMainLooper()).post(new Runnable() {
+            @Override
+            public void run() {
+
+                mLoaderTextView.setText("Recording payment...");
+                mContentHolderConstraintLayout.setVisibility(View.INVISIBLE);
+                mLoaderImageView.setVisibility(View.VISIBLE);
+                mLoaderTextView.setVisibility(View.VISIBLE);
+                mLoaderImageView.startAnimation(AnimationUtils.loadAnimation(MobileMoneyActivity.this, R.anim.suggestion_loading_anim));
+            }
+        });
+        Log.e("getFinalPriceSummary", "thisOrderID: " + thisOrderID);
+        Log.e("getFinalPriceSummary", "thisPaymentType: " + thisPaymentType);
+
+        AndroidNetworking.post(Config.LINK_UPDATE_ORDER_STATUS)
+                .addHeaders("Accept", "application/json")
+                .addHeaders("Authorization", "Bearer " + Config.getSharedPreferenceString(MobileMoneyActivity.this, Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_PASSWORD_ACCESS_TOKEN))
+                .addBodyParameter("user_phone_number", Config.getSharedPreferenceString(MobileMoneyActivity.this, Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_PHONE))
+                .addBodyParameter("user_pottname", Config.getSharedPreferenceString(MobileMoneyActivity.this, Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_POTT_NAME))
+                .addBodyParameter("investor_id", Config.getSharedPreferenceString(MobileMoneyActivity.this, Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_ID))
+                .addBodyParameter("user_language", LocaleHelper.getLanguage(MobileMoneyActivity.this))
+                .addBodyParameter("app_type", "ANDROID")
+                .addBodyParameter("app_version_code", String.valueOf(Config.getAppVersionCode(MobileMoneyActivity.this.getApplicationContext())))
+                .addBodyParameter("item_type", thisPaymentType)
+                .addBodyParameter("item_id", thisOrderID)
+                .addBodyParameter("payment_gateway_status", "1")
+                .addBodyParameter("payment_gateway_info", "Momo-ID: " + transactionID + " - Date Sent: " + dateSent)
+                .setTag("update_order_status")
+                .setPriority(Priority.HIGH)
+                .build().getAsString(new StringRequestListener() {
+            @Override
+            public void onResponse(String response) {
+                networkRequestStarted = false;
+
+                try {
+                    Log.e("payresponse", response);
+                    final JSONObject o = new JSONObject(response);
+                    int myStatus = o.getInt("status");
+                    final String myStatusMessage = o.getString("message");
+
+                    //STORING THE USER DATA
+                    Config.setSharedPreferenceBoolean(MobileMoneyActivity.this, Config.SHARED_PREF_KEY_USER_VERIFY_PHONE_NUMBER_IS_ON, o.getBoolean("phone_verification_is_on"));
+
+                    // UPDATING THE VERSION CODE AND FORCE STATUS OF THE APP.
+                    Config.setSharedPreferenceBoolean(MobileMoneyActivity.this, Config.SHARED_PREF_KEY_UPDATE_ACTIVITY_UPDATE_BY_FORCE, o.getBoolean("user_android_app_force_update"));
+                    Config.setSharedPreferenceInt(MobileMoneyActivity.this, Config.SHARED_PREF_KEY_UPDATE_ACTIVITY_UPDATE_VERSION_CODE, o.getInt("user_android_app_max_vc"));
+
+                    if(myStatus == 1){
+
+                        if(!MobileMoneyActivity.this.isFinishing()){
+                            new Handler(Looper.getMainLooper()).post(new Runnable() {
+                                @Override
+                                public void run() {
+                                    cancelListenerActive1 = Config.showDialogType1(MobileMoneyActivity.this, "", "Payment successful. Your order is under review. Please record this transaction ID : " + thisOrderID, "show-positive-image", cancelListenerActive1, true, getString(R.string.setprofilepicture_activity_okay), "");
+
+
+                                    /*
+                                    mLoaderImageView.clearAnimation();
+                                    mLoaderImageView.setVisibility(View.INVISIBLE);
+                                    mLoaderTextView.setVisibility(View.INVISIBLE);
+                                    mItemHolderScrollView.setVisibility(View.INVISIBLE);
+                                     */
+
+                                }
+                            });
+                        }
+                    } else if(myStatus == 2){
+                        // IF USER'S APP IS OUTDATED AND NOT ALLOWED TO BE USED
+                        Config.setSharedPreferenceBoolean(MobileMoneyActivity.this, Config.SHARED_PREF_KEY_UPDATE_ACTIVITY_UPDATE_BY_FORCE, true);
+                        Config.openActivity3(MobileMoneyActivity.this, UpdateActivity.class, 1, Config.KEY_ACTIVITY_FINISHED, "1");
+                        return;
+                    } else if(myStatus == 3){
+                        // GENERAL ERROR
+                        mLoaderImageView.clearAnimation();
+                        mLoaderImageView.setVisibility(View.VISIBLE);
+                        mLoaderTextView.setVisibility(View.VISIBLE);
+                        mLoaderTextView.setText("Click icon to retry payment recording...");
+                        mContentHolderConstraintLayout.setVisibility(View.INVISIBLE);
+                        Config.showToastType1(MobileMoneyActivity.this, myStatusMessage);
+                        return;
+                    } else if(myStatus == 4){
+                        // IF USER'S ACCOUNT HAS BEEN SUSPENDED, WE SIGN USER OUT
+                        Config.showToastType1(MobileMoneyActivity.this, myStatusMessage);
+                        Config.signOutUser(MobileMoneyActivity.this.getApplicationContext(), true, MobileMoneyActivity.this, StartActivity.class, 0, 2);
+                    } else if(myStatus == 5){
+                        Config.setSharedPreferenceBoolean(getApplicationContext(), Config.SHARED_PREF_KEY_UPDATE_ACTIVITY_UPDATE_BY_FORCE, true);
+                        Config.openActivity3(getApplicationContext(), UpdateActivity.class, 1, Config.KEY_ACTIVITY_FINISHED, "1");
+                        return;
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    Config.showToastType1(MobileMoneyActivity.this, getString(R.string.failed_if_this_continues_please_update_your_app));
+                    if(!MobileMoneyActivity.this.isFinishing()){
+                        mLoaderImageView.clearAnimation();
+                        mLoaderImageView.setVisibility(View.VISIBLE);
+                        mLoaderTextView.setVisibility(View.VISIBLE);
+                        mLoaderTextView.setText("Click icon to retry payment recording...");
+                        mContentHolderConstraintLayout.setVisibility(View.INVISIBLE);
+                    }
+                }
+            }
+
+            @Override
+            public void onError(ANError anError) {
+                networkRequestStarted = false;
+                Config.showToastType1(MobileMoneyActivity.this, getString(R.string.failed_check_your_internet_and_try_again));
+                if(!MobileMoneyActivity.this.isFinishing()){
+                    mLoaderImageView.clearAnimation();
+                    mLoaderImageView.setVisibility(View.VISIBLE);
+                    mLoaderTextView.setVisibility(View.VISIBLE);
+                    mLoaderTextView.setText("Click icon to retry payment recording...");
+                    mContentHolderConstraintLayout.setVisibility(View.INVISIBLE);
+                }
+            }
+        });
+    }
+    /*
     private void makeRequest(String transactionID, String amount, String senderName, String dob, String pay_type){
         if(!REQUEST_HAS_STARTED){
             new Handler(Looper.getMainLooper()).post(new Runnable() {
@@ -365,5 +530,6 @@ public class MobileMoneyActivity extends AppCompatActivity implements View.OnCli
             });
         }
     }
+    */
 
 }

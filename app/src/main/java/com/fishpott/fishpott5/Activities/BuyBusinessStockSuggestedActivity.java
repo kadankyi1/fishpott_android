@@ -39,7 +39,7 @@ public class BuyBusinessStockSuggestedActivity extends AppCompatActivity impleme
 
     private String suggestionBusinessID = "", shareLogo = "", shareParentID = "", shareName = "", shareQuantity = "",
             receiverPottName = "", finalRiskType = "", finalQuantity = "", finalPassword = "", networkResponse = "",
-            orderID = "", amountCedis = "", amountDollars = "", paymentGatewayCurrency = "";
+            orderID = "", amountCedis = "", amountDollars = "", paymentGatewayCurrency = "", momoNum = "", momoName = "";
     private int shareQuantityInt = 0, selectedRiskIndex = 0, finalPurchaseStatus = 0, paymentGatewayAmount = 0;
     private ImageView mBackImageView, mLoaderImageView;
     private ScrollView mItemHolderScrollView, mFinalHolderScrollView;
@@ -186,6 +186,8 @@ public class BuyBusinessStockSuggestedActivity extends AppCompatActivity impleme
             Log.e("mBuyButton", "amountDollars: " + amountDollars);
             Log.e("mBuyButton", "paymentGatewayCurrency: " + paymentGatewayCurrency);
             Log.e("mBuyButton", "paymentGatewayAmount: " + paymentGatewayAmount);
+            Log.e("mBuyButton", "momoName: " + momoName);
+            Log.e("mBuyButton", "momoNum: " + momoNum);
 
             if(
                     !orderID.trim().equalsIgnoreCase("")
@@ -194,10 +196,13 @@ public class BuyBusinessStockSuggestedActivity extends AppCompatActivity impleme
                             && !amountCedis.trim().equalsIgnoreCase("")
                             && !amountDollars.trim().equalsIgnoreCase("")
                             && !paymentGatewayCurrency.trim().equalsIgnoreCase("")
+                            && !momoNum.trim().equalsIgnoreCase("")
+                            && !momoName.trim().equalsIgnoreCase("")
                             && paymentGatewayAmount > 0
             ){
-                String[] orderDetails = {orderID, shareName, shareQuantity, "Buying", amountCedis, amountDollars, paymentGatewayCurrency, String.valueOf(paymentGatewayAmount), "stockpurchase"};
-                Config.openActivity4(BuyBusinessStockSuggestedActivity.this, ProcessPaymentActvity.class, 1, 1, 1, "ORDER_DETAILS", orderDetails);
+                String[] orderDetails = {orderID, shareName, shareQuantity, "Buying", amountCedis, amountDollars, paymentGatewayCurrency, String.valueOf(paymentGatewayAmount), "stockpurchase", momoNum, momoName};
+                //Config.openActivity4(BuyBusinessStockSuggestedActivity.this, ProcessPaymentActvity.class, 1, 1, 1, "ORDER_DETAILS", orderDetails);
+                Config.openActivity4(BuyBusinessStockSuggestedActivity.this, MobileMoneyActivity.class, 1, 1, 1, "ORDER_DETAILS", orderDetails);
             } else {
                 Config.showToastType1(BuyBusinessStockSuggestedActivity.this, "Order error. Please go back and restart the process");
             }
@@ -263,6 +268,8 @@ public class BuyBusinessStockSuggestedActivity extends AppCompatActivity impleme
                         orderID = o.getJSONObject("data").getString("order_id");
                         paymentGatewayCurrency = o.getJSONObject("data").getString("payment_gateway_currency");
                         paymentGatewayAmount = o.getJSONObject("data").getInt("payment_gateway_amount_in_pesewas_or_cents_intval");
+                        momoNum = o.getJSONObject("data").getString("mobile_money_number");
+                        momoName = o.getJSONObject("data").getString("mobile_money_name");
                         //Config.showToastType1(BuyBusinessStockSuggestedActivity.this, myStatusMessage);
                         if(!BuyBusinessStockSuggestedActivity.this.isFinishing()){
                             new Handler(Looper.getMainLooper()).post(new Runnable() {

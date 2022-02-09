@@ -51,7 +51,7 @@ public class TransferActivity extends AppCompatActivity implements View.OnClickL
     private TextInputLayout mQuantityEditTextTextInputLayout;
     private int selectedSharesIndex = 0,  paymentGatewayAmount = 0, transferfeeInt = 0, paymentGatewayPriceInCentsOrPesewas = 0;
     private String paymentGatewayCurrency = "", orderID = "", transferFee = "", selectedSharesName = "", shareName = "", shareQuantity = "", amountCedis = "", amountDollars = "",
-            selectedSharesId = "", selectedSharesAvailableQuantity = "", selectedSharesCostPrice = "", selectedSharesMaxPrice = "", networkResponse = "";
+            selectedSharesId = "", selectedSharesAvailableQuantity = "", selectedSharesCostPrice = "", selectedSharesMaxPrice = "", networkResponse = "", momoNum = "", momoName = "";
     private String[] chosenSharesInfo = {"sId", "sName", "sSellQuantity", "sSellPrice", ""};
     private String[] sharesNamesStringArraySet;
     private List<String> sharesNamesStringArrayList = new ArrayList<>();
@@ -399,6 +399,8 @@ public class TransferActivity extends AppCompatActivity implements View.OnClickL
                         shareQuantity = new JSONObject(response).getJSONObject("data").getString("share_quantity");
                         amountCedis = new JSONObject(response).getJSONObject("data").getString("overall_total_local_currency");
                         amountDollars = new JSONObject(response).getJSONObject("data").getString("overall_total_usd");
+                        momoName = new JSONObject(response).getJSONObject("data").getString("mobile_money_name");
+                        momoNum = new JSONObject(response).getJSONObject("data").getString("mobile_money_number");
                         // LIST RESULTS SETTING COMES HERE
 
                         if(!isFinishing()){
@@ -419,6 +421,8 @@ public class TransferActivity extends AppCompatActivity implements View.OnClickL
                                     Log.e("mBuyButton", "amountDollars: " + amountDollars);
                                     Log.e("mBuyButton", "paymentGatewayCurrency: " + paymentGatewayCurrency);
                                     Log.e("mBuyButton", "paymentGatewayAmount: " + paymentGatewayAmount);
+                                    Log.e("mBuyButton", "momoName: " + momoName);
+                                    Log.e("mBuyButton", "momoNum: " + momoNum);
 
                                     if(
                                             !orderID.trim().equalsIgnoreCase("")
@@ -427,10 +431,13 @@ public class TransferActivity extends AppCompatActivity implements View.OnClickL
                                                     && !amountCedis.trim().equalsIgnoreCase("")
                                                     && !amountDollars.trim().equalsIgnoreCase("")
                                                     && !paymentGatewayCurrency.trim().equalsIgnoreCase("")
+                                                    && !momoName.trim().equalsIgnoreCase("")
+                                                    && !momoNum.trim().equalsIgnoreCase("")
                                                     && paymentGatewayAmount > 0
                                     ){
-                                        String[] orderDetails = {orderID, shareName, shareQuantity, "Transferring", amountCedis, amountDollars, paymentGatewayCurrency, String.valueOf(paymentGatewayAmount), "stocktransfer"};
-                                        Config.openActivity4(TransferActivity.this, ProcessPaymentActvity.class, 1, 1, 1, "ORDER_DETAILS", orderDetails);
+                                        String[] orderDetails = {orderID, shareName, shareQuantity, "Transferring", amountCedis, amountDollars, paymentGatewayCurrency, String.valueOf(paymentGatewayAmount), "stocktransfer", momoNum, momoName};
+                                        Config.openActivity4(TransferActivity.this, MobileMoneyActivity.class, 1, 1, 1, "ORDER_DETAILS", orderDetails);
+                                        //Config.openActivity4(TransferActivity.this, ProcessPaymentActvity.class, 1, 1, 1, "ORDER_DETAILS", orderDetails);
                                     } else {
                                         Config.showToastType1(TransferActivity.this, "Order error. Please go back and restart the process");
                                     }
