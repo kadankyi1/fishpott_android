@@ -1,7 +1,7 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 29
+    compileSdkVersion 30
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -9,9 +9,9 @@ android {
     defaultConfig {
         applicationId "com.fishpott.fishpott5"
         minSdkVersion 21
-        targetSdkVersion 29
-        versionCode 19
-        versionName "2.7"
+        targetSdkVersion 30
+        versionCode 22
+        versionName "2.9"
 
         multiDexEnabled true //important
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -22,6 +22,9 @@ android {
     }
     buildTypes {
         release {
+            packagingOptions {
+                exclude "lib/x86/*.so"
+            }
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }

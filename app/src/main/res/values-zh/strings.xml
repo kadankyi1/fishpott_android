@@ -353,6 +353,7 @@
     <string name="fragment_signup_personalstage3_finish">完</string>
     <string name="fragment_signup_personalstage3_re_type_password">重新輸入密碼</string>
 
+    <!--
     <string-array name="fragment_signup_personalstage2_countries_array">
         <item>United Kingdom</item>
         <item>USA</item>
@@ -596,6 +597,7 @@
         <item>Zambia</item>
         <item>Zimbabwe</item>
     </string-array>
+    -->
 
     <string name="choose_country">選擇國家</string>
     <string-array name="countries_array_starting_with_choose_country">

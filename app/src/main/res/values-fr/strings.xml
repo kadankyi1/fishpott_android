@@ -354,6 +354,7 @@
     <string name="fragment_signup_personalstage3_finish">terminer</string>
     <string name="fragment_signup_personalstage3_re_type_password">Retaper le mot de passe</string>
 
+    <!--
     <string-array name="fragment_signup_personalstage2_countries_array">
         <item>United Kingdom</item>
         <item>USA</item>
@@ -597,6 +598,7 @@
         <item>Zambia</item>
         <item>Zimbabwe</item>
     </string-array>
+    -->
 
     <string name="choose_country">Choisissez un pays</string>
     <string-array name="countries_array_starting_with_choose_country">
