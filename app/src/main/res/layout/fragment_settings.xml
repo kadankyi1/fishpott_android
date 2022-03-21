@@ -139,7 +139,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:visibility="visible"
-                app:layout_constraintBottom_toTopOf="@+id/active_bness_suggest_holder_contrainlayout"
+                app:layout_constraintBottom_toTopOf="@+id/personality_suggest_holder_contrainlayout"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/pottworth_holder_contrainlayout"
@@ -342,6 +342,69 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/personality_suggest_holder_contrainlayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="5dp"
+                android:background="@drawable/white_background_pressed_darker"
+
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/about_holder_contrainlayout"
+                app:layout_constraintBottom_toTopOf="@+id/active_bness_suggest_holder_contrainlayout">
+
+                <ImageView
+                    android:id="@+id/personality_suggestions_imageview"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginBottom="9dp"
+                    android:contentDescription="@string/none"
+                    android:src="@drawable/telepathy"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintEnd_toStartOf="@+id/personality_suggestions_textview"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+
+                <TextView
+                    android:id="@+id/personality_suggestions_textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="9dp"
+                    android:text="My Personality"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toEndOf="@+id/personality_suggestions_imageview"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toTopOf="@+id/personality_suggestions_info_textview"
+                    />
+
+                <TextView
+                    android:id="@+id/personality_suggestions_info_textview"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginBottom="9dp"
+                    android:text="Learn about your 'self' to make you better"
+                    android:textColor="@color/colorSignupFragmentIntroText"
+                    android:textSize="13sp"
+                    app:layout_constraintStart_toEndOf="@+id/personality_suggestions_imageview"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/personality_suggestions_textview"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/active_bness_suggest_holder_contrainlayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -349,8 +412,8 @@
                 android:background="@drawable/white_background_pressed_darker"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/about_holder_contrainlayout"
-                app:layout_constraintBottom_toTopOf="@+id/personality_suggest_holder_contrainlayout">
+                app:layout_constraintTop_toBottomOf="@+id/personality_suggest_holder_contrainlayout"
+                app:layout_constraintBottom_toTopOf="@+id/external_suggestion_holder_contrainlayout">
 
                 <ImageView
                     android:id="@+id/active_bness_suggestions_imageview"
@@ -404,70 +467,6 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/personality_suggest_holder_contrainlayout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingBottom="5dp"
-                android:background="@drawable/white_background_pressed_darker"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/active_bness_suggest_holder_contrainlayout"
-                app:layout_constraintBottom_toTopOf="@+id/external_suggestion_holder_contrainlayout">
-
-                <ImageView
-                    android:id="@+id/personality_suggestions_imageview"
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
-                    android:layout_marginStart="24dp"
-                    android:layout_marginTop="12dp"
-                    android:layout_marginBottom="9dp"
-                    android:contentDescription="@string/none"
-                    android:src="@drawable/ic_active_stocks_business"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintHorizontal_chainStyle="packed"
-                    app:layout_constraintEnd_toStartOf="@+id/personality_suggestions_textview"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"/>
-
-                <TextView
-                    android:id="@+id/personality_suggestions_textview"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginStart="24dp"
-                    android:layout_marginTop="9dp"
-                    android:text="Find Business Suggestion"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:textSize="17sp"
-                    android:textStyle="bold"
-                    app:layout_constraintStart_toEndOf="@+id/personality_suggestions_imageview"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toTopOf="@+id/personality_suggestions_info_textview"
-                    />
-
-                <TextView
-                    android:id="@+id/personality_suggestions_info_textview"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginStart="24dp"
-                    android:layout_marginBottom="9dp"
-                    android:text="Use a code to find a business or see your active business suggestions"
-                    android:textColor="@color/colorSignupFragmentIntroText"
-                    android:textSize="13sp"
-                    app:layout_constraintStart_toEndOf="@+id/personality_suggestions_imageview"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/personality_suggestions_textview"/>
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
-            <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/external_suggestion_holder_contrainlayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -476,7 +475,7 @@
                 android:background="@drawable/white_background_pressed_darker"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/personality_suggest_holder_contrainlayout"
+                app:layout_constraintTop_toBottomOf="@+id/active_bness_suggest_holder_contrainlayout"
                 app:layout_constraintBottom_toTopOf="@+id/myshares_holder_contrainlayout">
 
                 <ImageView

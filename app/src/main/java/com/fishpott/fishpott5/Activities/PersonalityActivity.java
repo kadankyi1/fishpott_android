@@ -27,7 +27,7 @@ public class PersonalityActivity extends AppCompatActivity {
 
     private ConstraintLayout mOceanHolderConstraintLayout, mLoaderHolderConstraintLayout;
     private TextView mAnalysisTextView, mOpennessTextView, mConscientiousnessTextView, mExtraversionTextView, mAgreeablenesssTextView, mNeuroticismTextView;
-    private ImageView mLoaderHolderImageView;
+    private ImageView mBackImageView, mLoaderHolderImageView;
     private TextView mLoaderHolderTextView;
     private Thread networkThread = null;
     private Boolean networkRequestStarted = false;
@@ -37,6 +37,7 @@ public class PersonalityActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_personality);
 
+        mBackImageView = findViewById(R.id.title_bar_back_icon_imageview);
         mLoaderHolderConstraintLayout= findViewById(R.id.loader_constraintLayout);
         mLoaderHolderImageView = findViewById(R.id.loader_imageview);
         mLoaderHolderTextView = findViewById(R.id.loadertext_textview);
@@ -58,6 +59,12 @@ public class PersonalityActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 setOceanValues();
+            }
+        });
+        mBackImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
             }
         });
 

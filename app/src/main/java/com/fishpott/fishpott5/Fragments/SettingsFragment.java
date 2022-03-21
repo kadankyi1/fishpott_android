@@ -15,6 +15,7 @@ import com.fishpott.fishpott5.Activities.ChangePasswordActivity;
 import com.fishpott.fishpott5.Activities.CreditWalletActivity;
 import com.fishpott.fishpott5.Activities.FindBusinessActivity;
 import com.fishpott.fishpott5.Activities.MySharesActivity;
+import com.fishpott.fishpott5.Activities.PersonalityActivity;
 import com.fishpott.fishpott5.Activities.RedeemSharesCouponActivity;
 import com.fishpott.fishpott5.Activities.RedeemWalletCreditCouponActivity;
 import com.fishpott.fishpott5.Activities.SellbackActivity;
@@ -30,7 +31,7 @@ public class SettingsFragment extends Fragment implements View.OnClickListener {
     private ConstraintLayout mCreditWalletHolderConstraintLayout, mViewMySharesHolderConstraintLayout, mRedeemWalletCreditCouponHolderConstraintLayout,
             mRedeemSharesCouponHolderConstraintLayout, mTransactionsHolderConstraintLayout, mWithdrawFundsHolderConstraintLayout, mPrivacyPolicyHolderConstraintLayout,
             mChangePasswordHolderConstraintLayout, mContactFPHolderConstraintLayout, mAboutHolderConstraintLayout, mTermsOfServiceHolderConstraintLayout,
-            mFindBusinessHolderConstraintLayout, mSellBackConstraintLayout, mTransferConstraintLayout;
+            mFindBusinessHolderConstraintLayout, mSellBackConstraintLayout, mTransferConstraintLayout, mPersonalityConstraintLayout;
     public static TextView mWithdrawalWalletBalanceTextView, mDebitWalletBalanceTextView, mPottPearlsBalanceTextView,
             mPottIntelligenceTextView, mPottNetWorthTextView, mPottPositionTextView, mPottnameAndPhone;
     private View view = null;
@@ -57,6 +58,7 @@ public class SettingsFragment extends Fragment implements View.OnClickListener {
         mPottNetWorthTextView = view.findViewById(R.id.pottworth_textview);
         mPottPositionTextView = view.findViewById(R.id.pottworth_info_textview);
         mAboutHolderConstraintLayout = view.findViewById(R.id.about_holder_contrainlayout);
+        mPersonalityConstraintLayout = view.findViewById(R.id.personality_suggest_holder_contrainlayout);
         mFindBusinessHolderConstraintLayout = view.findViewById(R.id.active_bness_suggest_holder_contrainlayout);
         mCreditWalletHolderConstraintLayout = view.findViewById(R.id.credit_wallet_holder_contrainlayout);
         mViewMySharesHolderConstraintLayout = view.findViewById(R.id.myshares_holder_contrainlayout);
@@ -94,6 +96,7 @@ public class SettingsFragment extends Fragment implements View.OnClickListener {
         mPottnameAndPhone.setText("@"+userPottName + " | " + userPhone);
 
         mAboutHolderConstraintLayout.setOnClickListener(this);
+        mPersonalityConstraintLayout.setOnClickListener(this);
         mFindBusinessHolderConstraintLayout.setOnClickListener(this);
         mCreditWalletHolderConstraintLayout.setOnClickListener(this);
         mViewMySharesHolderConstraintLayout.setOnClickListener(this);
@@ -139,6 +142,8 @@ public class SettingsFragment extends Fragment implements View.OnClickListener {
     public void onClick(View view) {
         if(view.getId() == R.id.about_holder_contrainlayout){
             Config.openActivity(getActivity(), AboutActivity.class, 0, 0, 0, "", "");
+        } else if(view.getId() == mPersonalityConstraintLayout.getId()){
+            Config.openActivity(getActivity(), PersonalityActivity.class, 0, 0, 0, "", "");
         } else if(view.getId() ==  mFindBusinessHolderConstraintLayout.getId()){
             Config.openActivity(getActivity(), FindBusinessActivity.class, 0, 0, 0, "", "");
         }else if(view.getId() == R.id.credit_wallet_holder_contrainlayout){
