@@ -88,7 +88,7 @@ public class PersonalityActivity extends AppCompatActivity {
             }
         });
 
-        AndroidNetworking.post(Config.LINK_UPDATE_ORDER_STATUS)
+        AndroidNetworking.post(Config.LINK_UPDATE_USER_INFO)
                 .addHeaders("Accept", "application/json")
                 .addHeaders("Authorization", "Bearer " + Config.getSharedPreferenceString(PersonalityActivity.this, Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_PASSWORD_ACCESS_TOKEN))
                 .addBodyParameter("user_phone_number", Config.getSharedPreferenceString(PersonalityActivity.this, Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_PHONE))
