@@ -140,6 +140,12 @@ public class Config {
 
 	// CURRENT HTTP
 	public static final String CURRENT_HTTP_IN_USE = "https://";
+
+	// LIVE OR TEST ENVIRONMENT
+	public static final String CURRENT_ENVIRONMENT_DOMAIN_IN_USE = "app.fishpott.com"; // LIVE
+	//public static final String CURRENT_ENVIRONMENT_DOMAIN_IN_USE = "test.fishpott.com"; // TEST
+
+	// FP ID
 	public static final String FP_ID = "_r_030250308659e9029382af83.46926837";
 
 	// DIRECTORIES-NAMES
@@ -278,53 +284,53 @@ public class Config {
 	public static final String CHAT_NOTIFICATION_UNREAD_COUNT = "CHAT_NOTIFICATION_UNREAD_COUNT";
 
 	// SERVER-SIDE API FOR SIGNUP
-	public static final String LINK_SIGNUP_PERSONAL = CURRENT_HTTP_IN_USE + "app.fishpott.com/api/v1/user/register-personal";
-	public static final String LINK_SIGNUP_BUSINESS = CURRENT_HTTP_IN_USE + "app.fishpott.com/api/v1/user/register-business";
+	public static final String LINK_SIGNUP_PERSONAL = CURRENT_HTTP_IN_USE + CURRENT_ENVIRONMENT_DOMAIN_IN_USE + "/api/v1/user/register-personal";
+	public static final String LINK_SIGNUP_BUSINESS = CURRENT_HTTP_IN_USE + CURRENT_ENVIRONMENT_DOMAIN_IN_USE + "/api/v1/user/register-business";
 
 	// SERVER-SIDE API FOR LOGIN
-	public static final String LINK_LOGIN = CURRENT_HTTP_IN_USE + "app.fishpott.com/api/v1/user/login";
+	public static final String LINK_LOGIN = CURRENT_HTTP_IN_USE + CURRENT_ENVIRONMENT_DOMAIN_IN_USE + "/api/v1/user/login";
 
 	// SERVER-SIDE API FOR POTT-PIC-UPLOAD-AT-SIGNUP-OR-FORCED
-	public static final String LINK_UPLOAD_POTT_PICTURE = CURRENT_HTTP_IN_USE + "app.fishpott.com/api/v1/user/upload-pott-pic";
+	public static final String LINK_UPLOAD_POTT_PICTURE = CURRENT_HTTP_IN_USE + CURRENT_ENVIRONMENT_DOMAIN_IN_USE + "/api/v1/user/upload-pott-pic";
 
 	// SERVER-SIDE API FOR GETTING RESET CODE
-	public static final String LINK_GET_RESET_CODE = CURRENT_HTTP_IN_USE + "app.fishpott.com/api/v1/user/send-password-reset-code";
+	public static final String LINK_GET_RESET_CODE = CURRENT_HTTP_IN_USE + CURRENT_ENVIRONMENT_DOMAIN_IN_USE + "/api/v1/user/send-password-reset-code";
 
 	// RESET PASSWORD WITH RESET PASSWORD WITH RESET CODE
-	public static final String LINK_RESET_PASSWORD_WITH_CODE = CURRENT_HTTP_IN_USE + "app.fishpott.com/api/v1/user/change-password-with-reset-code";
+	public static final String LINK_RESET_PASSWORD_WITH_CODE = CURRENT_HTTP_IN_USE + CURRENT_ENVIRONMENT_DOMAIN_IN_USE + "/api/v1/user/change-password-with-reset-code";
 
 	// GET MY SUGGESTION
-	public static final String LINK_GET_MY_SUGGESTION = CURRENT_HTTP_IN_USE + "app.fishpott.com/api/v1/user/get-my-suggestion";
+	public static final String LINK_GET_MY_SUGGESTION = CURRENT_HTTP_IN_USE + CURRENT_ENVIRONMENT_DOMAIN_IN_USE + "/api/v1/user/get-my-suggestion";
 
 	// GET MY SUGGESTION
-	public static final String LINK_SAVE_DRILL_AND_GET_ANSWERS_COUNT = CURRENT_HTTP_IN_USE + "app.fishpott.com/api/v1/user/save-drill-answer";
+	public static final String LINK_SAVE_DRILL_AND_GET_ANSWERS_COUNT = CURRENT_HTTP_IN_USE + CURRENT_ENVIRONMENT_DOMAIN_IN_USE + "/api/v1/user/save-drill-answer";
 
 	// GET FINAL PRICE SUMMARY
-	public static final String LINK_GET_FINAL_PRICE_SUMMARY = CURRENT_HTTP_IN_USE + "app.fishpott.com/api/v1/user/get-final-price";
+	public static final String LINK_GET_FINAL_PRICE_SUMMARY = CURRENT_HTTP_IN_USE + CURRENT_ENVIRONMENT_DOMAIN_IN_USE + "/api/v1/user/get-final-price";
 
 	// UPDATE ORDER STATUS
-	public static final String LINK_UPDATE_ORDER_STATUS = CURRENT_HTTP_IN_USE + "app.fishpott.com/api/v1/user/update-order-payment-status";
+	public static final String LINK_UPDATE_ORDER_STATUS = CURRENT_HTTP_IN_USE + CURRENT_ENVIRONMENT_DOMAIN_IN_USE + "/api/v1/user/update-order-payment-status";
 
 	// SEND WITHDRAWAL REQUEST
-	public static final String LINK_WITHDRAW_FUNDS = CURRENT_HTTP_IN_USE + "app.fishpott.com/api/v1/user/send-withdrawal-request";
+	public static final String LINK_WITHDRAW_FUNDS = CURRENT_HTTP_IN_USE + CURRENT_ENVIRONMENT_DOMAIN_IN_USE + "/api/v1/user/send-withdrawal-request";
 
 	// SERVER-SIDE API FOR TRANSACTIONS
-	public static final String LINK_GET_TRANSACTIONS = CURRENT_HTTP_IN_USE + "app.fishpott.com/api/v1/user/get-my-transactions";
+	public static final String LINK_GET_TRANSACTIONS = CURRENT_HTTP_IN_USE + CURRENT_ENVIRONMENT_DOMAIN_IN_USE + "/api/v1/user/get-my-transactions";
 
 	// SERVER-SIDE API FOR GETTING MY OWNED SHARES
-	public static final String LINK_GET_MY_SHARES = CURRENT_HTTP_IN_USE + "app.fishpott.com/api/v1/user/get-my-investments";
+	public static final String LINK_GET_MY_SHARES = CURRENT_HTTP_IN_USE + CURRENT_ENVIRONMENT_DOMAIN_IN_USE + "/api/v1/user/get-my-investments";
 
 	// SERVER-SIDE API FOR FINDING A BUSINESS
-	public static final String LINK_GET_FIND_BUSINESS = CURRENT_HTTP_IN_USE + "app.fishpott.com/api/v1/user/find-business";
+	public static final String LINK_GET_FIND_BUSINESS = CURRENT_HTTP_IN_USE + CURRENT_ENVIRONMENT_DOMAIN_IN_USE + "/api/v1/user/find-business";
 
 	// SERVER-SIDE API FOR GETTING HOSTED SHARES
-	public static final String LINK_UPDATE_USER_INFO = CURRENT_HTTP_IN_USE + "app.fishpott.com/api/v1/user/get-user-info";
+	public static final String LINK_UPDATE_USER_INFO = CURRENT_HTTP_IN_USE + CURRENT_ENVIRONMENT_DOMAIN_IN_USE + "/api/v1/user/get-user-info";
 
 	// SERVER-SIDE API FOR GETTING MY OWNED SHARES
-	public static final String LINK_TRANSFER_STOCKS = CURRENT_HTTP_IN_USE + "app.fishpott.com/api/v1/user/send-stock-transfer";
+	public static final String LINK_TRANSFER_STOCKS = CURRENT_HTTP_IN_USE + CURRENT_ENVIRONMENT_DOMAIN_IN_USE + "/api/v1/user/send-stock-transfer";
 
 	// SERVER-SIDE API FOR SELLING BACK SHARES
-	public static final String LINK_SELLBACK_STOCKS = CURRENT_HTTP_IN_USE + "app.fishpott.com/api/v1/user/sellback-stock";
+	public static final String LINK_SELLBACK_STOCKS = CURRENT_HTTP_IN_USE + CURRENT_ENVIRONMENT_DOMAIN_IN_USE + "/api/v1/user/sellback-stock";
 
 	/********************************************************************************************************************************************
 
