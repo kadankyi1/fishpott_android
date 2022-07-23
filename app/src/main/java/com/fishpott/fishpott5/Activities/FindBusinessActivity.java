@@ -25,12 +25,11 @@ import com.fishpott.fishpott5.Miscellaneous.LocaleHelper;
 import com.fishpott.fishpott5.R;
 import com.fishpott.fishpott5.Util.MyLifecycleHandler;
 import com.fishpott.fishpott5.Views.CircleImageView;
+import com.potyvideo.library.AndExoPlayerView;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import hb.xvideoplayer.MxVideoPlayer;
-import hb.xvideoplayer.MxVideoPlayerWidget;
 
 public class FindBusinessActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -42,7 +41,7 @@ public class FindBusinessActivity extends AppCompatActivity implements View.OnCl
             mBusinessWebsiteTextView, mBusinessRevenueLastYrTextView, mBusinessDebtTextView, mBusinessInvestmentsInTextView, mSuggestionBusinessFinanceBioTextView,
             mSuggestionBusinessFinanceFullReportTextView;
     private CircleImageView mBusinessLogoCircleImageView;
-    private MxVideoPlayerWidget mBusinessPitchVideoMxVideoPlayerWidget;
+    private AndExoPlayerView mBusinessPitchVideoMxVideoPlayerWidget;
     private ImageView mSuggestionLoaderImageView;
     private Boolean networkRequestStarted = false;
     private Button mSuggestionBusinessBuySharesButton;
@@ -71,7 +70,10 @@ public class FindBusinessActivity extends AppCompatActivity implements View.OnCl
         mSuggestionBusinessNetworthTextView = findViewById(R.id.fragment_suggestion_business_networthvalue_textview);
         mBusinessCountInvestorsTextView = findViewById(R.id.fragment_suggestion_business_investorsvalue_textview);
         mSuggestionBusinessPitchTextView = findViewById(R.id.fragment_suggestion_business_pitchtext_textview);
+
         mBusinessPitchVideoMxVideoPlayerWidget = findViewById(R.id.mpw_video_player);
+
+
         mSuggestionBusinessCEOTextView = findViewById(R.id.fragment_suggestion_business_ceotext_textview);
         mSuggestionBusinessCOOTextView = findViewById(R.id.fragment_suggestion_business_cootext_textview);
         mSuggestionBusinessServicesBioTextView = findViewById(R.id.fragment_suggestion_business_servicetext_textview);
@@ -88,6 +90,12 @@ public class FindBusinessActivity extends AppCompatActivity implements View.OnCl
         mBusinessWebsiteTextView.setOnClickListener(this);
         mSuggestionBusinessFinanceFullReportTextView.setOnClickListener(this);
         mSearchImageView.setOnClickListener(this);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        mBusinessPitchVideoMxVideoPlayerWidget.pausePlayer();
     }
 
     @Override
@@ -236,16 +244,18 @@ public class FindBusinessActivity extends AppCompatActivity implements View.OnCl
                                         mSuggestionBusinessNetworthTextView.setText(finalBusinessNetworth);
                                         mBusinessCountInvestorsTextView.setText(finalBusinessCountInvestors);
                                         mSuggestionBusinessPitchTextView.setText(finalBusinessPitch);
-                                        mBusinessPitchVideoMxVideoPlayerWidget.startPlay(finalBusinessPitchVideo, MxVideoPlayer.SCREEN_LAYOUT_NORMAL, "");
+
+                                        mBusinessPitchVideoMxVideoPlayerWidget.setSource(finalBusinessPitchVideo);
+
                                         mSuggestionBusinessCEOTextView.setText(finalBusinessCEO);
                                         mSuggestionBusinessCOOTextView.setText(finalBusinessCOO);
                                         mSuggestionBusinessServicesBioTextView.setText(finalBusinessServicesBio);
-                                        mBusinessWebsiteTextView.setText(finalBusinessServicesWebsite);
+                                        //mBusinessWebsiteTextView.setText(finalBusinessServicesWebsite);
                                         mBusinessRevenueLastYrTextView.setText(finalBusinessLastYrRevenue);
                                         mBusinessDebtTextView.setText(finalBusinessProfitOrLoss);
                                         mBusinessInvestmentsInTextView.setText(finalBusinessInvestments);
                                         mSuggestionBusinessFinanceBioTextView.setText(finalBusinessFinanceBio);
-                                        mSuggestionBusinessFinanceFullReportTextView.setText(finalBusinessFinanceFullReport);
+                                        //mSuggestionBusinessFinanceFullReportTextView.setText(finalBusinessFinanceFullReport);
                                         mSuggestionLoaderImageView.clearAnimation();
                                         mSuggestionLoaderImageView.setVisibility(View.INVISIBLE);
                                         mSuggestionLoaderTextTextView.setVisibility(View.INVISIBLE);

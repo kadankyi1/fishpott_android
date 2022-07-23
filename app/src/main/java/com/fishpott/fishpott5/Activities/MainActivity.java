@@ -53,7 +53,6 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-import hb.xvideoplayer.MxVideoPlayer;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, View.OnLongClickListener, NewsFeedFragment.OnFragmentInteractionListener {
     private TextView mSearchTextTextView;
@@ -512,9 +511,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onBackPressed() {
-        if (MxVideoPlayer.backPress()) {
-            return;
-        }
+        //super.onBackPressed();
         //GETTING THE FRAGMENT MANAGER OF ALL FRAGMENTS OPEN ON THE MAIN ACTIVITY
         int count = getSupportFragmentManager().getBackStackEntryCount();
         if(count == 0){

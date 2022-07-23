@@ -16,6 +16,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.VideoView;
 
 import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.common.Priority;
@@ -35,12 +36,11 @@ import com.fishpott.fishpott5.Miscellaneous.LocaleHelper;
 import com.fishpott.fishpott5.R;
 import com.fishpott.fishpott5.Util.MyLifecycleHandler;
 import com.fishpott.fishpott5.Views.CircleImageView;
+import com.potyvideo.library.AndExoPlayerView;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import hb.xvideoplayer.MxVideoPlayer;
-import hb.xvideoplayer.MxVideoPlayerWidget;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -56,7 +56,7 @@ public class SuggestionFragment extends Fragment implements View.OnClickListener
             mSuggestionBusinessFinanceFullReportTextView, mAnswer1CountTextView, mAnswer2CountTextView, mAnswer3CountTextView, mAnswer4CountTextView,
             mAnswer1TextView, mAnswer2TextView, mAnswer3TextView, mAnswer4TextView, mNextDrillTextView, mFindcodeTextView;
     private CircleImageView mBusinessLogoCircleImageView;
-    private MxVideoPlayerWidget mBusinessPitchVideoMxVideoPlayerWidget;
+    private AndExoPlayerView mBusinessPitchVideoMxVideoPlayerWidget;
     private Button mAnswer1Button, mAnswer2Button, mAnswer3Button, mAnswer4Button;
     private ImageView mSuggestionLoaderImageView;
     private Boolean networkRequestStarted = false;
@@ -116,7 +116,9 @@ public class SuggestionFragment extends Fragment implements View.OnClickListener
         mSuggestionBusinessNetworthTextView = view.findViewById(R.id.fragment_suggestion_business_networthvalue_textview);
         mBusinessCountInvestorsTextView = view.findViewById(R.id.fragment_suggestion_business_investorsvalue_textview);
         mSuggestionBusinessPitchTextView = view.findViewById(R.id.fragment_suggestion_business_pitchtext_textview);
+
         mBusinessPitchVideoMxVideoPlayerWidget = view.findViewById(R.id.mpw_video_player);
+
         mSuggestionBusinessCEOTextView = view.findViewById(R.id.fragment_suggestion_business_ceotext_textview);
         mSuggestionBusinessCOOTextView = view.findViewById(R.id.fragment_suggestion_business_cootext_textview);
         mSuggestionBusinessServicesBioTextView = view.findViewById(R.id.fragment_suggestion_business_servicetext_textview);
@@ -141,7 +143,16 @@ public class SuggestionFragment extends Fragment implements View.OnClickListener
         return view;
     }
 
+    @Override
+    public void onPause() {
+        super.onPause();
+        mBusinessPitchVideoMxVideoPlayerWidget.pausePlayer();
+    }
 
+    @Override
+    public void onStop() {
+        super.onStop();
+    }
 
     @Override
     public void onClick(final View v) {
@@ -343,7 +354,9 @@ public class SuggestionFragment extends Fragment implements View.OnClickListener
                                             mSuggestionBusinessNetworthTextView.setText(finalBusinessNetworth);
                                             mBusinessCountInvestorsTextView.setText(finalBusinessCountInvestors);
                                             mSuggestionBusinessPitchTextView.setText(finalBusinessPitch);
-                                            mBusinessPitchVideoMxVideoPlayerWidget.startPlay(finalBusinessPitchVideo, MxVideoPlayer.SCREEN_LAYOUT_NORMAL, "");
+
+                                            mBusinessPitchVideoMxVideoPlayerWidget.setSource(finalBusinessPitchVideo);
+
                                             mSuggestionBusinessCEOTextView.setText(finalBusinessCEO);
                                             mSuggestionBusinessCOOTextView.setText(finalBusinessCOO);
                                             mSuggestionBusinessServicesBioTextView.setText(finalBusinessServicesBio);

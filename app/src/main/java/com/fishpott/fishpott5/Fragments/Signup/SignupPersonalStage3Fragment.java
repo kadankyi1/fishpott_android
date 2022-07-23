@@ -380,8 +380,8 @@ public class SignupPersonalStage3Fragment extends Fragment implements View.OnCli
                 .setPriority(Priority.MEDIUM)
                 .build().getAsString(new StringRequestListener() {
             @Override public void onResponse(String response) {
+                Log.e("PSignup", response);
                 try {
-                    Log.e("PSignup", response);
                     JSONObject o = new JSONObject(response);
                     String myStatus = o.getString("status");
                     final String myStatusMessage = o.getString("message");
@@ -475,6 +475,7 @@ public class SignupPersonalStage3Fragment extends Fragment implements View.OnCli
 
             @Override
             public void onError(ANError anError) {
+                Log.e("PSignup", anError.getErrorBody());
 
                 if (MyLifecycleHandler.isApplicationInForeground()) {
                     new Handler(Looper.getMainLooper()).post(new Runnable() {

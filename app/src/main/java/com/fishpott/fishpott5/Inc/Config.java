@@ -142,8 +142,8 @@ public class Config {
 	public static final String CURRENT_HTTP_IN_USE = "https://";
 
 	// LIVE OR TEST ENVIRONMENT
-	public static final String CURRENT_ENVIRONMENT_DOMAIN_IN_USE = "app.fishpott.com"; // LIVE
-	//public static final String CURRENT_ENVIRONMENT_DOMAIN_IN_USE = "test.fishpott.com"; // TEST
+	public static final String CURRENT_ENVIRONMENT_DOMAIN_IN_USE = "test.fishpott.com"; // TEST
+	//public static final String CURRENT_ENVIRONMENT_DOMAIN_IN_USE = "app.fishpott.com"; // LIVE
 
 	// FP ID
 	public static final String FP_ID = "_r_030250308659e9029382af83.46926837";

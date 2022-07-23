@@ -107,6 +107,7 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".Activities.MainActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:screenOrientation="portrait" />
         <activity
             android:name=".Activities.SliderActivity"

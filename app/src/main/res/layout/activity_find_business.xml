@@ -463,12 +463,15 @@
                             app:layout_constraintTop_toBottomOf="@+id/fragment_suggestion_business_pitchseparator_view"
                             app:layout_constraintVertical_bias="0.0" />
 
-                        <hb.xvideoplayer.MxVideoPlayerWidget
+                         <com.potyvideo.library.AndExoPlayerView
                             android:id="@+id/mpw_video_player"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:background="@color/colorPrimaryDark"
                             android:elevation="3dp"
+                            app:andexo_full_screen="false"
+                            app:andexo_play_when_ready="false"
+                            app:andexo_show_controller="true"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
@@ -570,7 +573,7 @@
                             android:layout_marginEnd="25dp"
                             android:fontFamily="@font/roboto"
                             android:gravity="start"
-                            android:text="fishpott.com"
+                            android:text="Click here to view business website"
                             android:textColor="@color/colorAccentAsh"
                             android:textSize="15sp"
                             android:textStyle="italic"
@@ -827,7 +830,7 @@
                             android:layout_margin="25dp"
                             android:fontFamily="@font/roboto"
                             android:gravity="start"
-                            android:text="Click here to download a detailed financial report"
+                            android:text="Click here to view a detailed financial report"
                             android:textColor="@color/colorAccentAsh"
                             android:textSize="15sp"
                             android:textStyle="italic"
