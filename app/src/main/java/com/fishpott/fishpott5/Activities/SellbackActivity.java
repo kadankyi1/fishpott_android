@@ -99,6 +99,7 @@ public class SellbackActivity extends AppCompatActivity implements View.OnClickL
                     @Override
                     public void run() {
                         getMyShares(getApplicationContext());
+                        mReloadSharesSwipeRefreshLayout.setRefreshing(false);
                     }
                 });
                 transferThread.start();
@@ -210,7 +211,7 @@ public class SellbackActivity extends AppCompatActivity implements View.OnClickL
                         Double payOut = mySellQuantityInt * selectedSharesMaxPrice;
                         String payOutString = localCurrencySign + String.valueOf(payOut);
 
-                        mTransferInfoTextView.setText("You are selling back " + mySellQuantityString + " " + selectedSharesName + ". You will be paid back " + payOutString + ". Please note that this amount is subject to change and you will be notified before processing if that happens. If you agree with the trade, simply type in your password and click sellback.");
+                        mTransferInfoTextView.setText("You will be paid " + payOutString + ". Please note that this amount may change and you will be notified first.");
                     } else {
                         mTransferInfoTextView.setText("");
                         Config.showToastType1(SellbackActivity.this, "This business is currently not buying back shares. You will be notified when they are ready");
