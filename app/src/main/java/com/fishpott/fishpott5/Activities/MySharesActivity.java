@@ -126,7 +126,7 @@ public class MySharesActivity extends AppCompatActivity implements View.OnClickL
 
     @Override
     public void onClick(View view) {
-        if(view.getId() == R.id.title_bar_back_icon_imageview){
+        if(view.getId() == mBackImageView.getId()){
             onBackPressed();
         }
     }
@@ -277,6 +277,8 @@ public class MySharesActivity extends AppCompatActivity implements View.OnClickL
                 REQUEST_HAS_STARTED =  true;
                 mReloadFreshImageView.setVisibility(View.INVISIBLE);
                 mLoadingProgressBar.setVisibility(View.VISIBLE);
+                MySharesViewingListDataGenerator.getAllData().clear();
+                mRecyclerView.getAdapter().notifyDataSetChanged();
             }
         }); //END OF HANDLER-1-TO-MAIN-THREAD
 

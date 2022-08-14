@@ -250,7 +250,7 @@ public class FindBusinessActivity extends AppCompatActivity implements View.OnCl
                                         mSuggestionBusinessCEOTextView.setText(finalBusinessCEO);
                                         mSuggestionBusinessCOOTextView.setText(finalBusinessCOO);
                                         mSuggestionBusinessServicesBioTextView.setText(finalBusinessServicesBio);
-                                        //mBusinessWebsiteTextView.setText(finalBusinessServicesWebsite);
+                                        //mBusinessWebsiteTextView.setText(finalBusinessServicesWebsite); 20220718-064244
                                         mBusinessRevenueLastYrTextView.setText(finalBusinessLastYrRevenue);
                                         mBusinessDebtTextView.setText(finalBusinessProfitOrLoss);
                                         mBusinessInvestmentsInTextView.setText(finalBusinessInvestments);

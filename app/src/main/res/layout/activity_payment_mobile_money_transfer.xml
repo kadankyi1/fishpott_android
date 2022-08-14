@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorAccent"
-    tools:context="com.fishpott.fishpott5.Activities.MobileMoneyActivity">
+    tools:context="com.fishpott.fishpott5.Activities.PaymentMobileMoneyTransferActivity">
 
      <androidx.constraintlayout.widget.Guideline
         android:id="@+id/title_bar_guideline_h_1"
@@ -138,7 +138,7 @@
              android:layout_height="wrap_content"
              android:layout_marginStart="8dp"
              android:layout_marginEnd="8dp"
-             android:text="Phone Number"
+             android:text="Mobile Money Number: "
              android:textAlignment="textStart"
              android:textColor="@color/colorYardsale"
              android:textSize="14sp"
@@ -152,23 +152,24 @@
              app:layout_constraintVertical_chainStyle="packed" />
 
          <TextView
-            android:id="@+id/receiving_phone_number_acc_name_textview"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:textColor="@color/colorYardsale"
-            android:text="Account Name"
-            android:textAlignment="textStart"
-            android:textSize="14sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/fill_form_info_textview"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/receiving_phone_number_textview"
-            app:layout_constraintVertical_bias="0.13"
-            app:layout_constraintVertical_chainStyle="packed"
-            />
+             android:id="@+id/receiving_phone_number_acc_name_textview"
+             android:layout_width="0dp"
+             android:layout_height="wrap_content"
+             android:layout_marginEnd="8dp"
+             android:layout_marginStart="8dp"
+             android:textColor="@color/colorYardsale"
+             android:text="Account Name: "
+             android:textAlignment="textStart"
+             android:textSize="14sp"
+             android:textStyle="bold"
+             app:layout_constraintBottom_toTopOf="@+id/fill_form_info_textview"
+             app:layout_constraintEnd_toEndOf="parent"
+             app:layout_constraintStart_toStartOf="parent"
+             app:layout_constraintTop_toBottomOf="@+id/receiving_phone_number_textview"
+             app:layout_constraintVertical_bias="0.13"
+             app:layout_constraintVertical_chainStyle="packed"
+             />
+
 
         <TextView
             android:id="@+id/fill_form_info_textview"

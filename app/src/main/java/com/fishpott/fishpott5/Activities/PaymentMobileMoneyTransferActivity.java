@@ -23,17 +23,14 @@ import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.common.Priority;
 import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.StringRequestListener;
-import com.fishpott.fishpott5.Fragments.SettingsFragment;
 import com.fishpott.fishpott5.Inc.Config;
 import com.fishpott.fishpott5.Miscellaneous.LocaleHelper;
 import com.fishpott.fishpott5.R;
-import com.fishpott.fishpott5.Util.MyLifecycleHandler;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class MobileMoneyActivity extends AppCompatActivity implements View.OnClickListener {
+public class PaymentMobileMoneyTransferActivity extends AppCompatActivity implements View.OnClickListener {
 
     private ImageView mBackImageView;
     private ProgressBar mLoadingProgressBar;
@@ -58,7 +55,7 @@ public class MobileMoneyActivity extends AppCompatActivity implements View.OnCli
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_mobile_money);
+        setContentView(R.layout.activity_payment_mobile_money_transfer);
 
         if(getIntent().getExtras() != null) {
             String[] info = (String[]) getIntent().getExtras().get("ORDER_DETAILS");
@@ -133,14 +130,14 @@ public class MobileMoneyActivity extends AppCompatActivity implements View.OnCli
             finish();
         }
 
-        mTitleTextView.setText("Send the full payment of " + amountCedis + " to the Mobile Money account below");
+        mTitleTextView.setText("Send the full payment of " + amountCedis + " to the Account below");
         mReceivingPhoneNumberTextView.setText(getResources().getString(R.string.phone_number) + " " + momoNumber);
         mReceivingAccNameTextView.setText(getResources().getString(R.string.phone_name) + " " + momoName);
 
         cancelListenerActive1 = new DialogInterface.OnCancelListener() {
             @Override
             public void onCancel(DialogInterface dialog) {
-                Config.openActivity(MobileMoneyActivity.this, TransactionsActivity.class, 1, 1, 0, "", "");
+                Config.openActivity(PaymentMobileMoneyTransferActivity.this, TransactionsActivity.class, 1, 1, 0, "", "");
             }
         };
 
@@ -149,7 +146,7 @@ public class MobileMoneyActivity extends AppCompatActivity implements View.OnCli
             @Override
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                 mDateYearTextView.setText(String.valueOf(year));
-                mDateMonthTextView.setText(Config.getMonthNameFromMonthNumber(MobileMoneyActivity.this, month, 2));
+                mDateMonthTextView.setText(Config.getMonthNameFromMonthNumber(PaymentMobileMoneyTransferActivity.this, month, 2));
                 mDateDayTextView.setText(String.valueOf(dayOfMonth));
                 presetDateDay = dayOfMonth;
                 presetDateMonth = month;
@@ -172,7 +169,7 @@ public class MobileMoneyActivity extends AppCompatActivity implements View.OnCli
         } else if (view.getId() == R.id.date_year_textview
                 || view.getId() == R.id.date_month_textview
                 || view.getId() == R.id.date_day_textview) {
-            mDateSetListener = Config.openDatePickerDialog(MobileMoneyActivity.this, mDateSetListener, true, presetDateDay, presetDateMonth, presetDateYear);
+            mDateSetListener = Config.openDatePickerDialog(PaymentMobileMoneyTransferActivity.this, mDateSetListener, true, presetDateDay, presetDateMonth, presetDateYear);
         } else if(view.getId() == R.id.request_button){
             if(!dob.trim().equalsIgnoreCase("")
                     && !mTransactionIdEditText.getText().toString().trim().equalsIgnoreCase("")){
@@ -188,7 +185,7 @@ public class MobileMoneyActivity extends AppCompatActivity implements View.OnCli
                 });
                 networkRequestThread.start();
             } else {
-                Config.showToastType1(MobileMoneyActivity.this, getString(R.string.the_form_is_incomplete));
+                Config.showToastType1(PaymentMobileMoneyTransferActivity.this, getString(R.string.the_form_is_incomplete));
             }
         }
     }
@@ -209,7 +206,7 @@ public class MobileMoneyActivity extends AppCompatActivity implements View.OnCli
         mDateDayTextView = findViewById(R.id.date_day_textview);
         mSendButton = findViewById(R.id.request_button);
         if(!networkResponse.trim().equalsIgnoreCase("")){
-            Config.showDialogType1(MobileMoneyActivity.this, "1", networkResponse, "", null, false, "", "");
+            Config.showDialogType1(PaymentMobileMoneyTransferActivity.this, "1", networkResponse, "", null, false, "", "");
             mLoadingProgressBar.setVisibility(View.INVISIBLE);
             mContentHolderConstraintLayout.setVisibility(View.VISIBLE);
             networkResponse = "";
@@ -281,7 +278,7 @@ public class MobileMoneyActivity extends AppCompatActivity implements View.OnCli
                 mContentHolderConstraintLayout.setVisibility(View.INVISIBLE);
                 mLoaderImageView.setVisibility(View.VISIBLE);
                 mLoaderTextView.setVisibility(View.VISIBLE);
-                mLoaderImageView.startAnimation(AnimationUtils.loadAnimation(MobileMoneyActivity.this, R.anim.suggestion_loading_anim));
+                mLoaderImageView.startAnimation(AnimationUtils.loadAnimation(PaymentMobileMoneyTransferActivity.this, R.anim.suggestion_loading_anim));
             }
         });
         Log.e("getFinalPriceSummary", "thisOrderID: " + thisOrderID);
@@ -289,13 +286,13 @@ public class MobileMoneyActivity extends AppCompatActivity implements View.OnCli
 
         AndroidNetworking.post(Config.LINK_UPDATE_ORDER_STATUS)
                 .addHeaders("Accept", "application/json")
-                .addHeaders("Authorization", "Bearer " + Config.getSharedPreferenceString(MobileMoneyActivity.this, Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_PASSWORD_ACCESS_TOKEN))
-                .addBodyParameter("user_phone_number", Config.getSharedPreferenceString(MobileMoneyActivity.this, Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_PHONE))
-                .addBodyParameter("user_pottname", Config.getSharedPreferenceString(MobileMoneyActivity.this, Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_POTT_NAME))
-                .addBodyParameter("investor_id", Config.getSharedPreferenceString(MobileMoneyActivity.this, Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_ID))
-                .addBodyParameter("user_language", LocaleHelper.getLanguage(MobileMoneyActivity.this))
+                .addHeaders("Authorization", "Bearer " + Config.getSharedPreferenceString(PaymentMobileMoneyTransferActivity.this, Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_PASSWORD_ACCESS_TOKEN))
+                .addBodyParameter("user_phone_number", Config.getSharedPreferenceString(PaymentMobileMoneyTransferActivity.this, Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_PHONE))
+                .addBodyParameter("user_pottname", Config.getSharedPreferenceString(PaymentMobileMoneyTransferActivity.this, Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_POTT_NAME))
+                .addBodyParameter("investor_id", Config.getSharedPreferenceString(PaymentMobileMoneyTransferActivity.this, Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_ID))
+                .addBodyParameter("user_language", LocaleHelper.getLanguage(PaymentMobileMoneyTransferActivity.this))
                 .addBodyParameter("app_type", "ANDROID")
-                .addBodyParameter("app_version_code", String.valueOf(Config.getAppVersionCode(MobileMoneyActivity.this.getApplicationContext())))
+                .addBodyParameter("app_version_code", String.valueOf(Config.getAppVersionCode(PaymentMobileMoneyTransferActivity.this.getApplicationContext())))
                 .addBodyParameter("item_type", thisPaymentType)
                 .addBodyParameter("item_id", thisOrderID)
                 .addBodyParameter("payment_gateway_status", "1")
@@ -314,19 +311,19 @@ public class MobileMoneyActivity extends AppCompatActivity implements View.OnCli
                     final String myStatusMessage = o.getString("message");
 
                     //STORING THE USER DATA
-                    Config.setSharedPreferenceBoolean(MobileMoneyActivity.this, Config.SHARED_PREF_KEY_USER_VERIFY_PHONE_NUMBER_IS_ON, o.getBoolean("phone_verification_is_on"));
+                    Config.setSharedPreferenceBoolean(PaymentMobileMoneyTransferActivity.this, Config.SHARED_PREF_KEY_USER_VERIFY_PHONE_NUMBER_IS_ON, o.getBoolean("phone_verification_is_on"));
 
                     // UPDATING THE VERSION CODE AND FORCE STATUS OF THE APP.
-                    Config.setSharedPreferenceBoolean(MobileMoneyActivity.this, Config.SHARED_PREF_KEY_UPDATE_ACTIVITY_UPDATE_BY_FORCE, o.getBoolean("user_android_app_force_update"));
-                    Config.setSharedPreferenceInt(MobileMoneyActivity.this, Config.SHARED_PREF_KEY_UPDATE_ACTIVITY_UPDATE_VERSION_CODE, o.getInt("user_android_app_max_vc"));
+                    Config.setSharedPreferenceBoolean(PaymentMobileMoneyTransferActivity.this, Config.SHARED_PREF_KEY_UPDATE_ACTIVITY_UPDATE_BY_FORCE, o.getBoolean("user_android_app_force_update"));
+                    Config.setSharedPreferenceInt(PaymentMobileMoneyTransferActivity.this, Config.SHARED_PREF_KEY_UPDATE_ACTIVITY_UPDATE_VERSION_CODE, o.getInt("user_android_app_max_vc"));
 
                     if(myStatus == 1){
 
-                        if(!MobileMoneyActivity.this.isFinishing()){
+                        if(!PaymentMobileMoneyTransferActivity.this.isFinishing()){
                             new Handler(Looper.getMainLooper()).post(new Runnable() {
                                 @Override
                                 public void run() {
-                                    cancelListenerActive1 = Config.showDialogType1(MobileMoneyActivity.this, "", "Payment successful. Your order is under review. Please record this transaction ID : " + thisOrderID, "show-positive-image", cancelListenerActive1, true, getString(R.string.setprofilepicture_activity_okay), "");
+                                    cancelListenerActive1 = Config.showDialogType1(PaymentMobileMoneyTransferActivity.this, "", "Payment successful. Your order is under review. Please record this transaction ID : " + thisOrderID, "show-positive-image", cancelListenerActive1, true, getString(R.string.setprofilepicture_activity_okay), "");
 
 
                                     /*
@@ -341,8 +338,8 @@ public class MobileMoneyActivity extends AppCompatActivity implements View.OnCli
                         }
                     } else if(myStatus == 2){
                         // IF USER'S APP IS OUTDATED AND NOT ALLOWED TO BE USED
-                        Config.setSharedPreferenceBoolean(MobileMoneyActivity.this, Config.SHARED_PREF_KEY_UPDATE_ACTIVITY_UPDATE_BY_FORCE, true);
-                        Config.openActivity3(MobileMoneyActivity.this, UpdateActivity.class, 1, Config.KEY_ACTIVITY_FINISHED, "1");
+                        Config.setSharedPreferenceBoolean(PaymentMobileMoneyTransferActivity.this, Config.SHARED_PREF_KEY_UPDATE_ACTIVITY_UPDATE_BY_FORCE, true);
+                        Config.openActivity3(PaymentMobileMoneyTransferActivity.this, UpdateActivity.class, 1, Config.KEY_ACTIVITY_FINISHED, "1");
                         return;
                     } else if(myStatus == 3){
                         // GENERAL ERROR
@@ -351,12 +348,12 @@ public class MobileMoneyActivity extends AppCompatActivity implements View.OnCli
                         mLoaderTextView.setVisibility(View.VISIBLE);
                         mLoaderTextView.setText("Click icon to retry payment recording...");
                         mContentHolderConstraintLayout.setVisibility(View.INVISIBLE);
-                        Config.showToastType1(MobileMoneyActivity.this, myStatusMessage);
+                        Config.showToastType1(PaymentMobileMoneyTransferActivity.this, myStatusMessage);
                         return;
                     } else if(myStatus == 4){
                         // IF USER'S ACCOUNT HAS BEEN SUSPENDED, WE SIGN USER OUT
-                        Config.showToastType1(MobileMoneyActivity.this, myStatusMessage);
-                        Config.signOutUser(MobileMoneyActivity.this.getApplicationContext(), true, MobileMoneyActivity.this, StartActivity.class, 0, 2);
+                        Config.showToastType1(PaymentMobileMoneyTransferActivity.this, myStatusMessage);
+                        Config.signOutUser(PaymentMobileMoneyTransferActivity.this.getApplicationContext(), true, PaymentMobileMoneyTransferActivity.this, StartActivity.class, 0, 2);
                     } else if(myStatus == 5){
                         Config.setSharedPreferenceBoolean(getApplicationContext(), Config.SHARED_PREF_KEY_UPDATE_ACTIVITY_UPDATE_BY_FORCE, true);
                         Config.openActivity3(getApplicationContext(), UpdateActivity.class, 1, Config.KEY_ACTIVITY_FINISHED, "1");
@@ -364,8 +361,8 @@ public class MobileMoneyActivity extends AppCompatActivity implements View.OnCli
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
-                    Config.showToastType1(MobileMoneyActivity.this, getString(R.string.failed_if_this_continues_please_update_your_app));
-                    if(!MobileMoneyActivity.this.isFinishing()){
+                    Config.showToastType1(PaymentMobileMoneyTransferActivity.this, getString(R.string.failed_if_this_continues_please_update_your_app));
+                    if(!PaymentMobileMoneyTransferActivity.this.isFinishing()){
                         mLoaderImageView.clearAnimation();
                         mLoaderImageView.setVisibility(View.VISIBLE);
                         mLoaderTextView.setVisibility(View.VISIBLE);
@@ -378,8 +375,8 @@ public class MobileMoneyActivity extends AppCompatActivity implements View.OnCli
             @Override
             public void onError(ANError anError) {
                 networkRequestStarted = false;
-                Config.showToastType1(MobileMoneyActivity.this, getString(R.string.failed_check_your_internet_and_try_again));
-                if(!MobileMoneyActivity.this.isFinishing()){
+                Config.showToastType1(PaymentMobileMoneyTransferActivity.this, getString(R.string.failed_check_your_internet_and_try_again));
+                if(!PaymentMobileMoneyTransferActivity.this.isFinishing()){
                     mLoaderImageView.clearAnimation();
                     mLoaderImageView.setVisibility(View.VISIBLE);
                     mLoaderTextView.setVisibility(View.VISIBLE);
@@ -446,13 +443,13 @@ public class MobileMoneyActivity extends AppCompatActivity implements View.OnCli
 
                         // GENERAL ERROR
                         if(myStatus == 3 || myStatus == 5){
-                            Config.showToastType1(MobileMoneyActivity.this, statusMsg);
+                            Config.showToastType1(PaymentMobileMoneyTransferActivity.this, statusMsg);
                             return;
                         }
 
                         // IF USER'S ACCOUNT HAS BEEN SUSPENDED, WE SIGN USER OUT
                         if(myStatus == 4){
-                            Config.showToastType1(MobileMoneyActivity.this, statusMsg);
+                            Config.showToastType1(PaymentMobileMoneyTransferActivity.this, statusMsg);
                             Config.signOutUser(getApplicationContext(), false, null, null, 0, 2);
                         }
 
@@ -471,7 +468,7 @@ public class MobileMoneyActivity extends AppCompatActivity implements View.OnCli
                                     @Override
                                     public void run() {
                                         try {
-                                            Config.showDialogType1(MobileMoneyActivity.this, "1", statusMsg, "", null, true, getString(R.string.setprofilepicture_activity_okay), "");
+                                            Config.showDialogType1(PaymentMobileMoneyTransferActivity.this, "1", statusMsg, "", null, true, getString(R.string.setprofilepicture_activity_okay), "");
                                             mTransactionIdEditText.setText("");
                                             mSenderNameEditText.setText("");
                                             mAmountSentEditText.setText("");
@@ -485,7 +482,7 @@ public class MobileMoneyActivity extends AppCompatActivity implements View.OnCli
 
                                         } catch (JSONException e) {
                                             e.printStackTrace();
-                                            Config.showToastType1(MobileMoneyActivity.this, getString(R.string.an_error_occurred));
+                                            Config.showToastType1(PaymentMobileMoneyTransferActivity.this, getString(R.string.an_error_occurred));
                                         }
                                     }
                                 });
@@ -501,7 +498,7 @@ public class MobileMoneyActivity extends AppCompatActivity implements View.OnCli
                             new Handler(Looper.getMainLooper()).post(new Runnable() {
                                 @Override
                                 public void run() {
-                                    Config.showToastType1(MobileMoneyActivity.this, getString(R.string.an_error_occurred));
+                                    Config.showToastType1(PaymentMobileMoneyTransferActivity.this, getString(R.string.an_error_occurred));
                                     mLoadingProgressBar.setVisibility(View.INVISIBLE);
                                     mContentHolderConstraintLayout.setVisibility(View.VISIBLE);
                                 }
@@ -518,7 +515,7 @@ public class MobileMoneyActivity extends AppCompatActivity implements View.OnCli
                         new Handler(Looper.getMainLooper()).post(new Runnable() {
                             @Override
                             public void run() {
-                                Config.showToastType1(MobileMoneyActivity.this, getString(R.string.login_activity_check_your_internet_connection_and_try_again));
+                                Config.showToastType1(PaymentMobileMoneyTransferActivity.this, getString(R.string.login_activity_check_your_internet_connection_and_try_again));
                                 mLoadingProgressBar.setVisibility(View.INVISIBLE);
                                 mContentHolderConstraintLayout.setVisibility(View.VISIBLE);
                             }

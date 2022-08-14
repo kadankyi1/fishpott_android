@@ -1,7 +1,6 @@
 package com.fishpott.fishpott5.Activities;
 
 import android.app.Dialog;
-import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
 import com.google.android.material.textfield.TextInputLayout;
@@ -24,7 +23,6 @@ import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.StringRequestListener;
 import com.fishpott.fishpott5.Inc.Config;
 import com.fishpott.fishpott5.Miscellaneous.LocaleHelper;
-import com.fishpott.fishpott5.Util.MyLifecycleHandler;
 import com.fishpott.fishpott5.Views.CircleImageView;
 
 import com.fishpott.fishpott5.R;
@@ -39,7 +37,9 @@ public class BuyBusinessStockSuggestedActivity extends AppCompatActivity impleme
 
     private String suggestionBusinessID = "", shareLogo = "", shareParentID = "", shareName = "", shareQuantity = "",
             receiverPottName = "", finalRiskType = "", finalQuantity = "", finalPassword = "", networkResponse = "",
-            orderID = "", amountCedis = "", amountDollars = "", paymentGatewayCurrency = "", momoNum = "", momoName = "";
+            orderID = "", amountCedis = "", amountDollars = "", paymentGatewayCurrency = "", momoNum = "", momoName = "",
+            bankName = "", bankAddress = "", bankSwiftIban = "", bankBranch = "", bankAccountName = "", bankAccountNumber = "", paymentChannel = "";
+
     private int shareQuantityInt = 0, selectedRiskIndex = 0, finalPurchaseStatus = 0, paymentGatewayAmount = 0;
     private ImageView mBackImageView, mLoaderImageView;
     private ScrollView mItemHolderScrollView, mFinalHolderScrollView;
@@ -83,13 +83,13 @@ public class BuyBusinessStockSuggestedActivity extends AppCompatActivity impleme
         }
 
         sharesNamesStringArrayList.add(getResources().getString(R.string.choose_risk_protection));
-        sharesNamesStringArrayList.add(getString(R.string._100_risk_protection));
-        sharesNamesStringArrayList.add(getString(R.string._50_risk_protection));
+        //sharesNamesStringArrayList.add(getString(R.string._100_risk_protection));
+        //sharesNamesStringArrayList.add(getString(R.string._50_risk_protection));
         sharesNamesStringArrayList.add(getString(R.string._no_risk_protection));
         riskNames = new String[]{
                 getResources().getString(R.string.choose_risk_protection),
-                getResources().getString(R.string._100_risk_protection),
-                getResources().getString(R.string._50_risk_protection),
+                //getResources().getString(R.string._100_risk_protection),
+                //getResources().getString(R.string._50_risk_protection),
                 getResources().getString(R.string._no_risk_protection)
         };
 
@@ -167,7 +167,7 @@ public class BuyBusinessStockSuggestedActivity extends AppCompatActivity impleme
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    getFinalInvestmentPriceSummary(suggestionBusinessID, mHowMuchToInvestEditText.getText().toString(), finalRiskType);
+                    getFinalInvestmentPriceSummary(suggestionBusinessID, mHowMuchToInvestEditText.getText().toString(), "3");
                 }
             }, 5000);
         } else if (view.getId() == mBackImageView.getId()) {
@@ -196,17 +196,20 @@ public class BuyBusinessStockSuggestedActivity extends AppCompatActivity impleme
                             && !amountCedis.trim().equalsIgnoreCase("")
                             && !amountDollars.trim().equalsIgnoreCase("")
                             && !paymentGatewayCurrency.trim().equalsIgnoreCase("")
-                            && !momoNum.trim().equalsIgnoreCase("")
-                            && !momoName.trim().equalsIgnoreCase("")
                             && paymentGatewayAmount > 0
             ){
-                String[] orderDetails = {orderID, shareName, shareQuantity, "Buying", amountCedis, amountDollars, paymentGatewayCurrency, String.valueOf(paymentGatewayAmount), "stockpurchase", momoNum, momoName};
-                //Config.openActivity4(BuyBusinessStockSuggestedActivity.this, ProcessPaymentActvity.class, 1, 1, 1, "ORDER_DETAILS", orderDetails);
-                Config.openActivity4(BuyBusinessStockSuggestedActivity.this, MobileMoneyActivity.class, 1, 1, 1, "ORDER_DETAILS", orderDetails);
+                if(paymentChannel.equalsIgnoreCase("Momo")){
+                    String[] orderDetails = {orderID, shareName, shareQuantity, "Buying", amountCedis, amountDollars, paymentGatewayCurrency, String.valueOf(paymentGatewayAmount), "stockpurchase", momoNum, momoName};
+                    //Config.openActivity4(BuyBusinessStockSuggestedActivity.this, ProcessPaymentActvity.class, 1, 1, 1, "ORDER_DETAILS", orderDetails);
+                    Config.openActivity4(BuyBusinessStockSuggestedActivity.this, PaymentMobileMoneyTransferActivity.class, 1, 1, 1, "ORDER_DETAILS", orderDetails);
+                } else {
+                    String[] orderDetails = {orderID, shareName, shareQuantity, "Buying", amountCedis, amountDollars, paymentGatewayCurrency, String.valueOf(paymentGatewayAmount), "stockpurchase", bankName, bankAddress, bankSwiftIban, bankBranch, bankAccountName, bankAccountNumber};
+                    //Config.openActivity4(BuyBusinessStockSuggestedActivity.this, ProcessPaymentActvity.class, 1, 1, 1, "ORDER_DETAILS", orderDetails);
+                    Config.openActivity4(BuyBusinessStockSuggestedActivity.this, PaymentBankTransferActivity.class, 1, 1, 1, "ORDER_DETAILS", orderDetails);
+                }
             } else {
                 Config.showToastType1(BuyBusinessStockSuggestedActivity.this, "Order error. Please go back and restart the process");
             }
-            //Config.openActivity(BuyBusinessStockSuggestedActivity.this, ProcessPaymentActvity.class, 1, 0, 0, "", "");
         }
     }
 
@@ -268,8 +271,18 @@ public class BuyBusinessStockSuggestedActivity extends AppCompatActivity impleme
                         orderID = o.getJSONObject("data").getString("order_id");
                         paymentGatewayCurrency = o.getJSONObject("data").getString("payment_gateway_currency");
                         paymentGatewayAmount = o.getJSONObject("data").getInt("payment_gateway_amount_in_pesewas_or_cents_intval");
-                        momoNum = o.getJSONObject("data").getString("mobile_money_number");
-                        momoName = o.getJSONObject("data").getString("mobile_money_name");
+                        paymentChannel = o.getJSONObject("data").getString("payment_channel");
+                        if(paymentChannel.equalsIgnoreCase("Momo")){
+                            momoNum = o.getJSONObject("data").getJSONObject("payment_details").getString("mobile_money_number");
+                            momoName = o.getJSONObject("data").getJSONObject("payment_details").getString("mobile_money_name");
+                        } else {
+                            bankName = o.getJSONObject("data").getJSONObject("payment_details").getString("bankname");
+                            bankAddress = o.getJSONObject("data").getJSONObject("payment_details").getString("bankaddress");
+                            bankSwiftIban = o.getJSONObject("data").getJSONObject("payment_details").getString("bankswiftiban");
+                            bankBranch = o.getJSONObject("data").getJSONObject("payment_details").getString("bankbranch");
+                            bankAccountName = o.getJSONObject("data").getJSONObject("payment_details").getString("bankaccountname");
+                            bankAccountNumber = o.getJSONObject("data").getJSONObject("payment_details").getString("bankaccountnumber");
+                        }
                         //Config.showToastType1(BuyBusinessStockSuggestedActivity.this, myStatusMessage);
                         if(!BuyBusinessStockSuggestedActivity.this.isFinishing()){
                             new Handler(Looper.getMainLooper()).post(new Runnable() {

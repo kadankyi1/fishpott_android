@@ -47,19 +47,19 @@ public class CreditWalletActivity extends AppCompatActivity implements View.OnCl
             if(Config.getSharedPreferenceString(getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_MTN).trim().equalsIgnoreCase("")){
                 Config.showToastType1(CreditWalletActivity.this, getString(R.string.this_credit_option_is_currently_unavailable));
             } else {
-                Config.openActivity(CreditWalletActivity.this, MobileMoneyActivity.class, 1, 0, 1, "MOMO_TYPE", "MTN");
+                Config.openActivity(CreditWalletActivity.this, PaymentMobileMoneyTransferActivity.class, 1, 0, 1, "MOMO_TYPE", "MTN");
             }
         } else if(view.getId() == R.id.vodafone_cash_holder_contrainlayout){
             if(Config.getSharedPreferenceString(getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_VODAFONE).trim().equalsIgnoreCase("")){
                 Config.showToastType1(CreditWalletActivity.this, getString(R.string.this_credit_option_is_currently_unavailable));
             } else {
-                Config.openActivity(CreditWalletActivity.this, MobileMoneyActivity.class, 1, 0, 1, "MOMO_TYPE", "VODAFONE");
+                Config.openActivity(CreditWalletActivity.this, PaymentMobileMoneyTransferActivity.class, 1, 0, 1, "MOMO_TYPE", "VODAFONE");
             }
         } else if(view.getId() == R.id.airteltigo_money_holder_contrainlayout){
             if(Config.getSharedPreferenceString(getApplicationContext(), Config.SHARED_PREF_KEY_USER_CREDENTIALS_USER_AIRTELTIGO).trim().equalsIgnoreCase("")){
                 Config.showToastType1(CreditWalletActivity.this, getString(R.string.this_credit_option_is_currently_unavailable));
             } else {
-                Config.openActivity(CreditWalletActivity.this, MobileMoneyActivity.class, 1, 0, 1, "MOMO_TYPE", "AIRTELTIGO");
+                Config.openActivity(CreditWalletActivity.this, PaymentMobileMoneyTransferActivity.class, 1, 0, 1, "MOMO_TYPE", "AIRTELTIGO");
             }
         }
     }

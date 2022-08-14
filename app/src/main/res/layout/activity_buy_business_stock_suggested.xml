@@ -229,21 +229,36 @@
              </com.google.android.material.textfield.TextInputLayout>
 
 
+             <TextView
+                 android:id="@+id/risk_input_textview"
+                 android:layout_width="match_parent"
+                 android:layout_height="40dp"
+                 android:layout_marginStart="25dp"
+                 android:layout_marginTop="16dp"
+                 android:layout_marginEnd="25dp"
+                 android:background="@drawable/risk_protection_text_border"
+                 android:gravity="start|bottom"
+                 android:text="@string/choose_risk_protection"
+                 android:textSize="17sp"
+                 app:layout_constraintBottom_toTopOf="@+id/no_risk_insurance_info_textview"
+                 app:layout_constraintEnd_toEndOf="parent"
+                 app:layout_constraintStart_toStartOf="parent"
+                 app:layout_constraintTop_toBottomOf="@+id/amount_sent_textinputlayout" />
+
             <TextView
-                android:id="@+id/risk_input_textview"
+                android:id="@+id/no_risk_insurance_info_textview"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_marginStart="25dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="25dp"
-                android:background="@drawable/risk_protection_text_border"
                 android:gravity="start|bottom"
-                android:text="@string/choose_risk_protection"
-                android:textSize="17sp"
+                android:text="Risk insurance is currently not available but we are working with partner insurance companies to provide you with this service"
+                android:textSize="12sp"
                 app:layout_constraintBottom_toTopOf="@+id/price_button"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/amount_sent_textinputlayout" />
+                app:layout_constraintTop_toBottomOf="@+id/risk_input_textview" />
 
 
             <Button
@@ -262,7 +277,7 @@
                 android:textSize="@dimen/button_text_size"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/risk_input_textview" />
+                app:layout_constraintTop_toBottomOf="@+id/no_risk_insurance_info_textview" />
 
          </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

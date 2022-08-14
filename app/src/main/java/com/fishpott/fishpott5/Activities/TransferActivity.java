@@ -24,9 +24,7 @@ import com.androidnetworking.common.Priority;
 import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.StringRequestListener;
 import com.fishpott.fishpott5.Inc.Config;
-import com.fishpott.fishpott5.ListDataGenerators.TransactionsListDataGenerator;
 import com.fishpott.fishpott5.Miscellaneous.LocaleHelper;
-import com.fishpott.fishpott5.Models.TransactionModel;
 import com.fishpott.fishpott5.R;
 
 import org.json.JSONArray;
@@ -44,7 +42,7 @@ public class TransferActivity extends AppCompatActivity implements View.OnClickL
     private ConstraintLayout mLoaderHolderConstraintLayout, mTransferFormHolderConstraintLayout;
     private TextView mLoaderTextView, mSharesListTextView, mFeeInfoTextView, mTransferInfoTextView;
     private ImageView mLoaderImageView, mBackImageView;
-    private Boolean networkRequestStarted = false;
+    private Boolean networkRequestStarted = false, swipeRefreshing =  false;
     private Thread transferThread = null;
     private EditText mQuantityEditText, mReceiverPottNameEditText, mPasswordEditText;
     private Button mTransferButton;
@@ -92,7 +90,10 @@ public class TransferActivity extends AppCompatActivity implements View.OnClickL
                     @Override
                     public void run() {
                         getMyShares(getApplicationContext());
+                        mReloadSharesSwipeRefreshLayout.setRefreshing(false);
+                        //swipeRefreshing
                     }
+
                 });
                 transferThread.start();
             }
@@ -264,21 +265,32 @@ public class TransferActivity extends AppCompatActivity implements View.OnClickL
                                 }
                             }
 
+                            if(!isFinishing()){
+                                new Handler(Looper.getMainLooper()).post(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        mLoaderImageView.clearAnimation();
+                                        mLoaderTextView.setText("...");
+                                        mLoaderHolderConstraintLayout.setVisibility(View.INVISIBLE);
+                                        mTransferFormHolderConstraintLayout.setVisibility(View.VISIBLE);
+                                    }
+                                });
+                            }
                         } else {
+                            if(!isFinishing()){
+                                new Handler(Looper.getMainLooper()).post(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        mLoaderImageView.clearAnimation();
+                                        mLoaderTextView.setText("...");
+                                        mLoaderHolderConstraintLayout.setVisibility(View.INVISIBLE);
+                                        mTransferFormHolderConstraintLayout.setVisibility(View.INVISIBLE);
+                                    }
+                                });
+                            }
                             Config.showDialogType1(TransferActivity.this, "", "You have no shares to transfer", "", null, true, getString(R.string.setprofilepicture_activity_okay), "");
                         }
 
-                        if(!isFinishing()){
-                            new Handler(Looper.getMainLooper()).post(new Runnable() {
-                                @Override
-                                public void run() {
-                                    mLoaderImageView.clearAnimation();
-                                    mLoaderTextView.setText("...");
-                                    mLoaderHolderConstraintLayout.setVisibility(View.INVISIBLE);
-                                    mTransferFormHolderConstraintLayout.setVisibility(View.VISIBLE);
-                                }
-                            });
-                        }
                     } else if(myStatus == 2){
                         // IF USER'S APP IS OUTDATED AND NOT ALLOWED TO BE USED
                         Config.setSharedPreferenceBoolean(getApplicationContext(), Config.SHARED_PREF_KEY_UPDATE_ACTIVITY_UPDATE_BY_FORCE, true);
@@ -436,7 +448,7 @@ public class TransferActivity extends AppCompatActivity implements View.OnClickL
                                                     && paymentGatewayAmount > 0
                                     ){
                                         String[] orderDetails = {orderID, shareName, shareQuantity, "Transferring", amountCedis, amountDollars, paymentGatewayCurrency, String.valueOf(paymentGatewayAmount), "stocktransfer", momoNum, momoName};
-                                        Config.openActivity4(TransferActivity.this, MobileMoneyActivity.class, 1, 1, 1, "ORDER_DETAILS", orderDetails);
+                                        Config.openActivity4(TransferActivity.this, PaymentMobileMoneyTransferActivity.class, 1, 1, 1, "ORDER_DETAILS", orderDetails);
                                         //Config.openActivity4(TransferActivity.this, ProcessPaymentActvity.class, 1, 1, 1, "ORDER_DETAILS", orderDetails);
                                     } else {
                                         Config.showToastType1(TransferActivity.this, "Order error. Please go back and restart the process");
