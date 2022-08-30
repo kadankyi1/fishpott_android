@@ -845,7 +845,7 @@
                 android:id="@+id/fragment_suggestion_question_textview"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                android:fontFamily="@font/ephesis"
+                android:fontFamily="@font/always_forever"
                 android:gravity="center"
                 android:padding="10dp"
                 android:text="Dinner with Jay-Z or $50,000?"

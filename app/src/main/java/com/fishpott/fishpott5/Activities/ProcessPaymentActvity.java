@@ -230,7 +230,7 @@ public class ProcessPaymentActvity extends AppCompatActivity {
 
 
 
-    private void updateOrderStatus(String thisOrderID, String thisPaymentType){
+    private void updateOrderStatus(final String thisOrderID, String thisPaymentType){
         networkRequestStarted = true;
         Log.e("getFinalPriceSummary", "thisOrderID: " + thisOrderID);
         Log.e("getFinalPriceSummary", "thisPaymentType: " + thisPaymentType);

@@ -332,7 +332,7 @@ public class SuggestionFragment extends Fragment implements View.OnClickListener
                                 final String finalBusinessInvestments = businessInvestments;
                                 final String finalBusinessFinanceBio = businessFinanceBio;
                                 final String finalBusinessFinanceFullReport = businessFinanceFullReport;
-                                String finalBusinessFindCode = businessFindCode;
+                                final String finalBusinessFindCode = businessFindCode;
                                 new Handler(Looper.getMainLooper()).post(new Runnable() {
                                     @Override
                                     public void run() {

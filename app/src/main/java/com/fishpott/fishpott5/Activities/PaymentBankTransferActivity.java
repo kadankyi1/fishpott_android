@@ -269,7 +269,7 @@ public class PaymentBankTransferActivity extends AppCompatActivity implements Vi
     }
 
 
-    private void updateOrderStatus(String thisOrderID, String thisPaymentType, String transactionID, String dateSent){
+    private void updateOrderStatus(final String thisOrderID, String thisPaymentType, String transactionID, String dateSent){
         networkRequestStarted = true;
         new Handler(Looper.getMainLooper()).post(new Runnable() {
             @Override

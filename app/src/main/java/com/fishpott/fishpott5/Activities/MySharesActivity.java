@@ -236,17 +236,17 @@ public class MySharesActivity extends AppCompatActivity implements View.OnClickL
         @Override
         public void onBindViewHolder(@NonNull final RecyclerView.ViewHolder holder, final int position) {
             if(MySharesViewingListDataGenerator.getAllData().get(position).getProfitOrLoss().equalsIgnoreCase("Value Profit")){
-                ((ViewHolder) holder).mProfitLossValueInfoTextView.setText("Value Profit");
+                ((ViewHolder) holder).mProfitLossValueInfoTextView.setText("Value Profit (" + MySharesViewingListDataGenerator.getAllData().get(position).getSharesTotalValue() + ")");
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                     ((ViewHolder) holder).mProfitLossValueInfoTextView.setTextColor(getColor(R.color.colorYardsale));
                 }
             } else if(MySharesViewingListDataGenerator.getAllData().get(position).getProfitOrLoss().equalsIgnoreCase("Value Loss")){
-                ((ViewHolder) holder).mProfitLossValueInfoTextView.setText("Value Loss");
+                ((ViewHolder) holder).mProfitLossValueInfoTextView.setText("Value Loss (" + MySharesViewingListDataGenerator.getAllData().get(position).getSharesTotalValue() + ")");
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                     ((ViewHolder) holder).mProfitLossValueInfoTextView.setTextColor(getColor(R.color.newsBackgroundDeepRed2));
                 }
             } else {
-                ((ViewHolder) holder).mProfitLossValueInfoTextView.setText("Value Unchanged");
+                ((ViewHolder) holder).mProfitLossValueInfoTextView.setText("Value Unchanged (" + MySharesViewingListDataGenerator.getAllData().get(position).getSharesTotalValue() + ")");
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                     ((ViewHolder) holder).mProfitLossValueInfoTextView.setTextColor(getColor(R.color.colorEventsDark));
                 }
@@ -365,6 +365,7 @@ public class MySharesActivity extends AppCompatActivity implements View.OnClickL
                                         mine1.setSharesMaxPricePerShare(k.getString("value_per_share_usd"));
                                         mine1.setSharesDividendPerShare(k.getString("ai_info"));
                                         mine1.setProfitOrLoss(k.getString("value_phrase"));
+                                        mine1.setSharesTotalValue(k.getString("total_value_usd"));
                                         MySharesViewingListDataGenerator.addOneData(mine1);
                                     }
                                     mRecyclerView.getAdapter().notifyItemInserted(MySharesViewingListDataGenerator.getAllData().size());

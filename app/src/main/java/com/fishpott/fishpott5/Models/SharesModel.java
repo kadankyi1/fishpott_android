@@ -16,6 +16,7 @@ public class SharesModel {
     private String sharesMaxPricePerShare;
     private String sharesDividendPerShare;
     private String profitOrLoss;
+    private String sharesTotalValue;
 
     public static long getSerialVersionUID() {
         return serialVersionUID;
@@ -91,5 +92,13 @@ public class SharesModel {
 
     public void setProfitOrLoss(String profitOrLoss) {
         this.profitOrLoss = profitOrLoss;
+    }
+
+    public String getSharesTotalValue() {
+        return sharesTotalValue;
+    }
+
+    public void setSharesTotalValue(String sharesTotalValue) {
+        this.sharesTotalValue = sharesTotalValue;
     }
 }

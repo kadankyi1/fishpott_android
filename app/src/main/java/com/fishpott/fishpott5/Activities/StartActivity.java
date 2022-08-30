@@ -49,7 +49,7 @@ public class StartActivity extends AppCompatActivity implements Animation.Animat
     private Button mStartButton;
     private ImageView mFpCoverImageView;
     private ConstraintLayout mPrivacyPolicyHolderConstraintLayout;
-    private FirebaseAnalytics mFirebaseAnalytics;
+    //private FirebaseAnalytics mFirebaseAnalytics;
     private ProgressBar mProgressBar;
     private Thread appInitThread2 = null;
     private Dialog.OnCancelListener cancelListenerActive1;
@@ -72,7 +72,7 @@ public class StartActivity extends AppCompatActivity implements Animation.Animat
 
         setContentView(R.layout.activity_start);
         // Obtain the FirebaseAnalytics instance.
-        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
+        //mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
 
         cancelListenerActive1 = new DialogInterface.OnCancelListener() {
             @Override
