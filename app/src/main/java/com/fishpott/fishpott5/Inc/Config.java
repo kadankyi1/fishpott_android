@@ -135,6 +135,8 @@ import java.util.regex.Pattern;
 
 public class Config {
 
+	// I, DANKYI ANNO KWAKU is putting this project on hold.
+
 	// ACCEPTED MIME TYPES
 	public static final String[] mimeTypes = {"image/jpeg", "image/png"};
 
